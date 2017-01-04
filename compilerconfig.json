@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Styles/Style.css",
+    "inputFile": "Styles/Style.scss"
+  },
+  {
+    "outputFile": "Scripts/Script.es5.js",
+    "inputFile": "Scripts/Script.js"
+  }
+]
