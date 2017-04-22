@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="TODO" />
+    <meta name="author" content="Jan 'Honza' Chalupa">
+    <meta name="keywords" content="TODO">
+    <title>@Page.Title - Honza Chalupa portfolio</title>
+    <script src="@Href("~/Scripts/Script.es5.min.js")"></script>
+    <link rel="stylesheet" href="@Href("~/Styles/Style.min.css")" />
+</head>
+<body>
+    <main>
+        @RenderPage("~/Templates/Components/_Header.cshtml")
+        @RenderPage("~/Templates/Components/_Menu.cshtml")
+
+        <section class="page-content default-template with-panel">
+            @RenderBody()
+        </section>
+
+        @RenderPage("~/Templates/Components/_SocialPanel.cshtml")
+        @RenderPage("~/Templates/Components/_Footer.cshtml")
+    </main>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.main-footer {
+    width: 100%;
+    background-color: $accent;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 20px;
+    float: left;
+
+    .social-networks {
+        width: 50%;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,12 @@
+<article class="basic-grid">
+    <h2 class="headline">{{ headline }}</h2>
+
+    <ul class="grid">
+        {% for item in items %}
+            <li class="item" id={{ item.id }}>
+                <img class="image" src="{{ item.image }}" alt="{{ item.title }} image">
+                <h3 class="headline">{{ item.title }}</h3>
+            </li>
+        {% endfor %}
+    </ul>
+</article>

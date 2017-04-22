@@ -1,0 +1,29 @@
+.main-header {
+    height: 35vw;
+    background-image: url('http://dev.honzachalupa.cz/Images/Header/bg-5.jpg');
+
+    .content {
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .headline,
+        .tags {
+            background-color: white;
+            color: $accent;
+            padding: 8px 12px;
+            margin: 0 auto 12px 0;
+        }
+
+        .headline {
+            font-size: 5vw;
+        }
+
+        .tags {
+            font-size: 1rem;
+        }
+    }
+}

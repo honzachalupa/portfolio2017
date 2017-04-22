@@ -1,0 +1,50 @@
+.latest-tweets {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 12px;
+    float: left;
+
+    .headline {
+        font-size: 1.2rem;
+    }
+
+    .tweets-list {
+        margin: 8px -5px;
+        float: left;
+
+        .tweet {
+            text-decoration: none;
+            float: left;
+            transition: all 250ms;
+            padding: 5px;
+
+            &:not(:last-of-type) {
+                border-bottom: 1px dashed lightgray;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            &:hover {
+                background-color: white;
+            }
+
+            .timestamp {
+                width: 100%;
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+                float: left;
+                opacity: 0.6;
+            }
+
+            .content {
+                width: 100%;
+                text-align: justify;
+                float: left;
+            }
+        }
+    }
+
+    .show-more {
+
+    }
+}

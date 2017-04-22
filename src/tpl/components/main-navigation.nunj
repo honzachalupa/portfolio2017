@@ -1,0 +1,26 @@
+<ul class="main-navigation">
+    {% set items = [
+        {
+            label: 'Introduction',
+            url: '/'
+        },
+        {
+            label: 'Projects',
+            url: '#projects'
+        },
+        {
+            label: 'Photography',
+            url: '#photography'
+        },
+        {
+            label: 'Contact',
+            url: '#contact'
+        }
+    ]%}
+
+    {% for item in items %}
+        <li class="item">
+            <a href="{{ item.url }}" title="{{ item.label }} page">{{ item.label }}</a>
+        </li>
+    {% endfor %}
+</ul>

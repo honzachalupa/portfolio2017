@@ -1,0 +1,50 @@
+.basic-article {
+    width: 100%;
+    float: left;
+
+    @media (max-width: 799px) {
+        margin-bottom: 12px;
+    }
+    @media (min-width: 800px) {
+        margin-bottom: 20px;
+    }
+
+    .headline,
+    .content {
+        padding: 12px;
+    }
+
+    .headline {
+        background-color: $accent;
+        font-size: 1.6rem;
+        text-overflow: ellipsis;
+        color: white;
+        float: left;
+        overflow: hidden;
+
+        @media (max-width: 799px) {
+            width: 100%;
+        }
+        @media (min-width: 800px) {
+            width: 20%;
+            text-align: center;
+        }
+    }
+
+    .content {
+        background-color: white;
+        font-size: 1rem;
+        line-height: 1.5;
+        letter-spacing: 0.2px;
+        float: right;
+
+        @media (max-width: 799px) {
+            width: 100%;
+        }
+        @media (min-width: 800px) {
+            width: 80%;
+            padding-left: 6vw;
+            padding-right: 6vw;
+        }
+    }
+}
