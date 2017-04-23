@@ -1,4 +1,6 @@
+import factory from '../factory';
 import getUrlParameterValue from '../modules/get-url-parameter-value';
+import aspectRatioPreserver from '../modules/aspect-ratio-preserver';
 
 const projectsFilter = (container) => {
     const filterableGrids = document.querySelectorAll(`.basic-grid.filterable`);
@@ -37,6 +39,8 @@ const projectsFilter = (container) => {
                 grid.style.display = '';
             }
         });
+
+        factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
     }
 };
 

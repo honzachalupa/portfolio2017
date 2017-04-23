@@ -2,15 +2,15 @@ const aspectRatioPreserver = (container) => {
     let aspectRatio = container.dataset.aspectRatio;
     let aspectRatioMobile = container.dataset.aspectRatioMobile;
 
-    const ratios = {
+    const ratiosObj = {
         x: aspectRatio.split(':')[0],
         y: aspectRatio.split(':')[1]
     };
 
-    let ratiosMobile;
+    let ratiosMobileObj;
 
     if (aspectRatioMobile) {
-        ratiosMobile = {
+        ratiosMobileObj = {
             x: aspectRatioMobile.split(':')[0],
             y: aspectRatioMobile.split(':')[1]
         };
@@ -27,9 +27,9 @@ const aspectRatioPreserver = (container) => {
         const height = container.offsetHeight;
 
         if (window.innerWidth < 680 && aspectRatioMobile)
-            container.style.height = `${Math.round(width / ratiosMobile.x * ratiosMobile.y)}px`;
+            container.style.height = `${Math.round(width / ratiosMobileObj.x * ratiosMobileObj.y)}px`;
         else if (aspectRatio)
-            container.style.height = `${Math.round(width / ratios.x * ratios.y)}px`;
+            container.style.height = `${Math.round(width / ratiosObj.x * ratiosObj.y)}px`;
     }
 };
 
