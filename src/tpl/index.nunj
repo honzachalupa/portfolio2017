@@ -4,7 +4,7 @@
 
 {% block content %}
     <section class="page-content with-panel" id="main-page">
-        <h1>Introduction</h1>
+        <h1 class="hidden">Introduction</h1>
 
         {% set article = {headline: "About Me", content: "Jsem bývalým studentem střední průmyslové školy Preslova (obor Informačních technologií) a o tvorbu webů se zajímám od roku 2008. Za tu dobu už jsem vytvořil několik zajímavých projektů, z toho každý mne posunul zas o kousek dále v oblasti tvorby webových stránek a aplikací. Kromě toho se okrajově zajímám o focení a dříve také o tvorbu článků z oboru IT."} %}
         {%- include 'components/basic-article.nunj' -%}
@@ -61,7 +61,10 @@
         } %}
         {%- include 'components/basic-grid.nunj' -%}
 
-        {% set article = {headline: "Other Work", content: "...a občas se jen prostě nudím a tak zasednu k Excelu nebo CSSDeck a zkusím něco vytvořit. Občas to vyjde, občas ne - ale vkaždém případě se tím něco nového naučím a rozšířím své obzory."} %}
+        {% set article = {
+            headline: "Other Work",
+            content: "...a občas se jen prostě nudím a tak zasednu k Excelu nebo CSSDeck a zkusím něco vytvořit. Občas to vyjde, občas ne - ale vkaždém případě se tím něco nového naučím a rozšířím své obzory."
+        } %}
         {%- include 'components/basic-article.nunj' -%}
 
         {% set article = {headline: "Cooperation", content: "Chcete se podílet na vývoji zajímavých aplikací, nebo jen máte nápad a nevíte, jak ho zrealizovat? Napište mi a zkusíme si vzájemně vyjít vstříc."} %}

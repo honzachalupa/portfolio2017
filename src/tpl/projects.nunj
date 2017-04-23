@@ -4,7 +4,7 @@
 
 {% block content %}
     <section class="page-content" id="projects-page">
-        <h1>{{ title }}</h1>
+        <h1 class="hidden">{{ title }}</h1>
 
         {% set article = {headline: "My Projects", content: "Jsem bývalým studentem střední průmyslové školy Preslova (obor Informačních technologií) a o tvorbu webů se zajímám od roku."} %}
         {%- include 'components/basic-article.nunj' -%}
@@ -23,7 +23,7 @@
                         url: "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
                         size: ""
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 2,
@@ -37,7 +37,7 @@
                         logo: "gfx/svg/company-logo-actum.svg",
                         url: "http://www.actum.cz/"
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 3,
@@ -51,7 +51,7 @@
                         logo: "gfx/svg/company-logo-actum.svg",
                         url: "http://www.actum.cz/"
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 4,
@@ -65,7 +65,7 @@
                         logo: "gfx/svg/company-logo-actum.svg",
                         url: "http://www.actum.cz/"
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 5,
@@ -74,7 +74,7 @@
                         url: "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
                         size: ""
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 6,
@@ -123,7 +123,7 @@
                         name: "Actum",
                         logo: "gfx/svg/company-logo-actum.svg"
                     },
-                    url: "#web-apps"
+                    url: "project-detail.html"
                 },
                 {
                     id: 2,

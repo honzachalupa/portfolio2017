@@ -56,7 +56,7 @@ const app = () => {
                             color: black;
                             box-shadow: none;
                         }
-                    }`
+                    }`;
         }
 
         if (css) {

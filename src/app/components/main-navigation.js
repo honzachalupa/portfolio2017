@@ -57,7 +57,10 @@ const mainNavigation = (container) => {
     function highlightSelected() {
         const id = document.querySelector('.page-content').id;
 
-        container.querySelector(`[data-page-id="${id}"]`).classList.add('active');
+        try {
+            container.querySelector(`[data-page-id="${id}"]`).classList.add('active');
+        }
+        catch (e) { }
     }
 };
 

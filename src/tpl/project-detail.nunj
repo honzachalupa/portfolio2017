@@ -1,0 +1,48 @@
+{% extends "layouts/default.nunj" %}
+
+{% set project = {
+    id: 1,
+    title: "České zpravodajství",
+    description: "description",
+    url: "http://www.actum.cz/",
+    previewImage: "http://www.honzachalupa.cz/imgs/bg-5.jpg",
+    previewImageMobile: "http://www.honzachalupa.cz/imgs/bg-6.jpg",
+    gallery: [
+        ""
+    ],
+    livePreviewAllowed: true,
+    developmentStage: "not-supported",
+    type: "web-app",
+    company: {
+        name: "Actum",
+        logo: "gfx/svg/company-logo-actum.svg",
+        url: "http://www.actum.cz/"
+    }
+} %}
+
+{% set title = project.title %}
+
+{% block content %}
+    <section class="page-content" id="project-detail-page">
+        <h1 class="headline">{{ title }}</h1>
+
+        <a href="projects.html">Back to projects list...</a>
+
+        <div class="preview-section">
+            <div class="desktop-view">
+                {% set previewTarget = "desktop" %}
+                {%- include 'components/project-preview.nunj' -%}
+            </div>
+            <div class="mobile-view">
+                {% set previewTarget = "mobile" %}
+                {%- include 'components/project-preview.nunj' -%}
+            </div>
+
+            <div class="static-image" style="background-image: url('{{ project.previewImage }}')" data-aspect-ratio="4:3"></div>
+        </div>
+
+        <div class="description-section">
+            <p>{{ project.description }}</p>
+        </div>
+    </section>
+{% endblock %}

@@ -1,6 +1,7 @@
 .basic-teaser {
     width: 100%;
     background-color: white;
+    padding: 12px 6vw;
     float: left;
 
     @media (max-width: 799px) {
@@ -8,6 +9,18 @@
     }
     @media (min-width: 800px) {
         margin-bottom: 20px;
+    }
+
+    & > .headline {
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 200;
+        margin: 15px 0;
+        float: left;
+
+        @media (min-width: 680px) {
+            display: none;
+        }
     }
 
     .image {
@@ -42,7 +55,6 @@
         .headline,
         .subheadline,
         .content,
-        .show-more,
         .company {
             padding: 12px;
         }
@@ -53,13 +65,17 @@
             font-weight: 200;
             margin: 15px 0 0 0;
             float: left;
+
+            @media (max-width: 679px) {
+                display: none;
+            }
         }
 
         .subheadline {
             width: 100%;
             font-size: 1.2rem;
-            padding-top: 4px;
-            padding-bottom: 10px;
+            padding-top: 6px;
+            padding-bottom: 12px;
             float: left;
         }
 
@@ -69,25 +85,35 @@
             letter-spacing: 0.2px;
         }
 
+        .show-more {
+            cursor: pointer;
+            text-decoration: none;
+            border: 1px solid lightgray;
+            border-radius: 16px;
+            padding: 8px 12px;
+            margin: 5px 11px;
+            float: left;
+            transition: all 250ms;
+
+            &:hover {
+                border-color: gray;
+            }
+        }
+
         .company {
+            width: 100%;
             text-decoration: none;
             float: left;
-            margin-top: 15px;
+            margin: 20px 0 10px 0;
 
             p {
                 font-size: 0.9rem;
             }
 
             .logo {
-                width: 10.8rem;
+                width: 11rem;
                 padding-top: 12px;
             }
-        }
-
-        .show-more {
-            width: 100%;
-            padding-top: 10px;
-            float: left;
         }
     }
 }

@@ -8,46 +8,127 @@
         }
     }
 
-    h1 {
+    h1.hidden {
         font-size: 0;
         opacity: 0;
         position: absolute;
     }
 }
 
-.projects-filter {
-    width: 100%;
-    background-color: white;
-    float: left;
-    padding: 12px 6vw;
-
-    .headline {
-        font-size: 1.5rem;
-        font-weight: 200;
-        margin-top: 10px;
-    }
-
-    .filters {
-        list-style: none;
-        padding: 15px 0 0 0;
+#projects-page {
+    .projects-filter {
+        width: 100%;
+        background-color: white;
         float: left;
+        padding: 12px 6vw;
 
-        .filter {
-            cursor: pointer;
-            border: 1px solid lightgray;
-            border-radius: 16px;
-            padding: 8px 12px;
-            margin: 0 8px 9px 0;
+        .headline {
+            font-size: 1.5rem;
+            font-weight: 200;
+            margin-top: 10px;
+        }
+
+        .filters {
+            list-style: none;
+            padding: 15px 0 0 0;
             float: left;
-            transition: all 250ms;
 
-            &.active {
-                border-color: black;
-            }
+            .filter {
+                cursor: pointer;
+                border: 1px solid lightgray;
+                border-radius: 16px;
+                padding: 8px 12px;
+                margin: 0 8px 9px 0;
+                float: left;
+                transition: all 250ms;
 
-            &:hover {
-                border-color: gray;
+                &.active {
+                    border-color: black;
+                }
+
+                &:hover {
+                    border-color: gray;
+                }
             }
         }
+    }
+}
+
+#project-detail-page {
+    .preview-section {
+        width: 100%;
+        float: left;
+        overflow: hidden;
+
+        @media (min-width: 680px) {
+            height: 53vw;
+        }
+
+        .desktop-view,
+        .mobile-view {
+            @media (max-width: 679px) {
+                display: none;
+            }
+
+            .preview {
+                width: 100%;
+                height: 100%;
+                float: left;
+                padding: 1vw;
+
+                .live-preview,
+                .preview-image {
+                    width: 100%;
+                    background-color: white;
+                    border: 15px solid black;
+                    border-bottom: 35px solid black;
+                    border-radius: 15px;
+                }
+
+                .live-preview {
+
+                }
+
+                .preview-image {
+
+                }
+            }
+        }
+
+        .desktop-view {
+            width: 69.49%;
+            float: left;
+
+            .preview {
+                .live-preview {
+                    width: 200%;
+                    transform: scale(0.5);
+                    transform-origin: top left;
+                }
+            }
+        }
+
+        .mobile-view {
+            width: 30.51%;
+            float: right;
+
+            .preview {
+                .live-preview {
+                    width: 200%;
+                    transform: scale(0.5);
+                    transform-origin: top left;
+                }
+            }
+        }
+
+        .static-image {
+            width: 100%;
+            float: left;
+        }
+    }
+
+    .description-section {
+        width: 100%;
+        float: left;
     }
 }

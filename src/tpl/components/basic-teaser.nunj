@@ -1,10 +1,11 @@
 <article class="basic-teaser {{ teaser.class }}" data-id="{{ teaser.id }}">
+    <h2 class="headline">{{ teaser.headline }}</h2>
     <a class="image" href="project-detail.html?id={{ teaser.id }}" style="background-image: url('{{ teaser.image.url }}')" title="Show project details" data-aspect-ratio="4:3"></a>
     <div class="text-section">
         <h2 class="headline">{{ teaser.headline }}</h2>
         <h3 class="subheadline">{{ teaser.subheadline }}</h3>
         <p class="content">{{ teaser.content }}</p>
-        <a class="show-more" href="project-detail.html?id={{ teaser.id }}" title="Show project details">Show project details...</a>
+        <a class="show-more" href="project-detail.html?id={{ teaser.id }}">Show project details</a>
 
         {% if (teaser.company) %}
         <a href="{{ teaser.company.url }}" class="company" title="{{ teaser.company.name }}">
