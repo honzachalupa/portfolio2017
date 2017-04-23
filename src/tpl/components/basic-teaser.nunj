@@ -5,7 +5,7 @@
         <h2 class="headline">{{ teaser.headline }}</h2>
         <h3 class="subheadline">{{ teaser.subheadline }}</h3>
         <p class="content">{{ teaser.content }}</p>
-        <a class="show-more" href="project-detail.html?id={{ teaser.id }}">Show project details</a>
+        <a class="btn show-more" href="project-detail.html?id={{ teaser.id }}">Show project details</a>
 
         {% if (teaser.company) %}
         <a href="{{ teaser.company.url }}" class="company" title="{{ teaser.company.name }}">

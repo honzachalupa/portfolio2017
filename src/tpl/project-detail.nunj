@@ -3,7 +3,7 @@
 {% set project = {
     id: 1,
     title: "České zpravodajství",
-    description: "description",
+    description: "<p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p>",
     url: "http://www.actum.cz/",
     previewImage: "http://www.honzachalupa.cz/imgs/bg-5.jpg",
     previewImageMobile: "http://www.honzachalupa.cz/imgs/bg-6.jpg",
@@ -24,9 +24,8 @@
 
 {% block content %}
     <section class="page-content" id="project-detail-page">
+        <a class="btn" href="projects.html">&lt; Back to projects list</a>
         <h1 class="headline">{{ title }}</h1>
-
-        <a href="projects.html">Back to projects list...</a>
 
         <div class="preview-section">
             <div class="desktop-view">
@@ -38,11 +37,28 @@
                 {%- include 'components/project-preview.nunj' -%}
             </div>
 
-            <div class="static-image" style="background-image: url('{{ project.previewImage }}')" data-aspect-ratio="4:3"></div>
+            <div class="static-image" style="background-image: url('{{ project.previewImage }}')" data-aspect-ratio="16:9"></div>
         </div>
 
         <div class="description-section">
-            <p>{{ project.description }}</p>
+            <div class="content">
+                {% if (true) %}
+                <p class="support-note">This project is currently in development. It could contain some imperfections and errors. I'm looking forward for final product.</p>
+                {% elif (project.developmentStage == "not-supported") %}
+                <p class="support-note">This project is not supported nor developed anymore. It could contain some imperfections and errors.</p>
+                {% endif %}
+                <h2 class="subheadline">Description</h2>
+                <p>{{ project.description | safe }}</p>
+            </div>
+            <aside class="info">
+                <h2 class="subheadline">Info</h2>
+                <p>text</p>
+                <div class="qr-code-section">
+                    <h2 class="subheadline">QR code</h2>
+                    <p>Try it on your smartphone!</p>
+                    <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?bgcolor=E6E6E6&color=150c6d&data={{ project.url }}" alt="QR code">
+                </div>
+            </aside>
         </div>
     </section>
 {% endblock %}

@@ -86,18 +86,9 @@
         }
 
         .show-more {
-            cursor: pointer;
-            text-decoration: none;
-            border: 1px solid lightgray;
-            border-radius: 16px;
-            padding: 8px 12px;
             margin: 5px 11px;
             float: left;
             transition: all 250ms;
-
-            &:hover {
-                border-color: gray;
-            }
         }
 
         .company {
