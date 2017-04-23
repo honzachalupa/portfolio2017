@@ -33,7 +33,7 @@ const projectsFilter = (container) => {
     function filter(type) {
         Array.from(filterableGrids).forEach((grid) => {
             if (type !== 'all') {
-                grid.style.display = (grid.id !== type) ? 'none' : '';
+                grid.style.display = (grid.dataset.id !== type) ? 'none' : '';
             }
             else {
                 grid.style.display = '';

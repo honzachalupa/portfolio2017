@@ -1,0 +1,93 @@
+.basic-teaser {
+    width: 100%;
+    background-color: white;
+    float: left;
+
+    @media (max-width: 799px) {
+        margin-bottom: 12px;
+    }
+    @media (min-width: 800px) {
+        margin-bottom: 20px;
+    }
+
+    .image {
+        background-size: contain;
+        float: left;
+        position: relative;
+
+        @media (max-width: 679px) {
+            width: 100%;
+        }
+        @media (min-width: 680px) AND (max-width: 799px) {
+            width: 35%;
+        }
+        @media (min-width: 800px) {
+            width: 50%;
+        }
+    }
+
+    .text-section {
+        float: right;
+
+        @media (max-width: 679px) {
+            width: 100%;
+        }
+        @media (min-width: 680px) AND (max-width: 799px) {
+            width: 65%;
+        }
+        @media (min-width: 800px) {
+            width: 50%;
+        }
+
+        .headline,
+        .subheadline,
+        .content,
+        .show-more,
+        .company {
+            padding: 12px;
+        }
+
+        .headline {
+            width: 100%;
+            font-size: 1.8rem;
+            font-weight: 200;
+            margin: 15px 0 0 0;
+            float: left;
+        }
+
+        .subheadline {
+            width: 100%;
+            font-size: 1.2rem;
+            padding-top: 4px;
+            padding-bottom: 10px;
+            float: left;
+        }
+
+        .content {
+            font-size: 1rem;
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+        }
+
+        .company {
+            text-decoration: none;
+            float: left;
+            margin-top: 15px;
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                width: 10.8rem;
+                padding-top: 12px;
+            }
+        }
+
+        .show-more {
+            width: 100%;
+            padding-top: 10px;
+            float: left;
+        }
+    }
+}

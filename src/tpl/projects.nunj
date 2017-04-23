@@ -34,7 +34,8 @@
                     },
                     company: {
                         name: "Actum",
-                        logo: "gfx/svg/company-logo-actum.svg"
+                        logo: "gfx/svg/company-logo-actum.svg",
+                        url: "http://www.actum.cz/"
                     },
                     url: "#web-apps"
                 },
@@ -47,7 +48,8 @@
                     },
                     company: {
                         name: "Actum",
-                        logo: "gfx/svg/company-logo-actum.svg"
+                        logo: "gfx/svg/company-logo-actum.svg",
+                        url: "http://www.actum.cz/"
                     },
                     url: "#web-apps"
                 },
@@ -60,7 +62,8 @@
                     },
                     company: {
                         name: "Actum",
-                        logo: "gfx/svg/company-logo-actum.svg"
+                        logo: "gfx/svg/company-logo-actum.svg",
+                        url: "http://www.actum.cz/"
                     },
                     url: "#web-apps"
                 },

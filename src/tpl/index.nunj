@@ -9,6 +9,22 @@
         {% set article = {headline: "About Me", content: "Jsem bývalým studentem střední průmyslové školy Preslova (obor Informačních technologií) a o tvorbu webů se zajímám od roku 2008. Za tu dobu už jsem vytvořil několik zajímavých projektů, z toho každý mne posunul zas o kousek dále v oblasti tvorby webových stránek a aplikací. Kromě toho se okrajově zajímám o focení a dříve také o tvorbu článků z oboru IT."} %}
         {%- include 'components/basic-article.nunj' -%}
 
+        {% set teaser = {
+            id: 1,
+            headline: "Latest Project",
+            subheadline: "Raiffeisen Leasing",
+            content: "Občas se jen prostě nudím a tak zasednu k Excelu nebo CSSDeck a zkusím něco vytvořit. Občas to vyjde, občas ne - ale vkaždém případě se tím něco nového naučím a rozšířím své obzory.",
+            image: {
+                url: "http://www.honzachalupa.cz/imgs/image-Apps.png"
+            },
+            company: {
+                name: "Actum",
+                logo: "gfx/svg/company-logo-actum.svg",
+                url: "http://www.actum.cz/"
+            }
+        } %}
+        {%- include 'components/basic-teaser.nunj' -%}
+
         {% set grid = {
             headline: "My work",
             id: "",
