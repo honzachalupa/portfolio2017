@@ -1,0 +1,8 @@
+<div class="projects-filter">
+    <h3 class="headline">Filters</h3>
+    <ul class="filters">
+        <li class="filter" data-type="web-apps">Websites and Web Apps</li>
+        <li class="filter" data-type="mobile-apps">Mobile Apps</li>
+        <li class="filter" data-type="all">All Apps</li>
+    </ul>
+</div>

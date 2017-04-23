@@ -1,6 +1,5 @@
-# editors
-*.sublime-*
-.idea
+#files
+Web.config
 
 # npm
 /node_modules/
@@ -11,6 +10,3 @@ npm-debug.log
 
 # dist
 /dist
-
-# styleguide
-/styleguide

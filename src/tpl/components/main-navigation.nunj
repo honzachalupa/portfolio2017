@@ -1,26 +1,30 @@
 <ul class="main-navigation">
     {% set items = [
         {
-            label: 'Introduction',
-            url: '/'
+            label: "Introduction",
+            pageId: "main-page",
+            url: "/"
         },
         {
-            label: 'Projects',
-            url: '#projects'
+            label: "Projects",
+            pageId: "projects-page",
+            url: "projects.html"
         },
         {
-            label: 'Photography',
-            url: '#photography'
+            label: "Photography",
+            pageId: "photography-page",
+            url: "photography.html"
         },
         {
-            label: 'Contact',
-            url: '#contact'
+            label: "Contact",
+            pageId: "contact-page",
+            url: "contact.html"
         }
     ]%}
 
     {% for item in items %}
         <li class="item">
-            <a href="{{ item.url }}" title="{{ item.label }} page">{{ item.label }}</a>
+            <a href="{{ item.url }}" title="{{ item.label }} page" data-page-id="{{ item.pageId }}">{{ item.label }}</a>
         </li>
     {% endfor %}
 </ul>

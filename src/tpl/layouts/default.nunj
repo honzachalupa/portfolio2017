@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }}</title>
+    <title>{{ title }} - Honza Chalupa portfolio</title>
 
     {% if _dev %}
         <link rel="stylesheet" href="css/main.css">
@@ -12,6 +12,9 @@
     {% endif %}
 </head>
 <body>
+    <div class="main-navigation-overlay"></div>
+    <div class="main-navigation-trigger"></div>
+
     {% include '../components/main-header.nunj' %}
 
     <main>
