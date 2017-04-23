@@ -77,6 +77,8 @@
 
         .desktop-view,
         .mobile-view {
+            position: relative;
+
             @media (max-width: 799px) {
                 display: none;
             }
@@ -87,6 +89,15 @@
                 float: left;
                 margin: 15px 0;
 
+                .info {
+                    background-color: white;
+                    border-radius: 3px;
+                    padding: 12px;
+                    position: absolute;
+                    top: 22%;
+                    z-index: 1;
+                }
+
                 .live-preview,
                 .preview-image {
                     width: 100%;
@@ -94,14 +105,6 @@
                     border: 15px solid black;
                     border-bottom: 35px solid black;
                     border-radius: 15px;
-                }
-
-                .live-preview {
-
-                }
-
-                .preview-image {
-
                 }
             }
         }
@@ -112,6 +115,11 @@
 
             .preview {
                 padding-right: 1vw;
+
+                .info {
+                    font-size: 2.5rem;
+                    left: calc((100% - 208px) / 2);
+                }
 
                 .live-preview {
                     width: 200%;
@@ -128,6 +136,12 @@
             .preview {
                 padding-left: 1vw;
 
+                .info {
+                    font-size: 1.2rem;
+                    left: calc((100% - 122px) / 2);
+                    margin-top: 12px;
+                }
+
                 .live-preview {
                     width: 200%;
                     transform: scale(0.5);
@@ -136,14 +150,23 @@
             }
         }
 
+        .static-image,
+        .static-image-info {
+            @media (min-width: 800px) {
+                display: none;
+            }
+        }
+
         .static-image {
             width: 100%;
             float: left;
             margin-top: 10px;
+        }
 
-            @media (min-width: 800px) {
-                display: none;
-            }
+        .static-image-info {
+            font-size: 0.85rem;
+            margin-top: 4px;
+            float: left;
         }
     }
 

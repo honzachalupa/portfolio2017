@@ -38,6 +38,7 @@
             </div>
 
             <div class="static-image" style="background-image: url('{{ project.previewImage }}')" data-aspect-ratio="16:9"></div>
+            <p class="static-image-info">Next time visit this page using bigger-screen device to try Live Preview feature!</p>
         </div>
 
         <div class="description-section">

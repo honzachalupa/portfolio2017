@@ -38,6 +38,14 @@ const app = () => {
                         backdrop-filter: blur(3px);
                     }
 
+                    #project-detail-page .preview-section .info {
+                        background-color: rgba(0, 0, 0, 0.3) !important;
+                        color: white;
+                        border-radius: 0 !important;
+                        -webkit-backdrop-filter: blur(5px);
+                        backdrop-filter: blur(5px);
+                    }
+
                     @media (max-width: 679px) {
                         .main-navigation.opened {
                             opacity: 0.9;

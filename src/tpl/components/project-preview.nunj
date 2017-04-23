@@ -1,5 +1,7 @@
 <div class="preview {{ previewTarget }}">
     {% if (project.livePreviewAllowed) %}
+    <div class="info">Live Preview</div>
+
         {% if (previewTarget == "desktop") %}
         <iframe src="{{ project.url }}" class="live-preview" data-aspect-ratio="4:3"></iframe>
         {% else %}
