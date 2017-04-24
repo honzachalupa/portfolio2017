@@ -76,6 +76,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",
+    "express": "^4.15.2",
     "fg-loadcss": "^1.2.0",
     "merge-stream": "^1.0.0",
     "react": "^15.4.1",
