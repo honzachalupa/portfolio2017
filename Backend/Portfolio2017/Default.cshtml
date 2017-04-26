@@ -1,0 +1,49 @@
+﻿@using Portfolio2017.Helpers
+
+@{
+    Layout = "~/Layouts/_Main.cshtml";
+    Page.Title = "";
+}
+
+<section class="page-content with-panel" id="main-page">
+    <h1 class="hidden">Introduction</h1>
+    
+    @{
+        @Components.BasicArticle("About Me", "Jsem bývalým studentem střední průmyslové školy Preslova (obor Informačních technologií) a o tvorbu webů se zajímám od roku 2008. Za tu dobu už jsem vytvořil několik zajímavých projektů, z toho každý mne posunul zas o kousek dále v oblasti tvorby webových stránek a aplikací. Kromě toho se okrajově zajímám o focení a dříve také o tvorbu článků z oboru IT.");
+
+        var basicGridData = new BasicGridData { Headline = "My Work", Items = new List<BasicGridItemData>() };
+
+        basicGridData.Items.Add(new BasicGridItemData {
+            Title = "Websites and Web Apps",
+            Url = "Projects.cshtml?filter=web-apps",
+            Image = new BasicGridItemImageData {
+                Url = "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
+                Size = ""
+            }
+        });
+
+        basicGridData.Items.Add(new BasicGridItemData {
+            Title = "Native Apps",
+            Url = "Projects.cshtml?filter=native-apps",
+            Image = new BasicGridItemImageData {
+                Url = "http://www.honzachalupa.cz/imgs/image-Apps.png",
+                Size = ""
+            }
+        });
+
+        basicGridData.Items.Add(new BasicGridItemData
+        {
+            Title = "Photography",
+            Url = "Photography.html",
+            Image = new BasicGridItemImageData
+            {
+                Url = "http://dev.honzachalupa.cz/Images/Header/bg-3.jpg",
+                Size = "fill"
+            }
+        });
+
+        @Components.BasicGrid(basicGridData);
+        @Components.BasicArticle("Other Work", "...a občas se jen prostě nudím a tak zasednu k Excelu nebo CSSDeck a zkusím něco vytvořit. Občas to vyjde, občas ne - ale vkaždém případě se tím něco nového naučím a rozšířím své obzory.");
+        @Components.BasicArticle("Cooperation", "Chcete se podílet na vývoji zajímavých aplikací, nebo jen máte nápad a nevíte, jak ho zrealizovat? Napište mi a zkusíme si vzájemně vyjít vstříc.");
+    }
+</section>

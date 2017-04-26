@@ -1,0 +1,59 @@
+﻿[
+  {
+    "Id": 1,
+    "Title": "České zpravodajství",
+    "Description": "<p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p>",
+    "Url": "http://www.actum.cz/",
+    "PreviewImage": "http://www.honzachalupa.cz/imgs/bg-5.jpg",
+    "PreviewImageMobile": "http://www.honzachalupa.cz/imgs/bg-6.jpg",
+    "Gallery": [
+      ""
+    ],
+    "LivePreviewAllowed": true,
+    "DevelopmentStage": "not-supported",
+    "Type": "web-app",
+    "Company": {
+      "Name": "Actum",
+      "Logo": "gfx/svg/company-logo-actum.svg",
+      "Url": "http://www.actum.cz/"
+    }
+  },
+  {
+    "Id": 2,
+    "Title": "České zpravodajství",
+    "Description": "<p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p>",
+    "Url": "http://www.actum.cz/",
+    "PreviewImage": "http://www.honzachalupa.cz/imgs/bg-5.jpg",
+    "PreviewImageMobile": "http://www.honzachalupa.cz/imgs/bg-6.jpg",
+    "Gallery": [
+      ""
+    ],
+    "LivePreviewAllowed": true,
+    "DevelopmentStage": "not-supported",
+    "Type": "web-app",
+    "Company": {
+      "Name": "Actum",
+      "Logo": "gfx/svg/company-logo-actum.svg",
+      "Url": "http://www.actum.cz/"
+    }
+  },
+  {
+    "Id": 3,
+    "Title": "České zpravodajství",
+    "Description": "<p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p><p>V závěrečném duelu francouzských prezidentských voleb se za 14 dnů střetnou centrista Emmanuel Macron a nacionalistka Marine Le Penová. Oběma politikům se podařilo porazit tradiční systém dvou nejsilnějších stran, z nichž vycházely dosavadní hlavy státu. Vyplývá to z předběžných výsledků po sečtení zhruba tří čtvrtin hlasů.</p>",
+    "Url": "http://www.actum.cz/",
+    "PreviewImage": "http://www.honzachalupa.cz/imgs/bg-5.jpg",
+    "PreviewImageMobile": "http://www.honzachalupa.cz/imgs/bg-6.jpg",
+    "Gallery": [
+      ""
+    ],
+    "LivePreviewAllowed": true,
+    "DevelopmentStage": "not-supported",
+    "Type": "native-app",
+    "Company": {
+      "Name": "Actum",
+      "Logo": "gfx/svg/company-logo-actum.svg",
+      "Url": "http://www.actum.cz/"
+    }
+  }
+]

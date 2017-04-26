@@ -1,0 +1,33 @@
+﻿<ul class="main-navigation">
+    @{
+        var items = new List<NavigationItem>();
+
+        items.Add(new NavigationItem {
+            Label = "Introduction",
+            PageId = "main-page",
+            Url = "/"
+        });
+        items.Add(new NavigationItem {
+            Label = "Projects",
+            PageId = "projects-page",
+            Url = "Projects.cshtml"
+        });
+        items.Add(new NavigationItem {
+            Label = "Photography",
+            PageId = "photography-page",
+            Url = "Photography.cshtml"
+        });
+        items.Add(new NavigationItem {
+            Label = "Contact",
+            PageId = "contact-page",
+            Url = "Contact.cshtml"
+        });
+
+        foreach (var item in items)
+        {
+            <li class="item">
+                <a href="@item.Url" title="@item.Label page" data-page-id="@item.PageId">@item.Label</a>
+            </li>
+        }
+    }
+</ul>

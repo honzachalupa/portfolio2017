@@ -1,0 +1,80 @@
+﻿@using Portfolio2017.Helpers
+
+@{
+    Layout = "~/Layouts/_Main.cshtml";
+    Page.Title = "Projects";
+
+    var basicGridData_Web = new BasicGridData {
+        Headline = "Websites and Web Apps",
+        Id = "web-apps",
+        Class = "filterable",
+        Items = new List<BasicGridItemData>()
+    };
+
+    var basicGridData_Native = new BasicGridData
+    {
+        Headline = "Native Apps",
+        Id = "native-apps",
+        Class = "filterable",
+        Items = new List<BasicGridItemData>()
+    };
+
+    foreach (var project in Data.Projects)
+    {
+        if (project.Type == "web-app")
+        {
+            basicGridData_Web.Items.Add(
+            new BasicGridItemData
+            {
+                Title = project.Title,
+                Url = "ProjectDetail.cshtml?id=" + project.Id,
+                Image = new BasicGridItemImageData
+                {
+                    Url = project.PreviewImage
+                }
+            });
+        }
+        else if (project.Type == "native-app")
+        {
+            basicGridData_Native.Items.Add(
+            new BasicGridItemData
+            {
+                Title = project.Title,
+                Url = "ProjectDetail.cshtml?id=" + project.Id,
+                Image = new BasicGridItemImageData
+                {
+                    Url = project.PreviewImage
+                }
+            });
+        }
+    }
+}
+
+<section class="page-content" id="projects-page">
+    <h1 class="hidden">Projects</h1>
+    
+    @{
+        @Components.BasicArticle("My Projects", "Text");
+
+        <div class="projects-filter">
+            <h3 class="headline">Filters</h3>
+            <ul class="filters">
+                <li class="btn filter" data-type="web-apps">Websites and Web Apps</li>
+                <li class="btn filter" data-type="native-apps">Native Apps</li>
+                <li class="btn filter" data-type="all">All Apps</li>
+            </ul>
+        </div>
+
+        @Components.BasicGrid(basicGridData_Web);
+        @Components.BasicGrid(basicGridData_Native);
+
+        <div class="projects-filter">
+            <h3 class="headline">Filters</h3>
+            <ul class="filters">
+                <li class="btn filter" data-type="web-apps">Websites and Web Apps</li>
+                <li class="btn filter" data-type="native-apps">Native Apps</li>
+                <li class="btn filter" data-type="all">All Apps</li>
+            </ul>
+        </div>
+    }
+</section>
