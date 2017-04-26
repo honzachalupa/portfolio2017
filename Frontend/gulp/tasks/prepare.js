@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
 // TODO run browserSync after all tasks finished
-const devSequence = [['images', 'svg', 'styles', 'js'], 'tpl', 'copy'];
+const devSequence = [['images', 'svg', 'styles', 'js'], 'tpl'];
 if (config.environment.isApi) {
     devSequence.push('api');
 }

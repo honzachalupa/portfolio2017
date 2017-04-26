@@ -32,6 +32,7 @@ function bundle() {
             .pipe(gulpif(DEVELOPMENT, sourcemaps.init({ loadMaps: true })))
             .pipe(gulpif(DEVELOPMENT, sourcemaps.write('./')))
             .pipe(gulp.dest(config.JS_BUILD))
+            .pipe(gulp.dest(config.BE_DEST_JS))
             .pipe(gulpif(DEVELOPMENT, browserSync.stream()))
             .pipe(gulpif(PRODUCTION, uglify()))
             .pipe(gulpif(PRODUCTION, rename({ suffix: '.min' })))

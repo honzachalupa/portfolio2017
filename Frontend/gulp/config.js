@@ -11,7 +11,10 @@ const
     DEVELOPMENT_BASE = './src',
     BUILD_BASE = './dist',
 
-    BE_DEST = '../Backend',
+    BE_DEST = '../Backend/Portfolio2017',
+    BE_DEST_JS = '../Backend/Portfolio2017/Scripts',
+    BE_DEST_CSS = '../Backend/Portfolio2017/Styles',
+    BE_DEST_GFX = '../Backend/Portfolio2017/Images',
 
     /* Gulp */
     GULP_ALL = ['./gulpfile.js', './gulp/**/*.js'],
@@ -87,6 +90,9 @@ module.exports = {
     BUILD_BASE,
 
     BE_DEST,
+    BE_DEST_JS,
+    BE_DEST_CSS,
+    BE_DEST_GFX,
 
     GULP_ALL,
 

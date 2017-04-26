@@ -7,7 +7,8 @@ const imagemin = require('gulp-imagemin');
 gulp.task('images:optimize', () => {
     return gulp.src(config.IMAGES_ALL, { base: config.GFX_BASE })
         .pipe(imagemin())
-        .pipe(gulp.dest(config.GFX_BUILD));
+        .pipe(gulp.dest(config.GFX_BUILD))
+        .pipe(gulp.dest(config.BE_DEST_GFX));
 });
 
 gulp.task('images', ['images:optimize']);
