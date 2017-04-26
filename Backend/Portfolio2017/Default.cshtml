@@ -3,6 +3,8 @@
 @{
     Layout = "~/Layouts/_Main.cshtml";
     Page.Title = "";
+
+    var latestProject = Data.Projects.First();
 }
 
 <section class="page-content with-panel" id="main-page">
@@ -11,21 +13,37 @@
     @{
         @Components.BasicArticle("About Me", "Jsem bývalým studentem střední průmyslové školy Preslova (obor Informačních technologií) a o tvorbu webů se zajímám od roku 2008. Za tu dobu už jsem vytvořil několik zajímavých projektů, z toho každý mne posunul zas o kousek dále v oblasti tvorby webových stránek a aplikací. Kromě toho se okrajově zajímám o focení a dříve také o tvorbu článků z oboru IT.");
 
+        @Components.BasicTeaser(
+            new BasicTeaserData
+            {
+                Id = latestProject.Id,
+                Headline = "Latest Project",
+                Subheadline = latestProject.Title,
+                Content = latestProject.Description,
+                ImageUrl = latestProject.PreviewImage,
+                Company = latestProject.Company
+            }
+        );
+
         var basicGridData = new BasicGridData { Headline = "My Work", Items = new List<BasicGridItemData>() };
 
-        basicGridData.Items.Add(new BasicGridItemData {
+        basicGridData.Items.Add(new BasicGridItemData
+        {
             Title = "Websites and Web Apps",
             Url = "Projects.cshtml?filter=web-apps",
-            Image = new BasicGridItemImageData {
+            Image = new BasicGridItemImageData
+            {
                 Url = "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
                 Size = ""
             }
         });
 
-        basicGridData.Items.Add(new BasicGridItemData {
+        basicGridData.Items.Add(new BasicGridItemData
+        {
             Title = "Native Apps",
             Url = "Projects.cshtml?filter=native-apps",
-            Image = new BasicGridItemImageData {
+            Image = new BasicGridItemImageData
+            {
                 Url = "http://www.honzachalupa.cz/imgs/image-Apps.png",
                 Size = ""
             }

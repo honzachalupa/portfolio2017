@@ -33,9 +33,11 @@
         }
         @media (min-width: 680px) AND (max-width: 799px) {
             width: 35%;
+            left: -8px;
         }
         @media (min-width: 800px) {
             width: 50%;
+            left: -10px;
         }
     }
 
