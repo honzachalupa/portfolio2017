@@ -11,6 +11,8 @@ const
     DEVELOPMENT_BASE = './src',
     BUILD_BASE = './dist',
 
+    BE_DEST = '../Backend',
+
     /* Gulp */
     GULP_ALL = ['./gulpfile.js', './gulp/**/*.js'],
 
@@ -83,6 +85,9 @@ module.exports = {
     NPM,
     DEVELOPMENT_BASE,
     BUILD_BASE,
+
+    BE_DEST,
+
     GULP_ALL,
 
     CSS_BASE,
