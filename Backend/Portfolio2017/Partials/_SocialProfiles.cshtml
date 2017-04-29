@@ -1,0 +1,10 @@
+﻿@using Portfolio2017.Helpers
+
+<ul class="social-profiles">
+    @{
+        foreach (var profile in Config.SocialProfilesList)
+        {
+            @Components.SocialProfile(profile.Name, profile.IconUrl, profile.Url);
+        }
+    }
+</ul>

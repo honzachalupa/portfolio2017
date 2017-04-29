@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 
 namespace Portfolio2017.Helpers
 {
@@ -6,7 +7,13 @@ namespace Portfolio2017.Helpers
     {
         public static IHtmlString BasicArticle(string headline, string content)
         {
-            return new HtmlString("<article class=\"basic-article\"><h2 class=\"headline\">" + headline + "</h2><p class=\"content\">" + content + "</p></article>");
+            var html =
+                "<article class=\"basic-article\">" +
+                    "<h2 class=\"headline\">" + headline + "</h2>" + 
+                    "<p class=\"content\">" + content + "</p>" + 
+                "</article>";
+
+            return new HtmlString(html);
         }
 
         public static IHtmlString BasicGrid(BasicGridData data)
@@ -24,11 +31,12 @@ namespace Portfolio2017.Helpers
                             if (item.Company != null)
                             {
                                 html +=
-                                    "<img src=\"" + item.Company.Url + "\" class=\"company-logo\" alt=\"" + item.Company.Name + " logo\" />" +
-                                    "<h3 class=\"headline\">" + item.Title + "</h3>";
+                                    "<img src=\"" + item.Company.Url + "\" class=\"company-logo\" alt=\"" + item.Company.Name + " logo\" />";
                             }
 
-                            html += "</a>";
+                            html +=
+                                    "<h3 class=\"headline\">" + item.Title + "</h3>" +
+                                "</a>";
                         }
 
                         html += 
@@ -47,7 +55,7 @@ namespace Portfolio2017.Helpers
                     "<div class=\"text-section\">" +
                         "<h2 class=\"headline\">" + data.Headline + "</h2>" +
                         "<h3 class=\"subheadline\">" + data.Subheadline + "</h3>" +
-                        "<p class=\"content\">" + data.Content.Replace("<p>", "").Replace("</p>", "") + "</p>" +
+                        "<p class=\"content\">" + data.Content.Replace("<p>", " ").Replace("</p>", " ").Replace("  ", " ") + "</p>" +
                         "<a class=\"btn show-more\" href=\"ProjectDetail.cshtml?id=" + data.Id + "\">Show project details</a>";
 
             if (data.Company != null)
@@ -62,6 +70,34 @@ namespace Portfolio2017.Helpers
             html +=
                     "</div>" +
                 "</article>";
+
+            return new HtmlString(html);
+        }
+
+        public static IHtmlString SocialProfile(string name, string imageUrl, string url)
+        {
+            var html =
+                "<li class=\"item\">" +
+                    "<a href=\"" + url + "\" title=\"My " + name + " profile\">" +
+                        "<div class=\"icon\">" +
+                            "<img src=\"" + imageUrl + "\" alt=\"" + name + " logo\">" +
+                        "</div>" +
+                        "<div class=\"label\">" + name + "</div>" +
+                    "</a>" +
+                "</li>";
+
+            return new HtmlString(html);
+        }
+
+        public static IHtmlString Tweet(DateTime timestamp, string content, string url)
+        {
+            string dateTime = timestamp.ToString("H:mm d.M.yyyy");
+
+            var html =
+                "<a class=\"tweet\" href=\"" + url + "\" title=\"Show tweet details\">" +
+                    "<time class=\"timestamp\" datetime=\"" + timestamp + "\">" + dateTime + "</time>" +
+                    "<p class=\"content\">" + content + "</p>" +
+                "</a>";
 
             return new HtmlString(html);
         }

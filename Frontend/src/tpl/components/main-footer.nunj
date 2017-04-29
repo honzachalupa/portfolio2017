@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    {#%- include 'components/social-networks.nunj' -%#}
+    {#%- include 'components/social-profiles.nunj' -%#}
 
     <p class="copyright">&copy; Jan Chalupa 2017</p>
 </footer>

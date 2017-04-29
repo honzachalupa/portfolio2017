@@ -31,7 +31,8 @@
                 Image = new BasicGridItemImageData
                 {
                     Url = project.PreviewImage
-                }
+                },
+                Company = project.Company
             });
         }
         else if (project.Type == "native-app")
@@ -44,7 +45,8 @@
                 Image = new BasicGridItemImageData
                 {
                     Url = project.PreviewImage
-                }
+                },
+                Company = project.Company
             });
         }
     }

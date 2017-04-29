@@ -9,10 +9,12 @@
     }
 
     .tweets-list {
+        width: 100%;
         margin: 8px -5px;
         float: left;
 
         .tweet {
+            width: 100%;
             text-decoration: none;
             float: left;
             transition: all 250ms;
@@ -38,7 +40,9 @@
 
             .content {
                 width: 100%;
-                text-align: justify;
+                line-height: 20px;
+                letter-spacing: 1px;
+                word-wrap: break-word;
                 float: left;
             }
         }

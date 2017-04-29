@@ -1,6 +1,6 @@
 <div class="latest-tweets">
     <h3 class="headline">Latest tweets</h3>
-    <div class="tweets-list placeholder">
+    <div class="tweets-list">
         {% set items = [
             {
                 timestamp: '1.4.2017',

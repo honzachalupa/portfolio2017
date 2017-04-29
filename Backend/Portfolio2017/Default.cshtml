@@ -4,6 +4,9 @@
     Layout = "~/Layouts/_Main.cshtml";
     Page.Title = "";
 
+    var x = Gallery.Photos;
+    x = x;
+
     var latestProject = Data.Projects.First();
 }
 
@@ -65,3 +68,5 @@
         @Components.BasicArticle("Cooperation", "Chcete se podílet na vývoji zajímavých aplikací, nebo jen máte nápad a nevíte, jak ho zrealizovat? Napište mi a zkusíme si vzájemně vyjít vstříc.");
     }
 </section>
+
+@RenderPage("~/Partials/_SocialPanel.cshtml")

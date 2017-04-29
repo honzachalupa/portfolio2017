@@ -1,4 +1,4 @@
-<ul class="social-networks">
+<ul class="social-profiles">
     {% set items = [
         {
             label: 'Twitter',
