@@ -3,7 +3,7 @@
     display: flex;
     float: left;
 
-    .item { 
+    .item {
         list-style: none;
         flex-basis: 25%;
         overflow: hidden;
@@ -20,7 +20,7 @@
 
             &:hover {
                 opacity: 0.9;
-                border-bottom: 2px solid white;
+                border-bottom: 2px solid red;
             }
 
             .icon {

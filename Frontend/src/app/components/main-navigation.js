@@ -36,7 +36,7 @@ const mainNavigation = (container) => {
 
     function open() {
         document.querySelector('html, body').style.overflow = 'hidden';
-        trigger_Button.style.backgroundImage = 'url("Images/svg/hamburger-icon-white.svg")';
+        trigger_Button.style.backgroundImage = 'url("../Images/svg/hamburger-icon-white.svg")';
 
         overlay.classList.add('visible');
         container.classList.add('opened');

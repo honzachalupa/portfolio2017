@@ -5,6 +5,7 @@ using System.Web;
 
 public class Config
 {
+    public List<IpAddress> AllowedIpAddresses { get; set; }
     public List<SocialProfile> SocialProfiles { get; set; }
     public int TweetsToLoad { get; set; }
 
@@ -18,6 +19,14 @@ public class Config
             sr.Close();
 
             return JsonConvert.DeserializeObject<Config>(json);
+        }
+    }
+
+    public static List<IpAddress> AllowedIpAddressesList
+    {
+        get
+        {
+            return ConfigGetter.AllowedIpAddresses;
         }
     }
 

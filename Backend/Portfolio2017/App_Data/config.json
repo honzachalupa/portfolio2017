@@ -1,4 +1,14 @@
 ﻿{
+  "AllowedIpAddresses": [
+    {
+      "Address": "217.195.172.194",
+      "Note": "Letňany"
+    },
+    {
+      "Address": "217.195.172.1",
+      "Note": "Karlák"
+    }
+  ],
   "TweetsToLoad": 10,
   "SocialProfiles": [
     {

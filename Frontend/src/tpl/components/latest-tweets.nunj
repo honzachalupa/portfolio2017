@@ -30,5 +30,5 @@
             </a>
         {% endfor %}
     </div>
-    <a class="show-more" href="http://www.twitter.com/janchalupa">Show more...</a>
+    <a class="btn show-more" href="http://www.twitter.com/janchalupa">Show more</a>
 </div>

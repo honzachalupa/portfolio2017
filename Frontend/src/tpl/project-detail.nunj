@@ -61,5 +61,59 @@
                 </div>
             </aside>
         </div>
+
+        {% set grid = {
+            headline: "My work",
+            id: "",
+            class: "",
+            items: [
+                {
+                    id: 1,
+                    title: "Websites and Web Apps",
+                    image: {
+                        url: "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
+                        size: ""
+                    },
+                    url: "projects.html?filter=web-apps"
+                },
+                {
+                    id: 2,
+                    title: "Mobile Apps",
+                    image: {
+                        url: "http://www.honzachalupa.cz/imgs/image-Apps.png",
+                        size: ""
+                    },
+                    url: "projects.html?filter=mobile-apps"
+                },
+                {
+                    id: 3,
+                    title: "Photography",
+                    image: {
+                        url: "http://dev.honzachalupa.cz/Images/Header/bg-3.jpg",
+                        size: "fill"
+                    },
+                    url: "photography.html"
+                },
+                {
+                    id: 1,
+                    title: "Websites and Web Apps",
+                    image: {
+                        url: "http://www.honzachalupa.cz/imgs/image-Webdesign.png",
+                        size: ""
+                    },
+                    url: "projects.html?filter=web-apps"
+                },
+                {
+                    id: 2,
+                    title: "Mobile Apps",
+                    image: {
+                        url: "http://www.honzachalupa.cz/imgs/image-Apps.png",
+                        size: ""
+                    },
+                    url: "projects.html?filter=mobile-apps"
+                }
+            ]
+        } %}
+        {%- include 'components/basic-grid.nunj' -%}
     </section>
 {% endblock %}

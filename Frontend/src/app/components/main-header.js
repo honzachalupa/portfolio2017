@@ -7,11 +7,12 @@ const mainHeader = (container) => {
     });
 
     function loadImage() {
-        container.style.backgroundImage = `url('http://dev.honzachalupa.cz/Images/Header/bg-${getRandomRange(1, 10)}.jpg')`;
+        container.style.backgroundImage = `url('http://www.honzachalupa.cz/imgs/bg-${getRandomRange(1, 10)}.jpg')`;
     }
 
     function centerHeaderContent() {
         container.querySelector('.content').style.width = `${document.querySelector('main').offsetWidth}px`;
+        container.querySelector('.content').style.opacity = 1;
     }
 
     function getRandomRange(min, max) {

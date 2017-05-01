@@ -1,13 +1,14 @@
 .basic-teaser {
     width: 100%;
     background-color: white;
-    padding: 12px 6vw;
     float: left;
 
     @media (max-width: 799px) {
+        padding: 12px;
         margin-bottom: 12px;
     }
     @media (min-width: 800px) {
+        padding: 12px 6vw;
         margin-bottom: 20px;
     }
 
@@ -58,7 +59,7 @@
         .subheadline,
         .content,
         .company {
-            padding: 12px;
+            padding: 12px 0;
         }
 
         .headline {
@@ -88,7 +89,7 @@
         }
 
         .show-more {
-            margin: 5px 11px;
+            margin: 5px 0;
             float: left;
             transition: all 250ms;
         }
@@ -100,7 +101,7 @@
             margin: 20px 0 10px 0;
 
             p {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             .logo {

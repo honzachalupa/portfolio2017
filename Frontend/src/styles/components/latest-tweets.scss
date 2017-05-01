@@ -6,6 +6,7 @@
 
     .headline {
         font-size: 1.2rem;
+        margin-top: 15px;
     }
 
     .tweets-list {
@@ -18,11 +19,10 @@
             text-decoration: none;
             float: left;
             transition: all 250ms;
-            padding: 5px;
+            padding: 10px 5px 5px 5px;
 
             &:not(:last-of-type) {
-                border-bottom: 1px dashed lightgray;
-                padding-top: 10px;
+                border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
                 padding-bottom: 10px;
             }
 
@@ -32,7 +32,7 @@
 
             .timestamp {
                 width: 100%;
-                font-size: 0.8rem;
+                font-size: 12px;
                 margin-bottom: 8px;
                 float: left;
                 opacity: 0.6;
@@ -40,8 +40,9 @@
 
             .content {
                 width: 100%;
-                line-height: 20px;
-                letter-spacing: 1px;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 0.05rem;
                 word-wrap: break-word;
                 float: left;
             }
@@ -49,6 +50,8 @@
     }
 
     .show-more {
-
+        font-size: 14px;
+        float: right;
+        margin: 0;
     }
 }

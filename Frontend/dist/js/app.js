@@ -7064,11 +7064,12 @@ var mainHeader = function mainHeader(container) {
     });
 
     function loadImage() {
-        container.style.backgroundImage = 'url(\'http://dev.honzachalupa.cz/Images/Header/bg-' + getRandomRange(1, 10) + '.jpg\')';
+        container.style.backgroundImage = 'url(\'http://www.honzachalupa.cz/imgs/bg-' + getRandomRange(1, 10) + '.jpg\')';
     }
 
     function centerHeaderContent() {
         container.querySelector('.content').style.width = document.querySelector('main').offsetWidth + 'px';
+        container.querySelector('.content').style.opacity = 1;
     }
 
     function getRandomRange(min, max) {
@@ -7121,7 +7122,7 @@ var mainNavigation = function mainNavigation(container) {
 
     function open() {
         document.querySelector('html, body').style.overflow = 'hidden';
-        trigger_Button.style.backgroundImage = 'url("Images/svg/hamburger-icon-white.svg")';
+        trigger_Button.style.backgroundImage = 'url("../Images/svg/hamburger-icon-white.svg")';
 
         overlay.classList.add('visible');
         container.classList.add('opened');

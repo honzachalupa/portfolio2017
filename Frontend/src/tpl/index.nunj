@@ -28,7 +28,7 @@
         {% set grid = {
             headline: "My work",
             id: "",
-            class: "",
+            class: "centered",
             items: [
                 {
                     id: 1,

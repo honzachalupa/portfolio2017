@@ -14,7 +14,7 @@
         {% set grid = {
             headline: "Websites and Web Apps",
             id: "web-apps",
-            class: "filterable",
+            class: "filterable centered",
             items: [
                 {
                     id: 1,
@@ -110,7 +110,7 @@
         {% set grid = {
             headline: "Mobile Apps",
             id: "mobile-apps",
-            class: "filterable",
+            class: "filterable centered",
             items: [
                 {
                     id: 1,

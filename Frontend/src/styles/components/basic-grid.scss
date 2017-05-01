@@ -1,7 +1,7 @@
 .page-content {
     .basic-grid {
         .grid {
-            .item {
+            .item, &:after {
                 @media (max-width: 679px) {
                     flex-basis: 100%;
                 }
@@ -18,7 +18,7 @@
     &.with-panel {
         .basic-grid {
             .grid {
-                .item {
+                .item, &:after {
                     @media (max-width: 679px) {
                         flex-basis: 100%;
                     }
@@ -34,7 +34,6 @@
 .basic-grid {
     width: 100%;
     background-color: white;
-    padding: 12px 6vw;
     float: left;
 
     @media (max-width: 799px) {
@@ -42,6 +41,10 @@
     }
     @media (min-width: 800px) {
         margin-bottom: 20px;
+    }
+
+    &.centered {
+        padding: 12px 6vw;
     }
 
     & > .headline {
@@ -58,6 +61,10 @@
         width: 100%;
         float: left;
         justify-content: space-between;
+
+        &:after {
+            content: "";
+        }
 
         .item {
             list-style: none;
