@@ -1,0 +1,18 @@
+[data-component="Button"] {
+    color: $accent-color;
+    font-size: .85rem;
+    text-decoration: none;
+    border: 1px solid $accent-color;
+    border-radius: 16px;
+    padding: 8px 12px;
+    margin: 12px 0;
+    float: left;
+    cursor: pointer;
+    transition: all 250ms;
+
+    &.active,
+    &:hover {
+        color: black;
+        border-color: black;
+    }
+}

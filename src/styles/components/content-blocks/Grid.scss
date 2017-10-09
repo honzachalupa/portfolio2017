@@ -1,0 +1,113 @@
+.page-content {
+    [data-component="ContentBlock_Grid"] {
+        ul {
+            [data-component="ContentBlock_GridItem"],
+            &:after {
+                @media (max-width: 679px) {
+                    flex-basis: 100%;
+                }
+                @media (min-width: 680px) AND (max-width: 1199px) {
+                    flex-basis: 49%;
+                }
+                @media (min-width: 1200px) {
+                    flex-basis: 32%;
+                }
+            }
+        }
+    }
+
+    &.with-panel {
+        [data-component="ContentBlock_Grid"] {
+            ul {
+                [data-component="ContentBlock_GridItem"],
+                &:after {
+                    @media (max-width: 679px) {
+                        flex-basis: 100%;
+                    }
+                    @media (min-width: 680px) {
+                        flex-basis: 49%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+[data-component="ContentBlock_Grid"] {
+    width: 100%;
+    background-color: white;
+    float: left;
+
+    @media (max-width: 799px) {
+        margin-bottom: 12px;
+    }
+    @media (min-width: 800px) {
+        margin-bottom: 20px;
+    }
+
+    &.centered {
+        padding: 12px 6vw;
+    }
+
+    & > .headline {
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 200;
+        margin: 15px 0;
+        float: left;
+    }
+
+    ul {
+        @extend .flexbox-grid;
+
+        width: 100%;
+        float: left;
+        justify-content: space-between;
+
+        &:after {
+            content: "";
+        }
+
+        [data-component="ContentBlock_GridItem"] {
+            list-style: none;
+
+            a {
+                width: 100%;
+                // border: 1px solid lightgray;
+                margin-bottom: 6%;
+                overflow: hidden;
+                float: left;
+                position: relative;
+                border-radius: 2px;
+
+                .image {
+                    width: 100%;
+                    height: calc(100% - 30px);
+                    float: left;
+
+                    &.fill {
+                        background-size: cover;
+                    }
+                }
+
+                .company-logo {
+                    width: 30%;
+                    background-color: rgba(255, 255, 255, 0.85);
+                    border-radius: 3px;
+                    padding: 8px;
+                    position: absolute;
+                    right: 10px;
+                    bottom: 40px;
+                }
+
+                .headline {
+                    width: 100%;
+                    height: 30px;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    padding: 8px 20px 0 20px;
+                    float: left;
+                }
+            }
+        }
+    }
+}

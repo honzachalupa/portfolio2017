@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test</title>
+    <link rel="stylesheet" href="{{ _cssPath }}/main{% if not _dev %}.min{% endif %}.css">
+</head>
+<body>
+    <main id="app-root"></main>
+
+    {# Scripts #}
+    <script>
+        var config = {};
+    </script>
+    {% if _dev %}
+        <script src="{{ _jsPath }}/app.js" async></script>
+    {% else %}
+        <script src="{{ _jsPath }}/app.min.js" async></script>
+    {% endif %}
+</body>
+</html>

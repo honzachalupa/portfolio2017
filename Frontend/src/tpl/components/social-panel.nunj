@@ -1,4 +1,0 @@
-<aside class="social-panel">
-    {%- include 'components/social-profiles.nunj' -%}
-    {%- include 'components/latest-tweets.nunj' -%}
-</aside>

@@ -1,4 +1,0 @@
-<article class="basic-article">
-    <h2 class="headline">{{ article.headline }}</h2>
-    <p class="content">{{ article.content }}</p>
-</article>
