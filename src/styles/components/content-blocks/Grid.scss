@@ -40,13 +40,17 @@
 
     @media (max-width: 799px) {
         margin-bottom: 12px;
+
+        &.centered {
+            padding: 12px;
+        }
     }
     @media (min-width: 800px) {
         margin-bottom: 20px;
-    }
 
-    &.centered {
-        padding: 12px 6vw;
+        &.centered {
+            padding: 12px 6vw;
+        }
     }
 
     & > .headline {
@@ -107,6 +111,26 @@
                     padding: 8px 20px 0 20px;
                     float: left;
                 }
+            }
+        }
+    }
+
+    &.latest-projects {
+        @media (max-width: 680px) {
+            [data-component="ContentBlock_GridItem"]:nth-of-type(4) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [data-component="ContentBlock_GridItem"]:nth-of-type(5) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [data-component="ContentBlock_GridItem"]:nth-of-type(6) {
+                display: none;
             }
         }
     }

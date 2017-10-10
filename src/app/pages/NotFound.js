@@ -5,8 +5,10 @@ import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 
 export default class NotFound extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        const { setNavigationItem } = props.utilities;
 
         this.state = {
             id: 'not-found-page',
@@ -15,15 +17,16 @@ export default class NotFound extends Component {
         };
 
         setPageTitle(this.state.headline);
+        setNavigationItem(null);
     }
 
     render() {
         const { id, headline, hasPanel } = this.state;
-        const { config, params } = this.props;
+        const { config, utilities, params } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
                     <Headline headline={headline} />
 
                     <p>

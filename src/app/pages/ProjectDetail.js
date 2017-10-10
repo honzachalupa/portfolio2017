@@ -8,7 +8,10 @@ export default class ProjectDetail extends Component {
     constructor(props) {
         super(props);
 
-        const projectId = this.props.params.id;
+        const { utilities, params } = props;
+        const { setNavigationItem } = utilities;
+
+        const projectId = params.id;
         let currentProject;
 
         this.props.projects.forEach((project) => {
@@ -25,15 +28,16 @@ export default class ProjectDetail extends Component {
         };
 
         setPageTitle(this.state.headline);
+        setNavigationItem('projects-page');
     }
 
     render() {
         const { id, headline, hasPanel, project } = this.state;
-        const { config } = this.props;
+        const { config, utilities } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
                     <Headline headline={headline} />
 
                     <Text headline={project.name}>

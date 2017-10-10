@@ -29,8 +29,8 @@ export default class Item extends Component {
 
         return (
             <li data-component={componentName}>
-                <Link to={`/projects/${id}`} title={title} data-aspect-ratio={aspectRatio} data-aspect-ratio-mobile={aspectRatioMobile}>
-                    <div className="image" style={{ backgroundImage: `url('${previewImage}')` }} />
+                <Link to={`/projects/${id}`} title={title}>
+                    <div className="image" style={{ backgroundImage: `url('${previewImage}')` }} data-aspect-ratio="3:2" data-aspect-ratio-mobile="16:10" />
                     {companyBlock}
                     <h3 className="headline">{name}</h3>
                 </Link>

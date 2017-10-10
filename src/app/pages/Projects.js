@@ -12,6 +12,8 @@ export default class Projects extends Component {
     constructor(props) {
         super(props);
 
+        const { setNavigationItem } = props.utilities;
+
         this.changeFilter = this.changeFilter.bind(this);
 
         this.state = {
@@ -22,6 +24,7 @@ export default class Projects extends Component {
         };
 
         setPageTitle(this.state.headline);
+        setNavigationItem(this.state.id);
     }
 
     changeFilter(filter) {
@@ -32,24 +35,25 @@ export default class Projects extends Component {
 
     render() {
         const { id, headline, hasPanel, filter } = this.state;
-        const { projects, config } = this.props;
+        const { config, utilities, projects } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
                     <Headline headline={headline} />
 
                     <Text headline="My projects">
                         Something...
                     </Text>
 
-                    <Blank>
+                    <Blank headline="Filtr">
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
 
-                    <Grids projects={projects} filter={filter} />
+                    <BlockWebApps projects={projects} filter={filter} />
+                    <BlockNativeApps projects={projects} filter={filter} />
 
-                    <Blank>
+                    <Blank headline="Filtr">
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
                 </ContentLayout>
@@ -58,66 +62,54 @@ export default class Projects extends Component {
     }
 }
 
-const Grids = (props) => {
+const BlockWebApps = (props) => {
     const { projects, filter } = props;
 
-    console.log(filter);
-
-    const projectsSorted = {
-        web: projects.filter((project) => {
+    if (filter === 'web-app' || filter === 'all') {
+        const projectsWeb = projects.filter((project) => {
             return project.type === 'web-app';
-        }),
-        native: projects.filter((project) => {
-            return project.type === 'native-app';
-        })
-    };
+        });
 
-    if (filter === 'web-app') {
-        return <BlockWebApps projects={projectsSorted.web} />;
-    } else if (filter === 'native-app') {
-        return <BlockNativeApps projects={projectsSorted.native} />;
+        return (
+            <Grid headline="Web Apps" isCentered>
+                {
+                    projectsWeb.map((project) => {
+                        const title = `Show details for ${project.name} project`;
+
+                        return (
+                            <GridItem key={project.id} {...project} title={title} />
+                        );
+                    })
+                }
+            </Grid>
+        );
     }
 
-    return (
-        <div>
-            <BlockWebApps projects={projectsSorted.web} />
-            <BlockNativeApps projects={projectsSorted.native} />
-        </div>
-    );
-};
-
-const BlockWebApps = (props) => {
-    const { projects } = props;
-
-    return (
-        <Grid headline="Web Apps" isCentered>
-            {
-                projects.map((project) => {
-                    const title = `Show details for ${project.name} project`;
-
-                    return (
-                        <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
-                    );
-                })
-            }
-        </Grid>
-    );
+    return null;
 };
 
 const BlockNativeApps = (props) => {
-    const { projects } = props;
+    const { projects, filter } = props;
 
-    return (
-        <Grid headline="Native Apps" isCentered>
-            {
-                projects.map((project) => {
-                    const title = `Show details for ${project.name} project`;
+    const projectsNative = projects.filter((project) => {
+        return project.type === 'native-app';
+    });
 
-                    return (
-                        <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
-                    );
-                })
-            }
-        </Grid>
-    );
+    if (filter === 'native-app' || filter === 'all') {
+        return (
+            <Grid headline="Native Apps" isCentered>
+                {
+                    projectsNative.map((project) => {
+                        const title = `Show details for ${project.name} project`;
+
+                        return (
+                            <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
+                        );
+                    })
+                }
+            </Grid>
+        );
+    }
+
+    return null;
 };

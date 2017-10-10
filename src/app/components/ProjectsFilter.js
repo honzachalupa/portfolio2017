@@ -45,7 +45,7 @@ export default class ProjectsFilter extends Component {
                     {
                         types.map((projectType) => {
                             return (
-                                <Button title={projectType.label} onClick={() => changeFilter(projectType.id)} />
+                                <Button key={projectType.id} title={projectType.label} onClick={() => changeFilter(projectType.id)} />
                             );
                         })
                     }

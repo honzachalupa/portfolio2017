@@ -1,9 +1,10 @@
 [data-component="Button"] {
+    min-width: 50px;
     color: $accent-color;
     font-size: .85rem;
     text-decoration: none;
-    border: 1px solid $accent-color;
-    border-radius: 16px;
+    box-shadow: 0 0 2px 0 $accent-color;
+    border-radius: 2rem;
     padding: 8px 12px;
     margin: 12px 0;
     float: left;
@@ -13,7 +14,7 @@
     &.active,
     &:hover {
         color: black;
-        border-color: black;
+        box-shadow: 0 0 1px 1px $accent-color;
     }
 }
 

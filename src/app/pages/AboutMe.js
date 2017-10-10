@@ -8,6 +8,8 @@ export default class AboutMe extends Component {
     constructor(props) {
         super(props);
 
+        const { setNavigationItem } = props.utilities;
+
         this.state = {
             id: 'about-me-page',
             headline: 'About me',
@@ -15,15 +17,16 @@ export default class AboutMe extends Component {
         };
 
         setPageTitle(this.state.headline);
+        setNavigationItem(this.state.id);
     }
 
     render() {
         const { id, headline, hasPanel, project } = this.state;
-        const { config } = this.props;
+        const { config, utilities } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
                     <Headline headline={headline} />
 
                     <Text headline="Who am I?">

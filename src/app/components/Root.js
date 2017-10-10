@@ -7,7 +7,6 @@ import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
 import ProjectDetailPage from './../pages/ProjectDetail';
 import NotFoundPage from './../pages/NotFound';
-
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 
@@ -15,8 +14,8 @@ export default class Root extends Component {
     constructor() {
         super();
 
-        this.setCurrentProject = this.setCurrentProject.bind(this);
         this.navigationToggler = this.navigationToggler.bind(this);
+        this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
         axios.get('http://153.100.115.119:5003/data')
@@ -36,14 +35,15 @@ export default class Root extends Component {
                 });
 
                 config.navigationOpened = false;
-                config.navigationToggler = this.navigationToggler;
                 config.projectTypes = projectTypes;
-                config.latestProject = projects[0];
 
                 this.setState({
                     projects,
                     config,
-                    currentProject: null
+                    utilities: {
+                        navigationToggler: this.navigationToggler,
+                        setNavigationItem: this.setNavigationItem,
+                    }
                 });
 
                 this.updateDimensions();
@@ -66,25 +66,39 @@ export default class Root extends Component {
         window.removeEventListener('resize', this.updateDimensions);
     }
 
-    setCurrentProject(project) {
-        this.setState({
-            currentProject: project
-        });
+    navigationToggler(forceClose) {
+        const { navigationOpened, window, screenBreakpoint } = this.state.config;
+
+        if (window.width < screenBreakpoint) {
+            this.setState({
+                config: update(this.state.config, {
+                    $merge: {
+                        navigationOpened: (forceClose === 'undefined') ? false : !navigationOpened
+                    }
+                })
+            });
+        }
     }
 
-    navigationToggler() {
-        const { navigationOpened } = this.state.config;
+    setNavigationItem(clickedId) {
+        let { navigationItems } = this.state.config;
+
+        navigationItems = navigationItems.forEach((item) => {
+            item.active = (item.id === clickedId);
+        });
 
         this.setState({
-            config: update(this.state.config, {
-                $merge: {
-                    navigationOpened: !navigationOpened
-                }
+            navigationItems: update(this.state.config.navigationItems, {
+                $set: navigationItems
             })
         });
+
+        window.scrollTo(0, 0);
     }
 
     updateDimensions() {
+        const { screenBreakpoint } = this.state.config;
+
         const dimensions = {
             window: {
                 width: window.innerWidth,
@@ -97,11 +111,21 @@ export default class Root extends Component {
                 $merge: dimensions
             })
         });
+
+        if (dimensions.window.width >= screenBreakpoint) {
+            this.setState({
+                config: update(this.state.config, {
+                    $merge: {
+                        navigationOpened: false
+                    }
+                })
+            });
+        }
     }
 
     render() {
         if (this.state && this.state.projects && this.state.config) {
-            const { projects, config } = this.state;
+            const { config, utilities, projects } = this.state;
 
             return (
                 <Router>
@@ -110,38 +134,39 @@ export default class Root extends Component {
                             exact
                             path="/"
                             render={(props) => (
-                                <HomePage config={config} projects={projects} setCurrentProject={this.setCurrentProject} />
+                                <HomePage config={config} utilities={utilities} projects={projects} />
                             )}
                         />
                         <Route
                             exact
                             path="/projects"
                             render={(props) => (
-                                <ProjectsPage config={config} projects={projects} />
+                                <ProjectsPage config={config} utilities={utilities} projects={projects} />
                             )}
                         />
                         <Route
                             exact
                             path="/about-me"
                             render={(props) => (
-                                <AboutMePage config={config} />
+                                <AboutMePage config={config} utilities={utilities} />
                             )}
                         />
                         <Route
                             path="/projects/:id"
                             render={(props) => (
-                                <ProjectDetailPage config={config} projects={projects} params={props.match.params} />
+                                <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
                             )}
                         />
                         <Route
                             render={(props) => (
-                                <NotFoundPage config={config} />
+                                <NotFoundPage config={config} utilities={utilities} />
                             )}
                         />
                     </Switch>
                 </Router>
             );
         }
+
         return null;
     }
 }

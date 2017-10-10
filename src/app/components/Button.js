@@ -10,7 +10,7 @@ export default class Button extends Component {
 
         if (url) {
             return (
-                <Link className={extraClasses} to={url} title={title} data-component={componentName}>{title}</Link>
+                <Link className={extraClasses} to={url} onClick={onClick} title={title} data-component={componentName}>{title}</Link>
             );
         } else if (onClick) {
             return (

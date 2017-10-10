@@ -14,7 +14,11 @@ module.exports = () => {
                 livePreviewAllowed: true,
                 developmentStage: 'not-supported',
                 type: 'web-app',
-                company: null,
+                company: {
+                    name: 'Actum',
+                    logo: 'gfx/svg/company-logo-actum.svg',
+                    url: 'http://www.seznam.cz'
+                },
                 addedDate: '2019/2/1'
             }, {
                 id: 'online-editor',
@@ -171,14 +175,15 @@ module.exports = () => {
         config: {
             navigationItems: [
                 {
-                    id: 1,
+                    id: 'home-page',
                     label: 'Introduction',
-                    url: '/'
+                    url: '/',
+                    active: true
                 }, {
-                    id: 2,
+                    id: 'projects-page',
                     label: 'Projects'
                 }, {
-                    id: 3,
+                    id: 'about-me-page',
                     label: 'About me'
                 }
             ],
@@ -193,7 +198,8 @@ module.exports = () => {
                 'wannabe UX designer',
                 'car-lover',
                 'mountain biker'
-            ]
+            ],
+            screenBreakpoint: 680
         }
     };
 

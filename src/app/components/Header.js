@@ -15,14 +15,14 @@ export default class Header extends Component {
 
     render() {
         const componentName = `Page_${this.constructor.name}`;
-        const { config } = this.props;
+        const { config, utilities } = this.props;
         const { collapsed } = config;
 
         if (!collapsed) {
             return (
                 <header style={{ backgroundImage: this.state.imageUrl }} data-component={componentName}>
                     <div className="content" style={{ width: `${document.querySelector('main').offsetWidth}px` }}>
-                        <Navigation config={config} />
+                        <Navigation config={config} utilities={utilities} />
 
                         <h1 className="headline">
                             <Link to="/">
