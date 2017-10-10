@@ -1,8 +1,11 @@
 [data-component="Page_Header"] {
     width: 100vw;
     height: 35vw;
-    position: absolute;
-    left: 0;
+
+    @media (min-width: 1200px) {
+        position: relative;
+        left: -10vw;
+    }
 
     .content {
         height: 100%;

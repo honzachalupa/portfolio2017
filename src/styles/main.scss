@@ -15,20 +15,9 @@ html {
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
     background-color: $background-color;
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
 }
 
 main {
-    flex: 1;
-
-    @media (max-width: 799px) {
-        margin-bottom: 12px;
-    }
-    @media (min-width: 800px) AND (max-width: 1199px) {
-        padding: 0 12px;
-    }
     @media (min-width: 1200px) {
         width: 80%;
         margin: 0 auto;

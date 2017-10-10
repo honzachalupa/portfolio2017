@@ -1,8 +1,10 @@
 .page-content {
     width: 100%;
     float: left;
-    position: relative;
-    top: 35vw;
+
+    @media (min-width: 800px) AND (max-width: 1199px) {
+        padding: 0 12px;
+    }
 
     &.has-panel {
         @media (min-width: 1100px) {

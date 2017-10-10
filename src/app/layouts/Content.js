@@ -7,10 +7,11 @@ export default class Content extends Component {
     render() {
         const componentName = `Layout_${this.constructor.name}`;
         const { config, hasPanel } = this.props;
+        const { navigationOpened } = config;
 
         return (
             <div data-component={componentName}>
-                <div className="navigation-overlay" />
+                <div className={`navigation-overlay ${navigationOpened ? 'visible' : ''}`} />
                 <NavigationTrigger config={config} />
 
                 <Header config={config} />

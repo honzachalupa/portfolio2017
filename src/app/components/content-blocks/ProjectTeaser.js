@@ -31,7 +31,7 @@ export default class ProjectTeaser extends Component {
         return (
             <article data-component={componentName}>
                 <h2 className="headline">Latest Projects</h2>
-                <a className="image" href={projectUrl} style={{ backgroundImage: `url('${previewImage}')` }} title="Show project details" data-aspect-ratio="4:3" />
+                <a className="image" href={`/projects/${id}`} style={{ backgroundImage: `url('${previewImage}')` }} title="Show project details" data-aspect-ratio="4:3" />
                 <div className="text-section">
                     <h2 className="headline">{name}</h2>
                     <p className="content" dangerouslySetInnerHTML={{ __html: description }} />

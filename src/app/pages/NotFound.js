@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { setPageTitle } from './../helpers';
 import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
@@ -12,6 +13,8 @@ export default class NotFound extends Component {
             headline: 'Page not found',
             hasPanel: true
         };
+
+        setPageTitle(this.state.headline);
     }
 
     render() {

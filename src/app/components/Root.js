@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import axios from 'axios';
 import HomePage from './../pages/Home';
-import ProjectPage from './../pages/Project';
+import ProjectsPage from './../pages/Projects';
+import AboutMePage from './../pages/AboutMe';
+import ProjectDetailPage from './../pages/ProjectDetail';
 import NotFoundPage from './../pages/NotFound';
 
 import factory from './../factory';
@@ -17,7 +19,7 @@ export default class Root extends Component {
         this.navigationToggler = this.navigationToggler.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
-        axios.get('http://localhost:5003/data')
+        axios.get('http://153.100.115.119:5003/data')
             .then((response) => {
                 const { projects, config } = response.data;
 
@@ -49,20 +51,15 @@ export default class Root extends Component {
             .catch((error) => {
                 console.error(error);
             });
+
+        // To-do: Replace this workaround with better and cleaner solution
+        setInterval(() => {
+            factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
+        }, 100);
     }
 
     componentDidMount() {
         window.addEventListener('resize', this.updateDimensions);
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('xxxx');
-
-        setTimeout(() => {
-            factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
-        }, 500);
-
-        return true;
     }
 
     componentWillUnmount() {
@@ -76,8 +73,14 @@ export default class Root extends Component {
     }
 
     navigationToggler() {
+        const { navigationOpened } = this.state.config;
+
         this.setState({
-            config: update(this.state.config, { $merge: { navigationOpened: !this.state.config.navigationOpened } })
+            config: update(this.state.config, {
+                $merge: {
+                    navigationOpened: !navigationOpened
+                }
+            })
         });
     }
 
@@ -90,7 +93,9 @@ export default class Root extends Component {
         };
 
         this.setState({
-            config: update(this.state.config, { $merge: dimensions })
+            config: update(this.state.config, {
+                $merge: dimensions
+            })
         });
     }
 
@@ -112,20 +117,20 @@ export default class Root extends Component {
                             exact
                             path="/projects"
                             render={(props) => (
-                                <NotFoundPage config={config} />
+                                <ProjectsPage config={config} projects={projects} />
                             )}
                         />
                         <Route
                             exact
                             path="/about-me"
                             render={(props) => (
-                                <NotFoundPage config={config} />
+                                <AboutMePage config={config} />
                             )}
                         />
                         <Route
                             path="/projects/:id"
                             render={(props) => (
-                                <ProjectPage config={config} projects={projects} params={props.match.params} />
+                                <ProjectDetailPage config={config} projects={projects} params={props.match.params} />
                             )}
                         />
                         <Route

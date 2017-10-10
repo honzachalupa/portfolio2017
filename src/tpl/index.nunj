@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
+    <title>Test</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Test</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <link rel="stylesheet" href="{{ _cssPath }}/main{% if not _dev %}.min{% endif %}.css">
 </head>
 <body>
     <main id="app-root"></main>
 
-    {# Scripts #}
-    <script>
-        var config = {};
-    </script>
-    {% if _dev %}
-        <script src="{{ _jsPath }}/app.js" async></script>
-    {% else %}
-        <script src="{{ _jsPath }}/app.min.js" async></script>
-    {% endif %}
+    <script src="{{ _jsPath }}/app{% if not _dev %}.min{% endif %}.js" async></script>
 </body>
 </html>

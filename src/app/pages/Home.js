@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { setPageTitle } from './../helpers';
 import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import ProjectTeaser from './../components/content-blocks/ProjectTeaser';
@@ -15,6 +16,8 @@ export default class Home extends Component {
             headline: 'Introduction',
             hasPanel: false
         };
+
+        setPageTitle();
     }
 
     render() {
@@ -41,8 +44,10 @@ export default class Home extends Component {
                     <Grid headline="My Projects" isCentered>
                         {
                             projects.map((project) => {
+                                const title = `Show details for ${project.name} project`;
+
                                 return (
-                                    <GridItem key={project.id} {...project} title={`Show details for ${project.name} project`} aspectRatio="4:3" aspectRatioMobile="16:9" />
+                                    <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
                                 );
                             })
                         }

@@ -1,0 +1,10 @@
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/bin/Debug/netcoreapp2.0/Wrapper.deps.json
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/bin/Debug/netcoreapp2.0/Wrapper.runtimeconfig.json
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/bin/Debug/netcoreapp2.0/Wrapper.runtimeconfig.dev.json
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/bin/Debug/netcoreapp2.0/Wrapper.dll
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/bin/Debug/netcoreapp2.0/Wrapper.pdb
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/obj/Debug/netcoreapp2.0/Wrapper.csproj.CoreCompileInputs.cache
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/obj/Debug/netcoreapp2.0/Wrapper.AssemblyInfoInputs.cache
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/obj/Debug/netcoreapp2.0/Wrapper.AssemblyInfo.cs
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/obj/Debug/netcoreapp2.0/Wrapper.dll
+/Users/honzachalupa/Documents/Dev/portfolio2017/BE/Wrapper/Wrapper/obj/Debug/netcoreapp2.0/Wrapper.pdb

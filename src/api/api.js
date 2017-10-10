@@ -182,6 +182,11 @@ module.exports = () => {
                     label: 'About me'
                 }
             ],
+            contactInfo: {
+                phoneNumber: '+420 606 789 910',
+                emailAddress: 'janchalupa@outlook.cz',
+                city: 'Prague'
+            },
             tags: [
                 'front-end developer',
                 'junior back-end developer',

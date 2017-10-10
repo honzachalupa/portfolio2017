@@ -13,7 +13,7 @@ export default class Navigation extends Component {
         let navigationOpenedClassName = '';
 
         if (navigationOpened) {
-            navigationOpenedClassName = 'visible';
+            navigationOpenedClassName = 'opened';
         }
 
         return (

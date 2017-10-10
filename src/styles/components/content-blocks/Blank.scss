@@ -1,0 +1,13 @@
+[data-component="ContentBlock_Blank"] {
+    width: 100%;
+    background-color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+    float: left;
+
+    @media (min-width: 800px) {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+}

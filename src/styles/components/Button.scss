@@ -16,3 +16,27 @@
         border-color: black;
     }
 }
+
+[data-component="ButtonsGroup"] {
+    width: 100%;
+    text-align: center;
+    padding: 0 12px;
+    float: left;
+
+    .alignment {
+        float: left;
+
+        &.center {
+            display: inline-block;
+            float: none;
+        }
+
+        &.right {
+            float: right;
+        }
+    }
+
+    [data-component="Button"]:not(:last-of-type) {
+        margin-right: 12px;
+    }
+}

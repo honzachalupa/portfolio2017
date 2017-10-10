@@ -4,20 +4,20 @@ import { getRandomRange } from './../helpers';
 import Navigation from './Navigation';
 
 export default class Button extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            imageUrl: `url('http://www.honzachalupa.cz/imgs/bg-${getRandomRange(1, 10)}.jpg')`
-        };
-    }
-
     render() {
         const componentName = this.constructor.name;
-        const { title, url, extraClasses } = this.props;
+        const { title, url, onClick, extraClasses } = this.props;
 
-        return (
-            <Link className={extraClasses} to={url}title={title} data-component={componentName}>{title}</Link>
-        );
+        if (url) {
+            return (
+                <Link className={extraClasses} to={url} title={title} data-component={componentName}>{title}</Link>
+            );
+        } else if (onClick) {
+            return (
+                <a className={extraClasses} onClick={onClick} title={title} data-component={componentName}>{title}</a>
+            );
+        }
+
+        return null;
     }
 }
