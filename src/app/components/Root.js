@@ -18,7 +18,7 @@ export default class Root extends Component {
         this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
-        axios.get('http://153.100.115.119:5003/data')
+        axios.get('http://153.100.117.247:5003/data')
             .then((response) => {
                 const { projects, config } = response.data;
 
@@ -42,7 +42,7 @@ export default class Root extends Component {
                     config,
                     utilities: {
                         navigationToggler: this.navigationToggler,
-                        setNavigationItem: this.setNavigationItem,
+                        setNavigationItem: this.setNavigationItem
                     }
                 });
 
