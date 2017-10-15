@@ -170,6 +170,6 @@ export default class Root extends Component {
             );
         }
 
-        return null;
+        return <NotFoundPage config={this.state.config} utilities={this.state.utilities} />;
     }
 }

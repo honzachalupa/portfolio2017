@@ -28723,7 +28723,7 @@ var Root = function (_Component) {
                 );
             }
 
-            return null;
+            return _react2.default.createElement(_NotFound2.default, { config: this.state.config, utilities: this.state.utilities });
         }
     }]);
 
