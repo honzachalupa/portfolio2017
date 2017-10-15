@@ -11,24 +11,28 @@ export default class ProjectDetail extends Component {
         const { utilities, params } = props;
         const { setNavigationItem } = utilities;
 
-        const projectId = params.id;
-        let currentProject;
+        try {
+            const projectId = params.id;
+            let currentProject;
 
-        this.props.projects.forEach((project) => {
-            if (project.id.toString() === projectId) {
-                currentProject = project;
-            }
-        });
+            this.props.projects.forEach((project) => {
+                if (project.id.toString() === projectId) {
+                    currentProject = project;
+                }
+            });
 
-        this.state = {
-            id: 'project-page',
-            headline: currentProject.name,
-            hasPanel: false,
-            project: currentProject
-        };
+            this.state = {
+                id: 'project-page',
+                headline: currentProject.name,
+                hasPanel: false,
+                project: currentProject
+            };
 
-        setPageTitle(this.state.headline);
-        setNavigationItem('projects-page');
+            setPageTitle(this.state.headline);
+            setNavigationItem('projects-page');
+        } catch (error) {
+            document.location = '/page-not-found';
+        }
     }
 
     render() {

@@ -29084,7 +29084,7 @@ var Text = function (_Component) {
                     headline
                 ),
                 _react2.default.createElement(
-                    "p",
+                    "div",
                     { className: "content" },
                     value || text
                 )
@@ -29393,6 +29393,10 @@ var _Text = require('./../components/content-blocks/Text');
 
 var _Text2 = _interopRequireDefault(_Text);
 
+var _Button = require('./../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29444,9 +29448,14 @@ var Error = function (_Component) {
                     { config: config, utilities: utilities, hasPanel: hasPanel },
                     _react2.default.createElement(_Headline2.default, { headline: headline }),
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        'Some error just occured...'
+                        _Text2.default,
+                        { headline: headline },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'I\'m really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page you\'ve been looking for was not founded. Please, go to homepage and try your luck elsewhere.'
+                        ),
+                        _react2.default.createElement(_Button2.default, { title: 'Go to homepage', url: '/' })
                     )
                 )
             );
@@ -29458,7 +29467,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29646,24 +29655,28 @@ var ProjectDetail = function (_Component) {
         var setNavigationItem = utilities.setNavigationItem;
 
 
-        var projectId = params.id;
-        var currentProject = void 0;
+        try {
+            var projectId = params.id;
+            var currentProject = void 0;
 
-        _this.props.projects.forEach(function (project) {
-            if (project.id.toString() === projectId) {
-                currentProject = project;
-            }
-        });
+            _this.props.projects.forEach(function (project) {
+                if (project.id.toString() === projectId) {
+                    currentProject = project;
+                }
+            });
 
-        _this.state = {
-            id: 'project-page',
-            headline: currentProject.name,
-            hasPanel: false,
-            project: currentProject
-        };
+            _this.state = {
+                id: 'project-page',
+                headline: currentProject.name,
+                hasPanel: false,
+                project: currentProject
+            };
 
-        (0, _helpers.setPageTitle)(_this.state.headline);
-        setNavigationItem('projects-page');
+            (0, _helpers.setPageTitle)(_this.state.headline);
+            setNavigationItem('projects-page');
+        } catch (error) {
+            document.location = '/page-not-found';
+        }
         return _this;
     }
 

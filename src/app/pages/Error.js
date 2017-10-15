@@ -3,6 +3,7 @@ import { setPageTitle } from './../helpers';
 import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
+import Button from './../components/Button';
 
 export default class Error extends Component {
     constructor(props) {
@@ -29,9 +30,10 @@ export default class Error extends Component {
                 <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
                     <Headline headline={headline} />
 
-                    <p>
-                        Some error just occured...
-                    </p>
+                    <Text headline={headline}>
+                        <p>I'm really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page you've been looking for was not founded. Please, go to homepage and try your luck elsewhere.</p>
+                        <Button title="Go to homepage" url="/" />
+                    </Text>
                 </ContentLayout>
             </div>
         );

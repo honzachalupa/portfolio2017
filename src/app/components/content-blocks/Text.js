@@ -8,7 +8,7 @@ export default class Text extends Component {
         return (
             <article data-component={componentName}>
                 <h2 className="headline">{headline}</h2>
-                <p className="content">{value || text}</p>
+                <div className="content">{value || text}</div>
             </article>
         );
     }
