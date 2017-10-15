@@ -12,7 +12,7 @@ export default class Content extends Component {
 
         return (
             <div data-component={componentName}>
-                <div className={`navigation-overlay ${navigationOpened ? 'visible' : ''}`} onClick={() => navigationToggler(true)} />
+                <button className={`navigation-overlay ${navigationOpened ? 'visible' : ''}`} onClick={() => navigationToggler(true)} />
                 <NavigationButton config={config} utilities={utilities} />
 
                 <Header config={config} utilities={utilities} />

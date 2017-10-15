@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import axios from 'axios';
+import logger from './../modules/logger';
 import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
@@ -11,14 +12,16 @@ import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 
 export default class Root extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        const { apiUrlRoot } = props; // Check when going to production
 
         this.navigationToggler = this.navigationToggler.bind(this);
         this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
-        axios.get('http://153.100.117.247:5003/data')
+        axios.get(`${apiUrlRoot}/data`)
             .then((response) => {
                 const { projects, config } = response.data;
 
@@ -49,7 +52,7 @@ export default class Root extends Component {
                 this.updateDimensions();
             })
             .catch((error) => {
-                console.error(error);
+                logger(error);
             });
 
         // To-do: Replace this workaround with better and cleaner solution
@@ -66,20 +69,6 @@ export default class Root extends Component {
         window.removeEventListener('resize', this.updateDimensions);
     }
 
-    navigationToggler(forceClose) {
-        const { navigationOpened, window, screenBreakpoint } = this.state.config;
-
-        if (window.width < screenBreakpoint) {
-            this.setState({
-                config: update(this.state.config, {
-                    $merge: {
-                        navigationOpened: (forceClose === 'undefined') ? false : !navigationOpened
-                    }
-                })
-            });
-        }
-    }
-
     setNavigationItem(clickedId) {
         let { navigationItems } = this.state.config;
 
@@ -94,6 +83,20 @@ export default class Root extends Component {
         });
 
         window.scrollTo(0, 0);
+    }
+
+    navigationToggler(forceClose) {
+        const { navigationOpened, window, screenBreakpoint } = this.state.config;
+
+        if (window.width < screenBreakpoint) {
+            this.setState({
+                config: update(this.state.config, {
+                    $merge: {
+                        navigationOpened: (forceClose === 'undefined') ? false : !navigationOpened
+                    }
+                })
+            });
+        }
     }
 
     updateDimensions() {

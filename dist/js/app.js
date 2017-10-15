@@ -27855,18 +27855,18 @@ module.exports = warning;
 
 var _render = require('./render');
 
+var _logger = require('./modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 var _Root = require('./components/Root');
 
 var _Root2 = _interopRequireDefault(_Root);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import 'babel-polyfill';
-// import 'svgxuse';
-// import init from './init';
-// import factory from './factory';
 var app = function app(config) {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'));
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.0.15:5003' });
 
     try {
         var css = '';
@@ -27879,13 +27879,17 @@ var app = function app(config) {
             document.querySelector('head').innerHTML += '<style id="risky-css" data-note="Generated for newer browsers.">' + css + '</style>';
         }
     } catch (e) {
-        console.log(new Error('The CSS.supports feature not supported.'));
+        (0, _logger2.default)(new Error('The CSS.supports feature not supported.'));
     }
-};
+}; // import 'babel-polyfill';
+// import 'svgxuse';
+// import init from './init';
+// import factory from './factory';
+
 
 app(window.config);
 
-},{"./components/Root":308,"./render":323}],300:[function(require,module,exports){
+},{"./components/Root":308,"./modules/logger":318,"./render":324}],300:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27942,7 +27946,7 @@ var Button = function (_Component) {
                 );
             } else if (onClick) {
                 return _react2.default.createElement(
-                    'a',
+                    'button',
                     { className: extraClasses, onClick: onClick, title: title, 'data-component': componentName },
                     title
                 );
@@ -28363,7 +28367,7 @@ var NavigationButton = function (_Component) {
             var navigationToggler = utilities.navigationToggler;
 
 
-            return _react2.default.createElement('div', { className: '' + (navigationOpened ? 'opened' : ''), onClick: function onClick() {
+            return _react2.default.createElement('button', { className: '' + (navigationOpened ? 'opened' : ''), onClick: function onClick() {
                     return navigationToggler();
                 }, 'data-component': componentName });
         }
@@ -28495,6 +28499,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _logger = require('./../modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 var _Home = require('./../pages/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
@@ -28534,16 +28542,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Root = function (_Component) {
     _inherits(Root, _Component);
 
-    function Root() {
+    function Root(props) {
         _classCallCheck(this, Root);
 
-        var _this = _possibleConstructorReturn(this, (Root.__proto__ || Object.getPrototypeOf(Root)).call(this));
+        var _this = _possibleConstructorReturn(this, (Root.__proto__ || Object.getPrototypeOf(Root)).call(this, props));
+
+        var apiUrlRoot = props.apiUrlRoot; // Check when going to production
 
         _this.navigationToggler = _this.navigationToggler.bind(_this);
         _this.setNavigationItem = _this.setNavigationItem.bind(_this);
         _this.updateDimensions = _this.updateDimensions.bind(_this);
 
-        _axios2.default.get('http://153.100.117.247:5003/data').then(function (response) {
+        _axios2.default.get(apiUrlRoot + '/data').then(function (response) {
             var _response$data = response.data,
                 projects = _response$data.projects,
                 config = _response$data.config;
@@ -28575,7 +28585,7 @@ var Root = function (_Component) {
 
             _this.updateDimensions();
         }).catch(function (error) {
-            console.error(error);
+            (0, _logger2.default)(error);
         });
 
         // To-do: Replace this workaround with better and cleaner solution
@@ -28596,6 +28606,24 @@ var Root = function (_Component) {
             window.removeEventListener('resize', this.updateDimensions);
         }
     }, {
+        key: 'setNavigationItem',
+        value: function setNavigationItem(clickedId) {
+            var navigationItems = this.state.config.navigationItems;
+
+
+            navigationItems = navigationItems.forEach(function (item) {
+                item.active = item.id === clickedId;
+            });
+
+            this.setState({
+                navigationItems: (0, _immutabilityHelper2.default)(this.state.config.navigationItems, {
+                    $set: navigationItems
+                })
+            });
+
+            window.scrollTo(0, 0);
+        }
+    }, {
         key: 'navigationToggler',
         value: function navigationToggler(forceClose) {
             var _state$config = this.state.config,
@@ -28613,24 +28641,6 @@ var Root = function (_Component) {
                     })
                 });
             }
-        }
-    }, {
-        key: 'setNavigationItem',
-        value: function setNavigationItem(clickedId) {
-            var navigationItems = this.state.config.navigationItems;
-
-
-            navigationItems = navigationItems.forEach(function (item) {
-                item.active = item.id === clickedId;
-            });
-
-            this.setState({
-                navigationItems: (0, _immutabilityHelper2.default)(this.state.config.navigationItems, {
-                    $set: navigationItems
-                })
-            });
-
-            window.scrollTo(0, 0);
         }
     }, {
         key: 'updateDimensions',
@@ -28722,7 +28732,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":314,"./../modules/aspect-ratio-preserver":317,"./../pages/AboutMe":318,"./../pages/Home":319,"./../pages/NotFound":320,"./../pages/ProjectDetail":321,"./../pages/Projects":322,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
+},{"./../factory":314,"./../modules/aspect-ratio-preserver":317,"./../modules/logger":318,"./../pages/AboutMe":319,"./../pages/Home":320,"./../pages/NotFound":321,"./../pages/ProjectDetail":322,"./../pages/Projects":323,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28997,9 +29007,13 @@ var ProjectTeaser = function (_Component) {
                 _react2.default.createElement(
                     'h2',
                     { className: 'headline' },
-                    'Latest Projects'
+                    'Latest Project'
                 ),
-                _react2.default.createElement('a', { className: 'image', href: '/projects/' + id, style: { backgroundImage: 'url(\'' + previewImage + '\')' }, title: 'Show project details', 'data-aspect-ratio': '4:3' }),
+                _react2.default.createElement(
+                    'a',
+                    { className: 'image', href: '/projects/' + id, style: { backgroundImage: 'url(\'' + previewImage + '\')' }, title: 'Show project details', 'data-aspect-ratio': '4:3', 'data-aspect-ratio-mobile': '16:10' },
+                    '\xA0'
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: 'text-section' },
@@ -29183,7 +29197,7 @@ var Content = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { 'data-component': componentName },
-                _react2.default.createElement('div', { className: 'navigation-overlay ' + (navigationOpened ? 'visible' : ''), onClick: function onClick() {
+                _react2.default.createElement('button', { className: 'navigation-overlay ' + (navigationOpened ? 'visible' : ''), onClick: function onClick() {
                         return navigationToggler(true);
                     } }),
                 _react2.default.createElement(_NavigationButton2.default, { config: config, utilities: utilities }),
@@ -29247,6 +29261,20 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 exports.default = aspectRatioPreserver;
 
 },{}],318:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var logger = function logger(message) {
+    /* eslint-disable */
+    console.log(message, '(via Logger helper)');
+    /* eslint-enable */
+};
+
+exports.default = logger;
+
+},{}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29338,7 +29366,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],319:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29478,7 +29506,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],320:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29570,7 +29598,7 @@ var NotFound = function (_Component) {
 
 exports.default = NotFound;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29674,7 +29702,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],322:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29856,7 +29884,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
     return null;
 };
 
-},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],323:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

@@ -2,7 +2,7 @@
     [data-component="ContentBlock_Grid"] {
         ul {
             [data-component="ContentBlock_GridItem"],
-            &:after {
+            &::after {
                 @media (max-width: 679px) {
                     flex-basis: 100%;
                 }
@@ -20,7 +20,7 @@
         [data-component="ContentBlock_Grid"] {
             ul {
                 [data-component="ContentBlock_GridItem"],
-                &:after {
+                &::after {
                     @media (max-width: 679px) {
                         flex-basis: 100%;
                     }
@@ -68,7 +68,7 @@
         float: left;
         justify-content: space-between;
 
-        &:after {
+        &::after {
             content: "";
         }
 

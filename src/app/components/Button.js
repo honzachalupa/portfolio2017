@@ -14,7 +14,7 @@ export default class Button extends Component {
             );
         } else if (onClick) {
             return (
-                <a className={extraClasses} onClick={onClick} title={title} data-component={componentName}>{title}</a>
+                <button className={extraClasses} onClick={onClick} title={title} data-component={componentName}>{title}</button>
             );
         }
 

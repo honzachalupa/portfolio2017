@@ -3,10 +3,11 @@
 // import init from './init';
 // import factory from './factory';
 import { render, renderFactory } from './render';
+import logger from './modules/logger';
 import Root from './components/Root';
 
 const app = (config) => {
-    render(Root, document.querySelector('#app-root'));
+    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.0.15:5003' });
 
     try {
         let css = '';
@@ -57,7 +58,7 @@ const app = (config) => {
             document.querySelector('head').innerHTML += `<style id="risky-css" data-note="Generated for newer browsers.">${css}</style>`;
         }
     } catch (e) {
-        console.log(new Error('The CSS.supports feature not supported.'));
+        logger(new Error('The CSS.supports feature not supported.'));
     }
 };
 
