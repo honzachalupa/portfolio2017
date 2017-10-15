@@ -4,7 +4,7 @@ import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 
-export default class NotFound extends Component {
+export default class Error extends Component {
     constructor(props) {
         super(props);
 
@@ -30,7 +30,7 @@ export default class NotFound extends Component {
                     <Headline headline={headline} />
 
                     <p>
-                        404
+                        Some error just occured...
                     </p>
                 </ContentLayout>
             </div>

@@ -28519,9 +28519,9 @@ var _ProjectDetail = require('./../pages/ProjectDetail');
 
 var _ProjectDetail2 = _interopRequireDefault(_ProjectDetail);
 
-var _NotFound = require('./../pages/NotFound');
+var _Error = require('./../pages/Error');
 
-var _NotFound2 = _interopRequireDefault(_NotFound);
+var _Error2 = _interopRequireDefault(_Error);
 
 var _factory = require('./../factory');
 
@@ -28716,14 +28716,14 @@ var Root = function (_Component) {
                         }),
                         _react2.default.createElement(_reactRouterDom.Route, {
                             render: function render(props) {
-                                return _react2.default.createElement(_NotFound2.default, { config: config, utilities: utilities });
+                                return _react2.default.createElement(_Error2.default, { config: config, utilities: utilities });
                             }
                         })
                     )
                 );
             }
 
-            return _react2.default.createElement(_NotFound2.default, { config: this.state.config, utilities: this.state.utilities });
+            return _react2.default.createElement(_Error2.default, { config: this.state.config, utilities: this.state.utilities });
         }
     }]);
 
@@ -28732,7 +28732,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":314,"./../modules/aspect-ratio-preserver":317,"./../modules/logger":318,"./../pages/AboutMe":319,"./../pages/Home":320,"./../pages/NotFound":321,"./../pages/ProjectDetail":322,"./../pages/Projects":323,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
+},{"./../factory":314,"./../modules/aspect-ratio-preserver":317,"./../modules/logger":318,"./../pages/AboutMe":319,"./../pages/Error":320,"./../pages/Home":321,"./../pages/ProjectDetail":322,"./../pages/Projects":323,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29373,6 +29373,98 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _helpers = require('./../helpers');
+
+var _Headline = require('./../components/Headline');
+
+var _Headline2 = _interopRequireDefault(_Headline);
+
+var _Content = require('./../layouts/Content');
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Text = require('./../components/content-blocks/Text');
+
+var _Text2 = _interopRequireDefault(_Text);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Error = function (_Component) {
+    _inherits(Error, _Component);
+
+    function Error(props) {
+        _classCallCheck(this, Error);
+
+        var _this = _possibleConstructorReturn(this, (Error.__proto__ || Object.getPrototypeOf(Error)).call(this, props));
+
+        var setNavigationItem = props.utilities.setNavigationItem;
+
+
+        _this.state = {
+            id: 'not-found-page',
+            headline: 'Page not found',
+            hasPanel: true
+        };
+
+        (0, _helpers.setPageTitle)(_this.state.headline);
+        setNavigationItem(null);
+        return _this;
+    }
+
+    _createClass(Error, [{
+        key: 'render',
+        value: function render() {
+            var _state = this.state,
+                id = _state.id,
+                headline = _state.headline,
+                hasPanel = _state.hasPanel;
+            var _props = this.props,
+                config = _props.config,
+                utilities = _props.utilities,
+                params = _props.params;
+
+
+            return _react2.default.createElement(
+                'div',
+                { id: id, 'data-component': 'Page' },
+                _react2.default.createElement(
+                    _Content2.default,
+                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    _react2.default.createElement(_Headline2.default, { headline: headline }),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Some error just occured...'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Error;
+}(_react.Component);
+
+exports.default = Error;
+
+},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -29506,99 +29598,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _helpers = require('./../helpers');
-
-var _Headline = require('./../components/Headline');
-
-var _Headline2 = _interopRequireDefault(_Headline);
-
-var _Content = require('./../layouts/Content');
-
-var _Content2 = _interopRequireDefault(_Content);
-
-var _Text = require('./../components/content-blocks/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NotFound = function (_Component) {
-    _inherits(NotFound, _Component);
-
-    function NotFound(props) {
-        _classCallCheck(this, NotFound);
-
-        var _this = _possibleConstructorReturn(this, (NotFound.__proto__ || Object.getPrototypeOf(NotFound)).call(this, props));
-
-        var setNavigationItem = props.utilities.setNavigationItem;
-
-
-        _this.state = {
-            id: 'not-found-page',
-            headline: 'Page not found',
-            hasPanel: true
-        };
-
-        (0, _helpers.setPageTitle)(_this.state.headline);
-        setNavigationItem(null);
-        return _this;
-    }
-
-    _createClass(NotFound, [{
-        key: 'render',
-        value: function render() {
-            var _state = this.state,
-                id = _state.id,
-                headline = _state.headline,
-                hasPanel = _state.hasPanel;
-            var _props = this.props,
-                config = _props.config,
-                utilities = _props.utilities,
-                params = _props.params;
-
-
-            return _react2.default.createElement(
-                'div',
-                { id: id, 'data-component': 'Page' },
-                _react2.default.createElement(
-                    _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        '404'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return NotFound;
-}(_react.Component);
-
-exports.default = NotFound;
-
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],322:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

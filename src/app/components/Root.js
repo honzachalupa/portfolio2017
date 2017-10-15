@@ -7,7 +7,7 @@ import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
 import ProjectDetailPage from './../pages/ProjectDetail';
-import NotFoundPage from './../pages/NotFound';
+import ErrorPage from './../pages/Error';
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 
@@ -162,7 +162,7 @@ export default class Root extends Component {
                         />
                         <Route
                             render={(props) => (
-                                <NotFoundPage config={config} utilities={utilities} />
+                                <ErrorPage config={config} utilities={utilities} />
                             )}
                         />
                     </Switch>
@@ -170,6 +170,6 @@ export default class Root extends Component {
             );
         }
 
-        return <NotFoundPage config={this.state.config} utilities={this.state.utilities} />;
+        return <ErrorPage config={this.state.config} utilities={this.state.utilities} />;
     }
 }
