@@ -28674,7 +28674,7 @@ var Root = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            if (this.state && this.state.projects && this.state.config) {
+            if (this.state && this.state.config && this.state.utilities && this.state.config) {
                 var _state = this.state,
                     config = _state.config,
                     utilities = _state.utilities,
@@ -28723,7 +28723,7 @@ var Root = function (_Component) {
                 );
             }
 
-            return _react2.default.createElement(_Error2.default, { config: this.state.config, utilities: this.state.utilities });
+            return null;
         }
     }]);
 

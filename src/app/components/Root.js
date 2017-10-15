@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import axios from 'axios';
-import logger from './../modules/logger';
+import log from './../modules/logger';
 import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
@@ -52,7 +52,7 @@ export default class Root extends Component {
                 this.updateDimensions();
             })
             .catch((error) => {
-                logger(error);
+                log(error);
             });
 
         // To-do: Replace this workaround with better and cleaner solution
@@ -127,7 +127,7 @@ export default class Root extends Component {
     }
 
     render() {
-        if (this.state && this.state.projects && this.state.config) {
+        if (this.state && this.state.config && this.state.utilities && this.state.config) {
             const { config, utilities, projects } = this.state;
 
             return (
@@ -170,6 +170,6 @@ export default class Root extends Component {
             );
         }
 
-        return <ErrorPage config={this.state.config} utilities={this.state.utilities} />;
+        return null;
     }
 }
