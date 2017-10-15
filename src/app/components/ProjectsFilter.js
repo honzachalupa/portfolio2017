@@ -9,41 +9,41 @@ export default class ProjectsFilter extends Component {
 
         const { projects } = this.props;
 
-        const typeIDs = [];
+        const platformIDs = [];
         projects.forEach((project) => {
-            const { type } = project;
+            const { platform } = project;
 
-            if (typeIDs.indexOf(type) === -1) {
-                typeIDs.push(type);
+            if (platformIDs.indexOf(platform) === -1) {
+                platformIDs.push(platform);
             }
         });
 
-        const types = [{
+        const platforms = [{
             id: 'all',
             label: 'All'
         }];
-        typeIDs.forEach((id) => {
-            types.push({
+        platformIDs.forEach((id) => {
+            platforms.push({
                 id,
-                label: capitalize(id.replace(/-/, ' '))
+                label: capitalize(id)
             });
         });
 
         this.state = {
-            types
+            platforms
         };
     }
 
     render() {
         const componentName = this.constructor.name;
-        const { changeFilter } = this.props;
-        const { types } = this.state;
+        const { changeFilter, alignment } = this.props;
+        const { platforms } = this.state;
 
         return (
             <div data-component={componentName}>
-                <ButtonsGroup>
+                <ButtonsGroup alignment={alignment || 'left'}>
                     {
-                        types.map((projectType) => {
+                        platforms.map((projectType) => {
                             return (
                                 <Button key={projectType.id} title={projectType.label} onClick={() => changeFilter(projectType.id)} />
                             );

@@ -23,22 +23,14 @@ export default class Root extends Component {
 
         axios.get(`${apiUrlRoot}/data`)
             .then((response) => {
-                const { projects, config } = response.data;
+                const { config } = response.data;
+                let { projects } = response.data;
 
-                projects.sort((a, b) => {
-                    return new Date(b.addedDate) - new Date(a.addedDate);
-                });
-
-                const projectTypes = [];
-
-                projects.forEach((project) => {
-                    if (projectTypes.indexOf(project.type) === -1) {
-                        projectTypes.push(project.type);
-                    }
-                });
+                projects = this.filterProjects(projects);
+                projects = this.sortProjects(projects);
 
                 config.navigationOpened = false;
-                config.projectTypes = projectTypes;
+                config.projectTypes = this.getProjectTypes(projects);
 
                 this.setState({
                     projects,
@@ -55,7 +47,7 @@ export default class Root extends Component {
                 log(error);
             });
 
-        // To-do: Replace this workaround with better and cleaner solution
+        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
         setInterval(() => {
             factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
         }, 100);
@@ -83,6 +75,36 @@ export default class Root extends Component {
         });
 
         window.scrollTo(0, 0);
+    }
+
+    getProjectTypes(projects) {
+        const projectTypes = [];
+
+        projects.forEach((project) => {
+            if (projectTypes.indexOf(project.type) === -1) {
+                projectTypes.push(project.type);
+            }
+        });
+
+        return projectTypes;
+    }
+
+    filterProjects(projects) {
+        const filtered = [];
+
+        projects.forEach((project) => {
+            if (project.hidden === undefined || project.hidden === false) {
+                filtered.push(project);
+            }
+        });
+
+        return filtered;
+    }
+
+    sortProjects(projects) {
+        return projects.sort((a, b) => {
+            return new Date(b.addedDate) - new Date(a.addedDate);
+        });
     }
 
     navigationToggler(forceClose) {

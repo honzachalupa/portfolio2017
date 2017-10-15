@@ -46,14 +46,14 @@ export default class Projects extends Component {
                         Something...
                     </Text>
 
-                    <Blank headline="Filtr">
+                    <Blank headline="Filter">
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
 
                     <BlockWebApps projects={projects} filter={filter} />
                     <BlockNativeApps projects={projects} filter={filter} />
 
-                    <Blank headline="Filtr">
+                    <Blank headline="Filter">
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
                 </ContentLayout>
@@ -65,9 +65,9 @@ export default class Projects extends Component {
 const BlockWebApps = (props) => {
     const { projects, filter } = props;
 
-    if (filter === 'web-app' || filter === 'all') {
+    if (filter === 'web' || filter === 'all') {
         const projectsWeb = projects.filter((project) => {
-            return project.type === 'web-app';
+            return project.platform === 'web';
         });
 
         return (
@@ -91,15 +91,15 @@ const BlockWebApps = (props) => {
 const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
-    const projectsNative = projects.filter((project) => {
-        return project.type === 'native-app';
+    const projectsMobile = projects.filter((project) => {
+        return project.platform === 'mobile';
     });
 
-    if (filter === 'native-app' || filter === 'all') {
+    if (filter === 'mobile' || filter === 'all') {
         return (
-            <Grid headline="Native Apps" isCentered>
+            <Grid headline="Mobile Apps" isCentered>
                 {
-                    projectsNative.map((project) => {
+                    projectsMobile.map((project) => {
                         const title = `Show details for ${project.name} project`;
 
                         return (

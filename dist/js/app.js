@@ -27997,7 +27997,7 @@ var ButtonsGroup = function (_Component) {
             var componentName = this.constructor.name;
             var _props = this.props,
                 buttons = _props.children,
-                align = _props.align;
+                alignment = _props.alignment;
 
 
             return _react2.default.createElement(
@@ -28005,7 +28005,7 @@ var ButtonsGroup = function (_Component) {
                 { 'data-component': componentName },
                 _react2.default.createElement(
                     'div',
-                    { className: 'alignment ' + align },
+                    { className: 'alignment ' + alignment },
                     buttons
                 )
             );
@@ -28420,29 +28420,29 @@ var ProjectsFilter = function (_Component) {
         var projects = _this.props.projects;
 
 
-        var typeIDs = [];
+        var platformIDs = [];
         projects.forEach(function (project) {
-            var type = project.type;
+            var platform = project.platform;
 
 
-            if (typeIDs.indexOf(type) === -1) {
-                typeIDs.push(type);
+            if (platformIDs.indexOf(platform) === -1) {
+                platformIDs.push(platform);
             }
         });
 
-        var types = [{
+        var platforms = [{
             id: 'all',
             label: 'All'
         }];
-        typeIDs.forEach(function (id) {
-            types.push({
+        platformIDs.forEach(function (id) {
+            platforms.push({
                 id: id,
-                label: (0, _helpers.capitalize)(id.replace(/-/, ' '))
+                label: (0, _helpers.capitalize)(id)
             });
         });
 
         _this.state = {
-            types: types
+            platforms: platforms
         };
         return _this;
     }
@@ -28451,8 +28451,10 @@ var ProjectsFilter = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = this.constructor.name;
-            var changeFilter = this.props.changeFilter;
-            var types = this.state.types;
+            var _props = this.props,
+                changeFilter = _props.changeFilter,
+                alignment = _props.alignment;
+            var platforms = this.state.platforms;
 
 
             return _react2.default.createElement(
@@ -28460,8 +28462,8 @@ var ProjectsFilter = function (_Component) {
                 { 'data-component': componentName },
                 _react2.default.createElement(
                     _ButtonsGroup2.default,
-                    null,
-                    types.map(function (projectType) {
+                    { alignment: alignment || 'left' },
+                    platforms.map(function (projectType) {
                         return _react2.default.createElement(_Button2.default, { key: projectType.id, title: projectType.label, onClick: function onClick() {
                                 return changeFilter(projectType.id);
                             } });
@@ -28554,25 +28556,15 @@ var Root = function (_Component) {
         _this.updateDimensions = _this.updateDimensions.bind(_this);
 
         _axios2.default.get(apiUrlRoot + '/data').then(function (response) {
-            var _response$data = response.data,
-                projects = _response$data.projects,
-                config = _response$data.config;
+            var config = response.data.config;
+            var projects = response.data.projects;
 
 
-            projects.sort(function (a, b) {
-                return new Date(b.addedDate) - new Date(a.addedDate);
-            });
-
-            var projectTypes = [];
-
-            projects.forEach(function (project) {
-                if (projectTypes.indexOf(project.type) === -1) {
-                    projectTypes.push(project.type);
-                }
-            });
+            projects = _this.filterProjects(projects);
+            projects = _this.sortProjects(projects);
 
             config.navigationOpened = false;
-            config.projectTypes = projectTypes;
+            config.projectTypes = _this.getProjectTypes(projects);
 
             _this.setState({
                 projects: projects,
@@ -28588,7 +28580,7 @@ var Root = function (_Component) {
             (0, _logger2.default)(error);
         });
 
-        // To-do: Replace this workaround with better and cleaner solution
+        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
         setInterval(function () {
             (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
         }, 100);
@@ -28622,6 +28614,39 @@ var Root = function (_Component) {
             });
 
             window.scrollTo(0, 0);
+        }
+    }, {
+        key: 'getProjectTypes',
+        value: function getProjectTypes(projects) {
+            var projectTypes = [];
+
+            projects.forEach(function (project) {
+                if (projectTypes.indexOf(project.type) === -1) {
+                    projectTypes.push(project.type);
+                }
+            });
+
+            return projectTypes;
+        }
+    }, {
+        key: 'filterProjects',
+        value: function filterProjects(projects) {
+            var filtered = [];
+
+            projects.forEach(function (project) {
+                if (project.hidden === undefined || project.hidden === false) {
+                    filtered.push(project);
+                }
+            });
+
+            return filtered;
+        }
+    }, {
+        key: 'sortProjects',
+        value: function sortProjects(projects) {
+            return projects.sort(function (a, b) {
+                return new Date(b.addedDate) - new Date(a.addedDate);
+            });
         }
     }, {
         key: 'navigationToggler',
@@ -28855,12 +28880,20 @@ var Item = function (_Component) {
                 _react2.default.createElement(
                     _reactRouterDom.Link,
                     { to: '/projects/' + id, title: title },
-                    _react2.default.createElement('div', { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' }),
-                    companyBlock,
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
+                        companyBlock
+                    ),
                     _react2.default.createElement(
                         'h3',
                         { className: 'headline' },
                         name
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'description' },
+                        description
                     )
                 )
             );
@@ -29453,7 +29486,7 @@ var Error = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'I\'m really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page you\'ve been looking for was not founded. Please, go to homepage and try your luck elsewhere.'
+                            'Im really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page youve been looking for was not founded. Please, go to homepage and try your luck elsewhere.'
                         ),
                         _react2.default.createElement(_Button2.default, { title: 'Go to homepage', url: '/' })
                     )
@@ -29543,7 +29576,8 @@ var Home = function (_Component) {
             headline: 'Introduction',
             hasPanel: false,
             latestProject: projects[0],
-            latestProjectsMore: [projects[1], projects[2], projects[3], projects[4], projects[5], projects[6]]
+            latestProjectsMore: [projects[0], // To-do: Remove this line
+            projects[1], projects[2], projects[3], projects[4], projects[5], projects[6]]
         };
 
         (0, _helpers.setPageTitle)();
@@ -29828,14 +29862,14 @@ var Projects = function (_Component) {
                     ),
                     _react2.default.createElement(
                         _Blank2.default,
-                        { headline: 'Filtr' },
+                        { headline: 'Filter' },
                         _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter })
                     ),
                     _react2.default.createElement(BlockWebApps, { projects: projects, filter: filter }),
                     _react2.default.createElement(BlockNativeApps, { projects: projects, filter: filter }),
                     _react2.default.createElement(
                         _Blank2.default,
-                        { headline: 'Filtr' },
+                        { headline: 'Filter' },
                         _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter })
                     )
                 )
@@ -29854,9 +29888,9 @@ var BlockWebApps = function BlockWebApps(props) {
         filter = props.filter;
 
 
-    if (filter === 'web-app' || filter === 'all') {
+    if (filter === 'web' || filter === 'all') {
         var projectsWeb = projects.filter(function (project) {
-            return project.type === 'web-app';
+            return project.platform === 'web';
         });
 
         return _react2.default.createElement(
@@ -29878,15 +29912,15 @@ var BlockNativeApps = function BlockNativeApps(props) {
         filter = props.filter;
 
 
-    var projectsNative = projects.filter(function (project) {
-        return project.type === 'native-app';
+    var projectsMobile = projects.filter(function (project) {
+        return project.platform === 'mobile';
     });
 
-    if (filter === 'native-app' || filter === 'all') {
+    if (filter === 'mobile' || filter === 'all') {
         return _react2.default.createElement(
             _Grid2.default,
-            { headline: 'Native Apps', isCentered: true },
-            projectsNative.map(function (project) {
+            { headline: 'Mobile Apps', isCentered: true },
+            projectsMobile.map(function (project) {
                 var title = 'Show details for ' + project.name + ' project';
 
                 return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title, aspectRatio: '4:3', aspectRatioMobile: '16:9' }));

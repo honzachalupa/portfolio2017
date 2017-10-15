@@ -15,7 +15,9 @@
     -webkit-font-smoothing: antialiased;
 }
 
-a {
+a,
+button {
+    background-color: transparent;
     color: inherit;
     cursor: pointer;
     text-decoration: inherit;

@@ -22,6 +22,7 @@ export default class Home extends Component {
             hasPanel: false,
             latestProject: projects[0],
             latestProjectsMore: [
+                projects[0], // To-do: Remove this line
                 projects[1],
                 projects[2],
                 projects[3],

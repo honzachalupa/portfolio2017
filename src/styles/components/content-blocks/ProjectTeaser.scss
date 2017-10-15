@@ -23,6 +23,8 @@
     .image {
         float: left;
         position: relative;
+        background-position-y: top;
+        box-shadow: 0 0 15px transparentize($accent-color, 0.8);
 
         @media (max-width: 679px) {
             width: 100%;
