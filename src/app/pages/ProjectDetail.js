@@ -3,6 +3,8 @@ import { setPageTitle } from './../helpers';
 import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
+import ImagesGrid from './../components/content-blocks/ImagesGrid';
+import Button from './../components/Button';
 
 export default class ProjectDetail extends Component {
     constructor(props) {
@@ -45,8 +47,12 @@ export default class ProjectDetail extends Component {
                     <Headline headline={headline} />
 
                     <Text headline={project.name}>
-                        {project.description}
+                        <p>{project.description}</p>
+
+                        <Button />
                     </Text>
+
+                    <ImagesGrid headline="Gallery" images={project.gallery} />
                 </ContentLayout>
             </div>
         );

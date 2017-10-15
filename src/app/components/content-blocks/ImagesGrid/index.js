@@ -1,15 +1,20 @@
 import React, { Component, PropTypes } from 'react';
+import ImageItem from './Item';
 
-export default class Grid extends Component {
+export default class ImagesGrid extends Component {
     render() {
         const componentName = `ContentBlock_${this.constructor.name}`;
-        const { headline, children: items, extraClasses } = this.props;
+        const { headline, images, extraClasses } = this.props;
 
         return (
             <article data-component={componentName} className={extraClasses}>
                 <h2 className="headline">{headline}</h2>
                 <ul>
-                    {items}
+                    {
+                        images.map((image) => {
+                            return <ImageItem {...image} />;
+                        })
+                    }
                 </ul>
             </article>
         );

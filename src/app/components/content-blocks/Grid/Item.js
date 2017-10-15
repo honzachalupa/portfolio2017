@@ -18,9 +18,7 @@ export default class Item extends Component {
             type,
             company,
             addedDate,
-            title,
-            aspectRatio,
-            aspectRatioMobile
+            title
         } = this.props;
 
         const companyBlock = company ?

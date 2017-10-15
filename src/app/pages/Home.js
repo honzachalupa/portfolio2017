@@ -56,7 +56,7 @@ export default class Home extends Component {
                         Good bye, world...
                     </Text>
 
-                    <Grid headline="My Projects" extraClasses="latest-projects" isCentered>
+                    <Grid headline="My Projects" extraClasses="latest-projects">
                         {
                             latestProjectsMore.map((project) => {
                                 const title = `Show details for ${project.name} project`;

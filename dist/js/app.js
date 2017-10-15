@@ -27889,7 +27889,7 @@ var app = function app(config) {
 
 app(window.config);
 
-},{"./components/Root":308,"./modules/logger":318,"./render":324}],300:[function(require,module,exports){
+},{"./components/Root":308,"./modules/logger":320,"./render":326}],300:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27961,7 +27961,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":315,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
+},{"./../helpers":317,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28192,7 +28192,7 @@ var Header = function (_Component) {
 
 exports.default = Header;
 
-},{"./../helpers":315,"./Navigation":305,"react":275,"react-router-dom":236}],304:[function(require,module,exports){
+},{"./../helpers":317,"./Navigation":305,"react":275,"react-router-dom":236}],304:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28248,7 +28248,7 @@ var Headline = function (_Component) {
 
 exports.default = Headline;
 
-},{"./../helpers":315,"./Navigation":305,"react":275}],305:[function(require,module,exports){
+},{"./../helpers":317,"./Navigation":305,"react":275}],305:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28478,7 +28478,7 @@ var ProjectsFilter = function (_Component) {
 
 exports.default = ProjectsFilter;
 
-},{"./../helpers":315,"./Button":300,"./ButtonsGroup":301,"react":275}],308:[function(require,module,exports){
+},{"./../helpers":317,"./Button":300,"./ButtonsGroup":301,"react":275}],308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28757,7 +28757,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":314,"./../modules/aspect-ratio-preserver":317,"./../modules/logger":318,"./../pages/AboutMe":319,"./../pages/Error":320,"./../pages/Home":321,"./../pages/ProjectDetail":322,"./../pages/Projects":323,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
+},{"./../factory":316,"./../modules/aspect-ratio-preserver":319,"./../modules/logger":320,"./../pages/AboutMe":321,"./../pages/Error":322,"./../pages/Home":323,"./../pages/ProjectDetail":324,"./../pages/Projects":325,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28867,9 +28867,7 @@ var Item = function (_Component) {
                 type = _props.type,
                 company = _props.company,
                 addedDate = _props.addedDate,
-                title = _props.title,
-                aspectRatio = _props.aspectRatio,
-                aspectRatioMobile = _props.aspectRatioMobile;
+                title = _props.title;
 
 
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
@@ -28906,7 +28904,7 @@ var Item = function (_Component) {
 exports.default = Item;
 
 },{"react":275,"react-router-dom":236}],311:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -28914,7 +28912,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28936,26 +28934,25 @@ var Grid = function (_Component) {
     }
 
     _createClass(Grid, [{
-        key: 'render',
+        key: "render",
         value: function render() {
-            var componentName = 'ContentBlock_' + this.constructor.name;
+            var componentName = "ContentBlock_" + this.constructor.name;
             var _props = this.props,
                 headline = _props.headline,
                 items = _props.children,
-                isCentered = _props.isCentered,
                 extraClasses = _props.extraClasses;
 
 
             return _react2.default.createElement(
-                'article',
-                { 'data-component': componentName, className: extraClasses + ' ' + (isCentered ? 'centered' : '') },
+                "article",
+                { "data-component": componentName, className: extraClasses },
                 _react2.default.createElement(
-                    'h2',
-                    { className: 'headline' },
+                    "h2",
+                    { className: "headline" },
                     headline
                 ),
                 _react2.default.createElement(
-                    'ul',
+                    "ul",
                     null,
                     items
                 )
@@ -28969,6 +28966,138 @@ var Grid = function (_Component) {
 exports.default = Grid;
 
 },{"react":275}],312:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ImageItem = function (_Component) {
+    _inherits(ImageItem, _Component);
+
+    function ImageItem() {
+        _classCallCheck(this, ImageItem);
+
+        return _possibleConstructorReturn(this, (ImageItem.__proto__ || Object.getPrototypeOf(ImageItem)).apply(this, arguments));
+    }
+
+    _createClass(ImageItem, [{
+        key: 'render',
+        value: function render() {
+            var componentName = 'ContentBlock_Grid' + this.constructor.name;
+
+            var _props = this.props,
+                description = _props.description,
+                url = _props.url;
+
+
+            return _react2.default.createElement(
+                'li',
+                { 'data-component': componentName },
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: url, title: description },
+                    _react2.default.createElement('div', { className: 'image', style: { backgroundImage: 'url(\'' + url + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' }),
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'description' },
+                        description
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ImageItem;
+}(_react.Component);
+
+exports.default = ImageItem;
+
+},{"react":275,"react-router-dom":236}],313:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Item = require('./Item');
+
+var _Item2 = _interopRequireDefault(_Item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ImagesGrid = function (_Component) {
+    _inherits(ImagesGrid, _Component);
+
+    function ImagesGrid() {
+        _classCallCheck(this, ImagesGrid);
+
+        return _possibleConstructorReturn(this, (ImagesGrid.__proto__ || Object.getPrototypeOf(ImagesGrid)).apply(this, arguments));
+    }
+
+    _createClass(ImagesGrid, [{
+        key: 'render',
+        value: function render() {
+            var componentName = 'ContentBlock_' + this.constructor.name;
+            var _props = this.props,
+                headline = _props.headline,
+                images = _props.images,
+                extraClasses = _props.extraClasses;
+
+
+            return _react2.default.createElement(
+                'article',
+                { 'data-component': componentName, className: extraClasses },
+                _react2.default.createElement(
+                    'h2',
+                    { className: 'headline' },
+                    headline
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    images.map(function (image) {
+                        return _react2.default.createElement(_Item2.default, image);
+                    })
+                )
+            );
+        }
+    }]);
+
+    return ImagesGrid;
+}(_react.Component);
+
+exports.default = ImagesGrid;
+
+},{"./Item":312,"react":275}],314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29068,7 +29197,7 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":300,"react":275}],313:[function(require,module,exports){
+},{"./../Button":300,"react":275}],315:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29130,7 +29259,7 @@ var Text = function (_Component) {
 
 exports.default = Text;
 
-},{"react":275}],314:[function(require,module,exports){
+},{"react":275}],316:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29150,7 +29279,7 @@ function factory(fn, containers) {
     });
 }
 
-},{}],315:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29173,7 +29302,7 @@ function capitalize(text) {
     });
 }
 
-},{}],316:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29250,7 +29379,7 @@ var Content = function (_Component) {
 
 exports.default = Content;
 
-},{"./../components/Footer":302,"./../components/Header":303,"./../components/NavigationButton":306,"react":275}],317:[function(require,module,exports){
+},{"./../components/Footer":302,"./../components/Header":303,"./../components/NavigationButton":306,"react":275}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29293,7 +29422,7 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 
 exports.default = aspectRatioPreserver;
 
-},{}],318:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29307,7 +29436,7 @@ var logger = function logger(message) {
 
 exports.default = logger;
 
-},{}],319:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29399,7 +29528,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],320:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29500,7 +29629,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],321:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29619,7 +29748,7 @@ var Home = function (_Component) {
                     ),
                     _react2.default.createElement(
                         _Grid2.default,
-                        { headline: 'My Projects', extraClasses: 'latest-projects', isCentered: true },
+                        { headline: 'My Projects', extraClasses: 'latest-projects' },
                         latestProjectsMore.map(function (project) {
                             var title = 'Show details for ' + project.name + ' project';
 
@@ -29641,7 +29770,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],322:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":314,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29667,6 +29796,14 @@ var _Content2 = _interopRequireDefault(_Content);
 var _Text = require('./../components/content-blocks/Text');
 
 var _Text2 = _interopRequireDefault(_Text);
+
+var _ImagesGrid = require('./../components/content-blocks/ImagesGrid');
+
+var _ImagesGrid2 = _interopRequireDefault(_ImagesGrid);
+
+var _Button = require('./../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29737,8 +29874,14 @@ var ProjectDetail = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: project.name },
-                        project.description
-                    )
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            project.description
+                        ),
+                        _react2.default.createElement(_Button2.default, null)
+                    ),
+                    _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery })
                 )
             );
         }
@@ -29749,7 +29892,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],323:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/ImagesGrid":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29895,7 +30038,7 @@ var BlockWebApps = function BlockWebApps(props) {
 
         return _react2.default.createElement(
             _Grid2.default,
-            { headline: 'Web Apps', isCentered: true },
+            { headline: 'Web Apps' },
             projectsWeb.map(function (project) {
                 var title = 'Show details for ' + project.name + ' project';
 
@@ -29919,7 +30062,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
     if (filter === 'mobile' || filter === 'all') {
         return _react2.default.createElement(
             _Grid2.default,
-            { headline: 'Mobile Apps', isCentered: true },
+            { headline: 'Mobile Apps' },
             projectsMobile.map(function (project) {
                 var title = 'Show details for ' + project.name + ' project';
 
@@ -29931,7 +30074,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
     return null;
 };
 
-},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/Text":313,"./../helpers":315,"./../layouts/Content":316,"react":275}],324:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

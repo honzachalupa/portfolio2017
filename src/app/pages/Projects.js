@@ -71,7 +71,7 @@ const BlockWebApps = (props) => {
         });
 
         return (
-            <Grid headline="Web Apps" isCentered>
+            <Grid headline="Web Apps">
                 {
                     projectsWeb.map((project) => {
                         const title = `Show details for ${project.name} project`;
@@ -97,7 +97,7 @@ const BlockNativeApps = (props) => {
 
     if (filter === 'mobile' || filter === 'all') {
         return (
-            <Grid headline="Mobile Apps" isCentered>
+            <Grid headline="Mobile Apps">
                 {
                     projectsMobile.map((project) => {
                         const title = `Show details for ${project.name} project`;
