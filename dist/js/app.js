@@ -27906,6 +27906,10 @@ var _reactRouterDom = require('react-router-dom');
 
 var _helpers = require('./../helpers');
 
+var _logger = require('./../modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 var _Navigation = require('./Navigation');
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
@@ -27939,6 +27943,14 @@ var Button = function (_Component) {
 
 
             if (url) {
+                if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
+                    return _react2.default.createElement(
+                        'a',
+                        { className: extraClasses, href: url, onClick: onClick, title: title, 'data-component': componentName },
+                        title
+                    );
+                }
+
                 return _react2.default.createElement(
                     _reactRouterDom.Link,
                     { className: extraClasses, to: url, onClick: onClick, title: title, 'data-component': componentName },
@@ -27952,6 +27964,8 @@ var Button = function (_Component) {
                 );
             }
 
+            (0, _logger2.default)('Some of Button\'s props is missing:', { title: title, url: url, onClick: onClick, extraClasses: extraClasses });
+
             return null;
         }
     }]);
@@ -27961,7 +27975,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":317,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
+},{"./../helpers":317,"./../modules/logger":320,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28738,11 +28752,6 @@ var Root = function (_Component) {
                             render: function render(props) {
                                 return _react2.default.createElement(_ProjectDetail2.default, { config: config, utilities: utilities, projects: projects, params: props.match.params });
                             }
-                        }),
-                        _react2.default.createElement(_reactRouterDom.Route, {
-                            render: function render(props) {
-                                return _react2.default.createElement(_Error2.default, { config: config, utilities: utilities });
-                            }
                         })
                     )
                 );
@@ -28890,7 +28899,7 @@ var Item = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'p',
-                        { className: 'description' },
+                        { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
                         description
                     )
                 )
@@ -28939,9 +28948,16 @@ var Grid = function (_Component) {
             var componentName = "ContentBlock_" + this.constructor.name;
             var _props = this.props,
                 headline = _props.headline,
+                description = _props.description,
                 items = _props.children,
                 extraClasses = _props.extraClasses;
 
+
+            var descriptionBlock = description ? _react2.default.createElement(
+                "p",
+                { className: "description" },
+                description
+            ) : null;
 
             return _react2.default.createElement(
                 "article",
@@ -28951,6 +28967,7 @@ var Grid = function (_Component) {
                     { className: "headline" },
                     headline
                 ),
+                descriptionBlock,
                 _react2.default.createElement(
                     "ul",
                     null,
@@ -29064,14 +29081,31 @@ var ImagesGrid = function (_Component) {
     }
 
     _createClass(ImagesGrid, [{
+        key: 'completeImagesDefinition',
+        value: function completeImagesDefinition(images) {
+            return images.map(function (image) {
+                if (typeof image === 'string') {
+                    var url = image;
+
+                    return {
+                        url: url,
+                        description: null
+                    };
+                }
+
+                return image;
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var componentName = 'ContentBlock_' + this.constructor.name;
             var _props = this.props,
                 headline = _props.headline,
-                images = _props.images,
+                imagesUnfilled = _props.images,
                 extraClasses = _props.extraClasses;
 
+            var images = this.completeImagesDefinition(imagesUnfilled);
 
             return _react2.default.createElement(
                 'article',
@@ -29428,9 +29462,15 @@ exports.default = aspectRatioPreserver;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var logger = function logger(message) {
+var logger = function logger() {
+    var _console;
+
+    for (var _len = arguments.length, message = Array(_len), _key = 0; _key < _len; _key++) {
+        message[_key] = arguments[_key];
+    }
+
     /* eslint-disable */
-    console.log(message, '(via Logger helper)');
+    (_console = console).log.apply(_console, message.concat(['(via Logger helper)']));
     /* eslint-enable */
 };
 
@@ -29756,7 +29796,7 @@ var Home = function (_Component) {
                         }),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
-                            { align: 'center' },
+                            { alignment: 'center' },
                             _react2.default.createElement(_Button2.default, { title: 'Check all of my projects', url: '/projects' })
                         )
                     )
@@ -29879,7 +29919,7 @@ var ProjectDetail = function (_Component) {
                             null,
                             project.description
                         ),
-                        _react2.default.createElement(_Button2.default, null)
+                        _react2.default.createElement(_Button2.default, { title: 'Test', url: 'http://www.seznam.cz/' })
                     ),
                     _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery })
                 )
@@ -30062,7 +30102,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
     if (filter === 'mobile' || filter === 'all') {
         return _react2.default.createElement(
             _Grid2.default,
-            { headline: 'Mobile Apps' },
+            { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
             projectsMobile.map(function (project) {
                 var title = 'Show details for ' + project.name + ' project';
 

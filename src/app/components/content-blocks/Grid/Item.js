@@ -32,7 +32,7 @@ export default class Item extends Component {
                         {companyBlock}
                     </div>
                     <h3 className="headline">{name}</h3>
-                    <p className="description">{description}</p>
+                    <p className={`description ${description.length > 160 ? 'fadeout' : ''}`}>{description}</p>
                 </Link>
             </li>
         );

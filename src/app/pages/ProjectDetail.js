@@ -49,7 +49,7 @@ export default class ProjectDetail extends Component {
                     <Text headline={project.name}>
                         <p>{project.description}</p>
 
-                        <Button />
+                        <Button title="Test" url="http://www.seznam.cz/" />
                     </Text>
 
                     <ImagesGrid headline="Gallery" images={project.gallery} />

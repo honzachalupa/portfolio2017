@@ -182,11 +182,6 @@ export default class Root extends Component {
                                 <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
                             )}
                         />
-                        <Route
-                            render={(props) => (
-                                <ErrorPage config={config} utilities={utilities} />
-                            )}
-                        />
                     </Switch>
                 </Router>
             );

@@ -10,10 +10,9 @@ module.exports = () => {
                     {
                         url: '../gfx/projects/innogy-product-finder.png',
                         description: 'bla bla bla'
-                    }, {
-                        url: '../gfx/projects/innogy-product-finder.png',
-                        description: 'bla bla bla'
-                    }, {
+                    },
+                    '../gfx/projects/innogy-product-finder.png',
+                    {
                         url: '../gfx/projects/innogy-product-finder.png',
                         description: 'bla bla bla'
                     }
@@ -33,7 +32,7 @@ module.exports = () => {
                 description: 'I\'ve worked together with the UX designer to deliver the best result possible preserving the company\'s design-language. Then I sat down to the code and transfer it from the paper to the screen. I\'ve made many custom controls like carousels and grids with dynamic AJAX-based loading. A lot of components were also provided from the client.',
                 previewImage: 'gfx/projects/innogy-intranet.png',
                 gallery: [
-                    ''
+                    '../gfx/projects/innogy-intranet.png'
                 ],
                 livePreviewAllowed: false,
                 developmentStage: 'released',

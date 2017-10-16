@@ -1,6 +1,6 @@
-const logger = (message) => {
+const logger = (...message) => {
     /* eslint-disable */
-    console.log(message, '(via Logger helper)');
+    console.log(...message, '(via Logger helper)');
     /* eslint-enable */
 };
 

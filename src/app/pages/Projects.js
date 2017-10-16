@@ -97,7 +97,7 @@ const BlockNativeApps = (props) => {
 
     if (filter === 'mobile' || filter === 'all') {
         return (
-            <Grid headline="Mobile Apps">
+            <Grid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
                 {
                     projectsMobile.map((project) => {
                         const title = `Show details for ${project.name} project`;
