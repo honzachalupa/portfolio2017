@@ -141,6 +141,21 @@
                         z-index: 999;
                     }
                 }
+
+                .development-stage {
+                    font-size: 0.9rem;
+                    opacity: 0.75;
+                    margin: 5px 0 10px 0;
+                    float: left;
+
+                    &.green {
+                        color: #150c6d;
+                    }
+
+                    &.red {
+                        color: red;
+                    }
+                }
             }
         }
     }

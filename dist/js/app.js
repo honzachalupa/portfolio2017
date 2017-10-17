@@ -28841,6 +28841,12 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
+var _logger = require('./../../../modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var _helpers = require('./../../../helpers');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28869,24 +28875,27 @@ var Item = function (_Component) {
                 description = _props.description,
                 url = _props.url,
                 previewImage = _props.previewImage,
-                previewImageMobile = _props.previewImageMobile,
-                gallery = _props.gallery,
-                livePreviewAllowed = _props.livePreviewAllowed,
                 developmentStage = _props.developmentStage,
-                type = _props.type,
-                company = _props.company,
-                addedDate = _props.addedDate,
-                title = _props.title;
+                platform = _props.platform,
+                company = _props.company;
 
 
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
+
+            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, platform);
+
+            var developmentStageBlock = developmentStage !== 'released' ? _react2.default.createElement(
+                'p',
+                { className: 'development-stage ' + developmentStageLabel.color },
+                developmentStageLabel.value
+            ) : null;
 
             return _react2.default.createElement(
                 'li',
                 { 'data-component': componentName },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/projects/' + id, title: title },
+                    { to: '/projects/' + id, title: name },
                     _react2.default.createElement(
                         'div',
                         { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
@@ -28901,7 +28910,8 @@ var Item = function (_Component) {
                         'p',
                         { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
                         description
-                    )
+                    ),
+                    developmentStageBlock
                 )
             );
         }
@@ -28912,7 +28922,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"react":275,"react-router-dom":236}],311:[function(require,module,exports){
+},{"./../../../helpers":317,"./../../../modules/logger":320,"react":275,"react-router-dom":236}],311:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29322,6 +29332,14 @@ Object.defineProperty(exports, "__esModule", {
 exports.getRandomRange = getRandomRange;
 exports.setPageTitle = setPageTitle;
 exports.capitalize = capitalize;
+exports.getDevelopmentStageLabel = getDevelopmentStageLabel;
+
+var _logger = require('./modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function getRandomRange(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -29336,7 +29354,35 @@ function capitalize(text) {
     });
 }
 
-},{}],318:[function(require,module,exports){
+function getDevelopmentStageLabel(developmentStage, platform) {
+    var label = void 0;
+
+    if (developmentStage !== 'released') {
+        var projectType = platform === 'web' ? 'website' : 'application';
+
+        switch (developmentStage) {
+            case 'unsupported':
+                label = {
+                    value: 'This ' + projectType + ' is not supported anymore.',
+                    color: 'red'
+                };
+                break;
+            case 'in-development':
+                label = {
+                    value: 'This ' + projectType + ' is currently in development phase.',
+                    color: 'green'
+                };
+                break;
+            default:
+                (0, _logger2.default)('Undefined development stage label: ' + developmentStage + '.');
+                break;
+        }
+    }
+
+    return label;
+}
+
+},{"./modules/logger":320}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29904,6 +29950,16 @@ var ProjectDetail = function (_Component) {
                 utilities = _props.utilities;
 
 
+            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(project.developmentStage, project.platform);
+
+            var developmentStageBlock = project.developmentStage !== 'released' ? _react2.default.createElement(
+                'p',
+                { className: 'development-stage ' + developmentStageLabel.color },
+                developmentStageLabel.value
+            ) : null;
+
+            var galleryBlock = project.gallery && project.gallery.length ? _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery }) : null;
+
             return _react2.default.createElement(
                 'div',
                 { id: id, 'data-component': 'Page' },
@@ -29914,14 +29970,14 @@ var ProjectDetail = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: project.name },
+                        developmentStageBlock,
                         _react2.default.createElement(
                             'p',
                             null,
                             project.description
-                        ),
-                        _react2.default.createElement(_Button2.default, { title: 'Test', url: 'http://www.seznam.cz/' })
+                        )
                     ),
-                    _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery })
+                    galleryBlock
                 )
             );
         }
