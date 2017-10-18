@@ -7,7 +7,7 @@ import log from './modules/logger';
 import Root from './components/Root';
 
 const app = (config) => {
-    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.0.15:5003' });
+    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.1.38:5003' });
 
     try {
         let css = '';
