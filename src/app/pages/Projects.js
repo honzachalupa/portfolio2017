@@ -20,17 +20,32 @@ export default class Projects extends Component {
             id: 'projects-page',
             headline: 'Projects',
             hasPanel: false,
-            filter: 'all'
+            filter: {
+                type: 'all',
+                tag: null
+            }
         };
 
         setPageTitle(this.state.headline);
         setNavigationItem(this.state.id);
     }
 
-    changeFilter(filter) {
-        this.setState({
-            filter
-        });
+    changeFilter(filter, filterBy) {
+        if (filterBy === 'type') {
+            this.setState({
+                filter: {
+                    type: filter,
+                    tag: null
+                }
+            });
+        } else if (filterBy === 'tag') {
+            this.setState({
+                filter: {
+                    type: 'all',
+                    tag: filter
+                }
+            });
+        }
     }
 
     render() {
@@ -50,8 +65,7 @@ export default class Projects extends Component {
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
 
-                    <BlockWebApps projects={projects} filter={filter} />
-                    <BlockNativeApps projects={projects} filter={filter} />
+                    <FilteredProjects projects={projects} filter={filter} />
 
                     <Blank headline="Filter">
                         <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
@@ -62,12 +76,51 @@ export default class Projects extends Component {
     }
 }
 
+const FilteredProjects = (props) => {
+    const { projects, filter } = props;
+
+    if (filter.tag) {
+        const projectsWithTag = projects.filter((project) => {
+            const { tags } = project;
+
+            if (tags) {
+                if (tags.indexOf(filter.tag) > -1) {
+                    return project;
+                }
+            }
+
+            return null;
+        });
+
+        return (
+            <Grid headline="Web Apps">
+                {
+                    projectsWithTag.map((project) => {
+                        const title = `Show details for ${project.name} project`;
+
+                        return (
+                            <GridItem key={project.id} {...project} title={title} />
+                        );
+                    })
+                }
+            </Grid>
+        );
+    }
+
+    return (
+        <div>
+            <BlockWebApps projects={projects} filter={filter} />
+            <BlockNativeApps projects={projects} filter={filter} />
+        </div>
+    );
+};
+
 const BlockWebApps = (props) => {
     const { projects, filter } = props;
 
-    if (filter === 'web' || filter === 'all') {
+    if (filter.type === 'all' || filter.type === 'web') {
         const projectsWeb = projects.filter((project) => {
-            return project.platform === 'web';
+            return project.type === 'web';
         });
 
         return (
@@ -92,10 +145,10 @@ const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
     const projectsMobile = projects.filter((project) => {
-        return project.platform === 'mobile';
+        return project.type === 'mobile';
     });
 
-    if (filter === 'mobile' || filter === 'all') {
+    if (filter.type === 'all' || filter.type === 'mobile') {
         return (
             <Grid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
                 {

@@ -8,69 +8,95 @@ export default class ProjectsFilter extends Component {
         super(props);
 
         this.state = {
-            platforms: this.getProjectsTypes(),
+            types: this.getProjectsTypes(),
             tags: this.getProjectsTags()
         };
     }
 
     getProjectsTypes() {
         const { projects } = this.props;
-        const platformIDs = [];
+        const typesFounded = [];
 
         projects.forEach((project) => {
-            const { platform } = project;
+            const { type } = project;
 
-            if (platformIDs.indexOf(platform) === -1) {
-                platformIDs.push(platform);
+            if (typesFounded.indexOf(type) === -1) {
+                typesFounded.push(type);
             }
         });
 
-        const platforms = [{
+        const types = [{
             id: 'all',
             label: 'All'
         }];
 
-        platformIDs.forEach((id) => {
-            platforms.push({
+        typesFounded.forEach((id) => {
+            types.push({
                 id,
                 label: capitalize(id)
             });
         });
 
-        return platforms;
+        return types;
     }
 
-    getProjectsTags() {
+    getProjectsTags() { // To-do: Refactorize...
         const { projects } = this.props;
-        const tags = [];
+        const tagsFounded = [];
+        const tagsMetadata = [];
 
         projects.forEach((project) => {
             const { tags: projectsTags } = project;
 
             if (projectsTags) {
                 projectsTags.forEach((tag) => {
-                    if (tags.indexOf(tag) === -1) {
-                        tags.push(tag);
-                    }
+                    tagsFounded.push(tag);
                 });
             }
         });
 
-        return tags;
+        tagsFounded.forEach((tag) => {
+            const count = tagsFounded.reduce((n, val) => {
+                return n + (val === tag);
+            }, 0);
+
+            tagsMetadata.push({
+                name: tag,
+                count
+            });
+        });
+
+        const tagsFiltered = tagsMetadata.filter((tag, index, self) => {
+            return self.findIndex((t) => {
+                return t.name === tag.name;
+            }) === index;
+        });
+
+        tagsFiltered.sort((a, b) => {
+            if (a.count < b.count) {
+                return 1;
+            } else if (a.count > b.count) {
+                return -1;
+            }
+
+            return 0;
+        });
+
+        return tagsFiltered;
     }
 
     render() {
         const componentName = this.constructor.name;
         const { changeFilter, alignment } = this.props;
-        const { platforms, tags } = this.state;
+        const { types, tags } = this.state;
 
         return (
             <div data-component={componentName}>
                 <ButtonsGroup headline="Types" alignment={alignment || 'left'}>
                     {
-                        platforms.map((projectType) => {
+                        types.map((type) => {
                             return (
-                                <Button key={projectType.id} title={projectType.label} onClick={() => changeFilter(projectType.id, 'type')} />
+                                <Button key={type.id} title={type.label} onClick={() => changeFilter(type.id, 'type')} />
                             );
                         })
                     }
@@ -79,7 +105,7 @@ export default class ProjectsFilter extends Component {
                     {
                         tags.map((tag) => {
                             return (
-                                <Button key={tag} title={tag} onClick={() => changeFilter(tag, 'tag')} />
+                                <Button key={tag.name} title={`${tag.name} (${tag.count}x)`} onClick={() => changeFilter(tag.name, 'tag')} />
                             );
                         })
                     }

@@ -1,3 +1,19 @@
+/*
+id - string or number
+name - string
+description - string
+url - string
+previewImage - string
+gallery - array of strings and/or objects {url, description}
+livePreviewAllowed - boolean
+developmentStage - string
+type - string
+company - object {name, logo, url}
+addedDate - string
+tags - array of strings
+hidden - boolean
+*/
+
 module.exports = () => {
     const data = {
         projects: [
@@ -17,16 +33,15 @@ module.exports = () => {
                         description: 'bla bla bla'
                     }
                 ],
-                livePreviewAllowed: false,
                 developmentStage: 'released',
-                platform: 'web',
+                type: 'web',
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
                     url: 'http://www.seznam.cz'
                 },
                 addedDate: '2017/10/10',
-                tags: ['innogy', 'rwe', 'germany', 'actum', 'x']
+                tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
             }, {
                 id: 'innogy-intranet',
                 name: 'innogy Intranet',
@@ -35,32 +50,25 @@ module.exports = () => {
                 gallery: [
                     '../gfx/projects/innogy-intranet.png'
                 ],
-                livePreviewAllowed: false,
                 developmentStage: 'released',
-                platform: 'web',
+                type: 'web',
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
                     url: 'http://www.seznam.cz'
                 },
                 addedDate: '2017/2/14',
-                tags: ['innogy', 'rwe', 'germany', 'actum', 'y']
+                tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
             }, {
                 id: 'xbox-games-with-gold',
                 name: 'Xbox - Games with gold',
                 description: 'Project description...',
                 url: 'http://www.honzachalupa.cz/xbox-gwg/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-1.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'unsupported',
-                platform: 'web',
-                company: {
-                    name: 'Actum',
-                    logo: 'gfx/svg/company-logo-actum.svg',
-                    url: 'http://www.seznam.cz'
-                },
+                type: 'web',
                 addedDate: '2016/2/1',
+                tags: ['microsoft', 'xbox', 'games', 'web scraping'],
                 hidden: true
             }, {
                 id: 'online-editor',
@@ -68,11 +76,8 @@ module.exports = () => {
                 description: 'Project description...',
                 url: 'http://www.honzachalupa.cz/online-editor/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-2.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'in-development',
-                platform: 'web',
-                company: null,
+                type: 'web',
                 addedDate: '2016/1/1',
                 hidden: true
             }, {
@@ -81,109 +86,90 @@ module.exports = () => {
                 description: 'Project description...',
                 url: 'http://www.ceskezpravodajstvi.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'in-development',
-                platform: 'web',
-                company: null,
+                type: 'web',
                 addedDate: '2016/2/1',
-                tags: ['asdadasas', 'basdaas', 'cvxcvx', 'dyxccyx', 'edvcxvd']
+                tags: ['microsoft', 'czech', 'news', 'web scraping']
             }, {
                 id: 'ceske-zpravodajstvi-app',
                 name: 'České zpravodajství',
                 description: 'Project description...',
                 url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'unsupported',
-                platform: 'mobile',
-                company: null,
-                addedDate: '2016/2/1'
+                type: 'mobile',
+                addedDate: '2016/2/1',
+                tags: ['microsoft', 'windows', 'windows phone', 'czech', 'news', 'web scraping']
             }, {
                 id: 'polti',
                 name: 'Polti',
                 description: 'My objective on this project was to redesign the Czech variant of the website to looks the same as the Italian variant (company is based in Italy) without changing anything in HTML code. I had an unlimited freedom with changing CSS.',
                 url: 'http://www.polti.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-4.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'released',
-                platform: 'web',
-                company: null,
-                addedDate: '2016/2/1'
+                type: 'web',
+                addedDate: '2016/2/1',
+                tags: ['italy']
             }, {
                 id: 'terapta',
                 name: 'Tereza Ptáčková (blog)',
                 description: 'Project description...',
                 url: 'http://www.terapta.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-5.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'released',
-                platform: 'web',
-                company: null,
-                addedDate: '2016/2/1'
+                type: 'web',
+                addedDate: '2016/2/1',
+                tags: ['artist', 'illustrations']
             }, {
                 id: 'studio-cesta-ke-zmene',
                 name: 'Studio Cesta ke změně',
                 description: 'Project description...',
                 url: 'http://www.studiocestakezmene.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-6.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'released',
-                platform: 'web',
-                company: null,
-                addedDate: '2016/2/1'
+                type: 'web',
+                addedDate: '2016/2/1',
+                tags: ['lifestyle', 'health', 'food']
             }, {
                 id: 'vyzivou-ke-zmene',
                 name: 'Výživou ke změně',
                 description: 'Project description...',
                 url: 'http://www.vyzivoukezmene.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-7.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'released',
-                platform: 'web',
-                company: null,
-                addedDate: '2016/2/1'
+                type: 'web',
+                addedDate: '2016/2/1',
+                tags: ['lifestyle', 'health', 'food']
             }, {
                 id: 'smokers-little-helper',
                 name: 'Smoker\'s Little Helper',
                 description: 'Project description...',
                 url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'unsupported',
-                platform: 'mobile',
-                company: null,
-                addedDate: '2015/4/1'
+                type: 'mobile',
+                addedDate: '2015/4/1',
+                tags: ['lifestyle', 'health', 'drug']
             }, {
                 id: 'one-on-one',
                 name: 'One on One',
                 description: 'Project description...',
                 url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'unsupported',
-                platform: 'mobile',
-                company: null,
-                addedDate: '2015/9/1'
+                type: 'mobile',
+                addedDate: '2015/9/1',
+                tags: ['game', 'fun']
             }, {
                 id: 'one-on-one-kids',
                 name: 'One on One for KIDS',
                 description: 'Project description...',
                 url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
-                gallery: null,
-                livePreviewAllowed: true,
                 developmentStage: 'unsupported',
-                platform: 'mobile',
-                company: null,
-                addedDate: '2015/9/15'
+                type: 'mobile',
+                addedDate: '2015/9/15',
+                tags: ['game', 'fun', 'kids']
             }
         ],
         config: {

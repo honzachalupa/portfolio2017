@@ -1,20 +1,23 @@
+$margin: 8px;
+
 [data-component="Button"] {
     min-width: 50px;
-    color: $accent-color;
+    background-color: rgba(0, 0, 0, 0.08);
     font-size: .85rem;
     text-decoration: none;
-    box-shadow: 0 0 2px 0 $accent-color;
-    border-radius: 2rem;
     padding: 8px 12px;
-    margin: 12px 0;
+    margin: $margin 0;
     float: left;
     cursor: pointer;
     transition: all 250ms;
 
+    &:not(:last-of-type) {
+        margin-right: $margin;
+    }
+
     &.active,
     &:hover {
-        color: black;
-        box-shadow: 0 0 1px 1px $accent-color;
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
     }
 }
 
@@ -34,9 +37,5 @@
         &.right {
             float: right;
         }
-    }
-
-    [data-component="Button"]:not(:last-of-type) {
-        margin-right: 12px;
     }
 }

@@ -14,7 +14,7 @@ export default class Item extends Component {
             url,
             previewImage,
             developmentStage,
-            platform,
+            type,
             company
         } = this.props;
 
@@ -22,7 +22,7 @@ export default class Item extends Component {
             <img src={company.logo} className="company-logo" alt={`${company.name} logo`} /> :
             null;
 
-        const developmentStageLabel = getDevelopmentStageLabel(developmentStage, platform);
+        const developmentStageLabel = getDevelopmentStageLabel(developmentStage, type);
 
         const developmentStageBlock = developmentStage !== 'released' ?
             <p className={`development-stage ${developmentStageLabel.color}`}>{developmentStageLabel.value}</p> :

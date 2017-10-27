@@ -28435,7 +28435,7 @@ var ProjectsFilter = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ProjectsFilter.__proto__ || Object.getPrototypeOf(ProjectsFilter)).call(this, props));
 
         _this.state = {
-            platforms: _this.getProjectsTypes(),
+            types: _this.getProjectsTypes(),
             tags: _this.getProjectsTags()
         };
         return _this;
@@ -28446,37 +28446,39 @@ var ProjectsFilter = function (_Component) {
         value: function getProjectsTypes() {
             var projects = this.props.projects;
 
-            var platformIDs = [];
+            var typesFounded = [];
 
             projects.forEach(function (project) {
-                var platform = project.platform;
+                var type = project.type;
 
 
-                if (platformIDs.indexOf(platform) === -1) {
-                    platformIDs.push(platform);
+                if (typesFounded.indexOf(type) === -1) {
+                    typesFounded.push(type);
                 }
             });
 
-            var platforms = [{
+            var types = [{
                 id: 'all',
                 label: 'All'
             }];
 
-            platformIDs.forEach(function (id) {
-                platforms.push({
+            typesFounded.forEach(function (id) {
+                types.push({
                     id: id,
                     label: (0, _helpers.capitalize)(id)
                 });
             });
 
-            return platforms;
+            return types;
         }
     }, {
         key: 'getProjectsTags',
         value: function getProjectsTags() {
+            // To-do: Refactorize...
             var projects = this.props.projects;
 
-            var tags = [];
+            var tagsFounded = [];
+            var tagsMetadata = [];
 
             projects.forEach(function (project) {
                 var projectsTags = project.tags;
@@ -28484,14 +28486,39 @@ var ProjectsFilter = function (_Component) {
 
                 if (projectsTags) {
                     projectsTags.forEach(function (tag) {
-                        if (tags.indexOf(tag) === -1) {
-                            tags.push(tag);
-                        }
+                        tagsFounded.push(tag);
                     });
                 }
             });
 
-            return tags;
+            tagsFounded.forEach(function (tag) {
+                var count = tagsFounded.reduce(function (n, val) {
+                    return n + (val === tag);
+                }, 0);
+
+                tagsMetadata.push({
+                    name: tag,
+                    count: count
+                });
+            });
+
+            var tagsFiltered = tagsMetadata.filter(function (tag, index, self) {
+                return self.findIndex(function (t) {
+                    return t.name === tag.name;
+                }) === index;
+            });
+
+            tagsFiltered.sort(function (a, b) {
+                if (a.count < b.count) {
+                    return 1;
+                } else if (a.count > b.count) {
+                    return -1;
+                }
+
+                return 0;
+            });
+
+            return tagsFiltered;
         }
     }, {
         key: 'render',
@@ -28501,7 +28528,7 @@ var ProjectsFilter = function (_Component) {
                 changeFilter = _props.changeFilter,
                 alignment = _props.alignment;
             var _state = this.state,
-                platforms = _state.platforms,
+                types = _state.types,
                 tags = _state.tags;
 
 
@@ -28511,9 +28538,9 @@ var ProjectsFilter = function (_Component) {
                 _react2.default.createElement(
                     _ButtonsGroup2.default,
                     { headline: 'Types', alignment: alignment || 'left' },
-                    platforms.map(function (projectType) {
-                        return _react2.default.createElement(_Button2.default, { key: projectType.id, title: projectType.label, onClick: function onClick() {
-                                return changeFilter(projectType.id, 'type');
+                    types.map(function (type) {
+                        return _react2.default.createElement(_Button2.default, { key: type.id, title: type.label, onClick: function onClick() {
+                                return changeFilter(type.id, 'type');
                             } });
                     })
                 ),
@@ -28521,8 +28548,8 @@ var ProjectsFilter = function (_Component) {
                     _ButtonsGroup2.default,
                     { headline: 'Tags', alignment: alignment || 'left', extraClasses: 'tags' },
                     tags.map(function (tag) {
-                        return _react2.default.createElement(_Button2.default, { key: tag, title: tag, onClick: function onClick() {
-                                return changeFilter(tag, 'tag');
+                        return _react2.default.createElement(_Button2.default, { key: tag.name, title: tag.name + ' (' + tag.count + 'x)', onClick: function onClick() {
+                                return changeFilter(tag.name, 'tag');
                             } });
                     })
                 )
@@ -28921,13 +28948,13 @@ var Item = function (_Component) {
                 url = _props.url,
                 previewImage = _props.previewImage,
                 developmentStage = _props.developmentStage,
-                platform = _props.platform,
+                type = _props.type,
                 company = _props.company;
 
 
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
 
-            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, platform);
+            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, type);
 
             var developmentStageBlock = developmentStage !== 'released' ? _react2.default.createElement(
                 'p',
@@ -30103,7 +30130,10 @@ var Projects = function (_Component) {
             id: 'projects-page',
             headline: 'Projects',
             hasPanel: false,
-            filter: 'all'
+            filter: {
+                type: 'all',
+                tag: null
+            }
         };
 
         (0, _helpers.setPageTitle)(_this.state.headline);
@@ -30113,10 +30143,22 @@ var Projects = function (_Component) {
 
     _createClass(Projects, [{
         key: 'changeFilter',
-        value: function changeFilter(filter) {
-            this.setState({
-                filter: filter
-            });
+        value: function changeFilter(filter, filterBy) {
+            if (filterBy === 'type') {
+                this.setState({
+                    filter: {
+                        type: filter,
+                        tag: null
+                    }
+                });
+            } else if (filterBy === 'tag') {
+                this.setState({
+                    filter: {
+                        type: 'all',
+                        tag: filter
+                    }
+                });
+            }
         }
     }, {
         key: 'render',
@@ -30149,8 +30191,7 @@ var Projects = function (_Component) {
                         { headline: 'Filter' },
                         _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter })
                     ),
-                    _react2.default.createElement(BlockWebApps, { projects: projects, filter: filter }),
-                    _react2.default.createElement(BlockNativeApps, { projects: projects, filter: filter }),
+                    _react2.default.createElement(FilteredProjects, { projects: projects, filter: filter }),
                     _react2.default.createElement(
                         _Blank2.default,
                         { headline: 'Filter' },
@@ -30167,14 +30208,52 @@ var Projects = function (_Component) {
 exports.default = Projects;
 
 
+var FilteredProjects = function FilteredProjects(props) {
+    var projects = props.projects,
+        filter = props.filter;
+
+
+    if (filter.tag) {
+        var projectsWithTag = projects.filter(function (project) {
+            var tags = project.tags;
+
+
+            if (tags) {
+                if (tags.indexOf(filter.tag) > -1) {
+                    return project;
+                }
+            }
+
+            return null;
+        });
+
+        return _react2.default.createElement(
+            _Grid2.default,
+            { headline: 'Web Apps' },
+            projectsWithTag.map(function (project) {
+                var title = 'Show details for ' + project.name + ' project';
+
+                return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
+            })
+        );
+    }
+
+    return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(BlockWebApps, { projects: projects, filter: filter }),
+        _react2.default.createElement(BlockNativeApps, { projects: projects, filter: filter })
+    );
+};
+
 var BlockWebApps = function BlockWebApps(props) {
     var projects = props.projects,
         filter = props.filter;
 
 
-    if (filter === 'web' || filter === 'all') {
+    if (filter.type === 'all' || filter.type === 'web') {
         var projectsWeb = projects.filter(function (project) {
-            return project.platform === 'web';
+            return project.type === 'web';
         });
 
         return _react2.default.createElement(
@@ -30197,10 +30276,10 @@ var BlockNativeApps = function BlockNativeApps(props) {
 
 
     var projectsMobile = projects.filter(function (project) {
-        return project.platform === 'mobile';
+        return project.type === 'mobile';
     });
 
-    if (filter === 'mobile' || filter === 'all') {
+    if (filter.type === 'all' || filter.type === 'mobile') {
         return _react2.default.createElement(
             _Grid2.default,
             { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
