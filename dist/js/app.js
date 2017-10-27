@@ -28492,8 +28492,8 @@ var ProjectsFilter = function (_Component) {
             });
 
             tagsFounded.forEach(function (tag) {
-                var count = tagsFounded.reduce(function (n, val) {
-                    return n + (val === tag);
+                var count = tagsFounded.reduce(function (i, value) {
+                    return i + (value === tag);
                 }, 0);
 
                 tagsMetadata.push({
@@ -28502,10 +28502,10 @@ var ProjectsFilter = function (_Component) {
                 });
             });
 
-            var tagsFiltered = tagsMetadata.filter(function (tag, index, self) {
+            var tagsFiltered = tagsMetadata.filter(function (tag, i, self) {
                 return self.findIndex(function (t) {
                     return t.name === tag.name;
-                }) === index;
+                }) === i;
             });
 
             tagsFiltered.sort(function (a, b) {

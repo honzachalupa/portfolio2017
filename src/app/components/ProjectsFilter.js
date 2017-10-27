@@ -56,8 +56,8 @@ export default class ProjectsFilter extends Component {
         });
 
         tagsFounded.forEach((tag) => {
-            const count = tagsFounded.reduce((n, val) => {
-                return n + (val === tag);
+            const count = tagsFounded.reduce((i, value) => {
+                return i + (value === tag);
             }, 0);
 
             tagsMetadata.push({
@@ -66,10 +66,10 @@ export default class ProjectsFilter extends Component {
             });
         });
 
-        const tagsFiltered = tagsMetadata.filter((tag, index, self) => {
+        const tagsFiltered = tagsMetadata.filter((tag, i, self) => {
             return self.findIndex((t) => {
                 return t.name === tag.name;
-            }) === index;
+            }) === i;
         });
 
         tagsFiltered.sort((a, b) => {
