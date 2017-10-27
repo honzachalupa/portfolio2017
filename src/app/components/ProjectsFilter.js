@@ -87,12 +87,12 @@ export default class ProjectsFilter extends Component {
 
     render() {
         const componentName = this.constructor.name;
-        const { changeFilter, alignment } = this.props;
+        const { changeFilter, alignment, hideTags } = this.props;
         const { types, tags } = this.state;
 
-        return (
-            <div data-component={componentName}>
-                <ButtonsGroup headline="Types" alignment={alignment || 'left'}>
+        const TypesBlock = () => {
+            return (
+                <ButtonsGroup headline="Types" alignment={alignment || 'left'} extraClasses="types">
                     {
                         types.map((type) => {
                             return (
@@ -101,6 +101,15 @@ export default class ProjectsFilter extends Component {
                         })
                     }
                 </ButtonsGroup>
+            );
+        };
+
+        const TagsBlock = () => {
+            if (hideTags) {
+                return null;
+            }
+
+            return (
                 <ButtonsGroup headline="Tags" alignment={alignment || 'left'} extraClasses="tags">
                     {
                         tags.map((tag) => {
@@ -110,6 +119,13 @@ export default class ProjectsFilter extends Component {
                         })
                     }
                 </ButtonsGroup>
+            );
+        };
+
+        return (
+            <div data-component={componentName}>
+                <TypesBlock />
+                <TagsBlock />
             </div>
         );
     }

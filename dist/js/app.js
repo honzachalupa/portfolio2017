@@ -28526,25 +28526,31 @@ var ProjectsFilter = function (_Component) {
             var componentName = this.constructor.name;
             var _props = this.props,
                 changeFilter = _props.changeFilter,
-                alignment = _props.alignment;
+                alignment = _props.alignment,
+                hideTags = _props.hideTags;
             var _state = this.state,
                 types = _state.types,
                 tags = _state.tags;
 
 
-            return _react2.default.createElement(
-                'div',
-                { 'data-component': componentName },
-                _react2.default.createElement(
+            var TypesBlock = function TypesBlock() {
+                return _react2.default.createElement(
                     _ButtonsGroup2.default,
-                    { headline: 'Types', alignment: alignment || 'left' },
+                    { headline: 'Types', alignment: alignment || 'left', extraClasses: 'types' },
                     types.map(function (type) {
                         return _react2.default.createElement(_Button2.default, { key: type.id, title: type.label, onClick: function onClick() {
                                 return changeFilter(type.id, 'type');
                             } });
                     })
-                ),
-                _react2.default.createElement(
+                );
+            };
+
+            var TagsBlock = function TagsBlock() {
+                if (hideTags) {
+                    return null;
+                }
+
+                return _react2.default.createElement(
                     _ButtonsGroup2.default,
                     { headline: 'Tags', alignment: alignment || 'left', extraClasses: 'tags' },
                     tags.map(function (tag) {
@@ -28552,7 +28558,14 @@ var ProjectsFilter = function (_Component) {
                                 return changeFilter(tag.name, 'tag');
                             } });
                     })
-                )
+                );
+            };
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-component': componentName },
+                _react2.default.createElement(TypesBlock, null),
+                _react2.default.createElement(TagsBlock, null)
             );
         }
     }]);
@@ -30189,7 +30202,7 @@ var Projects = function (_Component) {
                     _react2.default.createElement(
                         _Blank2.default,
                         { headline: 'Filter' },
-                        _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter })
+                        _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter, hideTags: true })
                     ),
                     _react2.default.createElement(FilteredProjects, { projects: projects, filter: filter }),
                     _react2.default.createElement(
@@ -30228,13 +30241,10 @@ var FilteredProjects = function FilteredProjects(props) {
         });
 
         return _react2.default.createElement(
-            _Grid2.default,
-            { headline: 'Web Apps' },
-            projectsWithTag.map(function (project) {
-                var title = 'Show details for ' + project.name + ' project';
-
-                return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
-            })
+            'div',
+            null,
+            _react2.default.createElement(BlockWebApps, { projects: projectsWithTag, filter: filter }),
+            _react2.default.createElement(BlockNativeApps, { projects: projectsWithTag, filter: filter })
         );
     }
 
@@ -30256,15 +30266,19 @@ var BlockWebApps = function BlockWebApps(props) {
             return project.type === 'web';
         });
 
-        return _react2.default.createElement(
-            _Grid2.default,
-            { headline: 'Web Apps' },
-            projectsWeb.map(function (project) {
-                var title = 'Show details for ' + project.name + ' project';
+        if (projectsWeb.length) {
+            return _react2.default.createElement(
+                _Grid2.default,
+                { headline: 'Web Apps' },
+                projectsWeb.map(function (project) {
+                    var title = 'Show details for ' + project.name + ' project';
 
-                return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
-            })
-        );
+                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
+                })
+            );
+        }
+
+        return null;
     }
 
     return null;
@@ -30275,20 +30289,24 @@ var BlockNativeApps = function BlockNativeApps(props) {
         filter = props.filter;
 
 
-    var projectsMobile = projects.filter(function (project) {
-        return project.type === 'mobile';
-    });
-
     if (filter.type === 'all' || filter.type === 'mobile') {
-        return _react2.default.createElement(
-            _Grid2.default,
-            { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
-            projectsMobile.map(function (project) {
-                var title = 'Show details for ' + project.name + ' project';
+        var projectsMobile = projects.filter(function (project) {
+            return project.type === 'mobile';
+        });
 
-                return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title, aspectRatio: '4:3', aspectRatioMobile: '16:9' }));
-            })
-        );
+        if (projectsMobile.length) {
+            return _react2.default.createElement(
+                _Grid2.default,
+                { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
+                projectsMobile.map(function (project) {
+                    var title = 'Show details for ' + project.name + ' project';
+
+                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title, aspectRatio: '4:3', aspectRatioMobile: '16:9' }));
+                })
+            );
+        }
+
+        return null;
     }
 
     return null;

@@ -62,7 +62,7 @@ export default class Projects extends Component {
                     </Text>
 
                     <Blank headline="Filter">
-                        <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
+                        <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} hideTags />
                     </Blank>
 
                     <FilteredProjects projects={projects} filter={filter} />
@@ -93,17 +93,10 @@ const FilteredProjects = (props) => {
         });
 
         return (
-            <Grid headline="Web Apps">
-                {
-                    projectsWithTag.map((project) => {
-                        const title = `Show details for ${project.name} project`;
-
-                        return (
-                            <GridItem key={project.id} {...project} title={title} />
-                        );
-                    })
-                }
-            </Grid>
+            <div>
+                <BlockWebApps projects={projectsWithTag} filter={filter} />
+                <BlockNativeApps projects={projectsWithTag} filter={filter} />
+            </div>
         );
     }
 
@@ -123,19 +116,23 @@ const BlockWebApps = (props) => {
             return project.type === 'web';
         });
 
-        return (
-            <Grid headline="Web Apps">
-                {
-                    projectsWeb.map((project) => {
-                        const title = `Show details for ${project.name} project`;
+        if (projectsWeb.length) {
+            return (
+                <Grid headline="Web Apps">
+                    {
+                        projectsWeb.map((project) => {
+                            const title = `Show details for ${project.name} project`;
 
-                        return (
-                            <GridItem key={project.id} {...project} title={title} />
-                        );
-                    })
-                }
-            </Grid>
-        );
+                            return (
+                                <GridItem key={project.id} {...project} title={title} />
+                            );
+                        })
+                    }
+                </Grid>
+            );
+        }
+
+        return null;
     }
 
     return null;
@@ -144,24 +141,28 @@ const BlockWebApps = (props) => {
 const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
-    const projectsMobile = projects.filter((project) => {
-        return project.type === 'mobile';
-    });
-
     if (filter.type === 'all' || filter.type === 'mobile') {
-        return (
-            <Grid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
-                {
-                    projectsMobile.map((project) => {
-                        const title = `Show details for ${project.name} project`;
+        const projectsMobile = projects.filter((project) => {
+            return project.type === 'mobile';
+        });
 
-                        return (
-                            <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
-                        );
-                    })
-                }
-            </Grid>
-        );
+        if (projectsMobile.length) {
+            return (
+                <Grid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
+                    {
+                        projectsMobile.map((project) => {
+                            const title = `Show details for ${project.name} project`;
+
+                            return (
+                                <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
+                            );
+                        })
+                    }
+                </Grid>
+            );
+        }
+
+        return null;
     }
 
     return null;
