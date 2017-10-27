@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import axios from 'axios';
 import log from './../modules/logger';
+import { setPageTitle } from './../helpers';
 import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
@@ -62,15 +63,15 @@ export default class Root extends Component {
     }
 
     setNavigationItem(clickedId) {
-        let { navigationItems } = this.state.config;
+        const { navigationItems } = this.state.config;
 
-        navigationItems = navigationItems.forEach((item) => {
+        const navigationItemsActive = navigationItems.forEach((item) => {
             item.active = (item.id === clickedId);
         });
 
         this.setState({
-            navigationItems: update(this.state.config.navigationItems, {
-                $set: navigationItems
+            navigationItems: update(navigationItems, {
+                $set: navigationItemsActive
             })
         });
 
@@ -182,6 +183,13 @@ export default class Root extends Component {
                                 <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
                             )}
                         />
+                        {/* To-do
+                        <Route
+                            render={(props) => (
+                                <ErrorPage config={config} utilities={utilities} />
+                            )}
+                        />
+                        */}
                     </Switch>
                 </Router>
             );

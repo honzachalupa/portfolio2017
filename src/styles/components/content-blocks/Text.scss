@@ -9,16 +9,12 @@
         margin-bottom: 20px;
     }
 
-    .headline,
-    .content {
-        padding: 12px;
-    }
-
-    .headline {
+    & > .headline {
         background-color: $accent-color;
         font-size: 1.6rem;
         text-overflow: ellipsis;
         color: white;
+        padding: 12px;
         float: left;
         overflow: hidden;
 
@@ -31,12 +27,13 @@
         }
     }
 
-    .content {
+    & > .content {
         background-color: white;
         font-size: 1rem;
         text-align: justify;
         line-height: 1.5;
         letter-spacing: 0.2px;
+        padding: 12px;
         float: right;
 
         @media (max-width: 799px) {

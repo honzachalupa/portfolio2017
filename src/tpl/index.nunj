@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Test</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="{{ _cssPath }}/main{% if not _dev %}.min{% endif %}.css">
+    </head>
+    <body>
+        <main id="app-root"></main>
 
-    <link rel="stylesheet" href="{{ _cssPath }}/main{% if not _dev %}.min{% endif %}.css">
-</head>
-<body>
-    <main id="app-root"></main>
-
-    <script src="{{ _jsPath }}/app{% if not _dev %}.min{% endif %}.js" async></script>
-</body>
+        <script src="{{ _jsPath }}/app{% if not _dev %}.min{% endif %}.js" type="text/javascript" async></script>
+    </body>
 </html>

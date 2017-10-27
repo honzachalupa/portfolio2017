@@ -23,13 +23,13 @@ export function getDevelopmentStageLabel(developmentStage, platform) {
         switch (developmentStage) {
             case 'unsupported':
                 label = {
-                    value: `This ${projectType} is not supported anymore.`,
+                    value: `${capitalize(projectType)} is not supported anymore.`,
                     color: 'red'
                 };
                 break;
             case 'in-development':
                 label = {
-                    value: `This ${projectType} is currently in development phase.`,
+                    value: `${capitalize(projectType)} is currently in development phase.`,
                     color: 'green'
                 };
                 break;

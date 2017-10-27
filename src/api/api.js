@@ -25,7 +25,8 @@ module.exports = () => {
                     logo: 'gfx/svg/company-logo-actum.svg',
                     url: 'http://www.seznam.cz'
                 },
-                addedDate: '2017/10/10'
+                addedDate: '2017/10/10',
+                tags: ['innogy', 'rwe', 'germany', 'actum', 'x']
             }, {
                 id: 'innogy-intranet',
                 name: 'innogy Intranet',
@@ -42,7 +43,8 @@ module.exports = () => {
                     logo: 'gfx/svg/company-logo-actum.svg',
                     url: 'http://www.seznam.cz'
                 },
-                addedDate: '2017/2/14'
+                addedDate: '2017/2/14',
+                tags: ['innogy', 'rwe', 'germany', 'actum', 'y']
             }, {
                 id: 'xbox-games-with-gold',
                 name: 'Xbox - Games with gold',
@@ -84,7 +86,8 @@ module.exports = () => {
                 developmentStage: 'in-development',
                 platform: 'web',
                 company: null,
-                addedDate: '2016/2/1'
+                addedDate: '2016/2/1',
+                tags: ['asdadasas', 'basdaas', 'cvxcvx', 'dyxccyx', 'edvcxvd']
             }, {
                 id: 'ceske-zpravodajstvi-app',
                 name: 'České zpravodajství',
@@ -184,6 +187,14 @@ module.exports = () => {
             }
         ],
         config: {
+            title: 'Test',
+            tags: [
+                'front-end developer',
+                'junior back-end developer',
+                'wannabe UX designer',
+                'car-lover',
+                'mountain biker'
+            ],
             navigationItems: [
                 {
                     id: 'home-page',
@@ -203,13 +214,6 @@ module.exports = () => {
                 emailAddress: 'janchalupa@outlook.cz',
                 city: 'Prague'
             },
-            tags: [
-                'front-end developer',
-                'junior back-end developer',
-                'wannabe UX designer',
-                'car-lover',
-                'mountain biker'
-            ],
             screenBreakpoint: 680
         }
     };

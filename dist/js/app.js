@@ -27976,7 +27976,7 @@ var Button = function (_Component) {
 exports.default = Button;
 
 },{"./../helpers":317,"./../modules/logger":320,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -27984,7 +27984,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28006,20 +28006,27 @@ var ButtonsGroup = function (_Component) {
     }
 
     _createClass(ButtonsGroup, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             var componentName = this.constructor.name;
             var _props = this.props,
+                headline = _props.headline,
                 buttons = _props.children,
-                alignment = _props.alignment;
+                alignment = _props.alignment,
+                extraClasses = _props.extraClasses;
 
 
             return _react2.default.createElement(
-                'div',
-                { 'data-component': componentName },
+                "div",
+                { className: extraClasses, "data-component": componentName },
                 _react2.default.createElement(
-                    'div',
-                    { className: 'alignment ' + alignment },
+                    "p",
+                    { className: "headline" },
+                    headline
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "alignment " + alignment },
                     buttons
                 )
             );
@@ -28126,9 +28133,12 @@ var Header = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
+        var tags = _this.props.config.tags;
+
+
         _this.state = {
             imageUrl: 'url(\'http://www.honzachalupa.cz/imgs/bg-' + (0, _helpers.getRandomRange)(1, 10) + '.jpg\')',
-            tags: _this.props.config.tags.join(' ~ ')
+            tags: tags.join(' ~ ')
         };
         return _this;
     }
@@ -28137,16 +28147,19 @@ var Header = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
+            var imageUrl = this.state.imageUrl;
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
-            var collapsed = config.collapsed;
+            var title = config.title,
+                tags = config.tags,
+                collapsed = config.collapsed;
 
 
             if (!collapsed) {
                 return _react2.default.createElement(
                     'header',
-                    { style: { backgroundImage: this.state.imageUrl }, 'data-component': componentName },
+                    { style: { backgroundImage: imageUrl }, 'data-component': componentName },
                     _react2.default.createElement(
                         'div',
                         { className: 'content', style: { width: document.querySelector('main').offsetWidth + 'px' } },
@@ -28157,23 +28170,13 @@ var Header = function (_Component) {
                             _react2.default.createElement(
                                 _reactRouterDom.Link,
                                 { to: '/' },
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    '<'
-                                ),
-                                'HonzaChalupa',
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    '/>'
-                                )
+                                title
                             )
                         ),
                         _react2.default.createElement(
                             'h3',
                             { className: 'tags' },
-                            this.state.tags
+                            tags
                         )
                     )
                 );
@@ -28190,7 +28193,7 @@ var Header = function (_Component) {
                         null,
                         '<'
                     ),
-                    'HonzaChalupa',
+                    title,
                     _react2.default.createElement(
                         'span',
                         null,
@@ -28431,44 +28434,75 @@ var ProjectsFilter = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (ProjectsFilter.__proto__ || Object.getPrototypeOf(ProjectsFilter)).call(this, props));
 
-        var projects = _this.props.projects;
-
-
-        var platformIDs = [];
-        projects.forEach(function (project) {
-            var platform = project.platform;
-
-
-            if (platformIDs.indexOf(platform) === -1) {
-                platformIDs.push(platform);
-            }
-        });
-
-        var platforms = [{
-            id: 'all',
-            label: 'All'
-        }];
-        platformIDs.forEach(function (id) {
-            platforms.push({
-                id: id,
-                label: (0, _helpers.capitalize)(id)
-            });
-        });
-
         _this.state = {
-            platforms: platforms
+            platforms: _this.getProjectsTypes(),
+            tags: _this.getProjectsTags()
         };
         return _this;
     }
 
     _createClass(ProjectsFilter, [{
+        key: 'getProjectsTypes',
+        value: function getProjectsTypes() {
+            var projects = this.props.projects;
+
+            var platformIDs = [];
+
+            projects.forEach(function (project) {
+                var platform = project.platform;
+
+
+                if (platformIDs.indexOf(platform) === -1) {
+                    platformIDs.push(platform);
+                }
+            });
+
+            var platforms = [{
+                id: 'all',
+                label: 'All'
+            }];
+
+            platformIDs.forEach(function (id) {
+                platforms.push({
+                    id: id,
+                    label: (0, _helpers.capitalize)(id)
+                });
+            });
+
+            return platforms;
+        }
+    }, {
+        key: 'getProjectsTags',
+        value: function getProjectsTags() {
+            var projects = this.props.projects;
+
+            var tags = [];
+
+            projects.forEach(function (project) {
+                var projectsTags = project.tags;
+
+
+                if (projectsTags) {
+                    projectsTags.forEach(function (tag) {
+                        if (tags.indexOf(tag) === -1) {
+                            tags.push(tag);
+                        }
+                    });
+                }
+            });
+
+            return tags;
+        }
+    }, {
         key: 'render',
         value: function render() {
             var componentName = this.constructor.name;
             var _props = this.props,
                 changeFilter = _props.changeFilter,
                 alignment = _props.alignment;
-            var platforms = this.state.platforms;
+            var _state = this.state,
+                platforms = _state.platforms,
+                tags = _state.tags;
 
 
             return _react2.default.createElement(
@@ -28476,10 +28510,19 @@ var ProjectsFilter = function (_Component) {
                 { 'data-component': componentName },
                 _react2.default.createElement(
                     _ButtonsGroup2.default,
-                    { alignment: alignment || 'left' },
+                    { headline: 'Types', alignment: alignment || 'left' },
                     platforms.map(function (projectType) {
                         return _react2.default.createElement(_Button2.default, { key: projectType.id, title: projectType.label, onClick: function onClick() {
-                                return changeFilter(projectType.id);
+                                return changeFilter(projectType.id, 'type');
+                            } });
+                    })
+                ),
+                _react2.default.createElement(
+                    _ButtonsGroup2.default,
+                    { headline: 'Tags', alignment: alignment || 'left', extraClasses: 'tags' },
+                    tags.map(function (tag) {
+                        return _react2.default.createElement(_Button2.default, { key: tag, title: tag, onClick: function onClick() {
+                                return changeFilter(tag, 'tag');
                             } });
                     })
                 )
@@ -28518,6 +28561,8 @@ var _axios2 = _interopRequireDefault(_axios);
 var _logger = require('./../modules/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
+
+var _helpers = require('./../helpers');
 
 var _Home = require('./../pages/Home');
 
@@ -28617,13 +28662,13 @@ var Root = function (_Component) {
             var navigationItems = this.state.config.navigationItems;
 
 
-            navigationItems = navigationItems.forEach(function (item) {
+            var navigationItemsActive = navigationItems.forEach(function (item) {
                 item.active = item.id === clickedId;
             });
 
             this.setState({
-                navigationItems: (0, _immutabilityHelper2.default)(this.state.config.navigationItems, {
-                    $set: navigationItems
+                navigationItems: (0, _immutabilityHelper2.default)(navigationItems, {
+                    $set: navigationItemsActive
                 })
             });
 
@@ -28766,7 +28811,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":316,"./../modules/aspect-ratio-preserver":319,"./../modules/logger":320,"./../pages/AboutMe":321,"./../pages/Error":322,"./../pages/Home":323,"./../pages/ProjectDetail":324,"./../pages/Projects":325,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
+},{"./../factory":316,"./../helpers":317,"./../modules/aspect-ratio-preserver":319,"./../modules/logger":320,"./../pages/AboutMe":321,"./../pages/Error":322,"./../pages/Home":323,"./../pages/ProjectDetail":324,"./../pages/Projects":325,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29363,13 +29408,13 @@ function getDevelopmentStageLabel(developmentStage, platform) {
         switch (developmentStage) {
             case 'unsupported':
                 label = {
-                    value: 'This ' + projectType + ' is not supported anymore.',
+                    value: capitalize(projectType) + ' is not supported anymore.',
                     color: 'red'
                 };
                 break;
             case 'in-development':
                 label = {
-                    value: 'This ' + projectType + ' is currently in development phase.',
+                    value: capitalize(projectType) + ' is currently in development phase.',
                     color: 'green'
                 };
                 break;

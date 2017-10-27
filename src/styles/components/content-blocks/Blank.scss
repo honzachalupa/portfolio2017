@@ -22,4 +22,15 @@
         margin: 15px 0;
         float: left;
     }
+
+    .subheadline {
+        width: 100%;
+        font-size: 1.3rem;
+        font-weight: 200;
+        float: left;
+    }
+
+    [data-component="ButtonsGroup"] {
+        padding: 0;
+    }
 }

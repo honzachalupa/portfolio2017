@@ -7,29 +7,32 @@ export default class Header extends Component {
     constructor(props) {
         super(props);
 
+        const { tags } = this.props.config;
+
         this.state = {
             imageUrl: `url('http://www.honzachalupa.cz/imgs/bg-${getRandomRange(1, 10)}.jpg')`,
-            tags: this.props.config.tags.join(' ~ ')
+            tags: tags.join(' ~ ')
         };
     }
 
     render() {
         const componentName = `Page_${this.constructor.name}`;
+        const { imageUrl } = this.state;
         const { config, utilities } = this.props;
-        const { collapsed } = config;
+        const { title, tags, collapsed } = config;
 
         if (!collapsed) {
             return (
-                <header style={{ backgroundImage: this.state.imageUrl }} data-component={componentName}>
+                <header style={{ backgroundImage: imageUrl }} data-component={componentName}>
                     <div className="content" style={{ width: `${document.querySelector('main').offsetWidth}px` }}>
                         <Navigation config={config} utilities={utilities} />
 
                         <h1 className="headline">
                             <Link to="/">
-                                <span>&lt;</span>HonzaChalupa<span>/&gt;</span>
+                                {title}
                             </Link>
                         </h1>
-                        <h3 className="tags">{this.state.tags}</h3>
+                        <h3 className="tags">{tags}</h3>
                     </div>
                 </header>
             );
@@ -37,7 +40,7 @@ export default class Header extends Component {
 
         return (
             <header className="collapsed" data-component={componentName}>
-                <h1 className="headline"><span>&lt;</span>HonzaChalupa<span>/&gt;</span></h1>
+                <h1 className="headline"><span>&lt;</span>{title}<span>/&gt;</span></h1>
             </header>
         );
     }

@@ -7,9 +7,16 @@ export default class ProjectsFilter extends Component {
     constructor(props) {
         super(props);
 
-        const { projects } = this.props;
+        this.state = {
+            platforms: this.getProjectsTypes(),
+            tags: this.getProjectsTags()
+        };
+    }
 
+    getProjectsTypes() {
+        const { projects } = this.props;
         const platformIDs = [];
+
         projects.forEach((project) => {
             const { platform } = project;
 
@@ -22,6 +29,7 @@ export default class ProjectsFilter extends Component {
             id: 'all',
             label: 'All'
         }];
+
         platformIDs.forEach((id) => {
             platforms.push({
                 id,
@@ -29,23 +37,49 @@ export default class ProjectsFilter extends Component {
             });
         });
 
-        this.state = {
-            platforms
-        };
+        return platforms;
+    }
+
+    getProjectsTags() {
+        const { projects } = this.props;
+        const tags = [];
+
+        projects.forEach((project) => {
+            const { tags: projectsTags } = project;
+
+            if (projectsTags) {
+                projectsTags.forEach((tag) => {
+                    if (tags.indexOf(tag) === -1) {
+                        tags.push(tag);
+                    }
+                });
+            }
+        });
+
+        return tags;
     }
 
     render() {
         const componentName = this.constructor.name;
         const { changeFilter, alignment } = this.props;
-        const { platforms } = this.state;
+        const { platforms, tags } = this.state;
 
         return (
             <div data-component={componentName}>
-                <ButtonsGroup alignment={alignment || 'left'}>
+                <ButtonsGroup headline="Types" alignment={alignment || 'left'}>
                     {
                         platforms.map((projectType) => {
                             return (
-                                <Button key={projectType.id} title={projectType.label} onClick={() => changeFilter(projectType.id)} />
+                                <Button key={projectType.id} title={projectType.label} onClick={() => changeFilter(projectType.id, 'type')} />
+                            );
+                        })
+                    }
+                </ButtonsGroup>
+                <ButtonsGroup headline="Tags" alignment={alignment || 'left'} extraClasses="tags">
+                    {
+                        tags.map((tag) => {
+                            return (
+                                <Button key={tag} title={tag} onClick={() => changeFilter(tag, 'tag')} />
                             );
                         })
                     }
