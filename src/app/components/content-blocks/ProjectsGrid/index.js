@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class Grid extends Component {
+export default class ProjectsGrid extends Component {
     render() {
         const componentName = `ContentBlock_${this.constructor.name}`;
         const { headline, description, children: items, extraClasses } = this.props;

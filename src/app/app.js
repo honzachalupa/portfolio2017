@@ -2,18 +2,16 @@
 // import 'svgxuse';
 // import init from './init';
 // import factory from './factory';
-import { render, renderFactory } from './render';
+import { render } from './render';
 import log from './modules/logger';
 import Root from './components/Root';
 
-const app = (config) => {
-    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.192.118:5003' });
+const app = () => {
+    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
 
     try {
-        let css = '';
-
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
-            css += `.navigation-overlay {
+            const css = `.navigation-overlay {
                         background-color: rgba(255, 255, 255, 0.2);
                         -webkit-backdrop-filter: blur(3px);
                         backdrop-filter: blur(3px);
@@ -52,9 +50,7 @@ const app = (config) => {
                             box-shadow: none;
                         }
                     }`;
-        }
 
-        if (css) {
             document.querySelector('head').innerHTML += `<style id="risky-css" data-note="Generated for newer browsers.">${css}</style>`;
         }
     } catch (e) {
@@ -62,4 +58,4 @@ const app = (config) => {
     }
 };
 
-app(window.config);
+app();

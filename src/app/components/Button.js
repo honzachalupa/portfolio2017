@@ -12,12 +12,12 @@ export default class Button extends Component {
         if (url) {
             if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
                 return (
-                    <a className={extraClasses} href={url} onClick={onClick} title={title} data-component={componentName}>{title}</a>
+                    <a className={extraClasses} href={url} title={title} data-component={componentName}>{title}</a>
                 );
             }
 
             return (
-                <Link className={extraClasses} to={url} onClick={onClick} title={title} data-component={componentName}>{title}</Link>
+                <Link className={extraClasses} to={url} title={title} data-component={componentName}>{title}</Link>
             );
         } else if (onClick) {
             return (
@@ -25,7 +25,7 @@ export default class Button extends Component {
             );
         }
 
-        logger('Some of Button\'s props is missing:', { title, url, onClick, extraClasses });
+        logger('Some of Button\'s props is missing:', ...this.props);
 
         return null;
     }

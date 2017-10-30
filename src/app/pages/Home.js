@@ -6,8 +6,8 @@ import ButtonsGroup from './../components/ButtonsGroup';
 import ContentLayout from './../layouts/Content';
 import ProjectTeaser from './../components/content-blocks/ProjectTeaser';
 import Text from './../components/content-blocks/Text';
-import Grid from './../components/content-blocks/Grid';
-import GridItem from './../components/content-blocks/Grid/Item';
+import ProjectsGrid from './../components/content-blocks/ProjectsGrid';
+import ProjectsGridItem from './../components/content-blocks/ProjectsGrid/Item';
 
 export default class Home extends Component {
     constructor(props) {
@@ -56,13 +56,13 @@ export default class Home extends Component {
                         Good bye, world...
                     </Text>
 
-                    <Grid headline="My Projects" extraClasses="latest-projects">
+                    <ProjectsGrid headline="My Projects" extraClasses="latest-projects">
                         {
                             latestProjectsMore.map((project) => {
                                 const title = `Show details for ${project.name} project`;
 
                                 return (
-                                    <GridItem key={project.id} {...project} title={title} />
+                                    <ProjectsGridItem key={project.id} {...project} title={title} />
                                 );
                             })
                         }
@@ -70,7 +70,7 @@ export default class Home extends Component {
                         <ButtonsGroup alignment="center">
                             <Button title="Check all of my projects" url="/projects" />
                         </ButtonsGroup>
-                    </Grid>
+                    </ProjectsGrid>
                 </ContentLayout>
             </div>
         );

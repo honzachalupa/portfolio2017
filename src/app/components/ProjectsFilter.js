@@ -87,7 +87,7 @@ export default class ProjectsFilter extends Component {
 
     render() {
         const componentName = this.constructor.name;
-        const { changeFilter, alignment, hideTags } = this.props;
+        const { changeFilter, alignment, hideTags, filter } = this.props;
         const { types, tags } = this.state;
 
         const TypesBlock = () => {
@@ -96,7 +96,7 @@ export default class ProjectsFilter extends Component {
                     {
                         types.map((type) => {
                             return (
-                                <Button key={type.id} title={type.label} onClick={() => changeFilter(type.id, 'type')} />
+                                <Button key={type.id} title={type.label} onClick={() => changeFilter(type.id, 'type')} extraClasses={type.id === filter.type ? 'selected' : null} />
                             );
                         })
                     }
@@ -114,7 +114,7 @@ export default class ProjectsFilter extends Component {
                     {
                         tags.map((tag) => {
                             return (
-                                <Button key={tag.name} title={`${tag.name} (${tag.count}x)`} onClick={() => changeFilter(tag.name, 'tag')} />
+                                <Button key={tag.name} title={`${tag.name} (${tag.count}x)`} onClick={() => changeFilter(tag.name, 'tag')} extraClasses={tag.name === filter.tag ? 'selected' : null} />
                             );
                         })
                     }

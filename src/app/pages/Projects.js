@@ -4,8 +4,8 @@ import Headline from './../components/Headline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import Blank from './../components/content-blocks/Blank';
-import Grid from './../components/content-blocks/Grid';
-import GridItem from './../components/content-blocks/Grid/Item';
+import ProjectsGrid from './../components/content-blocks/ProjectsGrid';
+import ProjectsGridItem from './../components/content-blocks/ProjectsGrid/Item';
 import ProjectsFilter from './../components/ProjectsFilter';
 
 export default class Projects extends Component {
@@ -118,17 +118,17 @@ const BlockWebApps = (props) => {
 
         if (projectsWeb.length) {
             return (
-                <Grid headline="Web Apps">
+                <ProjectsGrid headline="Web Apps">
                     {
                         projectsWeb.map((project) => {
                             const title = `Show details for ${project.name} project`;
 
                             return (
-                                <GridItem key={project.id} {...project} title={title} />
+                                <ProjectsGridItem key={project.id} {...project} title={title} />
                             );
                         })
                     }
-                </Grid>
+                </ProjectsGrid>
             );
         }
 
@@ -148,17 +148,17 @@ const BlockNativeApps = (props) => {
 
         if (projectsMobile.length) {
             return (
-                <Grid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
+                <ProjectsGrid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
                     {
                         projectsMobile.map((project) => {
                             const title = `Show details for ${project.name} project`;
 
                             return (
-                                <GridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
+                                <ProjectsGridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
                             );
                         })
                     }
-                </Grid>
+                </ProjectsGrid>
             );
         }
 

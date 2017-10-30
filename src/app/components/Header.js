@@ -17,9 +17,9 @@ export default class Header extends Component {
 
     render() {
         const componentName = `Page_${this.constructor.name}`;
-        const { imageUrl } = this.state;
+        const { imageUrl, tags } = this.state;
         const { config, utilities } = this.props;
-        const { title, tags, collapsed } = config;
+        const { title, collapsed } = config;
 
         if (!collapsed) {
             return (

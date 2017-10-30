@@ -16,7 +16,8 @@ export default class ProjectTeaser extends Component {
             developmentStage,
             type,
             company,
-            addedDate
+            addedDate,
+            tags
         } = this.props;
 
         const projectUrl = `project-detail.html?id=${id}`;

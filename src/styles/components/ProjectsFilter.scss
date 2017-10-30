@@ -1,5 +1,19 @@
 [data-component="ProjectsFilter"] {
     [data-component="ButtonsGroup"] {
         margin-bottom: 20px;
+
+        button.selected {
+            background-color: $accent-color;
+            color: white;
+            font-weight: 500;
+        }
+
+        &.tags {
+            margin-bottom: 28px;
+
+            button {
+                margin-bottom: 0;
+            }
+        }
     }
 }

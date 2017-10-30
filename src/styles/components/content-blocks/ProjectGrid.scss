@@ -1,7 +1,7 @@
 .page-content {
-    [data-component="ContentBlock_Grid"] {
+    [data-component="ContentBlock_ProjectsGrid"] {
         ul {
-            [data-component="ContentBlock_GridItem"],
+            [data-component="ContentBlock_ProjectsGridItem"],
             &::after {
                 @media (max-width: 679px) {
                     flex-basis: 100%;
@@ -17,9 +17,9 @@
     }
 
     &.with-panel {
-        [data-component="ContentBlock_Grid"] {
+        [data-component="ContentBlock_ProjectsGrid"] {
             ul {
-                [data-component="ContentBlock_GridItem"],
+                [data-component="ContentBlock_ProjectsGridItem"],
                 &::after {
                     @media (max-width: 679px) {
                         flex-basis: 100%;
@@ -33,7 +33,7 @@
     }
 }
 
-[data-component="ContentBlock_Grid"] {
+[data-component="ContentBlock_ProjectsGrid"] {
     width: 100%;
     background-color: white;
     float: left;
@@ -81,7 +81,7 @@
             content: "";
         }
 
-        [data-component="ContentBlock_GridItem"] {
+        [data-component="ContentBlock_ProjectsGridItem"] {
             margin-bottom: 10px;
 
             a {
@@ -185,21 +185,28 @@
         }
     }
 
+    // To-do
     &.latest-projects {
         @media (max-width: 680px) {
-            [data-component="ContentBlock_GridItem"]:nth-of-type(4) {
+            [data-component="ContentBlock_ProjectsGridItem"]:nth-of-type(3) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 680px) {
+            [data-component="ContentBlock_ProjectsGridItem"]:nth-of-type(4) {
                 display: none;
             }
         }
 
         @media (max-width: 1200px) {
-            [data-component="ContentBlock_GridItem"]:nth-of-type(5) {
+            [data-component="ContentBlock_ProjectsGridItem"]:nth-of-type(5) {
                 display: none;
             }
         }
 
         @media (max-width: 1200px) {
-            [data-component="ContentBlock_GridItem"]:nth-of-type(6) {
+            [data-component="ContentBlock_ProjectsGridItem"]:nth-of-type(6) {
                 display: none;
             }
         }

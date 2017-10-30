@@ -5,7 +5,7 @@ import { getDevelopmentStageLabel } from './../../../helpers';
 
 export default class Item extends Component {
     render() {
-        const componentName = `ContentBlock_Grid${this.constructor.name}`;
+        const componentName = `ContentBlock_ProjectsGrid${this.constructor.name}`;
 
         const {
             id,

@@ -27865,17 +27865,13 @@ var _Root2 = _interopRequireDefault(_Root);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = function app(config) {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.192.118:5003' });
+var app = function app() {
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
 
     try {
-        var css = '';
-
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
-            css += '.navigation-overlay {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="Page_Header"] .content .headline,\n                    [data-component="Page_Header"] .content .tags {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        color: white;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="ContentBlock_Grid"] .company .logo {\n                        border-radius: 0 !important;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    @media (max-width: 679px) {\n                        [data-component="Page_Navigation"].opened {\n                            opacity: 0.9;\n                        }\n                    }\n                    @media (min-width: 680px) {\n                        [data-component="Page_Navigation"] {\n                            background-color: rgba(255, 255, 255, 0.2);\n                            color: white;\n                            -webkit-backdrop-filter: blur(3px);\n                            backdrop-filter: blur(3px);\n                        }\n\n                        [data-component="Page_Navigation"].pinned {\n                            background-color: rgba(0, 0, 0, 0.1);\n                            color: black;\n                            box-shadow: none;\n                        }\n                    }';
-        }
+            var css = '.navigation-overlay {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="Page_Header"] .content .headline,\n                    [data-component="Page_Header"] .content .tags {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        color: white;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="ContentBlock_Grid"] .company .logo {\n                        border-radius: 0 !important;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    @media (max-width: 679px) {\n                        [data-component="Page_Navigation"].opened {\n                            opacity: 0.9;\n                        }\n                    }\n                    @media (min-width: 680px) {\n                        [data-component="Page_Navigation"] {\n                            background-color: rgba(255, 255, 255, 0.2);\n                            color: white;\n                            -webkit-backdrop-filter: blur(3px);\n                            backdrop-filter: blur(3px);\n                        }\n\n                        [data-component="Page_Navigation"].pinned {\n                            background-color: rgba(0, 0, 0, 0.1);\n                            color: black;\n                            box-shadow: none;\n                        }\n                    }';
 
-        if (css) {
             document.querySelector('head').innerHTML += '<style id="risky-css" data-note="Generated for newer browsers.">' + css + '</style>';
         }
     } catch (e) {
@@ -27887,7 +27883,7 @@ var app = function app(config) {
 // import factory from './factory';
 
 
-app(window.config);
+app();
 
 },{"./components/Root":308,"./modules/logger":320,"./render":326}],300:[function(require,module,exports){
 'use strict';
@@ -27915,6 +27911,8 @@ var _Navigation = require('./Navigation');
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -27946,14 +27944,14 @@ var Button = function (_Component) {
                 if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
                     return _react2.default.createElement(
                         'a',
-                        { className: extraClasses, href: url, onClick: onClick, title: title, 'data-component': componentName },
+                        { className: extraClasses, href: url, title: title, 'data-component': componentName },
                         title
                     );
                 }
 
                 return _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { className: extraClasses, to: url, onClick: onClick, title: title, 'data-component': componentName },
+                    { className: extraClasses, to: url, title: title, 'data-component': componentName },
                     title
                 );
             } else if (onClick) {
@@ -27964,7 +27962,7 @@ var Button = function (_Component) {
                 );
             }
 
-            (0, _logger2.default)('Some of Button\'s props is missing:', { title: title, url: url, onClick: onClick, extraClasses: extraClasses });
+            _logger2.default.apply(undefined, ['Some of Button\'s props is missing:'].concat(_toConsumableArray(this.props)));
 
             return null;
         }
@@ -28147,12 +28145,13 @@ var Header = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
-            var imageUrl = this.state.imageUrl;
+            var _state = this.state,
+                imageUrl = _state.imageUrl,
+                tags = _state.tags;
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
             var title = config.title,
-                tags = config.tags,
                 collapsed = config.collapsed;
 
 
@@ -28527,7 +28526,8 @@ var ProjectsFilter = function (_Component) {
             var _props = this.props,
                 changeFilter = _props.changeFilter,
                 alignment = _props.alignment,
-                hideTags = _props.hideTags;
+                hideTags = _props.hideTags,
+                filter = _props.filter;
             var _state = this.state,
                 types = _state.types,
                 tags = _state.tags;
@@ -28540,7 +28540,7 @@ var ProjectsFilter = function (_Component) {
                     types.map(function (type) {
                         return _react2.default.createElement(_Button2.default, { key: type.id, title: type.label, onClick: function onClick() {
                                 return changeFilter(type.id, 'type');
-                            } });
+                            }, extraClasses: type.id === filter.type ? 'selected' : null });
                     })
                 );
             };
@@ -28556,7 +28556,7 @@ var ProjectsFilter = function (_Component) {
                     tags.map(function (tag) {
                         return _react2.default.createElement(_Button2.default, { key: tag.name, title: tag.name + ' (' + tag.count + 'x)', onClick: function onClick() {
                                 return changeFilter(tag.name, 'tag');
-                            } });
+                            }, extraClasses: tag.name === filter.tag ? 'selected' : null });
                     })
                 );
             };
@@ -28926,172 +28926,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
-var _logger = require('./../../../modules/logger');
-
-var _logger2 = _interopRequireDefault(_logger);
-
-var _helpers = require('./../../../helpers');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Item = function (_Component) {
-    _inherits(Item, _Component);
-
-    function Item() {
-        _classCallCheck(this, Item);
-
-        return _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).apply(this, arguments));
-    }
-
-    _createClass(Item, [{
-        key: 'render',
-        value: function render() {
-            var componentName = 'ContentBlock_Grid' + this.constructor.name;
-
-            var _props = this.props,
-                id = _props.id,
-                name = _props.name,
-                description = _props.description,
-                url = _props.url,
-                previewImage = _props.previewImage,
-                developmentStage = _props.developmentStage,
-                type = _props.type,
-                company = _props.company;
-
-
-            var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
-
-            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, type);
-
-            var developmentStageBlock = developmentStage !== 'released' ? _react2.default.createElement(
-                'p',
-                { className: 'development-stage ' + developmentStageLabel.color },
-                developmentStageLabel.value
-            ) : null;
-
-            return _react2.default.createElement(
-                'li',
-                { 'data-component': componentName },
-                _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/projects/' + id, title: name },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
-                        companyBlock
-                    ),
-                    _react2.default.createElement(
-                        'h3',
-                        { className: 'headline' },
-                        name
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
-                        description
-                    ),
-                    developmentStageBlock
-                )
-            );
-        }
-    }]);
-
-    return Item;
-}(_react.Component);
-
-exports.default = Item;
-
-},{"./../../../helpers":317,"./../../../modules/logger":320,"react":275,"react-router-dom":236}],311:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Grid = function (_Component) {
-    _inherits(Grid, _Component);
-
-    function Grid() {
-        _classCallCheck(this, Grid);
-
-        return _possibleConstructorReturn(this, (Grid.__proto__ || Object.getPrototypeOf(Grid)).apply(this, arguments));
-    }
-
-    _createClass(Grid, [{
-        key: "render",
-        value: function render() {
-            var componentName = "ContentBlock_" + this.constructor.name;
-            var _props = this.props,
-                headline = _props.headline,
-                description = _props.description,
-                items = _props.children,
-                extraClasses = _props.extraClasses;
-
-
-            var descriptionBlock = description ? _react2.default.createElement(
-                "p",
-                { className: "description" },
-                description
-            ) : null;
-
-            return _react2.default.createElement(
-                "article",
-                { "data-component": componentName, className: extraClasses },
-                _react2.default.createElement(
-                    "h2",
-                    { className: "headline" },
-                    headline
-                ),
-                descriptionBlock,
-                _react2.default.createElement(
-                    "ul",
-                    null,
-                    items
-                )
-            );
-        }
-    }]);
-
-    return Grid;
-}(_react.Component);
-
-exports.default = Grid;
-
-},{"react":275}],312:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = require('react-router-dom');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29141,7 +28975,7 @@ var ImageItem = function (_Component) {
 
 exports.default = ImageItem;
 
-},{"react":275,"react-router-dom":236}],313:[function(require,module,exports){
+},{"react":275,"react-router-dom":236}],311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29226,7 +29060,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./Item":312,"react":275}],314:[function(require,module,exports){
+},{"./Item":310,"react":275}],312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29276,7 +29110,8 @@ var ProjectTeaser = function (_Component) {
                 developmentStage = _props.developmentStage,
                 type = _props.type,
                 company = _props.company,
-                addedDate = _props.addedDate;
+                addedDate = _props.addedDate,
+                tags = _props.tags;
 
 
             var projectUrl = 'project-detail.html?id=' + id;
@@ -29326,7 +29161,173 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":300,"react":275}],315:[function(require,module,exports){
+},{"./../Button":300,"react":275}],313:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _logger = require('./../../../modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var _helpers = require('./../../../helpers');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Item = function (_Component) {
+    _inherits(Item, _Component);
+
+    function Item() {
+        _classCallCheck(this, Item);
+
+        return _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).apply(this, arguments));
+    }
+
+    _createClass(Item, [{
+        key: 'render',
+        value: function render() {
+            var componentName = 'ContentBlock_ProjectsGrid' + this.constructor.name;
+
+            var _props = this.props,
+                id = _props.id,
+                name = _props.name,
+                description = _props.description,
+                url = _props.url,
+                previewImage = _props.previewImage,
+                developmentStage = _props.developmentStage,
+                type = _props.type,
+                company = _props.company;
+
+
+            var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
+
+            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, type);
+
+            var developmentStageBlock = developmentStage !== 'released' ? _react2.default.createElement(
+                'p',
+                { className: 'development-stage ' + developmentStageLabel.color },
+                developmentStageLabel.value
+            ) : null;
+
+            return _react2.default.createElement(
+                'li',
+                { 'data-component': componentName },
+                _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/projects/' + id, title: name },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
+                        companyBlock
+                    ),
+                    _react2.default.createElement(
+                        'h3',
+                        { className: 'headline' },
+                        name
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
+                        description
+                    ),
+                    developmentStageBlock
+                )
+            );
+        }
+    }]);
+
+    return Item;
+}(_react.Component);
+
+exports.default = Item;
+
+},{"./../../../helpers":317,"./../../../modules/logger":320,"react":275,"react-router-dom":236}],314:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProjectsGrid = function (_Component) {
+    _inherits(ProjectsGrid, _Component);
+
+    function ProjectsGrid() {
+        _classCallCheck(this, ProjectsGrid);
+
+        return _possibleConstructorReturn(this, (ProjectsGrid.__proto__ || Object.getPrototypeOf(ProjectsGrid)).apply(this, arguments));
+    }
+
+    _createClass(ProjectsGrid, [{
+        key: "render",
+        value: function render() {
+            var componentName = "ContentBlock_" + this.constructor.name;
+            var _props = this.props,
+                headline = _props.headline,
+                description = _props.description,
+                items = _props.children,
+                extraClasses = _props.extraClasses;
+
+
+            var descriptionBlock = description ? _react2.default.createElement(
+                "p",
+                { className: "description" },
+                description
+            ) : null;
+
+            return _react2.default.createElement(
+                "article",
+                { "data-component": componentName, className: extraClasses },
+                _react2.default.createElement(
+                    "h2",
+                    { className: "headline" },
+                    headline
+                ),
+                descriptionBlock,
+                _react2.default.createElement(
+                    "ul",
+                    null,
+                    items
+                )
+            );
+        }
+    }]);
+
+    return ProjectsGrid;
+}(_react.Component);
+
+exports.default = ProjectsGrid;
+
+},{"react":275}],315:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29841,11 +29842,11 @@ var _Text = require('./../components/content-blocks/Text');
 
 var _Text2 = _interopRequireDefault(_Text);
 
-var _Grid = require('./../components/content-blocks/Grid');
+var _ProjectsGrid = require('./../components/content-blocks/ProjectsGrid');
 
-var _Grid2 = _interopRequireDefault(_Grid);
+var _ProjectsGrid2 = _interopRequireDefault(_ProjectsGrid);
 
-var _Item = require('./../components/content-blocks/Grid/Item');
+var _Item = require('./../components/content-blocks/ProjectsGrid/Item');
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -29918,7 +29919,7 @@ var Home = function (_Component) {
                         'Good bye, world...'
                     ),
                     _react2.default.createElement(
-                        _Grid2.default,
+                        _ProjectsGrid2.default,
                         { headline: 'My Projects', extraClasses: 'latest-projects' },
                         latestProjectsMore.map(function (project) {
                             var title = 'Show details for ' + project.name + ' project';
@@ -29941,7 +29942,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/ProjectTeaser":314,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],324:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/ProjectsGrid":314,"./../components/content-blocks/ProjectsGrid/Item":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30035,6 +30036,8 @@ var ProjectDetail = function (_Component) {
                 utilities = _props.utilities;
 
 
+            console.log(project);
+
             var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(project.developmentStage, project.platform);
 
             var developmentStageBlock = project.developmentStage !== 'released' ? _react2.default.createElement(
@@ -30060,7 +30063,8 @@ var ProjectDetail = function (_Component) {
                             'p',
                             null,
                             project.description
-                        )
+                        ),
+                        _react2.default.createElement(_Button2.default, { title: 'yxxyx', url: project.url })
                     ),
                     galleryBlock
                 )
@@ -30073,7 +30077,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/ImagesGrid":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],325:[function(require,module,exports){
+},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/ImagesGrid":311,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30106,11 +30110,11 @@ var _Blank = require('./../components/content-blocks/Blank');
 
 var _Blank2 = _interopRequireDefault(_Blank);
 
-var _Grid = require('./../components/content-blocks/Grid');
+var _ProjectsGrid = require('./../components/content-blocks/ProjectsGrid');
 
-var _Grid2 = _interopRequireDefault(_Grid);
+var _ProjectsGrid2 = _interopRequireDefault(_ProjectsGrid);
 
-var _Item = require('./../components/content-blocks/Grid/Item');
+var _Item = require('./../components/content-blocks/ProjectsGrid/Item');
 
 var _Item2 = _interopRequireDefault(_Item);
 
@@ -30268,7 +30272,7 @@ var BlockWebApps = function BlockWebApps(props) {
 
         if (projectsWeb.length) {
             return _react2.default.createElement(
-                _Grid2.default,
+                _ProjectsGrid2.default,
                 { headline: 'Web Apps' },
                 projectsWeb.map(function (project) {
                     var title = 'Show details for ' + project.name + ' project';
@@ -30296,7 +30300,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
 
         if (projectsMobile.length) {
             return _react2.default.createElement(
-                _Grid2.default,
+                _ProjectsGrid2.default,
                 { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
                 projectsMobile.map(function (project) {
                     var title = 'Show details for ' + project.name + ' project';
@@ -30312,7 +30316,7 @@ var BlockNativeApps = function BlockNativeApps(props) {
     return null;
 };
 
-},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/Grid":311,"./../components/content-blocks/Grid/Item":310,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],326:[function(require,module,exports){
+},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/ProjectsGrid":314,"./../components/content-blocks/ProjectsGrid/Item":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
