@@ -27866,7 +27866,7 @@ var _Root2 = _interopRequireDefault(_Root);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = function app() {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.1.65:5003' });
 
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
@@ -28070,21 +28070,23 @@ var Footer = function (_Component) {
         key: "render",
         value: function render() {
             var componentName = "Page_" + this.constructor.name;
-            var collapsed = this.props.collapsed;
+            var _props = this.props,
+                collapsed = _props.collapsed,
+                config = _props.config;
 
 
             if (!collapsed) {
                 return _react2.default.createElement(
                     "footer",
                     { "data-component": componentName },
-                    "\xA9 Jan Chalupa 2017"
+                    config.credits
                 );
             }
 
             return _react2.default.createElement(
                 "footer",
                 { className: "collapsed", "data-component": componentName },
-                "\xA9 Jan Chalupa 2017"
+                config.credits
             );
         }
     }]);
@@ -29535,7 +29537,7 @@ var Content = function (_Component) {
                     { className: 'page-content ' + (hasPanel ? 'has-panel' : '') },
                     this.props.children
                 ),
-                _react2.default.createElement(_Footer2.default, null)
+                _react2.default.createElement(_Footer2.default, { config: config })
             );
         }
     }]);
@@ -30036,8 +30038,6 @@ var ProjectDetail = function (_Component) {
                 utilities = _props.utilities;
 
 
-            console.log(project);
-
             var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(project.developmentStage, project.platform);
 
             var developmentStageBlock = project.developmentStage !== 'released' ? _react2.default.createElement(
@@ -30059,11 +30059,7 @@ var ProjectDetail = function (_Component) {
                         _Text2.default,
                         { headline: project.name },
                         developmentStageBlock,
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            project.description
-                        ),
+                        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: project.description } }),
                         _react2.default.createElement(_Button2.default, { title: 'yxxyx', url: project.url })
                     ),
                     galleryBlock

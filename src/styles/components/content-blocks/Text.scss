@@ -45,6 +45,14 @@
             padding-right: 6vw;
         }
 
+        a {
+            border-bottom: 1px dotted gray;
+
+            &:hover {
+                border-bottom: 1px dotted red;
+            }
+        }
+
         .development-stage {
             width: 100%;
             font-size: 0.9rem;

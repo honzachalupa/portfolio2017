@@ -21,7 +21,7 @@ export default class Content extends Component {
                     {this.props.children}
                 </section>
 
-                <Footer />
+                <Footer config={config} />
             </div>
         );
     }

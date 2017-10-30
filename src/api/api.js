@@ -38,7 +38,7 @@ module.exports = () => {
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
-                    url: 'http://www.seznam.cz'
+                    url: 'http://www.actum.cz'
                 },
                 addedDate: '2017/10/10',
                 tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
@@ -55,7 +55,7 @@ module.exports = () => {
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
-                    url: 'http://www.seznam.cz'
+                    url: 'http://www.actum.cz'
                 },
                 addedDate: '2017/2/14',
                 tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
@@ -83,7 +83,7 @@ module.exports = () => {
             }, {
                 id: 'ceske-zpravodajstvi',
                 name: 'České zpravodajství',
-                description: 'Project description...',
+                description: 'This one was my biggest personal project I did so far. I did front-end, back-end and <a href="ceske-zpravodajstvi-app">mobile app</a>',
                 url: 'http://www.ceskezpravodajstvi.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
                 developmentStage: 'in-development',
@@ -173,7 +173,7 @@ module.exports = () => {
             }
         ],
         config: {
-            title: 'Test',
+            title: 'HonzaChalupa',
             tags: [
                 'front-end developer',
                 'junior back-end developer',
@@ -200,6 +200,7 @@ module.exports = () => {
                 emailAddress: 'janchalupa@outlook.cz',
                 city: 'Prague'
             },
+            credits: '© Jan Chalupa 2017',
             screenBreakpoint: 680
         }
     };

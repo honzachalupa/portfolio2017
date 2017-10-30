@@ -41,8 +41,6 @@ export default class ProjectDetail extends Component {
         const { id, headline, hasPanel, project } = this.state;
         const { config, utilities } = this.props;
 
-        console.log(project);
-
         const developmentStageLabel = getDevelopmentStageLabel(project.developmentStage, project.platform);
 
         const developmentStageBlock = project.developmentStage !== 'released' ?
@@ -60,7 +58,7 @@ export default class ProjectDetail extends Component {
 
                     <Text headline={project.name}>
                         {developmentStageBlock}
-                        <p>{project.description}</p>
+                        <p dangerouslySetInnerHTML={{ __html: project.description }} />
                         <Button title="yxxyx" url={project.url} />
                     </Text>
 
