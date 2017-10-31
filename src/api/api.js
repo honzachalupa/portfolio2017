@@ -38,10 +38,10 @@ module.exports = () => {
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
-                    url: 'http://www.actum.cz'
+                    url: 'http://www.actum.cz/'
                 },
                 addedDate: '2017/10/10',
-                tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
+                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'ReactJS']
             }, {
                 id: 'innogy-intranet',
                 name: 'innogy Intranet',
@@ -55,10 +55,20 @@ module.exports = () => {
                 company: {
                     name: 'Actum',
                     logo: 'gfx/svg/company-logo-actum.svg',
-                    url: 'http://www.actum.cz'
+                    url: 'http://www.actum.cz/'
                 },
                 addedDate: '2017/2/14',
-                tags: ['innogy', 'rwe', 'germany', 'actum', 'javascript', 'react.js']
+                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'ReactJS']
+            }, {
+                id: 'allianz-jiri-prudky',
+                name: 'Allianz - Jiří Prudký',
+                description: 'Project description...',
+                url: 'http://www.jiriprudky.cz/',
+                previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
+                developmentStage: 'released',
+                type: 'web',
+                addedDate: '2016/9/1',
+                tags: ['Allianz', 'insurance', 'broker']
             }, {
                 id: 'xbox-games-with-gold',
                 name: 'Xbox - Games with gold',
@@ -68,7 +78,7 @@ module.exports = () => {
                 developmentStage: 'unsupported',
                 type: 'web',
                 addedDate: '2016/2/1',
-                tags: ['microsoft', 'xbox', 'games', 'web scraping'],
+                tags: ['Microsoft', 'Xbox', 'games', 'web-scraping'],
                 hidden: true
             }, {
                 id: 'online-editor',
@@ -83,23 +93,23 @@ module.exports = () => {
             }, {
                 id: 'ceske-zpravodajstvi',
                 name: 'České zpravodajství',
-                description: 'This one was my biggest personal project I did so far. I did front-end, back-end and <a href="ceske-zpravodajstvi-app">mobile app</a>',
+                description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="~/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
                 url: 'http://www.ceskezpravodajstvi.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
                 developmentStage: 'in-development',
                 type: 'web',
                 addedDate: '2016/2/1',
-                tags: ['microsoft', 'czech', 'news', 'web scraping']
+                tags: ['Microsoft', 'Czech', 'news', 'web-scraping']
             }, {
                 id: 'ceske-zpravodajstvi-app',
                 name: 'České zpravodajství',
-                description: 'Project description...',
+                description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="~/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
                 url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
                 developmentStage: 'unsupported',
                 type: 'mobile',
                 addedDate: '2016/2/1',
-                tags: ['microsoft', 'windows', 'windows phone', 'czech', 'news', 'web scraping']
+                tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'web-scraping']
             }, {
                 id: 'polti',
                 name: 'Polti',
@@ -173,7 +183,7 @@ module.exports = () => {
             }
         ],
         config: {
-            title: 'HonzaChalupa',
+            title: 'ReactSandbox',
             tags: [
                 'front-end developer',
                 'junior back-end developer',

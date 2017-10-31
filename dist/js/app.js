@@ -27866,7 +27866,7 @@ var _Root2 = _interopRequireDefault(_Root);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = function app() {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.1.65:5003' });
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
 
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
