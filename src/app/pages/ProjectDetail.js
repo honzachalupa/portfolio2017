@@ -46,7 +46,7 @@ export default class ProjectDetail extends Component {
             null;
 
         const buttonBlock = (project.url) ?
-            <Button title={`Visit ${project.name}`} url={project.url} /> :
+            <Button title="Visit website" url={project.url} /> :
             null;
 
         const galleryBlock = (project.gallery && project.gallery.length) ?

@@ -28,15 +28,16 @@ $margin: 8px;
     padding: 0 12px;
     float: left;
 
-    .alignment {
-        float: left;
+    &.center {
+        text-align: center;
 
-        &.center {
+        .alignment {
             display: inline-block;
-            float: none;
         }
+    }
 
-        &.right {
+    &.right {
+        .alignment {
             float: right;
         }
     }

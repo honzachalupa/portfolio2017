@@ -17,6 +17,8 @@ export default class Item extends Component {
             company
         } = this.props;
 
+        const descriptionCleaned = description.replace(/<.+?>/g, '');
+
         const companyBlock = company ?
             <img src={company.logo} className="company-logo" alt={`${company.name} logo`} /> :
             null;
@@ -28,7 +30,7 @@ export default class Item extends Component {
                         {companyBlock}
                     </div>
                     <h3 className="headline">{name}</h3>
-                    <p className={`description ${description.length > 160 ? 'fadeout' : ''}`}>{description}</p>
+                    <p className={`description ${descriptionCleaned.length > 160 ? 'fadeout' : ''}`}>{descriptionCleaned}</p>
                 </Link>
             </li>
         );

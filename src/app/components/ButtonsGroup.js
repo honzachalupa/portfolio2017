@@ -5,10 +5,14 @@ export default class ButtonsGroup extends Component {
         const componentName = this.constructor.name;
         const { headline, children: buttons, alignment, extraClasses } = this.props;
 
+        const headlineBlock = (headline) ?
+            <p className="headline">{headline}</p> :
+            null;
+
         return (
-            <div className={extraClasses} data-component={componentName}>
-                <p className="headline">{headline}</p>
-                <div className={`alignment ${alignment}`}>
+            <div className={`${extraClasses} ${alignment}`} data-component={componentName}>
+                {headlineBlock}
+                <div className="alignment">
                     {buttons}
                 </div>
             </div>

@@ -1,14 +1,16 @@
 // import 'babel-polyfill';
 // import 'svgxuse';
-// import init from './init';
-// import factory from './factory';
 import { render } from './render';
 import log from './modules/logger';
 import Root from './components/Root';
 
 const app = () => {
-    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://localhost:5003' });
+    render(Root, document.querySelector('#app-root'), { apiUrlRoot: '/api/' });
 
+    fixExperimentalCss();
+};
+
+function fixExperimentalCss() {
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
             const css = `.navigation-overlay {
@@ -56,6 +58,6 @@ const app = () => {
     } catch (e) {
         log(new Error('The CSS.supports feature not supported.'));
     }
-};
+}
 
 app();

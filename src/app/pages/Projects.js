@@ -31,7 +31,7 @@ export default class Projects extends Component {
     }
 
     changeFilter(filter, filterBy) {
-        const type = (filterBy === 'type') ? filter : 'all';
+        /* const type = (filterBy === 'type') ? filter : 'all';
         const tag = (filterBy === 'type') ? null : filter;
 
         this.setState({
@@ -39,7 +39,25 @@ export default class Projects extends Component {
                 type,
                 tag
             }
-        });
+        }); */
+
+        console.log(filter, filterBy);
+
+        if (filterBy === 'type') {
+            this.setState({
+                filter: {
+                    type: filter
+                }
+            });
+        } else if (filterBy === 'tag') {
+            this.setState({
+                filter: {
+                    tag: filter
+                }
+            });
+        }
+
+        console.log(this.state.filter);
     }
 
     render() {

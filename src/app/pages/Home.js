@@ -64,7 +64,7 @@ export default class Home extends Component {
                             })
                         }
 
-                        <ButtonsGroup alignment="center">
+                        <ButtonsGroup>
                             <Button title="Check all of my projects" url="/projects" />
                         </ButtonsGroup>
                     </ProjectsGrid>

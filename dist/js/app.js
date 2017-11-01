@@ -27866,8 +27866,14 @@ var _Root2 = _interopRequireDefault(_Root);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = function app() {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://localhost:5003' });
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: '/api/' });
 
+    fixExperimentalCss();
+}; // import 'babel-polyfill';
+// import 'svgxuse';
+
+
+function fixExperimentalCss() {
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
             var css = '.navigation-overlay {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="Page_Header"] .content .headline,\n                    [data-component="Page_Header"] .content .tags {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        color: white;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="ContentBlock_Grid"] .company .logo {\n                        border-radius: 0 !important;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    @media (max-width: 679px) {\n                        [data-component="Page_Navigation"].opened {\n                            opacity: 0.9;\n                        }\n                    }\n                    @media (min-width: 680px) {\n                        [data-component="Page_Navigation"] {\n                            background-color: rgba(255, 255, 255, 0.2);\n                            color: white;\n                            -webkit-backdrop-filter: blur(3px);\n                            backdrop-filter: blur(3px);\n                        }\n\n                        [data-component="Page_Navigation"].pinned {\n                            background-color: rgba(0, 0, 0, 0.1);\n                            color: black;\n                            box-shadow: none;\n                        }\n                    }';
@@ -27877,11 +27883,7 @@ var app = function app() {
     } catch (e) {
         (0, _logger2.default)(new Error('The CSS.supports feature not supported.'));
     }
-}; // import 'babel-polyfill';
-// import 'svgxuse';
-// import init from './init';
-// import factory from './factory';
-
+}
 
 app();
 
@@ -27932,6 +27934,8 @@ var Button = function (_Component) {
     _createClass(Button, [{
         key: 'render',
         value: function render() {
+            var _console;
+
             var componentName = this.constructor.name;
             var _props = this.props,
                 title = _props.title,
@@ -27939,6 +27943,8 @@ var Button = function (_Component) {
                 onClick = _props.onClick,
                 extraClasses = _props.extraClasses;
 
+
+            (_console = console).log.apply(_console, _toConsumableArray(this.props));
 
             if (url) {
                 if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
@@ -28014,17 +28020,19 @@ var ButtonsGroup = function (_Component) {
                 extraClasses = _props.extraClasses;
 
 
+            var headlineBlock = headline ? _react2.default.createElement(
+                "p",
+                { className: "headline" },
+                headline
+            ) : null;
+
             return _react2.default.createElement(
                 "div",
-                { className: extraClasses, "data-component": componentName },
-                _react2.default.createElement(
-                    "p",
-                    { className: "headline" },
-                    headline
-                ),
+                { className: extraClasses + " " + alignment, "data-component": componentName },
+                headlineBlock,
                 _react2.default.createElement(
                     "div",
-                    { className: "alignment " + alignment },
+                    { className: "alignment" },
                     buttons
                 )
             );
@@ -28133,70 +28141,23 @@ var Header = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
-        _this.updateDimensions = _this.updateDimensions.bind(_this);
-
         var tags = _this.props.config.tags;
 
 
         _this.state = {
             imageUrl: 'url(\'http://www.honzachalupa.cz/imgs/bg-' + (0, _helpers.getRandomRange)(1, 10) + '.jpg\')',
-            tags: tags.join(' ~ '),
-            heightOriginal: 279,
-            height: null,
-            fontSize: null,
-            headlineTopPosition: null,
-            subheadlineOpacity: null
+            tags: tags.join(' ~ ')
         };
-
-        // this.updateDimensions();
         return _this;
     }
 
     _createClass(Header, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            window.addEventListener('scroll', this.updateDimensions);
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            window.removeEventListener('scroll', this.updateDimensions);
-        }
-    }, {
-        key: 'updateDimensions',
-        value: function updateDimensions() {
-            var _state = this.state,
-                heightOriginal = _state.heightOriginal,
-                height = _state.height,
-                fontSize = _state.fontSize;
-
-            var scrolled = window.scrollY;
-
-            if (heightOriginal >= scrolled) {
-                var newHeight = heightOriginal - scrolled;
-                var x = scrolled / heightOriginal * 50 + 0;
-
-                console.log(x);
-
-                this.setState({
-                    height: newHeight,
-                    fontSize: newHeight / 20,
-                    headlineTopPosition: x,
-                    subheadlineOpacity: 1 - Math.round(scrolled / heightOriginal * 100) / 100 * 2
-                });
-            }
-        }
-    }, {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
-            var _state2 = this.state,
-                imageUrl = _state2.imageUrl,
-                tags = _state2.tags,
-                height = _state2.height,
-                fontSize = _state2.fontSize,
-                headlineTopPosition = _state2.headlineTopPosition,
-                subheadlineOpacity = _state2.subheadlineOpacity;
+            var _state = this.state,
+                imageUrl = _state.imageUrl,
+                tags = _state.tags;
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
@@ -28207,14 +28168,14 @@ var Header = function (_Component) {
             if (!collapsed) {
                 return _react2.default.createElement(
                     'header',
-                    { style: { backgroundImage: imageUrl, height: height }, 'data-component': componentName },
+                    { style: { backgroundImage: imageUrl }, 'data-component': componentName },
                     _react2.default.createElement(
                         'div',
                         { className: 'content', style: { width: document.querySelector('main').offsetWidth + 'px' } },
                         _react2.default.createElement(_Navigation2.default, { config: config, utilities: utilities }),
                         _react2.default.createElement(
                             'h1',
-                            { className: 'headline', style: { fontSize: fontSize + 40, top: headlineTopPosition } },
+                            { className: 'headline' },
                             _react2.default.createElement(
                                 _reactRouterDom.Link,
                                 { to: '/' },
@@ -28223,7 +28184,7 @@ var Header = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'h3',
-                            { className: 'tags', style: { opacity: subheadlineOpacity } },
+                            { className: 'tags' },
                             tags
                         )
                     )
@@ -28706,7 +28667,7 @@ var Root = function (_Component) {
         _this.setNavigationItem = _this.setNavigationItem.bind(_this);
         _this.updateDimensions = _this.updateDimensions.bind(_this);
 
-        _axios2.default.get(apiUrlRoot + '/data').then(function (response) {
+        _axios2.default.get(apiUrlRoot + 'data.json').then(function (response) {
             var config = response.data.config;
             var projects = response.data.projects;
 
@@ -29265,6 +29226,8 @@ var Item = function (_Component) {
                 company = _props.company;
 
 
+            var descriptionCleaned = description.replace(/<.+?>/g, '');
+
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
 
             return _react2.default.createElement(
@@ -29285,8 +29248,8 @@ var Item = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'p',
-                        { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
-                        description
+                        { className: 'description ' + (descriptionCleaned.length > 160 ? 'fadeout' : '') },
+                        descriptionCleaned
                     )
                 )
             );
@@ -29966,7 +29929,7 @@ var Home = function (_Component) {
                         }),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
-                            { alignment: 'center' },
+                            null,
                             _react2.default.createElement(_Button2.default, { title: 'Check all of my projects', url: '/projects' })
                         )
                     )
@@ -30079,7 +30042,7 @@ var ProjectDetail = function (_Component) {
                 developmentStageLabel.value
             ) : null;
 
-            var buttonBlock = project.url ? _react2.default.createElement(_Button2.default, { title: 'Visit ' + project.name, url: project.url }) : null;
+            var buttonBlock = project.url ? _react2.default.createElement(_Button2.default, { title: 'Visit website', url: project.url }) : null;
 
             var galleryBlock = project.gallery && project.gallery.length ? _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery }) : null;
 
@@ -30192,15 +30155,32 @@ var Projects = function (_Component) {
     _createClass(Projects, [{
         key: 'changeFilter',
         value: function changeFilter(filter, filterBy) {
-            var type = filterBy === 'type' ? filter : 'all';
-            var tag = filterBy === 'type' ? null : filter;
-
-            this.setState({
+            /* const type = (filterBy === 'type') ? filter : 'all';
+            const tag = (filterBy === 'type') ? null : filter;
+             this.setState({
                 filter: {
-                    type: type,
-                    tag: tag
+                    type,
+                    tag
                 }
-            });
+            }); */
+
+            console.log(filter, filterBy);
+
+            if (filterBy === 'type') {
+                this.setState({
+                    filter: {
+                        type: filter
+                    }
+                });
+            } else if (filterBy === 'tag') {
+                this.setState({
+                    filter: {
+                        tag: filter
+                    }
+                });
+            }
+
+            console.log(this.state.filter);
         }
     }, {
         key: 'render',
