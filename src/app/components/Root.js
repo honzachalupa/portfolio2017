@@ -22,7 +22,11 @@ export default class Root extends Component {
         this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
-        axios.get(`${apiUrlRoot}data.json`)
+        const apiUrl = `${apiUrlRoot}data.json`;
+
+        console.log(apiUrl);
+
+        axios.get(apiUrl)
             .then((response) => {
                 const { config } = response.data;
                 let { projects } = response.data;

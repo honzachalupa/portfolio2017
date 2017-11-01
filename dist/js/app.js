@@ -28667,7 +28667,11 @@ var Root = function (_Component) {
         _this.setNavigationItem = _this.setNavigationItem.bind(_this);
         _this.updateDimensions = _this.updateDimensions.bind(_this);
 
-        _axios2.default.get(apiUrlRoot + 'data.json').then(function (response) {
+        var apiUrl = apiUrlRoot + 'data.json';
+
+        console.log(apiUrl);
+
+        _axios2.default.get(apiUrl).then(function (response) {
             var config = response.data.config;
             var projects = response.data.projects;
 
