@@ -1,6 +1,10 @@
 [data-component="Page_Header"] {
     width: 100vw;
     height: 30vw;
+    min-height: 90px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
 
     @media (max-width: 1199px) {
         height: 30vh;
@@ -30,6 +34,7 @@
 
         .headline {
             font-size: 5vw;
+            position: relative;
 
             a::before {
                 content: '<';

@@ -14,23 +14,21 @@ export default class ProjectDetail extends Component {
         const { setNavigationItem } = utilities;
 
         try {
-            const projectId = params.id;
             let currentProject;
 
             this.props.projects.forEach((project) => {
-                if (project.id.toString() === projectId) {
+                if (project.id.toString() === params.id) {
                     currentProject = project;
                 }
             });
 
             this.state = {
                 id: 'project-page',
-                headline: currentProject.name,
                 hasPanel: false,
                 project: currentProject
             };
 
-            setPageTitle(this.state.headline);
+            setPageTitle(currentProject.name);
             setNavigationItem('projects-page');
         } catch (error) {
             document.location = '/page-not-found';
@@ -38,13 +36,17 @@ export default class ProjectDetail extends Component {
     }
 
     render() {
-        const { id, headline, hasPanel, project } = this.state;
+        const { id, hasPanel, project } = this.state;
         const { config, utilities } = this.props;
 
         const developmentStageLabel = getDevelopmentStageLabel(project.developmentStage, project.platform);
 
         const developmentStageBlock = project.developmentStage !== 'released' ?
             <p className={`development-stage ${developmentStageLabel.color}`}>{developmentStageLabel.value}</p> :
+            null;
+
+        const buttonBlock = (project.url) ?
+            <Button title={`Visit ${project.name}`} url={project.url} /> :
             null;
 
         const galleryBlock = (project.gallery && project.gallery.length) ?
@@ -54,12 +56,12 @@ export default class ProjectDetail extends Component {
         return (
             <div id={id} data-component="Page">
                 <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
-                    <Headline headline={headline} />
+                    <Headline headline={project.name} />
 
                     <Text headline={project.name}>
                         {developmentStageBlock}
                         <p dangerouslySetInnerHTML={{ __html: project.description }} />
-                        <Button title="yxxyx" url={project.url} />
+                        {buttonBlock}
                     </Text>
 
                     {galleryBlock}

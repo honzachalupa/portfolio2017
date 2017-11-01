@@ -22,7 +22,6 @@ export default class Home extends Component {
             hasPanel: false,
             latestProject: projects[0],
             latestProjectsMore: [
-                projects[0], // To-do: Remove this line
                 projects[1],
                 projects[2],
                 projects[3],
@@ -59,10 +58,8 @@ export default class Home extends Component {
                     <ProjectsGrid headline="My Projects" extraClasses="latest-projects">
                         {
                             latestProjectsMore.map((project) => {
-                                const title = `Show details for ${project.name} project`;
-
                                 return (
-                                    <ProjectsGridItem key={project.id} {...project} title={title} />
+                                    <ProjectsGridItem key={project.id} {...project} />
                                 );
                             })
                         }

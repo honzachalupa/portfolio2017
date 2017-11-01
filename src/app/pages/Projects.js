@@ -31,21 +31,15 @@ export default class Projects extends Component {
     }
 
     changeFilter(filter, filterBy) {
-        if (filterBy === 'type') {
-            this.setState({
-                filter: {
-                    type: filter,
-                    tag: null
-                }
-            });
-        } else if (filterBy === 'tag') {
-            this.setState({
-                filter: {
-                    type: 'all',
-                    tag: filter
-                }
-            });
-        }
+        const type = (filterBy === 'type') ? filter : 'all';
+        const tag = (filterBy === 'type') ? null : filter;
+
+        this.setState({
+            filter: {
+                type,
+                tag
+            }
+        });
     }
 
     render() {
@@ -62,7 +56,7 @@ export default class Projects extends Component {
                     </Text>
 
                     <Blank headline="Filter">
-                        <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} hideTags />
+                        <ProjectsFilter projects={projects} filter={filter} changeFilter={this.changeFilter} />
                     </Blank>
 
                     <FilteredProjects projects={projects} filter={filter} />
@@ -78,32 +72,13 @@ export default class Projects extends Component {
 
 const FilteredProjects = (props) => {
     const { projects, filter } = props;
-
-    if (filter.tag) {
-        const projectsWithTag = projects.filter((project) => {
-            const { tags } = project;
-
-            if (tags) {
-                if (tags.indexOf(filter.tag) > -1) {
-                    return project;
-                }
-            }
-
-            return null;
-        });
-
-        return (
-            <div>
-                <BlockWebApps projects={projectsWithTag} filter={filter} />
-                <BlockNativeApps projects={projectsWithTag} filter={filter} />
-            </div>
-        );
-    }
+    const { tag } = filter;
+    const projectsFiltered = tag ? projects.filter((project) => filterByTag(project, tag)) : projects;
 
     return (
         <div>
-            <BlockWebApps projects={projects} filter={filter} />
-            <BlockNativeApps projects={projects} filter={filter} />
+            <BlockWebApps projects={projectsFiltered} filter={filter} />
+            <BlockNativeApps projects={projectsFiltered} filter={filter} />
         </div>
     );
 };
@@ -112,27 +87,21 @@ const BlockWebApps = (props) => {
     const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'web') {
-        const projectsWeb = projects.filter((project) => {
-            return project.type === 'web';
-        });
+        const projectsFiltered = projects.filter((project) => filterByType(project, 'web'));
 
-        if (projectsWeb.length) {
+        if (projectsFiltered.length) {
             return (
                 <ProjectsGrid headline="Web Apps">
                     {
-                        projectsWeb.map((project) => {
-                            const title = `Show details for ${project.name} project`;
-
+                        projectsFiltered.map((project) => {
                             return (
-                                <ProjectsGridItem key={project.id} {...project} title={title} />
+                                <ProjectsGridItem key={project.id} {...project} />
                             );
                         })
                     }
                 </ProjectsGrid>
             );
         }
-
-        return null;
     }
 
     return null;
@@ -142,28 +111,38 @@ const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'mobile') {
-        const projectsMobile = projects.filter((project) => {
-            return project.type === 'mobile';
-        });
+        const projectsFiltered = projects.filter((project) => filterByType(project, 'mobile'));
 
-        if (projectsMobile.length) {
+        if (projectsFiltered.length) {
             return (
                 <ProjectsGrid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
                     {
-                        projectsMobile.map((project) => {
-                            const title = `Show details for ${project.name} project`;
-
+                        projectsFiltered.map((project) => {
                             return (
-                                <ProjectsGridItem key={project.id} {...project} title={title} aspectRatio="4:3" aspectRatioMobile="16:9" />
+                                <ProjectsGridItem key={project.id} {...project} />
                             );
                         })
                     }
                 </ProjectsGrid>
             );
         }
-
-        return null;
     }
 
     return null;
 };
+
+function filterByType(project, type) {
+    return (project.type === type) ? project : null;
+}
+
+function filterByTag(project, tag) {
+    const { tags } = project;
+
+    if (tags) {
+        if (tags.indexOf(tag) > -1) {
+            return project;
+        }
+    }
+
+    return null;
+}

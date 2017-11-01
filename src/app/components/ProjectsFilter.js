@@ -126,6 +126,8 @@ export default class ProjectsFilter extends Component {
             <div data-component={componentName}>
                 <TypesBlock />
                 <TagsBlock />
+
+                <Button title="Reset filter" onClick={() => changeFilter('all', 'type')} />
             </div>
         );
     }

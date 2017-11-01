@@ -41,7 +41,7 @@ module.exports = () => {
                     url: 'http://www.actum.cz/'
                 },
                 addedDate: '2017/10/10',
-                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'ReactJS']
+                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
             }, {
                 id: 'innogy-intranet',
                 name: 'innogy Intranet',
@@ -58,7 +58,7 @@ module.exports = () => {
                     url: 'http://www.actum.cz/'
                 },
                 addedDate: '2017/2/14',
-                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'ReactJS']
+                tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
             }, {
                 id: 'allianz-jiri-prudky',
                 name: 'Allianz - Jiří Prudký',
@@ -93,7 +93,7 @@ module.exports = () => {
             }, {
                 id: 'ceske-zpravodajstvi',
                 name: 'České zpravodajství',
-                description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="~/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
+                description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="~/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
                 url: 'http://www.ceskezpravodajstvi.cz/',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
                 developmentStage: 'in-development',
@@ -103,7 +103,7 @@ module.exports = () => {
             }, {
                 id: 'ceske-zpravodajstvi-app',
                 name: 'České zpravodajství',
-                description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="~/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
+                description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="~/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
                 url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
                 previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
                 developmentStage: 'unsupported',
@@ -183,7 +183,7 @@ module.exports = () => {
             }
         ],
         config: {
-            title: 'ReactSandbox',
+            title: 'HonzaChalupa',
             tags: [
                 'front-end developer',
                 'junior back-end developer',

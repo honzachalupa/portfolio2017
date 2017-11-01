@@ -7,7 +7,7 @@ import log from './modules/logger';
 import Root from './components/Root';
 
 const app = () => {
-    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
+    render(Root, document.querySelector('#app-root'), { apiUrlRoot: 'http://localhost:5003' });
 
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {

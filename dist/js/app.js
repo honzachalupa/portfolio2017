@@ -27866,7 +27866,7 @@ var _Root2 = _interopRequireDefault(_Root);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = function app() {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://192.168.4.43:5003' });
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiUrlRoot: 'http://localhost:5003' });
 
     try {
         if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
@@ -28133,23 +28133,70 @@ var Header = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
+        _this.updateDimensions = _this.updateDimensions.bind(_this);
+
         var tags = _this.props.config.tags;
 
 
         _this.state = {
             imageUrl: 'url(\'http://www.honzachalupa.cz/imgs/bg-' + (0, _helpers.getRandomRange)(1, 10) + '.jpg\')',
-            tags: tags.join(' ~ ')
+            tags: tags.join(' ~ '),
+            heightOriginal: 279,
+            height: null,
+            fontSize: null,
+            headlineTopPosition: null,
+            subheadlineOpacity: null
         };
+
+        // this.updateDimensions();
         return _this;
     }
 
     _createClass(Header, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            window.addEventListener('scroll', this.updateDimensions);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener('scroll', this.updateDimensions);
+        }
+    }, {
+        key: 'updateDimensions',
+        value: function updateDimensions() {
+            var _state = this.state,
+                heightOriginal = _state.heightOriginal,
+                height = _state.height,
+                fontSize = _state.fontSize;
+
+            var scrolled = window.scrollY;
+
+            if (heightOriginal >= scrolled) {
+                var newHeight = heightOriginal - scrolled;
+                var x = scrolled / heightOriginal * 50 + 0;
+
+                console.log(x);
+
+                this.setState({
+                    height: newHeight,
+                    fontSize: newHeight / 20,
+                    headlineTopPosition: x,
+                    subheadlineOpacity: 1 - Math.round(scrolled / heightOriginal * 100) / 100 * 2
+                });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
-            var _state = this.state,
-                imageUrl = _state.imageUrl,
-                tags = _state.tags;
+            var _state2 = this.state,
+                imageUrl = _state2.imageUrl,
+                tags = _state2.tags,
+                height = _state2.height,
+                fontSize = _state2.fontSize,
+                headlineTopPosition = _state2.headlineTopPosition,
+                subheadlineOpacity = _state2.subheadlineOpacity;
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
@@ -28160,14 +28207,14 @@ var Header = function (_Component) {
             if (!collapsed) {
                 return _react2.default.createElement(
                     'header',
-                    { style: { backgroundImage: imageUrl }, 'data-component': componentName },
+                    { style: { backgroundImage: imageUrl, height: height }, 'data-component': componentName },
                     _react2.default.createElement(
                         'div',
                         { className: 'content', style: { width: document.querySelector('main').offsetWidth + 'px' } },
                         _react2.default.createElement(_Navigation2.default, { config: config, utilities: utilities }),
                         _react2.default.createElement(
                             'h1',
-                            { className: 'headline' },
+                            { className: 'headline', style: { fontSize: fontSize + 40, top: headlineTopPosition } },
                             _react2.default.createElement(
                                 _reactRouterDom.Link,
                                 { to: '/' },
@@ -28176,7 +28223,7 @@ var Header = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'h3',
-                            { className: 'tags' },
+                            { className: 'tags', style: { opacity: subheadlineOpacity } },
                             tags
                         )
                     )
@@ -28567,7 +28614,10 @@ var ProjectsFilter = function (_Component) {
                 'div',
                 { 'data-component': componentName },
                 _react2.default.createElement(TypesBlock, null),
-                _react2.default.createElement(TagsBlock, null)
+                _react2.default.createElement(TagsBlock, null),
+                _react2.default.createElement(_Button2.default, { title: 'Reset filter', onClick: function onClick() {
+                        return changeFilter('all', 'type');
+                    } })
             );
         }
     }]);
@@ -29182,8 +29232,6 @@ var _logger = require('./../../../modules/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
-var _helpers = require('./../../../helpers');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29219,20 +29267,12 @@ var Item = function (_Component) {
 
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
 
-            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(developmentStage, type);
-
-            var developmentStageBlock = developmentStage !== 'released' ? _react2.default.createElement(
-                'p',
-                { className: 'development-stage ' + developmentStageLabel.color },
-                developmentStageLabel.value
-            ) : null;
-
             return _react2.default.createElement(
                 'li',
                 { 'data-component': componentName },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/projects/' + id, title: name },
+                    { to: '/projects/' + id, title: 'Show details for ' + name + ' project' },
                     _react2.default.createElement(
                         'div',
                         { className: 'image', style: { backgroundImage: 'url(\'' + previewImage + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
@@ -29247,8 +29287,7 @@ var Item = function (_Component) {
                         'p',
                         { className: 'description ' + (description.length > 160 ? 'fadeout' : '') },
                         description
-                    ),
-                    developmentStageBlock
+                    )
                 )
             );
         }
@@ -29259,7 +29298,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../helpers":317,"./../../../modules/logger":320,"react":275,"react-router-dom":236}],314:[function(require,module,exports){
+},{"./../../../modules/logger":320,"react":275,"react-router-dom":236}],314:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29879,8 +29918,7 @@ var Home = function (_Component) {
             headline: 'Introduction',
             hasPanel: false,
             latestProject: projects[0],
-            latestProjectsMore: [projects[0], // To-do: Remove this line
-            projects[1], projects[2], projects[3], projects[4], projects[5], projects[6]]
+            latestProjectsMore: [projects[1], projects[2], projects[3], projects[4], projects[5], projects[6]]
         };
 
         (0, _helpers.setPageTitle)();
@@ -29924,9 +29962,7 @@ var Home = function (_Component) {
                         _ProjectsGrid2.default,
                         { headline: 'My Projects', extraClasses: 'latest-projects' },
                         latestProjectsMore.map(function (project) {
-                            var title = 'Show details for ' + project.name + ' project';
-
-                            return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
+                            return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project));
                         }),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
@@ -30001,23 +30037,21 @@ var ProjectDetail = function (_Component) {
 
 
         try {
-            var projectId = params.id;
             var currentProject = void 0;
 
             _this.props.projects.forEach(function (project) {
-                if (project.id.toString() === projectId) {
+                if (project.id.toString() === params.id) {
                     currentProject = project;
                 }
             });
 
             _this.state = {
                 id: 'project-page',
-                headline: currentProject.name,
                 hasPanel: false,
                 project: currentProject
             };
 
-            (0, _helpers.setPageTitle)(_this.state.headline);
+            (0, _helpers.setPageTitle)(currentProject.name);
             setNavigationItem('projects-page');
         } catch (error) {
             document.location = '/page-not-found';
@@ -30030,7 +30064,6 @@ var ProjectDetail = function (_Component) {
         value: function render() {
             var _state = this.state,
                 id = _state.id,
-                headline = _state.headline,
                 hasPanel = _state.hasPanel,
                 project = _state.project;
             var _props = this.props,
@@ -30046,6 +30079,8 @@ var ProjectDetail = function (_Component) {
                 developmentStageLabel.value
             ) : null;
 
+            var buttonBlock = project.url ? _react2.default.createElement(_Button2.default, { title: 'Visit ' + project.name, url: project.url }) : null;
+
             var galleryBlock = project.gallery && project.gallery.length ? _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery }) : null;
 
             return _react2.default.createElement(
@@ -30054,13 +30089,13 @@ var ProjectDetail = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
+                    _react2.default.createElement(_Headline2.default, { headline: project.name }),
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: project.name },
                         developmentStageBlock,
                         _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: project.description } }),
-                        _react2.default.createElement(_Button2.default, { title: 'yxxyx', url: project.url })
+                        buttonBlock
                     ),
                     galleryBlock
                 )
@@ -30157,21 +30192,15 @@ var Projects = function (_Component) {
     _createClass(Projects, [{
         key: 'changeFilter',
         value: function changeFilter(filter, filterBy) {
-            if (filterBy === 'type') {
-                this.setState({
-                    filter: {
-                        type: filter,
-                        tag: null
-                    }
-                });
-            } else if (filterBy === 'tag') {
-                this.setState({
-                    filter: {
-                        type: 'all',
-                        tag: filter
-                    }
-                });
-            }
+            var type = filterBy === 'type' ? filter : 'all';
+            var tag = filterBy === 'type' ? null : filter;
+
+            this.setState({
+                filter: {
+                    type: type,
+                    tag: tag
+                }
+            });
         }
     }, {
         key: 'render',
@@ -30202,7 +30231,7 @@ var Projects = function (_Component) {
                     _react2.default.createElement(
                         _Blank2.default,
                         { headline: 'Filter' },
-                        _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter, hideTags: true })
+                        _react2.default.createElement(_ProjectsFilter2.default, { projects: projects, filter: filter, changeFilter: this.changeFilter })
                     ),
                     _react2.default.createElement(FilteredProjects, { projects: projects, filter: filter }),
                     _react2.default.createElement(
@@ -30224,35 +30253,17 @@ exports.default = Projects;
 var FilteredProjects = function FilteredProjects(props) {
     var projects = props.projects,
         filter = props.filter;
+    var tag = filter.tag;
 
-
-    if (filter.tag) {
-        var projectsWithTag = projects.filter(function (project) {
-            var tags = project.tags;
-
-
-            if (tags) {
-                if (tags.indexOf(filter.tag) > -1) {
-                    return project;
-                }
-            }
-
-            return null;
-        });
-
-        return _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(BlockWebApps, { projects: projectsWithTag, filter: filter }),
-            _react2.default.createElement(BlockNativeApps, { projects: projectsWithTag, filter: filter })
-        );
-    }
+    var projectsFiltered = tag ? projects.filter(function (project) {
+        return filterByTag(project, tag);
+    }) : projects;
 
     return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(BlockWebApps, { projects: projects, filter: filter }),
-        _react2.default.createElement(BlockNativeApps, { projects: projects, filter: filter })
+        _react2.default.createElement(BlockWebApps, { projects: projectsFiltered, filter: filter }),
+        _react2.default.createElement(BlockNativeApps, { projects: projectsFiltered, filter: filter })
     );
 };
 
@@ -30262,23 +30273,19 @@ var BlockWebApps = function BlockWebApps(props) {
 
 
     if (filter.type === 'all' || filter.type === 'web') {
-        var projectsWeb = projects.filter(function (project) {
-            return project.type === 'web';
+        var projectsFiltered = projects.filter(function (project) {
+            return filterByType(project, 'web');
         });
 
-        if (projectsWeb.length) {
+        if (projectsFiltered.length) {
             return _react2.default.createElement(
                 _ProjectsGrid2.default,
                 { headline: 'Web Apps' },
-                projectsWeb.map(function (project) {
-                    var title = 'Show details for ' + project.name + ' project';
-
-                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title }));
+                projectsFiltered.map(function (project) {
+                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project));
                 })
             );
         }
-
-        return null;
     }
 
     return null;
@@ -30290,27 +30297,40 @@ var BlockNativeApps = function BlockNativeApps(props) {
 
 
     if (filter.type === 'all' || filter.type === 'mobile') {
-        var projectsMobile = projects.filter(function (project) {
-            return project.type === 'mobile';
+        var projectsFiltered = projects.filter(function (project) {
+            return filterByType(project, 'mobile');
         });
 
-        if (projectsMobile.length) {
+        if (projectsFiltered.length) {
             return _react2.default.createElement(
                 _ProjectsGrid2.default,
                 { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
-                projectsMobile.map(function (project) {
-                    var title = 'Show details for ' + project.name + ' project';
-
-                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project, { title: title, aspectRatio: '4:3', aspectRatioMobile: '16:9' }));
+                projectsFiltered.map(function (project) {
+                    return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project));
                 })
             );
         }
-
-        return null;
     }
 
     return null;
 };
+
+function filterByType(project, type) {
+    return project.type === type ? project : null;
+}
+
+function filterByTag(project, tag) {
+    var tags = project.tags;
+
+
+    if (tags) {
+        if (tags.indexOf(tag) > -1) {
+            return project;
+        }
+    }
+
+    return null;
+}
 
 },{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/ProjectsGrid":314,"./../components/content-blocks/ProjectsGrid/Item":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],326:[function(require,module,exports){
 'use strict';
