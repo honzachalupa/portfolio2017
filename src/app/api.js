@@ -192,7 +192,10 @@ export const data = {
             name: 'Studio Cesta ke změně',
             description: 'Project description...',
             url: 'http://www.studiocestakezmene.cz/',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: '../gfx/projects/studio-cesta-ke-zmene-01.jpg',
+            gallery: [
+                '../gfx/projects/studio-cesta-ke-zmene-01.jpg'
+            ],
             developmentStage: 'released',
             type: 'web',
             addedDate: '2016/2/1',
@@ -202,7 +205,11 @@ export const data = {
             name: 'Výživou ke změně',
             description: 'Project description...',
             url: 'http://www.vyzivoukezmene.cz/',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: '../gfx/projects/vyzivou-ke-zmene-01.jpg',
+            gallery: [
+                '../gfx/projects/vyzivou-ke-zmene-01.jpg',
+                '../gfx/projects/vyzivou-ke-zmene-02.jpg'
+            ],
             developmentStage: 'released',
             type: 'web',
             addedDate: '2016/2/1',
