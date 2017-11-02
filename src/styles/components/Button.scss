@@ -1,3 +1,5 @@
+$margin: 8px;
+
 [data-component="Button"] {
     min-width: 50px;
     background-color: rgba(0, 0, 0, 0.08);
@@ -6,15 +8,16 @@
     text-decoration: none !important;
     border: none !important;
     padding: 8px 12px;
-    margin: 20px 0;
+    margin: $margin 0;
     float: left;
     cursor: pointer;
     transition: all 250ms;
 
     &:not(:last-of-type) {
-        margin-right: 10px;
+        margin-right: $margin;
     }
 
+    &.active,
     &:hover {
         box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25);
     }
