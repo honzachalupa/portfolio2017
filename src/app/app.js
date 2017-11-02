@@ -5,7 +5,7 @@ import log from './modules/logger';
 import Root from './components/Root';
 import { data } from './api';
 
-console.log(data);
+// To-do: Create API request to Universal API or whatever
 
 const app = () => {
     render(Root, document.querySelector('#app-root'), { apiData: data });

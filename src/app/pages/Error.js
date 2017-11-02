@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle } from './../helpers';
-import Headline from './../components/Headline';
+import InvisibleHeadline from './../components/InvisibleHeadline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import Button from './../components/Button';
@@ -28,7 +28,7 @@ export default class Error extends Component {
         return (
             <div id={id} data-component="Page">
                 <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
-                    <Headline headline={headline} />
+                    <InvisibleHeadline headline={headline} />
 
                     <Text headline={headline}>
                         <p>Im really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page youve been looking for was not founded. Please, go to homepage and try your luck elsewhere.</p>

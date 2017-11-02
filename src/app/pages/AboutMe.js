@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle } from './../helpers';
-import Headline from './../components/Headline';
+import InvisibleHeadline from './../components/InvisibleHeadline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 
@@ -27,7 +27,7 @@ export default class AboutMe extends Component {
         return (
             <div id={id} data-component="Page">
                 <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
-                    <Headline headline={headline} />
+                    <InvisibleHeadline headline={headline} />
 
                     <Text headline="Who am I?">
                         Text

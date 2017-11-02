@@ -28073,10 +28073,10 @@ var _api = require('./api');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// To-do: Create API request to Universal API or whatever
+
 // import 'babel-polyfill';
 // import 'svgxuse';
-console.log(_api.data);
-
 var app = function app() {
     (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiData: _api.data });
 
@@ -28455,16 +28455,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Headline = function (_Component) {
-    _inherits(Headline, _Component);
+var InvisibleHeadline = function (_Component) {
+    _inherits(InvisibleHeadline, _Component);
 
-    function Headline() {
-        _classCallCheck(this, Headline);
+    function InvisibleHeadline() {
+        _classCallCheck(this, InvisibleHeadline);
 
-        return _possibleConstructorReturn(this, (Headline.__proto__ || Object.getPrototypeOf(Headline)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (InvisibleHeadline.__proto__ || Object.getPrototypeOf(InvisibleHeadline)).apply(this, arguments));
     }
 
-    _createClass(Headline, [{
+    _createClass(InvisibleHeadline, [{
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
@@ -28473,16 +28473,16 @@ var Headline = function (_Component) {
 
             return _react2.default.createElement(
                 'h1',
-                { className: 'hidden', 'data-component': componentName },
+                { 'data-component': componentName },
                 headline
             );
         }
     }]);
 
-    return Headline;
+    return InvisibleHeadline;
 }(_react.Component);
 
-exports.default = Headline;
+exports.default = InvisibleHeadline;
 
 },{"./../helpers":318,"./Navigation":306,"react":275}],306:[function(require,module,exports){
 'use strict';
@@ -29832,9 +29832,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
-var _Headline = require('./../components/Headline');
+var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
-var _Headline2 = _interopRequireDefault(_Headline);
+var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
 var _Content = require('./../layouts/Content');
 
@@ -29893,7 +29893,7 @@ var AboutMe = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
+                    _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'Who am I?' },
@@ -29909,7 +29909,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Headline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],323:[function(require,module,exports){
+},{"./../components/InvisibleHeadline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29924,9 +29924,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
-var _Headline = require('./../components/Headline');
+var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
-var _Headline2 = _interopRequireDefault(_Headline);
+var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
 var _Content = require('./../layouts/Content');
 
@@ -29989,7 +29989,7 @@ var Error = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
+                    _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: headline },
@@ -30010,7 +30010,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":301,"./../components/Headline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],324:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/InvisibleHeadline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30027,9 +30027,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
-var _Headline = require('./../components/Headline');
+var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
-var _Headline2 = _interopRequireDefault(_Headline);
+var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
 var _Button = require('./../components/Button');
 
@@ -30114,18 +30114,24 @@ var Home = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
-                    _react2.default.createElement(_ProjectTeaser2.default, latestProject),
+                    _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
-                        { headline: 'The Text' },
-                        'Some really long text...',
+                        { headline: 'Introduction' },
+                        'Hello and welcome,',
                         _react2.default.createElement('br', null),
-                        'Another text on second line.',
+                        'I\'m 24 years old Front-End developer based in Prague, Czech Republic. And this is my portoflio...',
                         _react2.default.createElement('br', null),
                         _react2.default.createElement('br', null),
-                        'Good bye, world...'
+                        'Curently I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.',
+                        _react2.default.createElement(
+                            _ButtonsGroup2.default,
+                            { alignment: 'left' },
+                            _react2.default.createElement(_Button2.default, { title: 'Lets checkout my projects', url: '/projects' }),
+                            _react2.default.createElement(_Button2.default, { title: 'Get more information about me', url: '/about' })
+                        )
                     ),
+                    _react2.default.createElement(_ProjectTeaser2.default, latestProject),
                     _react2.default.createElement(
                         _ProjectsGrid2.default,
                         { headline: 'My Projects', extraClasses: 'latest-projects' },
@@ -30134,7 +30140,7 @@ var Home = function (_Component) {
                         }),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
-                            null,
+                            { alignment: 'center' },
                             _react2.default.createElement(_Button2.default, { title: 'Check all of my projects', url: '/projects' })
                         )
                     )
@@ -30148,7 +30154,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":301,"./../components/ButtonsGroup":302,"./../components/Headline":305,"./../components/content-blocks/ProjectTeaser":313,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],325:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/ButtonsGroup":302,"./../components/InvisibleHeadline":305,"./../components/content-blocks/ProjectTeaser":313,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30163,9 +30169,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
-var _Headline = require('./../components/Headline');
+var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
-var _Headline2 = _interopRequireDefault(_Headline);
+var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
 var _Content = require('./../layouts/Content');
 
@@ -30257,7 +30263,7 @@ var ProjectDetail = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: project.name }),
+                    _react2.default.createElement(_InvisibleHeadline2.default, { headline: project.name }),
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: project.name },
@@ -30276,7 +30282,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":301,"./../components/Headline":305,"./../components/content-blocks/ImagesGrid":312,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],326:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/InvisibleHeadline":305,"./../components/content-blocks/ImagesGrid":312,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30293,9 +30299,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
-var _Headline = require('./../components/Headline');
+var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
-var _Headline2 = _interopRequireDefault(_Headline);
+var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
 var _Content = require('./../layouts/Content');
 
@@ -30407,7 +30413,7 @@ var Projects = function (_Component) {
                 _react2.default.createElement(
                     _Content2.default,
                     { config: config, utilities: utilities, hasPanel: hasPanel },
-                    _react2.default.createElement(_Headline2.default, { headline: headline }),
+                    _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'My projects' },
@@ -30517,7 +30523,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Headline":305,"./../components/ProjectsFilter":308,"./../components/content-blocks/Blank":310,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],327:[function(require,module,exports){
+},{"./../components/InvisibleHeadline":305,"./../components/ProjectsFilter":308,"./../components/content-blocks/Blank":310,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

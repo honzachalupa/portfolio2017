@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle, getDevelopmentStageLabel } from './../helpers';
-import Headline from './../components/Headline';
+import InvisibleHeadline from './../components/InvisibleHeadline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import ImagesGrid from './../components/content-blocks/ImagesGrid';
@@ -56,7 +56,7 @@ export default class ProjectDetail extends Component {
         return (
             <div id={id} data-component="Page">
                 <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
-                    <Headline headline={project.name} />
+                    <InvisibleHeadline headline={project.name} />
 
                     <Text headline={project.name}>
                         {developmentStageBlock}

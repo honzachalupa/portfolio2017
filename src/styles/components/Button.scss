@@ -1,5 +1,3 @@
-$margin: 8px;
-
 [data-component="Button"] {
     min-width: 50px;
     background-color: rgba(0, 0, 0, 0.08);
@@ -8,13 +6,13 @@ $margin: 8px;
     text-decoration: none !important;
     border: none !important;
     padding: 8px 12px;
-    margin: $margin 0;
+    margin: 20px 0;
     float: left;
     cursor: pointer;
     transition: all 250ms;
 
     &:not(:last-of-type) {
-        margin-right: $margin;
+        margin-right: 10px;
     }
 
     &.active,
@@ -25,7 +23,6 @@ $margin: 8px;
 
 [data-component="ButtonsGroup"] {
     width: 100%;
-    padding: 0 12px;
     float: left;
 
     &.center {
