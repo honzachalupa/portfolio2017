@@ -27853,19 +27853,49 @@ module.exports = warning;
 },{}],299:[function(require,module,exports){
 'use strict';
 
-var _render = require('./render');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/*
+id - string or number
+name - string
+description - string
+url - string
+previewImage - string
+gallery - array of strings and/or objects {url, description}
+livePreviewAllowed - boolean
+developmentStage - string
+type - string
+company - object {name, logo, url}
+addedDate - string
+tags - array of strings
+hidden - boolean
+*/
 
-var _logger = require('./modules/logger');
-
-var _logger2 = _interopRequireDefault(_logger);
-
-var _Root = require('./components/Root');
-
-var _Root2 = _interopRequireDefault(_Root);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var data = {
+var data = exports.data = {
+    config: {
+        title: 'HonzaChalupaTest',
+        tags: ['front-end developer', 'junior back-end developer', 'wannabe UX designer', 'car-lover', 'mountain biker'],
+        navigationItems: [{
+            id: 'home-page',
+            label: 'Introduction',
+            url: '/',
+            active: true
+        }, {
+            id: 'projects-page',
+            label: 'Projects'
+        }, {
+            id: 'about-me-page',
+            label: 'About me'
+        }],
+        contactInfo: {
+            phoneNumber: '+420 606 789 910',
+            emailAddress: 'janchalupa@outlook.cz',
+            city: 'Prague'
+        },
+        credits: '© Jan Chalupa 2017',
+        screenBreakpoint: 680
+    },
     projects: [{
         id: 'innogy-product-finder',
         name: 'innogy Product Finder',
@@ -28023,36 +28053,32 @@ var data = {
         type: 'mobile',
         addedDate: '2015/9/15',
         tags: ['game', 'fun', 'kids']
-    }],
-    config: {
-        title: 'HonzaChalupa',
-        tags: ['front-end developer', 'junior back-end developer', 'wannabe UX designer', 'car-lover', 'mountain biker'],
-        navigationItems: [{
-            id: 'home-page',
-            label: 'Introduction',
-            url: '/',
-            active: true
-        }, {
-            id: 'projects-page',
-            label: 'Projects'
-        }, {
-            id: 'about-me-page',
-            label: 'About me'
-        }],
-        contactInfo: {
-            phoneNumber: '+420 606 789 910',
-            emailAddress: 'janchalupa@outlook.cz',
-            city: 'Prague'
-        },
-        credits: '© Jan Chalupa 2017',
-        screenBreakpoint: 680
-    }
-}; // import 'babel-polyfill';
-// import 'svgxuse';
+    }]
+};
 
+},{}],300:[function(require,module,exports){
+'use strict';
+
+var _render = require('./render');
+
+var _logger = require('./modules/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+var _Root = require('./components/Root');
+
+var _Root2 = _interopRequireDefault(_Root);
+
+var _api = require('./api');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import 'babel-polyfill';
+// import 'svgxuse';
+console.log(_api.data);
 
 var app = function app() {
-    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiData: data });
+    (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiData: _api.data });
 
     fixExperimentalCss();
 };
@@ -28071,7 +28097,7 @@ function fixExperimentalCss() {
 
 app();
 
-},{"./components/Root":308,"./modules/logger":320,"./render":326}],300:[function(require,module,exports){
+},{"./api":299,"./components/Root":309,"./modules/logger":321,"./render":327}],301:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28163,7 +28189,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":317,"./../modules/logger":320,"./Navigation":305,"react":275,"react-router-dom":236}],301:[function(require,module,exports){
+},{"./../helpers":318,"./../modules/logger":321,"./Navigation":306,"react":275,"react-router-dom":236}],302:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28228,7 +28254,7 @@ var ButtonsGroup = function (_Component) {
 
 exports.default = ButtonsGroup;
 
-},{"react":275}],302:[function(require,module,exports){
+},{"react":275}],303:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28288,7 +28314,7 @@ var Footer = function (_Component) {
 
 exports.default = Footer;
 
-},{"react":275}],303:[function(require,module,exports){
+},{"react":275}],304:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28402,7 +28428,7 @@ var Header = function (_Component) {
 
 exports.default = Header;
 
-},{"./../helpers":317,"./Navigation":305,"react":275,"react-router-dom":236}],304:[function(require,module,exports){
+},{"./../helpers":318,"./Navigation":306,"react":275,"react-router-dom":236}],305:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28458,7 +28484,7 @@ var Headline = function (_Component) {
 
 exports.default = Headline;
 
-},{"./../helpers":317,"./Navigation":305,"react":275}],305:[function(require,module,exports){
+},{"./../helpers":318,"./Navigation":306,"react":275}],306:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28536,7 +28562,7 @@ var Navigation = function (_Component) {
 
 exports.default = Navigation;
 
-},{"react":275,"react-router-dom":236}],306:[function(require,module,exports){
+},{"react":275,"react-router-dom":236}],307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28588,7 +28614,7 @@ var NavigationButton = function (_Component) {
 
 exports.default = NavigationButton;
 
-},{"react":275}],307:[function(require,module,exports){
+},{"react":275}],308:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -28772,7 +28798,7 @@ var ProjectsFilter = function (_Component) {
 
 exports.default = ProjectsFilter;
 
-},{"./../helpers":317,"./Button":300,"./ButtonsGroup":301,"react":275}],308:[function(require,module,exports){
+},{"./../helpers":318,"./Button":301,"./ButtonsGroup":302,"react":275}],309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29043,7 +29069,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":316,"./../helpers":317,"./../modules/aspect-ratio-preserver":319,"./../modules/logger":320,"./../pages/AboutMe":321,"./../pages/Error":322,"./../pages/Home":323,"./../pages/ProjectDetail":324,"./../pages/Projects":325,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],309:[function(require,module,exports){
+},{"./../factory":317,"./../helpers":318,"./../modules/aspect-ratio-preserver":320,"./../modules/logger":321,"./../pages/AboutMe":322,"./../pages/Error":323,"./../pages/Home":324,"./../pages/ProjectDetail":325,"./../pages/Projects":326,"axios":1,"immutability-helper":60,"react":275,"react-router-dom":236}],310:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29103,7 +29129,7 @@ var Blank = function (_Component) {
 
 exports.default = Blank;
 
-},{"react":275}],310:[function(require,module,exports){
+},{"react":275}],311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29167,7 +29193,7 @@ var ImageItem = function (_Component) {
 
 exports.default = ImageItem;
 
-},{"react":275,"react-router-dom":236}],311:[function(require,module,exports){
+},{"react":275,"react-router-dom":236}],312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29252,7 +29278,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./Item":310,"react":275}],312:[function(require,module,exports){
+},{"./Item":311,"react":275}],313:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29353,7 +29379,7 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":300,"react":275}],313:[function(require,module,exports){
+},{"./../Button":301,"react":275}],314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29440,7 +29466,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":320,"react":275,"react-router-dom":236}],314:[function(require,module,exports){
+},{"./../../../modules/logger":321,"react":275,"react-router-dom":236}],315:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29510,7 +29536,7 @@ var ProjectsGrid = function (_Component) {
 
 exports.default = ProjectsGrid;
 
-},{"react":275}],315:[function(require,module,exports){
+},{"react":275}],316:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29572,7 +29598,7 @@ var Text = function (_Component) {
 
 exports.default = Text;
 
-},{"react":275}],316:[function(require,module,exports){
+},{"react":275}],317:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29592,7 +29618,7 @@ function factory(fn, containers) {
     });
 }
 
-},{}],317:[function(require,module,exports){
+},{}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29651,7 +29677,7 @@ function getDevelopmentStageLabel(developmentStage, platform) {
     return label;
 }
 
-},{"./modules/logger":320}],318:[function(require,module,exports){
+},{"./modules/logger":321}],319:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29728,7 +29754,7 @@ var Content = function (_Component) {
 
 exports.default = Content;
 
-},{"./../components/Footer":302,"./../components/Header":303,"./../components/NavigationButton":306,"react":275}],319:[function(require,module,exports){
+},{"./../components/Footer":303,"./../components/Header":304,"./../components/NavigationButton":307,"react":275}],320:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29771,7 +29797,7 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 
 exports.default = aspectRatioPreserver;
 
-},{}],320:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29791,7 +29817,7 @@ var logger = function logger() {
 
 exports.default = logger;
 
-},{}],321:[function(require,module,exports){
+},{}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29883,7 +29909,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Headline":304,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],322:[function(require,module,exports){
+},{"./../components/Headline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29984,7 +30010,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],323:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/Headline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30122,7 +30148,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":300,"./../components/ButtonsGroup":301,"./../components/Headline":304,"./../components/content-blocks/ProjectTeaser":312,"./../components/content-blocks/ProjectsGrid":314,"./../components/content-blocks/ProjectsGrid/Item":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],324:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/ButtonsGroup":302,"./../components/Headline":305,"./../components/content-blocks/ProjectTeaser":313,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30250,7 +30276,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":300,"./../components/Headline":304,"./../components/content-blocks/ImagesGrid":311,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],325:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/Headline":305,"./../components/content-blocks/ImagesGrid":312,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30491,7 +30517,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Headline":304,"./../components/ProjectsFilter":307,"./../components/content-blocks/Blank":309,"./../components/content-blocks/ProjectsGrid":314,"./../components/content-blocks/ProjectsGrid/Item":313,"./../components/content-blocks/Text":315,"./../helpers":317,"./../layouts/Content":318,"react":275}],326:[function(require,module,exports){
+},{"./../components/Headline":305,"./../components/ProjectsFilter":308,"./../components/content-blocks/Blank":310,"./../components/content-blocks/ProjectsGrid":315,"./../components/content-blocks/ProjectsGrid/Item":314,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30538,6 +30564,6 @@ function renderFactory(Component, containers) {
     });
 }
 
-},{"react":275,"react-dom":72,"react-redux":209}]},{},[299])
+},{"react":275,"react-dom":72,"react-redux":209}]},{},[300])
 
 //# sourceMappingURL=app.js.map
