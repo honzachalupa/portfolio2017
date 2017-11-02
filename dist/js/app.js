@@ -27982,7 +27982,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2016/2/1',
-        tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'web-scraping']
+        tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping']
     }, {
         id: 'polti',
         name: 'Polti',
@@ -30376,32 +30376,15 @@ var Projects = function (_Component) {
     _createClass(Projects, [{
         key: 'changeFilter',
         value: function changeFilter(filter, filterBy) {
-            /* const type = (filterBy === 'type') ? filter : 'all';
-            const tag = (filterBy === 'type') ? null : filter;
-             this.setState({
+            var type = filterBy === 'type' ? filter : 'all';
+            var tag = filterBy === 'type' ? null : filter;
+
+            this.setState({
                 filter: {
-                    type,
-                    tag
+                    type: type,
+                    tag: tag
                 }
-            }); */
-
-            console.log(filter, filterBy);
-
-            if (filterBy === 'type') {
-                this.setState({
-                    filter: {
-                        type: filter
-                    }
-                });
-            } else if (filterBy === 'tag') {
-                this.setState({
-                    filter: {
-                        tag: filter
-                    }
-                });
-            }
-
-            console.log(this.state.filter);
+            });
         }
     }, {
         key: 'render',

@@ -139,7 +139,7 @@ export const data = {
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2016/2/1',
-            tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'web-scraping']
+            tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping']
         }, {
             id: 'polti',
             name: 'Polti',
