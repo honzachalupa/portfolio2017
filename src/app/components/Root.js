@@ -16,41 +16,30 @@ export default class Root extends Component {
     constructor(props) {
         super(props);
 
-        const { apiUrlRoot } = props; // Check when going to production
+        const { apiData } = props;
+        const { config } = apiData;
+        let { projects } = apiData;
 
         this.navigationToggler = this.navigationToggler.bind(this);
         this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
 
-        const apiUrl = `${apiUrlRoot}data.json`;
+        projects = this.filterProjects(projects);
+        projects = this.sortProjects(projects);
 
-        console.log(apiUrl);
+        config.navigationOpened = false;
+        config.projectTypes = this.getProjectTypes(projects);
 
-        axios.get(apiUrl)
-            .then((response) => {
-                const { config } = response.data;
-                let { projects } = response.data;
+        this.state = {
+            projects,
+            config,
+            utilities: {
+                navigationToggler: this.navigationToggler,
+                setNavigationItem: this.setNavigationItem
+            }
+        };
 
-                projects = this.filterProjects(projects);
-                projects = this.sortProjects(projects);
-
-                config.navigationOpened = false;
-                config.projectTypes = this.getProjectTypes(projects);
-
-                this.setState({
-                    projects,
-                    config,
-                    utilities: {
-                        navigationToggler: this.navigationToggler,
-                        setNavigationItem: this.setNavigationItem
-                    }
-                });
-
-                this.updateDimensions();
-            })
-            .catch((error) => {
-                log(error);
-            });
+        this.updateDimensions();
 
         // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
         setInterval(() => {
