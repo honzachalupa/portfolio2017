@@ -29844,6 +29844,14 @@ var _Text = require('./../components/content-blocks/Text');
 
 var _Text2 = _interopRequireDefault(_Text);
 
+var _Button = require('./../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _ButtonsGroup = require('./../components/ButtonsGroup');
+
+var _ButtonsGroup2 = _interopRequireDefault(_ButtonsGroup);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29897,7 +29905,9 @@ var AboutMe = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'Who am I?' },
-                        'Text'
+                        'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' })
                     )
                 )
             );
@@ -29909,7 +29919,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/InvisibleHeadline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],323:[function(require,module,exports){
+},{"./../components/Button":301,"./../components/ButtonsGroup":302,"./../components/InvisibleHeadline":305,"./../components/content-blocks/Text":316,"./../helpers":318,"./../layouts/Content":319,"react":275}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30120,14 +30130,14 @@ var Home = function (_Component) {
                         { headline: 'Introduction' },
                         'Hello and welcome,',
                         _react2.default.createElement('br', null),
-                        'I\'m 24 years old Front-End developer based in Prague, Czech Republic. And this is my portoflio...',
+                        'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...',
                         _react2.default.createElement('br', null),
                         _react2.default.createElement('br', null),
                         'Curently I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.',
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
-                            { alignment: 'left' },
-                            _react2.default.createElement(_Button2.default, { title: 'Lets checkout my projects', url: '/projects' }),
+                            null,
+                            _react2.default.createElement(_Button2.default, { title: 'Lets take a look at my projects', url: '/projects' }),
                             _react2.default.createElement(_Button2.default, { title: 'Get more information about me', url: '/about' })
                         )
                     ),

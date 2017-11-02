@@ -46,11 +46,11 @@ export default class Home extends Component {
 
                     <Text headline="Introduction">
                         Hello and welcome,<br />
-                        I'm 24 years old Front-End developer based in Prague, Czech Republic. And this is my portoflio...<br /><br />
+                        I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...<br /><br />
                         Curently I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.
 
-                        <ButtonsGroup alignment="left">
-                            <Button title="Lets checkout my projects" url="/projects" />
+                        <ButtonsGroup>
+                            <Button title="Lets take a look at my projects" url="/projects" />
                             <Button title="Get more information about me" url="/about" />
                         </ButtonsGroup>
                     </Text>
