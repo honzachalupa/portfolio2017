@@ -9,7 +9,8 @@ export default class ImagesGrid extends Component {
 
                 return {
                     url,
-                    description: null
+                    description: null,
+                    aspectRatio: 'landscape'
                 };
             }
 

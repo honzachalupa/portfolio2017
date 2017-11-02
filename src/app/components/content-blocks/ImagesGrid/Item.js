@@ -5,12 +5,15 @@ export default class ImageItem extends Component {
     render() {
         const componentName = `ContentBlock_Grid${this.constructor.name}`;
 
-        const { description, url } = this.props;
+        const { description, url, aspectRatio } = this.props;
+
+        const aspectRatioDesktop = aspectRatio === 'portrait' ? '10:16' : '3:2';
+        const aspectRatioMobile = aspectRatio === 'portrait' ? '10:16' : '16:10';
 
         return (
             <li data-component={componentName}>
                 <Link to={url} title={description}>
-                    <div className="image" style={{ backgroundImage: `url('${url}')` }} data-aspect-ratio="3:2" data-aspect-ratio-mobile="16:10" />
+                    <div className="image" style={{ backgroundImage: `url('${url}')` }} data-aspect-ratio={aspectRatioDesktop} data-aspect-ratio-mobile={aspectRatioMobile} />
                     <p className="description">{description}</p>
                 </Link>
             </li>

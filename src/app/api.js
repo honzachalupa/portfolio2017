@@ -148,7 +148,10 @@ export const data = {
             name: 'České zpravodajství',
             description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="http://localhost:5001/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
             url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
-            previewImage: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
+            previewImage: {
+                url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
+                aspectRatio: 'portrait'
+            },
             gallery: [
                 {
                     url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
@@ -231,7 +234,10 @@ export const data = {
             name: 'Smoker\'s Little Helper',
             description: 'Project description...',
             url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
-            previewImage: '../gfx/projects/smokers-little-helper-01.png',
+            previewImage: {
+                url: '../gfx/projects/smokers-little-helper-01.png',
+                aspectRatio: 'portrait'
+            },
             gallery: [
                 {
                     url: '../gfx/projects/smokers-little-helper-01.png',
@@ -256,7 +262,22 @@ export const data = {
             name: 'One on One',
             description: 'Project description...',
             url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: {
+                url: '../gfx/projects/one-on-one-01.png',
+                aspectRatio: 'portrait'
+            },
+            gallery: [
+                {
+                    url: '../gfx/projects/one-on-one-01.png',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/one-on-one-02.png',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/one-on-one-03.png',
+                    aspectRatio: 'portrait'
+                }
+            ],
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2015/9/1',
@@ -266,7 +287,15 @@ export const data = {
             name: 'One on One for KIDS',
             description: 'Project description...',
             url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: {
+                url: '../gfx/projects/one-on-one-kids-01.png',
+                aspectRatio: 'portrait'
+            },
+            gallery: [
+                '../gfx/projects/one-on-one-kids-01.png',
+                '../gfx/projects/one-on-one-kids-02.png',
+                '../gfx/projects/one-on-one-kids-03.png'
+            ],
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2015/9/15',
