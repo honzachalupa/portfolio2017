@@ -28923,10 +28923,7 @@ var data = exports.data = {
         previewImage: 'gfx/projects/innogy-product-finder.png',
         gallery: [{
             url: '../gfx/projects/innogy-product-finder.png',
-            description: 'bla bla bla'
-        }, '../gfx/projects/innogy-product-finder.png', {
-            url: '../gfx/projects/innogy-product-finder.png',
-            description: 'bla bla bla'
+            description: 'Homepage'
         }],
         developmentStage: 'released',
         type: 'web',
@@ -28957,7 +28954,7 @@ var data = exports.data = {
         name: 'Allianz - Jiří Prudký',
         description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
         url: 'http://www.jiriprudky.cz/',
-        previewImage: '../gfx/projects/allianz-jiri-prudky.jpg',
+        previewImage: '../gfx/projects/allianz-jiri-prudky-01.jpg',
         gallery: [{
             url: '../gfx/projects/allianz-jiri-prudky-01.jpg',
             description: 'Homepage'
@@ -28974,7 +28971,7 @@ var data = exports.data = {
         name: 'Xbox - Games with gold',
         description: 'Project description...',
         url: 'http://www.honzachalupa.cz/xbox-gwg/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-1.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
         type: 'web',
         addedDate: '2016/2/1',
@@ -28985,7 +28982,7 @@ var data = exports.data = {
         name: 'Online Code Editor',
         description: 'Project description...',
         url: 'http://www.honzachalupa.cz/online-editor/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-2.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'in-development',
         type: 'web',
         addedDate: '2016/1/1',
@@ -28995,10 +28992,10 @@ var data = exports.data = {
         name: 'České zpravodajství',
         description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="http://localhost:5001/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
         url: 'http://www.ceskezpravodajstvi.cz/',
-        previewImage: '../gfx/projects/ceske-zpravodajstvi.jpg',
+        previewImage: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
         gallery: [{
             url: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
-            description: 'List of latest news'
+            description: 'List of latest articles'
         }, {
             url: '../gfx/projects/ceske-zpravodajstvi-02.jpg',
             description: 'Reading mode'
@@ -29012,7 +29009,7 @@ var data = exports.data = {
         name: 'České zpravodajství',
         description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="http://localhost:5001/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
         url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2016/2/1',
@@ -29022,7 +29019,14 @@ var data = exports.data = {
         name: 'Polti',
         description: 'My objective on this project was to redesign the Czech variant of the website to looks the same as the Italian variant (company is based in Italy) without changing anything in HTML code. I had an unlimited freedom with changing CSS.',
         url: 'http://www.polti.cz/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-4.jpg',
+        previewImage: '../gfx/projects/polti-01.jpg',
+        gallery: [{
+            url: '../gfx/projects/polti-01.jpg',
+            description: 'Czech version of website'
+        }, {
+            url: '../gfx/projects/polti-02.jpg',
+            description: 'Original Italian version'
+        }],
         developmentStage: 'released',
         type: 'web',
         addedDate: '2016/2/1',
@@ -29032,7 +29036,8 @@ var data = exports.data = {
         name: 'Tereza Ptáčková portfolio',
         description: 'Since Tereza is my old friend I\'ve decided to help her with creation of her portfolio. The goal was simple - create basic "no-budget" website with strict requirements on design guidlines to match Tereza\'s faforite colors.',
         url: 'http://www.terapta.cz/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-5.jpg',
+        previewImage: '../gfx/projects/terapta-02.jpg',
+        gallery: ['../gfx/projects/terapta-01.jpg', '../gfx/projects/terapta-02.jpg', '../gfx/projects/terapta-03.jpg'],
         developmentStage: 'released',
         type: 'web',
         addedDate: '2016/2/1',
@@ -29042,7 +29047,7 @@ var data = exports.data = {
         name: 'Studio Cesta ke změně',
         description: 'Project description...',
         url: 'http://www.studiocestakezmene.cz/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-6.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'released',
         type: 'web',
         addedDate: '2016/2/1',
@@ -29052,7 +29057,7 @@ var data = exports.data = {
         name: 'Výživou ke změně',
         description: 'Project description...',
         url: 'http://www.vyzivoukezmene.cz/',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-7.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'released',
         type: 'web',
         addedDate: '2016/2/1',
@@ -29062,7 +29067,7 @@ var data = exports.data = {
         name: 'Smoker\'s Little Helper',
         description: 'Project description...',
         url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/4/1',
@@ -29072,7 +29077,7 @@ var data = exports.data = {
         name: 'One on One',
         description: 'Project description...',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/9/1',
@@ -29082,7 +29087,7 @@ var data = exports.data = {
         name: 'One on One for KIDS',
         description: 'Project description...',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
-        previewImage: 'http://www.honzachalupa.cz/imgs/bg-8.jpg',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/9/15',
