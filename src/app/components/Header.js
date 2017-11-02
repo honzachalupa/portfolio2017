@@ -18,8 +18,8 @@ export default class Header extends Component {
     render() {
         const componentName = `Page_${this.constructor.name}`;
         const { imageUrl, tags } = this.state;
-        const { config, utilities } = this.props;
-        const { title, collapsed } = config;
+        const { config, utilities, collapsed } = this.props;
+        const { title } = config;
 
         if (!collapsed) {
             return (
@@ -39,8 +39,16 @@ export default class Header extends Component {
         }
 
         return (
-            <header className="collapsed" data-component={componentName}>
-                <h1 className="headline"><span>&lt;</span>{title}<span>/&gt;</span></h1>
+            <header className="collapsed" style={{ backgroundImage: imageUrl }} data-component={componentName}>
+                <div className="content" style={{ width: `${document.querySelector('main').offsetWidth}px` }}>
+                    <Navigation config={config} utilities={utilities} />
+
+                    <h1 className="headline">
+                        <Link to="/">
+                            {title}
+                        </Link>
+                    </h1>
+                </div>
             </header>
         );
     }

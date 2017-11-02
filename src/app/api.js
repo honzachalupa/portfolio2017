@@ -85,6 +85,34 @@ export const data = {
             addedDate: '2017/2/14',
             tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
         }, {
+            id: 'fuel-consumption',
+            name: 'Fuel Consumption',
+            description: 'This app was my last I’ve made for Windows Phone. Fuel calculator helps you save money, log and plan your trips.',
+            url: 'https://www.microsoft.com/en-us/store/p/spot%C5%99eba-paliva/9nblggh4t314',
+            previewImage: {
+                url: '../gfx/projects/fuel-consumption-01.png',
+                aspectRatio: 'portrait'
+            },
+            gallery: [
+                {
+                    url: '../gfx/projects/fuel-consumption-01.png',
+                    description: 'Main overview of logged trips and saved cars',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/fuel-consumption-02.png',
+                    description: 'Detail of trip showing all data',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/fuel-consumption-03.png',
+                    description: 'Page for creating a new calculation',
+                    aspectRatio: 'portrait'
+                }
+            ],
+            developmentStage: 'released',
+            type: 'mobile',
+            addedDate: '2016/8/25',
+            tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving']
+        }, {
             id: 'allianz-jiri-prudky',
             name: 'Allianz - Jiří Prudký',
             description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
@@ -112,7 +140,7 @@ export const data = {
             developmentStage: 'unsupported',
             type: 'web',
             addedDate: '2016/2/1',
-            tags: ['Microsoft', 'Xbox', 'game', 'web-scraping'],
+            tags: ['Microsoft', 'Xbox', 'game', 'web-scraping', 'money', 'money-saving'],
             hidden: true
         }, {
             id: 'online-editor',
@@ -155,13 +183,16 @@ export const data = {
             gallery: [
                 {
                     url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
-                    description: 'List of latest articles'
+                    description: 'List of latest articles',
+                    aspectRatio: 'portrait'
                 }, {
                     url: '../gfx/projects/ceske-zpravodajstvi-app-02.png',
-                    description: 'List of latest articles (in landscape view)'
+                    description: 'List of latest articles (in landscape view)',
+                    aspectRatio: 'portrait'
                 }, {
                     url: '../gfx/projects/ceske-zpravodajstvi-app-03.png',
-                    description: 'Opened article'
+                    description: 'Opened article',
+                    aspectRatio: 'portrait'
                 }
             ],
             developmentStage: 'unsupported',
@@ -232,8 +263,8 @@ export const data = {
         }, {
             id: 'smokers-little-helper',
             name: 'Smoker\'s Little Helper',
-            description: 'Project description...',
-            url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
+            description: 'The application is there to help and motivate people, who wants to quit smoking. Beside of saved money analysis application provides detailed advices and quitting process description.',
+            url: 'https://www.microsoft.com/en-us/store/p/smokers-little-helper/9nblgggzvldz',
             previewImage: {
                 url: '../gfx/projects/smokers-little-helper-01.png',
                 aspectRatio: 'portrait'
@@ -241,22 +272,26 @@ export const data = {
             gallery: [
                 {
                     url: '../gfx/projects/smokers-little-helper-01.png',
-                    description: 'Summary of saved money'
+                    description: 'Summary of saved money',
+                    aspectRatio: 'portrait'
                 }, {
                     url: '../gfx/projects/smokers-little-helper-02.png',
-                    description: 'Overview of taxes payed to the state office'
+                    description: 'Overview of taxes payed to the state office',
+                    aspectRatio: 'portrait'
                 }, {
                     url: '../gfx/projects/smokers-little-helper-03.png',
-                    description: 'Expected stages of quitting'
+                    description: 'Expected stages of quitting',
+                    aspectRatio: 'portrait'
                 }, {
                     url: '../gfx/projects/smokers-little-helper-04.png',
-                    description: 'Recommended advices'
+                    description: 'Recommended advices',
+                    aspectRatio: 'portrait'
                 }
             ],
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2015/4/1',
-            tags: ['lifestyle', 'health', 'drug']
+            tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving']
         }, {
             id: 'one-on-one',
             name: 'One on One',
@@ -292,9 +327,16 @@ export const data = {
                 aspectRatio: 'portrait'
             },
             gallery: [
-                '../gfx/projects/one-on-one-kids-01.png',
-                '../gfx/projects/one-on-one-kids-02.png',
-                '../gfx/projects/one-on-one-kids-03.png'
+                {
+                    url: '../gfx/projects/one-on-one-kids-01.png',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/one-on-one-kids-02.png',
+                    aspectRatio: 'portrait'
+                }, {
+                    url: '../gfx/projects/one-on-one-kids-03.png',
+                    aspectRatio: 'portrait'
+                }
             ],
             developmentStage: 'unsupported',
             type: 'mobile',

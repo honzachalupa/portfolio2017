@@ -8,14 +8,14 @@ export default class Footer extends Component {
         if (!collapsed) {
             return (
                 <footer data-component={componentName}>
-                    {config.credits}
+                    <a href="/about">{config.credits}</a>
                 </footer>
             );
         }
 
         return (
             <footer className="collapsed" data-component={componentName}>
-                {config.credits}
+                <a href="/about">{config.credits}</a>
             </footer>
         );
     }

@@ -15,6 +15,7 @@ export default class AboutMe extends Component {
         this.state = {
             id: 'about-me-page',
             headline: 'About me',
+            collapsedUI: false,
             hasPanel: false
         };
 
@@ -23,12 +24,12 @@ export default class AboutMe extends Component {
     }
 
     render() {
-        const { id, headline, hasPanel, project } = this.state;
+        const { id, headline, collapsedUI, hasPanel, project } = this.state;
         const { config, utilities } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="Who am I?">

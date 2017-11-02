@@ -20,6 +20,7 @@ export default class Home extends Component {
             id: 'home-page',
             headline: 'Introduction',
             hasPanel: false,
+            collapsedUI: false,
             latestProject: projects[0],
             latestProjectsMore: [
                 projects[1],
@@ -36,12 +37,12 @@ export default class Home extends Component {
     }
 
     render() {
-        const { id, headline, latestProject, latestProjectsMore, hasPanel } = this.state;
+        const { id, headline, latestProject, latestProjectsMore, collapsedUI, hasPanel } = this.state;
         const { config, utilities } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="Introduction">

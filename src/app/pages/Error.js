@@ -14,6 +14,7 @@ export default class Error extends Component {
         this.state = {
             id: 'not-found-page',
             headline: 'Page not found',
+            collapsedUI: true,
             hasPanel: true
         };
 
@@ -22,12 +23,12 @@ export default class Error extends Component {
     }
 
     render() {
-        const { id, headline, hasPanel } = this.state;
+        const { id, headline, collapsedUI, hasPanel } = this.state;
         const { config, utilities, params } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline={headline}>

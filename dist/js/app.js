@@ -28950,6 +28950,32 @@ var data = exports.data = {
         addedDate: '2017/2/14',
         tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
     }, {
+        id: 'fuel-consumption',
+        name: 'Fuel Consumption',
+        description: 'This app was my last I’ve made for Windows Phone. Fuel calculator helps you save money, log and plan your trips.',
+        url: 'https://www.microsoft.com/en-us/store/p/spot%C5%99eba-paliva/9nblggh4t314',
+        previewImage: {
+            url: '../gfx/projects/fuel-consumption-01.png',
+            aspectRatio: 'portrait'
+        },
+        gallery: [{
+            url: '../gfx/projects/fuel-consumption-01.png',
+            description: 'Main overview of logged trips and saved cars',
+            aspectRatio: 'portrait'
+        }, {
+            url: '../gfx/projects/fuel-consumption-02.png',
+            description: 'Detail of trip showing all data',
+            aspectRatio: 'portrait'
+        }, {
+            url: '../gfx/projects/fuel-consumption-03.png',
+            description: 'Page for creating a new calculation',
+            aspectRatio: 'portrait'
+        }],
+        developmentStage: 'released',
+        type: 'mobile',
+        addedDate: '2016/8/25',
+        tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving']
+    }, {
         id: 'allianz-jiri-prudky',
         name: 'Allianz - Jiří Prudký',
         description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
@@ -28975,7 +29001,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'web',
         addedDate: '2016/2/1',
-        tags: ['Microsoft', 'Xbox', 'game', 'web-scraping'],
+        tags: ['Microsoft', 'Xbox', 'game', 'web-scraping', 'money', 'money-saving'],
         hidden: true
     }, {
         id: 'online-editor',
@@ -29015,13 +29041,16 @@ var data = exports.data = {
         },
         gallery: [{
             url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
-            description: 'List of latest articles'
+            description: 'List of latest articles',
+            aspectRatio: 'portrait'
         }, {
             url: '../gfx/projects/ceske-zpravodajstvi-app-02.png',
-            description: 'List of latest articles (in landscape view)'
+            description: 'List of latest articles (in landscape view)',
+            aspectRatio: 'portrait'
         }, {
             url: '../gfx/projects/ceske-zpravodajstvi-app-03.png',
-            description: 'Opened article'
+            description: 'Opened article',
+            aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
         type: 'mobile',
@@ -29080,29 +29109,33 @@ var data = exports.data = {
     }, {
         id: 'smokers-little-helper',
         name: 'Smoker\'s Little Helper',
-        description: 'Project description...',
-        url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
+        description: 'The application is there to help and motivate people, who wants to quit smoking. Beside of saved money analysis application provides detailed advices and quitting process description.',
+        url: 'https://www.microsoft.com/en-us/store/p/smokers-little-helper/9nblgggzvldz',
         previewImage: {
             url: '../gfx/projects/smokers-little-helper-01.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
             url: '../gfx/projects/smokers-little-helper-01.png',
-            description: 'Summary of saved money'
+            description: 'Summary of saved money',
+            aspectRatio: 'portrait'
         }, {
             url: '../gfx/projects/smokers-little-helper-02.png',
-            description: 'Overview of taxes payed to the state office'
+            description: 'Overview of taxes payed to the state office',
+            aspectRatio: 'portrait'
         }, {
             url: '../gfx/projects/smokers-little-helper-03.png',
-            description: 'Expected stages of quitting'
+            description: 'Expected stages of quitting',
+            aspectRatio: 'portrait'
         }, {
             url: '../gfx/projects/smokers-little-helper-04.png',
-            description: 'Recommended advices'
+            description: 'Recommended advices',
+            aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/4/1',
-        tags: ['lifestyle', 'health', 'drug']
+        tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving']
     }, {
         id: 'one-on-one',
         name: 'One on One',
@@ -29135,7 +29168,16 @@ var data = exports.data = {
             url: '../gfx/projects/one-on-one-kids-01.png',
             aspectRatio: 'portrait'
         },
-        gallery: ['../gfx/projects/one-on-one-kids-01.png', '../gfx/projects/one-on-one-kids-02.png', '../gfx/projects/one-on-one-kids-03.png'],
+        gallery: [{
+            url: '../gfx/projects/one-on-one-kids-01.png',
+            aspectRatio: 'portrait'
+        }, {
+            url: '../gfx/projects/one-on-one-kids-02.png',
+            aspectRatio: 'portrait'
+        }, {
+            url: '../gfx/projects/one-on-one-kids-03.png',
+            aspectRatio: 'portrait'
+        }],
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/9/15',
@@ -29384,14 +29426,22 @@ var Footer = function (_Component) {
                 return _react2.default.createElement(
                     "footer",
                     { "data-component": componentName },
-                    config.credits
+                    _react2.default.createElement(
+                        "a",
+                        { href: "/about" },
+                        config.credits
+                    )
                 );
             }
 
             return _react2.default.createElement(
                 "footer",
                 { className: "collapsed", "data-component": componentName },
-                config.credits
+                _react2.default.createElement(
+                    "a",
+                    { href: "/about" },
+                    config.credits
+                )
             );
         }
     }]);
@@ -29457,9 +29507,9 @@ var Header = function (_Component) {
                 tags = _state.tags;
             var _props = this.props,
                 config = _props.config,
-                utilities = _props.utilities;
-            var title = config.title,
-                collapsed = config.collapsed;
+                utilities = _props.utilities,
+                collapsed = _props.collapsed;
+            var title = config.title;
 
 
             if (!collapsed) {
@@ -29490,20 +29540,19 @@ var Header = function (_Component) {
 
             return _react2.default.createElement(
                 'header',
-                { className: 'collapsed', 'data-component': componentName },
+                { className: 'collapsed', style: { backgroundImage: imageUrl }, 'data-component': componentName },
                 _react2.default.createElement(
-                    'h1',
-                    { className: 'headline' },
+                    'div',
+                    { className: 'content', style: { width: document.querySelector('main').offsetWidth + 'px' } },
+                    _react2.default.createElement(_Navigation2.default, { config: config, utilities: utilities }),
                     _react2.default.createElement(
-                        'span',
-                        null,
-                        '<'
-                    ),
-                    title,
-                    _react2.default.createElement(
-                        'span',
-                        null,
-                        '/>'
+                        'h1',
+                        { className: 'headline' },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/' },
+                            title
+                        )
                     )
                 )
             );
@@ -30839,6 +30888,7 @@ var Content = function (_Component) {
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities,
+                collapsedUI = _props.collapsedUI,
                 hasPanel = _props.hasPanel;
             var navigationOpened = config.navigationOpened;
             var navigationToggler = utilities.navigationToggler;
@@ -30851,13 +30901,13 @@ var Content = function (_Component) {
                         return navigationToggler(true);
                     } }),
                 _react2.default.createElement(_NavigationButton2.default, { config: config, utilities: utilities }),
-                _react2.default.createElement(_Header2.default, { config: config, utilities: utilities }),
+                _react2.default.createElement(_Header2.default, { config: config, utilities: utilities, collapsed: collapsedUI }),
                 _react2.default.createElement(
                     'section',
                     { className: 'page-content ' + (hasPanel ? 'has-panel' : '') },
                     this.props.children
                 ),
-                _react2.default.createElement(_Footer2.default, { config: config })
+                _react2.default.createElement(_Footer2.default, { config: config, collapsed: collapsedUI })
             );
         }
     }]);
@@ -30987,6 +31037,7 @@ var AboutMe = function (_Component) {
         _this.state = {
             id: 'about-me-page',
             headline: 'About me',
+            collapsedUI: false,
             hasPanel: false
         };
 
@@ -31001,6 +31052,7 @@ var AboutMe = function (_Component) {
             var _state = this.state,
                 id = _state.id,
                 headline = _state.headline,
+                collapsedUI = _state.collapsedUI,
                 hasPanel = _state.hasPanel,
                 project = _state.project;
             var _props = this.props,
@@ -31013,7 +31065,7 @@ var AboutMe = function (_Component) {
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
                     _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
@@ -31088,6 +31140,7 @@ var Error = function (_Component) {
         _this.state = {
             id: 'not-found-page',
             headline: 'Page not found',
+            collapsedUI: true,
             hasPanel: true
         };
 
@@ -31102,6 +31155,7 @@ var Error = function (_Component) {
             var _state = this.state,
                 id = _state.id,
                 headline = _state.headline,
+                collapsedUI = _state.collapsedUI,
                 hasPanel = _state.hasPanel;
             var _props = this.props,
                 config = _props.config,
@@ -31114,7 +31168,7 @@ var Error = function (_Component) {
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
                     _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
@@ -31211,6 +31265,7 @@ var Home = function (_Component) {
             id: 'home-page',
             headline: 'Introduction',
             hasPanel: false,
+            collapsedUI: false,
             latestProject: projects[0],
             latestProjectsMore: [projects[1], projects[2], projects[3], projects[4], projects[5], projects[6]]
         };
@@ -31228,6 +31283,7 @@ var Home = function (_Component) {
                 headline = _state.headline,
                 latestProject = _state.latestProject,
                 latestProjectsMore = _state.latestProjectsMore,
+                collapsedUI = _state.collapsedUI,
                 hasPanel = _state.hasPanel;
             var _props = this.props,
                 config = _props.config,
@@ -31239,7 +31295,7 @@ var Home = function (_Component) {
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
                     _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,
@@ -31354,6 +31410,7 @@ var ProjectDetail = function (_Component) {
             _this.state = {
                 id: 'project-page',
                 hasPanel: false,
+                collapsedUI: true,
                 project: currentProject
             };
 
@@ -31371,6 +31428,7 @@ var ProjectDetail = function (_Component) {
             var _state = this.state,
                 id = _state.id,
                 hasPanel = _state.hasPanel,
+                collapsedUI = _state.collapsedUI,
                 project = _state.project;
             var _props = this.props,
                 config = _props.config,
@@ -31394,7 +31452,7 @@ var ProjectDetail = function (_Component) {
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
                     _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: project.name }),
                     _react2.default.createElement(
                         _Text2.default,
@@ -31491,6 +31549,7 @@ var Projects = function (_Component) {
         _this.state = {
             id: 'projects-page',
             headline: 'Projects',
+            collapsedUI: false,
             hasPanel: false,
             filter: {
                 type: 'all',
@@ -31522,6 +31581,7 @@ var Projects = function (_Component) {
             var _state = this.state,
                 id = _state.id,
                 headline = _state.headline,
+                collapsedUI = _state.collapsedUI,
                 hasPanel = _state.hasPanel,
                 filter = _state.filter;
             var _props = this.props,
@@ -31535,7 +31595,7 @@ var Projects = function (_Component) {
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
                     _Content2.default,
-                    { config: config, utilities: utilities, hasPanel: hasPanel },
+                    { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Text2.default,

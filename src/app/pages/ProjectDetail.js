@@ -25,6 +25,7 @@ export default class ProjectDetail extends Component {
             this.state = {
                 id: 'project-page',
                 hasPanel: false,
+                collapsedUI: true,
                 project: currentProject
             };
 
@@ -36,7 +37,7 @@ export default class ProjectDetail extends Component {
     }
 
     render() {
-        const { id, hasPanel, project } = this.state;
+        const { id, hasPanel, collapsedUI, project } = this.state;
         const { config, utilities } = this.props;
 
         const developmentStageLabel = getDevelopmentStageLabel(project.developmentStage, project.platform);
@@ -55,7 +56,7 @@ export default class ProjectDetail extends Component {
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={project.name} />
 
                     <Text headline={project.name}>

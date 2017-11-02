@@ -6,7 +6,7 @@ import NavigationButton from './../components/NavigationButton';
 export default class Content extends Component {
     render() {
         const componentName = `Layout_${this.constructor.name}`;
-        const { config, utilities, hasPanel } = this.props;
+        const { config, utilities, collapsedUI, hasPanel } = this.props;
         const { navigationOpened } = config;
         const { navigationToggler } = utilities;
 
@@ -15,13 +15,13 @@ export default class Content extends Component {
                 <button className={`navigation-overlay ${navigationOpened ? 'visible' : ''}`} onClick={() => navigationToggler(true)} />
                 <NavigationButton config={config} utilities={utilities} />
 
-                <Header config={config} utilities={utilities} />
+                <Header config={config} utilities={utilities} collapsed={collapsedUI} />
 
                 <section className={`page-content ${hasPanel ? 'has-panel' : ''}`}>
                     {this.props.children}
                 </section>
 
-                <Footer config={config} />
+                <Footer config={config} collapsed={collapsedUI} />
             </div>
         );
     }

@@ -53,4 +53,21 @@
             }
         }
     }
+
+
+    &.collapsed {
+        height: 73px;
+
+        .headline {
+            font-size: 25px;
+            padding: 2px 12px 4px;
+            margin: 0 auto 15px 0;
+        }
+
+        @media (min-width: 680px) {
+            [data-component="Page_Navigation"] {
+                font-size: 12px !important;
+            }
+        }
+    }
 }

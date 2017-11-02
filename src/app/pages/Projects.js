@@ -21,6 +21,7 @@ export default class Projects extends Component {
         this.state = {
             id: 'projects-page',
             headline: 'Projects',
+            collapsedUI: false,
             hasPanel: false,
             filter: {
                 type: 'all',
@@ -45,12 +46,12 @@ export default class Projects extends Component {
     }
 
     render() {
-        const { id, headline, hasPanel, filter } = this.state;
+        const { id, headline, collapsedUI, hasPanel, filter } = this.state;
         const { config, utilities, projects } = this.props;
 
         return (
             <div id={id} data-component="Page">
-                <ContentLayout config={config} utilities={utilities} hasPanel={hasPanel}>
+                <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="My projects">
