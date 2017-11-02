@@ -7,6 +7,8 @@ import Blank from './../components/content-blocks/Blank';
 import ProjectsGrid from './../components/content-blocks/ProjectsGrid';
 import ProjectsGridItem from './../components/content-blocks/ProjectsGrid/Item';
 import ProjectsFilter from './../components/ProjectsFilter';
+import Button from './../components/Button';
+import ButtonsGroup from './../components/ButtonsGroup';
 
 export default class Projects extends Component {
     constructor(props) {
@@ -52,9 +54,11 @@ export default class Projects extends Component {
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="My projects">
-                        Last year and few months I'm working full-time for Actum company.<br /><br />
-                        Together we've done many significant projects like Innogy Product Finder and Intranet projects. When I've worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.<br /><br />
-                        I've also worked on many other projects with Actum like Makro (Metro), Raiffeisenbank, Komerční bank but these were just a short-time cooperations.
+                        <p>Last year and few months I'm working full-time for Actum company.</p>
+                        <p>Together we've done many significant projects like Innogy Product Finder and Intranet projects. When I've worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.</p>
+                        <p>I've also worked on many other projects with Actum like Makro (Metro), Raiffeisenbank, Komerční bank but these were just a short-time cooperations.</p>
+                        <p>Please visit also my GitHub page (I'm gradually adding all personal projects there).</p>
+                        <Button title="GitHub" url="https://github.com/honzachalupa" />
                     </Text>
 
                     <Blank headline="Filter">

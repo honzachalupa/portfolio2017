@@ -45,6 +45,17 @@
             padding-right: 6vw;
         }
 
+        p {
+            width: 100%;
+            float: left;
+
+        }
+
+        p + p {
+            margin-top: 20px;
+
+        }
+
         a {
             border-bottom: 1px dotted gray;
 

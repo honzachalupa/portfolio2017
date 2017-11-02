@@ -45,13 +45,13 @@ export default class Home extends Component {
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="Introduction">
-                        Hello and welcome,<br />
-                        I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...<br /><br />
-                        Curently I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.
+                        <p>Hello and welcome,<br />
+                        I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...</p>
+                        <p>Curently I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.</p>
 
                         <ButtonsGroup>
                             <Button title="Lets take a look at my projects" url="/projects" />
-                            <Button title="Get more information about me" url="/about" />
+                            <Button title="Get more information about me" url="/about-me" />
                         </ButtonsGroup>
                     </Text>
 

@@ -32,6 +32,7 @@ export default class Error extends Component {
 
                     <Text headline={headline}>
                         <p>Im really sorry to hear that but apparently something really bad just happened (like apocalipse or something). The page youve been looking for was not founded. Please, go to homepage and try your luck elsewhere.</p>
+
                         <Button title="Go to homepage" url="/" />
                     </Text>
                 </ContentLayout>

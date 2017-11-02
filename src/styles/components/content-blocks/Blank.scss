@@ -16,6 +16,17 @@
         padding-right: 6vw;
     }
 
+    p {
+        width: 100%;
+        float: left;
+
+    }
+
+    p + p {
+        margin-top: 20px;
+
+    }
+
     & > .headline {
         width: 100%;
         font-size: 1.8rem;

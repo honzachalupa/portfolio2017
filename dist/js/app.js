@@ -28894,7 +28894,7 @@ hidden - boolean
 
 var data = exports.data = {
     config: {
-        title: 'HonzaChalupaTest',
+        title: 'HonzaChalupa',
         tags: ['front-end developer', 'junior back-end developer', 'wannabe UX designer', 'car-lover', 'mountain biker'],
         navigationItems: [{
             id: 'home-page',
@@ -30936,8 +30936,11 @@ var AboutMe = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'Who am I?' },
-                        'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.',
-                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.'
+                        ),
                         _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' })
                     )
                 )
@@ -31159,17 +31162,23 @@ var Home = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'Introduction' },
-                        'Hello and welcome,',
-                        _react2.default.createElement('br', null),
-                        'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...',
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement('br', null),
-                        'Curently I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.',
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Hello and welcome,',
+                            _react2.default.createElement('br', null),
+                            'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Curently I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.'
+                        ),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
                             null,
                             _react2.default.createElement(_Button2.default, { title: 'Lets take a look at my projects', url: '/projects' }),
-                            _react2.default.createElement(_Button2.default, { title: 'Get more information about me', url: '/about' })
+                            _react2.default.createElement(_Button2.default, { title: 'Get more information about me', url: '/about-me' })
                         )
                     ),
                     _react2.default.createElement(_ProjectTeaser2.default, latestProject),
@@ -31368,6 +31377,14 @@ var _ProjectsFilter = require('./../components/ProjectsFilter');
 
 var _ProjectsFilter2 = _interopRequireDefault(_ProjectsFilter);
 
+var _Button = require('./../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _ButtonsGroup = require('./../components/ButtonsGroup');
+
+var _ButtonsGroup2 = _interopRequireDefault(_ButtonsGroup);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31441,13 +31458,27 @@ var Projects = function (_Component) {
                     _react2.default.createElement(
                         _Text2.default,
                         { headline: 'My projects' },
-                        'Last year and few months I\'m working full-time for Actum company.',
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement('br', null),
-                        'Together we\'ve done many significant projects like Innogy Product Finder and Intranet projects. When I\'ve worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.',
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement('br', null),
-                        'I\'ve also worked on many other projects with Actum like Makro (Metro), Raiffeisenbank, Komer\u010Dn\xED bank but these were just a short-time cooperations.'
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Last year and few months I\'m working full-time for Actum company.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Together we\'ve done many significant projects like Innogy Product Finder and Intranet projects. When I\'ve worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'I\'ve also worked on many other projects with Actum like Makro (Metro), Raiffeisenbank, Komer\u010Dn\xED bank but these were just a short-time cooperations.'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Please visit also my GitHub page (I\'m gradually adding all personal projects there).'
+                        ),
+                        _react2.default.createElement(_Button2.default, { title: 'GitHub', url: 'https://github.com/honzachalupa' })
                     ),
                     _react2.default.createElement(
                         _Blank2.default,
@@ -31553,7 +31584,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":310,"./../components/content-blocks/Blank":312,"./../components/content-blocks/ProjectsGrid":317,"./../components/content-blocks/ProjectsGrid/Item":316,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],329:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":310,"./../components/content-blocks/Blank":312,"./../components/content-blocks/ProjectsGrid":317,"./../components/content-blocks/ProjectsGrid/Item":316,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],329:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

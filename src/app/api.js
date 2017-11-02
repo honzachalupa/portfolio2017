@@ -16,7 +16,7 @@ hidden - boolean
 
 export const data = {
     config: {
-        title: 'HonzaChalupaTest',
+        title: 'HonzaChalupa',
         tags: [
             'front-end developer',
             'junior back-end developer',
