@@ -148,7 +148,19 @@ export const data = {
             name: 'České zpravodajství',
             description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="http://localhost:5001/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
             url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
+            gallery: [
+                {
+                    url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
+                    description: 'List of latest articles'
+                }, {
+                    url: '../gfx/projects/ceske-zpravodajstvi-app-02.png',
+                    description: 'List of latest articles (in landscape view)'
+                }, {
+                    url: '../gfx/projects/ceske-zpravodajstvi-app-03.png',
+                    description: 'Opened article'
+                }
+            ],
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2016/2/1',
@@ -219,7 +231,22 @@ export const data = {
             name: 'Smoker\'s Little Helper',
             description: 'Project description...',
             url: 'http://www.windowsphone.com/cs-cz/store/app/smoker-little-helper/be872b68-e961-40a9-b01f-61136d3508d1',
-            previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+            previewImage: '../gfx/projects/smokers-little-helper-01.png',
+            gallery: [
+                {
+                    url: '../gfx/projects/smokers-little-helper-01.png',
+                    description: 'Summary of saved money'
+                }, {
+                    url: '../gfx/projects/smokers-little-helper-02.png',
+                    description: 'Overview of taxes payed to the state office'
+                }, {
+                    url: '../gfx/projects/smokers-little-helper-03.png',
+                    description: 'Expected stages of quitting'
+                }, {
+                    url: '../gfx/projects/smokers-little-helper-04.png',
+                    description: 'Recommended advices'
+                }
+            ],
             developmentStage: 'unsupported',
             type: 'mobile',
             addedDate: '2015/4/1',
