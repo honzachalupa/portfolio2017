@@ -4,11 +4,11 @@
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 0.2px;
+    padding: 12px 12px 25px 12px;
     float: left;
 
     @media (max-width: 799px) {
         margin-bottom: 12px;
-        padding: 12px;
     }
     @media (min-width: 800px) {
         margin-bottom: 20px;

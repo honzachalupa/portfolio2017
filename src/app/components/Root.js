@@ -11,6 +11,7 @@ import ProjectDetailPage from './../pages/ProjectDetail';
 import ErrorPage from './../pages/Error';
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
+import GoogleAnalytics from 'react-ga';
 
 export default class Root extends Component {
     constructor(props) {
@@ -48,6 +49,8 @@ export default class Root extends Component {
     }
 
     componentDidMount() {
+        GoogleAnalytics.initialize('UA-47064928-3');
+
         window.addEventListener('resize', this.updateDimensions);
     }
 
@@ -115,6 +118,10 @@ export default class Root extends Component {
         }
     }
 
+    trackGoogleAnalytics() {
+        GoogleAnalytics.pageview(window.location.hash);
+    }
+
     updateDimensions() {
         const { screenBreakpoint } = this.state.config;
 
@@ -147,7 +154,7 @@ export default class Root extends Component {
             const { config, utilities, projects } = this.state;
 
             return (
-                <Router>
+                <Router onUpdate={this.trackGoogleAnalytics}>
                     <Switch>
                         <Route
                             exact

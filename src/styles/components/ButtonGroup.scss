@@ -1,0 +1,19 @@
+[data-component="ButtonsGroup"] {
+    width: 100%;
+    float: left;
+    margin: 12px 0;
+
+    &.center {
+        text-align: center;
+
+        .alignment {
+            display: inline-block;
+        }
+    }
+
+    &.right {
+        .alignment {
+            float: right;
+        }
+    }
+}
