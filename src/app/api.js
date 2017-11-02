@@ -94,7 +94,16 @@ export const data = {
             name: 'Allianz - Jiří Prudký',
             description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
             url: 'http://www.jiriprudky.cz/',
-            previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
+            previewImage: '../gfx/projects/allianz-jiri-prudky.jpg',
+            gallery: [
+                {
+                    url: '../gfx/projects/allianz-jiri-prudky-01.jpg',
+                    description: 'Homepage'
+                }, {
+                    url: '../gfx/projects/allianz-jiri-prudky-02.jpg',
+                    description: 'Products listing'
+                }
+            ],
             developmentStage: 'released',
             type: 'web',
             addedDate: '2016/9/1',
@@ -125,7 +134,16 @@ export const data = {
             name: 'České zpravodajství',
             description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="http://localhost:5001/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
             url: 'http://www.ceskezpravodajstvi.cz/',
-            previewImage: 'http://www.honzachalupa.cz/imgs/bg-3.jpg',
+            previewImage: '../gfx/projects/ceske-zpravodajstvi.jpg',
+            gallery: [
+                {
+                    url: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
+                    description: 'List of latest news'
+                }, {
+                    url: '../gfx/projects/ceske-zpravodajstvi-02.jpg',
+                    description: 'Reading mode'
+                }
+            ],
             developmentStage: 'in-development',
             type: 'web',
             addedDate: '2016/2/1',
