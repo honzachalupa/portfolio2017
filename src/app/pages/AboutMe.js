@@ -26,6 +26,7 @@ export default class AboutMe extends Component {
     render() {
         const { id, headline, collapsedUI, hasPanel, project } = this.state;
         const { config, utilities } = this.props;
+        const { socialProfiles } = config.contactInfo;
 
         return (
             <div id={id} data-component="Page">
@@ -36,6 +37,16 @@ export default class AboutMe extends Component {
                         <p>I'm 24 years old Front-End Developer based in Prague, Czech Republic. I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.</p>
 
                         <Button title="View my CV" url="https://www.visualcv.com/janchalupa" />
+
+                        <ButtonsGroup headline="My social profiles">
+                            {
+                                socialProfiles.map((profile) => {
+                                    return (
+                                        <Button title={profile.name} url={profile.url} />
+                                    );
+                                })
+                            }
+                        </ButtonsGroup>
                     </Text>
                 </ContentLayout>
             </div>

@@ -41,7 +41,22 @@ export const data = {
         contactInfo: {
             phoneNumber: '+420 606 789 910',
             emailAddress: 'janchalupa@outlook.cz',
-            city: 'Prague'
+            city: 'Prague',
+            socialProfiles: [
+                {
+                    name: 'GitHub',
+                    url: 'https://github.com/honzachalupa'
+                }, {
+                    name: 'Instagram',
+                    url: 'http://www.instagram.cz/honzachalupa/'
+                }, {
+                    name: 'Twitter',
+                    url: 'http://www.twitter.com/janchalupa/'
+                }, {
+                    name: 'Facebook',
+                    url: 'https://www.facebook.com/janchalupaportfolio/'
+                }
+            ]
         },
         credits: '© Jan Chalupa 2017',
         screenBreakpoint: 680

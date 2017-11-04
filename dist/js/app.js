@@ -28911,7 +28911,20 @@ var data = exports.data = {
         contactInfo: {
             phoneNumber: '+420 606 789 910',
             emailAddress: 'janchalupa@outlook.cz',
-            city: 'Prague'
+            city: 'Prague',
+            socialProfiles: [{
+                name: 'GitHub',
+                url: 'https://github.com/honzachalupa'
+            }, {
+                name: 'Instagram',
+                url: 'http://www.instagram.cz/honzachalupa/'
+            }, {
+                name: 'Twitter',
+                url: 'http://www.twitter.com/janchalupa/'
+            }, {
+                name: 'Facebook',
+                url: 'https://www.facebook.com/janchalupaportfolio/'
+            }]
         },
         credits: '© Jan Chalupa 2017',
         screenBreakpoint: 680
@@ -31058,6 +31071,7 @@ var AboutMe = function (_Component) {
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
+            var socialProfiles = config.contactInfo.socialProfiles;
 
 
             return _react2.default.createElement(
@@ -31075,7 +31089,14 @@ var AboutMe = function (_Component) {
                             null,
                             'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.'
                         ),
-                        _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' })
+                        _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' }),
+                        _react2.default.createElement(
+                            _ButtonsGroup2.default,
+                            { headline: 'My social profiles' },
+                            socialProfiles.map(function (profile) {
+                                return _react2.default.createElement(_Button2.default, { title: profile.name, url: profile.url });
+                            })
+                        )
                     )
                 )
             );
