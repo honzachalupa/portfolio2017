@@ -8,8 +8,6 @@ export default class ImageItem extends Component {
         const { description, url, aspectRatio } = this.props;
         const imageId = /[a-z0-9.-]*$/.exec(url);
 
-        console.log(imageId);
-
         const aspectRatioDesktop = aspectRatio === 'portrait' ? '10:16' : '3:2';
         const aspectRatioMobile = aspectRatio === 'portrait' ? '10:16' : '16:10';
 

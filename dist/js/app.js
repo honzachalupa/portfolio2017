@@ -30406,8 +30406,6 @@ var ImageItem = function (_Component) {
 
             var imageId = /[a-z0-9.-]*$/.exec(url);
 
-            console.log(imageId);
-
             var aspectRatioDesktop = aspectRatio === 'portrait' ? '10:16' : '3:2';
             var aspectRatioMobile = aspectRatio === 'portrait' ? '10:16' : '16:10';
 
