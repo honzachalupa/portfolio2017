@@ -8,6 +8,7 @@ import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
 import AboutMePage from './../pages/AboutMe';
 import ProjectDetailPage from './../pages/ProjectDetail';
+import ImageViewerPage from './../pages/ImageViewer';
 import ErrorPage from './../pages/Error';
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
@@ -175,6 +176,13 @@ export default class Root extends Component {
                             path="/about-me"
                             render={(props) => (
                                 <AboutMePage config={config} utilities={utilities} />
+                            )}
+                        />
+                        <Route
+                            exact
+                            path="/image/:id"
+                            render={(props) => (
+                                <ImageViewerPage config={config} utilities={utilities} params={props.match.params} />
                             )}
                         />
                         <Route

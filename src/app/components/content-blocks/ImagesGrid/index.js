@@ -29,7 +29,7 @@ export default class ImagesGrid extends Component {
                 <ul>
                     {
                         images.map((image) => {
-                            return <ImageItem {...image} />;
+                            return <ImageItem key={image.url} {...image} />;
                         })
                     }
                 </ul>

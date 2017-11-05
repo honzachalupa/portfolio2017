@@ -9,8 +9,6 @@ export default class Button extends Component {
         const componentName = this.constructor.name;
         const { title, url, onClick, extraClasses } = this.props;
 
-        console.log(...this.props);
-
         if (url) {
             if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
                 return (

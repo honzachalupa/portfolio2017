@@ -24,4 +24,17 @@ main {
     }
 }
 
+#image-viewer {
+    .page-content {
+        background-color: white;
+        padding: 6vw;
+    }
+
+    img {
+        width: 100%;
+        box-shadow: 0 0 15px transparentize($accent-color, 0.8);
+        float: left;
+    }
+}
+
 @import 'components/**/*';
