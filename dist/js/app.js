@@ -28883,7 +28883,7 @@ description - string
 url - string
 previewImage - string
 gallery - array of strings and/or objects {url, description}
-livePreviewAllowed - boolean
+livePreview - boolean
 developmentStage - string
 type - string
 company - object {name, logo, url}
@@ -28939,6 +28939,7 @@ var data = exports.data = {
             description: 'Homepage'
         }],
         developmentStage: 'released',
+        livePreview: false,
         type: 'web',
         company: {
             name: 'Actum',
@@ -28954,6 +28955,7 @@ var data = exports.data = {
         previewImage: 'gfx/projects/innogy-intranet.png',
         gallery: ['../gfx/projects/innogy-intranet.png'],
         developmentStage: 'released',
+        livePreview: false,
         type: 'web',
         company: {
             name: 'Actum',
@@ -28985,6 +28987,7 @@ var data = exports.data = {
             aspectRatio: 'portrait'
         }],
         developmentStage: 'released',
+        livePreview: false,
         type: 'mobile',
         addedDate: '2016/8/25',
         tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving']
@@ -29002,6 +29005,7 @@ var data = exports.data = {
             description: 'Products listing'
         }],
         developmentStage: 'released',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/9/1',
         tags: ['Allianz', 'insurance', 'broker']
@@ -29012,6 +29016,7 @@ var data = exports.data = {
         url: 'http://www.honzachalupa.cz/xbox-gwg/',
         previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['Microsoft', 'Xbox', 'game', 'web-scraping', 'money', 'money-saving'],
@@ -29023,6 +29028,7 @@ var data = exports.data = {
         url: 'http://www.honzachalupa.cz/online-editor/',
         previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'in-development',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/1/1',
         hidden: true
@@ -29040,6 +29046,7 @@ var data = exports.data = {
             description: 'Reading mode'
         }],
         developmentStage: 'in-development',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['Microsoft', 'Czech', 'news', 'newspaper', 'web-scraping']
@@ -29083,6 +29090,7 @@ var data = exports.data = {
             description: 'Original Italian version'
         }],
         developmentStage: 'released',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['Italy']
@@ -29094,6 +29102,7 @@ var data = exports.data = {
         previewImage: '../gfx/projects/terapta-02.jpg',
         gallery: ['../gfx/projects/terapta-01.jpg', '../gfx/projects/terapta-02.jpg', '../gfx/projects/terapta-03.jpg'],
         developmentStage: 'released',
+        livePreview: true,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['artist', 'illustrations']
@@ -29105,6 +29114,7 @@ var data = exports.data = {
         previewImage: '../gfx/projects/studio-cesta-ke-zmene-01.jpg',
         gallery: ['../gfx/projects/studio-cesta-ke-zmene-01.jpg'],
         developmentStage: 'released',
+        livePreview: false,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['lifestyle', 'health', 'food']
@@ -29116,6 +29126,7 @@ var data = exports.data = {
         previewImage: '../gfx/projects/vyzivou-ke-zmene-01.jpg',
         gallery: ['../gfx/projects/vyzivou-ke-zmene-01.jpg', '../gfx/projects/vyzivou-ke-zmene-02.jpg'],
         developmentStage: 'released',
+        livePreview: false,
         type: 'web',
         addedDate: '2016/2/1',
         tags: ['lifestyle', 'health', 'food']
@@ -29239,7 +29250,7 @@ function fixExperimentalCss() {
 
 app();
 
-},{"./api":301,"./components/Root":311,"./modules/logger":323,"./render":329}],303:[function(require,module,exports){
+},{"./api":301,"./components/Root":312,"./modules/logger":324,"./render":330}],303:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29331,7 +29342,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":320,"./../modules/logger":323,"./Navigation":308,"react":277,"react-router-dom":238}],304:[function(require,module,exports){
+},{"./../helpers":321,"./../modules/logger":324,"./Navigation":309,"react":277,"react-router-dom":238}],304:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29577,7 +29588,7 @@ var Header = function (_Component) {
 
 exports.default = Header;
 
-},{"./../helpers":320,"./Navigation":308,"react":277,"react-router-dom":238}],307:[function(require,module,exports){
+},{"./../helpers":321,"./Navigation":309,"react":277,"react-router-dom":238}],307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29633,7 +29644,62 @@ var InvisibleHeadline = function (_Component) {
 
 exports.default = InvisibleHeadline;
 
-},{"./../helpers":320,"./Navigation":308,"react":277}],308:[function(require,module,exports){
+},{"./../helpers":321,"./Navigation":309,"react":277}],308:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var LivePreview = function (_Component) {
+    _inherits(LivePreview, _Component);
+
+    function LivePreview() {
+        _classCallCheck(this, LivePreview);
+
+        return _possibleConstructorReturn(this, (LivePreview.__proto__ || Object.getPrototypeOf(LivePreview)).apply(this, arguments));
+    }
+
+    _createClass(LivePreview, [{
+        key: "render",
+        value: function render() {
+            var componentName = "Page_" + this.constructor.name;
+            var url = this.props.url;
+
+
+            return _react2.default.createElement(
+                "div",
+                { "data-component": componentName },
+                _react2.default.createElement(
+                    "h2",
+                    { className: "headline" },
+                    "Live preview"
+                ),
+                _react2.default.createElement("iframe", { title: "Live preview of the project", src: url, "data-aspect-ratio": "16:9" })
+            );
+        }
+    }]);
+
+    return LivePreview;
+}(_react.Component);
+
+exports.default = LivePreview;
+
+},{"react":277}],309:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29711,7 +29777,7 @@ var Navigation = function (_Component) {
 
 exports.default = Navigation;
 
-},{"react":277,"react-router-dom":238}],309:[function(require,module,exports){
+},{"react":277,"react-router-dom":238}],310:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29763,7 +29829,7 @@ var NavigationButton = function (_Component) {
 
 exports.default = NavigationButton;
 
-},{"react":277}],310:[function(require,module,exports){
+},{"react":277}],311:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29947,7 +30013,7 @@ var ProjectsFilter = function (_Component) {
 
 exports.default = ProjectsFilter;
 
-},{"./../helpers":320,"./Button":303,"./ButtonsGroup":304,"react":277}],311:[function(require,module,exports){
+},{"./../helpers":321,"./Button":303,"./ButtonsGroup":304,"react":277}],312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30229,7 +30295,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":319,"./../helpers":320,"./../modules/aspect-ratio-preserver":322,"./../modules/logger":323,"./../pages/AboutMe":324,"./../pages/Error":325,"./../pages/Home":326,"./../pages/ProjectDetail":327,"./../pages/Projects":328,"axios":1,"immutability-helper":60,"react":277,"react-ga":200,"react-router-dom":238}],312:[function(require,module,exports){
+},{"./../factory":320,"./../helpers":321,"./../modules/aspect-ratio-preserver":323,"./../modules/logger":324,"./../pages/AboutMe":325,"./../pages/Error":326,"./../pages/Home":327,"./../pages/ProjectDetail":328,"./../pages/Projects":329,"axios":1,"immutability-helper":60,"react":277,"react-ga":200,"react-router-dom":238}],313:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30289,7 +30355,7 @@ var Blank = function (_Component) {
 
 exports.default = Blank;
 
-},{"react":277}],313:[function(require,module,exports){
+},{"react":277}],314:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30357,7 +30423,7 @@ var ImageItem = function (_Component) {
 
 exports.default = ImageItem;
 
-},{"react":277,"react-router-dom":238}],314:[function(require,module,exports){
+},{"react":277,"react-router-dom":238}],315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30443,7 +30509,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./Item":313,"react":277}],315:[function(require,module,exports){
+},{"./Item":314,"react":277}],316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30544,7 +30610,7 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":303,"react":277}],316:[function(require,module,exports){
+},{"./../Button":303,"react":277}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30641,7 +30707,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":323,"react":277,"react-router-dom":238}],317:[function(require,module,exports){
+},{"./../../../modules/logger":324,"react":277,"react-router-dom":238}],318:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30711,7 +30777,7 @@ var ProjectsGrid = function (_Component) {
 
 exports.default = ProjectsGrid;
 
-},{"react":277}],318:[function(require,module,exports){
+},{"react":277}],319:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30773,7 +30839,7 @@ var Text = function (_Component) {
 
 exports.default = Text;
 
-},{"react":277}],319:[function(require,module,exports){
+},{"react":277}],320:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30793,7 +30859,7 @@ function factory(fn, containers) {
     });
 }
 
-},{}],320:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30852,7 +30918,7 @@ function getDevelopmentStageLabel(developmentStage, platform) {
     return label;
 }
 
-},{"./modules/logger":323}],321:[function(require,module,exports){
+},{"./modules/logger":324}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30930,7 +30996,7 @@ var Content = function (_Component) {
 
 exports.default = Content;
 
-},{"./../components/Footer":305,"./../components/Header":306,"./../components/NavigationButton":309,"react":277}],322:[function(require,module,exports){
+},{"./../components/Footer":305,"./../components/Header":306,"./../components/NavigationButton":310,"react":277}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30973,7 +31039,7 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 
 exports.default = aspectRatioPreserver;
 
-},{}],323:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30993,7 +31059,7 @@ var logger = function logger() {
 
 exports.default = logger;
 
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31108,7 +31174,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],325:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31211,7 +31277,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],326:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31363,7 +31429,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":315,"./../components/content-blocks/ProjectsGrid":317,"./../components/content-blocks/ProjectsGrid/Item":316,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],327:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":316,"./../components/content-blocks/ProjectsGrid":318,"./../components/content-blocks/ProjectsGrid/Item":317,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],328:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31397,6 +31463,10 @@ var _ImagesGrid2 = _interopRequireDefault(_ImagesGrid);
 var _Button = require('./../components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
+
+var _LivePreview = require('./../components/LivePreview');
+
+var _LivePreview2 = _interopRequireDefault(_LivePreview);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31466,6 +31536,8 @@ var ProjectDetail = function (_Component) {
 
             var buttonBlock = project.url ? _react2.default.createElement(_Button2.default, { title: 'Visit website', url: project.url }) : null;
 
+            var livePreviewBlock = project.livePreview && project.url ? _react2.default.createElement(_LivePreview2.default, { url: project.url }) : null;
+
             var galleryBlock = project.gallery && project.gallery.length ? _react2.default.createElement(_ImagesGrid2.default, { headline: 'Gallery', images: project.gallery }) : null;
 
             return _react2.default.createElement(
@@ -31482,6 +31554,7 @@ var ProjectDetail = function (_Component) {
                         _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: project.description } }),
                         buttonBlock
                     ),
+                    livePreviewBlock,
                     galleryBlock
                 )
             );
@@ -31493,7 +31566,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ImagesGrid":314,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],328:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":315,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],329:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31747,7 +31820,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":310,"./../components/content-blocks/Blank":312,"./../components/content-blocks/ProjectsGrid":317,"./../components/content-blocks/ProjectsGrid/Item":316,"./../components/content-blocks/Text":318,"./../helpers":320,"./../layouts/Content":321,"react":277}],329:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":311,"./../components/content-blocks/Blank":313,"./../components/content-blocks/ProjectsGrid":318,"./../components/content-blocks/ProjectsGrid/Item":317,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],330:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

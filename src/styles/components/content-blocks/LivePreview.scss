@@ -1,0 +1,25 @@
+[data-component="Page_LivePreview"] {
+    width: 100%;
+    background-color: white;
+    padding: 12px 6vw 50px 6vw;
+    margin-bottom: 20px;
+    float: left;
+
+    @media (max-width: 799px) {
+        display: none;
+    }
+
+    & > .headline {
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: 200;
+        margin: 15px 0;
+        float: left;
+    }
+
+    iframe {
+        width: 100%;
+        box-shadow: 0 0 15px transparentize($accent-color, 0.8);
+        float: left;
+    }
+}

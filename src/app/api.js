@@ -5,7 +5,7 @@ description - string
 url - string
 previewImage - string
 gallery - array of strings and/or objects {url, description}
-livePreviewAllowed - boolean
+livePreview - boolean
 developmentStage - string
 type - string
 company - object {name, logo, url}
@@ -74,6 +74,7 @@ export const data = {
                 }
             ],
             developmentStage: 'released',
+            livePreview: false,
             type: 'web',
             company: {
                 name: 'Actum',
@@ -91,6 +92,7 @@ export const data = {
                 '../gfx/projects/innogy-intranet.png'
             ],
             developmentStage: 'released',
+            livePreview: false,
             type: 'web',
             company: {
                 name: 'Actum',
@@ -124,6 +126,7 @@ export const data = {
                 }
             ],
             developmentStage: 'released',
+            livePreview: false,
             type: 'mobile',
             addedDate: '2016/8/25',
             tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving']
@@ -143,6 +146,7 @@ export const data = {
                 }
             ],
             developmentStage: 'released',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/9/1',
             tags: ['Allianz', 'insurance', 'broker']
@@ -153,6 +157,7 @@ export const data = {
             url: 'http://www.honzachalupa.cz/xbox-gwg/',
             previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
             developmentStage: 'unsupported',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['Microsoft', 'Xbox', 'game', 'web-scraping', 'money', 'money-saving'],
@@ -164,6 +169,7 @@ export const data = {
             url: 'http://www.honzachalupa.cz/online-editor/',
             previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
             developmentStage: 'in-development',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/1/1',
             hidden: true
@@ -183,6 +189,7 @@ export const data = {
                 }
             ],
             developmentStage: 'in-development',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['Microsoft', 'Czech', 'news', 'newspaper', 'web-scraping']
@@ -230,6 +237,7 @@ export const data = {
                 }
             ],
             developmentStage: 'released',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['Italy']
@@ -245,6 +253,7 @@ export const data = {
                 '../gfx/projects/terapta-03.jpg'
             ],
             developmentStage: 'released',
+            livePreview: true,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['artist', 'illustrations']
@@ -258,6 +267,7 @@ export const data = {
                 '../gfx/projects/studio-cesta-ke-zmene-01.jpg'
             ],
             developmentStage: 'released',
+            livePreview: false,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['lifestyle', 'health', 'food']
@@ -272,6 +282,7 @@ export const data = {
                 '../gfx/projects/vyzivou-ke-zmene-02.jpg'
             ],
             developmentStage: 'released',
+            livePreview: false,
             type: 'web',
             addedDate: '2016/2/1',
             tags: ['lifestyle', 'health', 'food']

@@ -5,6 +5,7 @@ import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import ImagesGrid from './../components/content-blocks/ImagesGrid';
 import Button from './../components/Button';
+import LivePreview from './../components/LivePreview';
 
 export default class ProjectDetail extends Component {
     constructor(props) {
@@ -50,6 +51,10 @@ export default class ProjectDetail extends Component {
             <Button title="Visit website" url={project.url} /> :
             null;
 
+        const livePreviewBlock = (project.livePreview && project.url) ?
+            <LivePreview url={project.url} /> :
+            null;
+
         const galleryBlock = (project.gallery && project.gallery.length) ?
             <ImagesGrid headline="Gallery" images={project.gallery} /> :
             null;
@@ -65,6 +70,7 @@ export default class ProjectDetail extends Component {
                         {buttonBlock}
                     </Text>
 
+                    {livePreviewBlock}
                     {galleryBlock}
                 </ContentLayout>
             </div>
