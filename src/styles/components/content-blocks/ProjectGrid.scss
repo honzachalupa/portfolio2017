@@ -91,17 +91,17 @@
                 border-radius: 2px;
                 position: relative;
 
-                &::after {
-                    content: '';
-                }
-
                 &:hover {
+                    $background: rgba(0, 0, 0, 0.01);
+
                     &::after {
                         $padding: 11px;
 
+                        content: '';
+                        width: calc(100% + (2 * #{$padding}));
+                        height: calc(100% + (2 * #{$padding}));
+                        background-color: $background;
                         box-shadow: 0 0 15px transparentize($accent-color, 0.9) inset;
-                        width: calc(100% + (2 * $padding));
-                        height: calc(100% + (2 * $padding));
                         float: left;
                         position: absolute;
                         left: -$padding;
