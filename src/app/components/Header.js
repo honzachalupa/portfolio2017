@@ -10,7 +10,7 @@ export default class Header extends Component {
         const { tags } = this.props.config;
 
         this.state = {
-            imageUrl: `url('http://www.honzachalupa.cz/imgs/bg-${getRandomRange(1, 10)}.jpg')`,
+            imageUrl: `url('http://www.honzachalupa.cz/gfx/backgrounds/bg-${getRandomRange(1, 10)}.jpg')`,
             tags: tags.join(' ~ ')
         };
     }

@@ -29512,7 +29512,7 @@ var Header = function (_Component) {
 
 
         _this.state = {
-            imageUrl: 'url(\'http://www.honzachalupa.cz/imgs/bg-' + (0, _helpers.getRandomRange)(1, 10) + '.jpg\')',
+            imageUrl: 'url(\'http://www.honzachalupa.cz/gfx/backgrounds/bg-' + (0, _helpers.getRandomRange)(1, 10) + '.jpg\')',
             tags: tags.join(' ~ ')
         };
         return _this;
