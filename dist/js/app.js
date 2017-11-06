@@ -28935,7 +28935,7 @@ var data = exports.data = {
         description: 'Since most of designs were provided by the client, my goal was to make some under-the-hood features and learn all of the static HTML markup to move. For a second I called myself a pure JavaScript programmer instead of Front-end Developer. I\'ve written about ten lines of HTML and CSS code and few thousand of JavaScript code - just for comparision. Great experience was also to work on-site in Germany three days a week for half a year.',
         previewImage: 'gfx/projects/innogy-product-finder.png',
         gallery: [{
-            url: '../gfx/projects/innogy-product-finder.png',
+            url: '../gfx/projects/innogy-product-finder-01.png',
             description: 'Homepage'
         }],
         developmentStage: 'released',
@@ -28953,7 +28953,7 @@ var data = exports.data = {
         name: 'innogy Intranet',
         description: 'I\'ve worked together with the UX designer to deliver the best result possible preserving the company\'s design-language. Then I sat down to the code and transfer it from the paper to the screen. I\'ve made many custom controls like carousels and grids with dynamic AJAX-based loading. A lot of components were also provided from the client.',
         previewImage: 'gfx/projects/innogy-intranet.png',
-        gallery: ['../gfx/projects/innogy-intranet.jpg'],
+        gallery: ['../gfx/projects/innogy-intranet-01.jpg'],
         developmentStage: 'released',
         livePreview: false,
         type: 'web',

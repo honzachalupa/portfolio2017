@@ -69,7 +69,7 @@ export const data = {
             previewImage: 'gfx/projects/innogy-product-finder.png',
             gallery: [
                 {
-                    url: '../gfx/projects/innogy-product-finder.png',
+                    url: '../gfx/projects/innogy-product-finder-01.png',
                     description: 'Homepage'
                 }
             ],
@@ -89,7 +89,7 @@ export const data = {
             description: 'I\'ve worked together with the UX designer to deliver the best result possible preserving the company\'s design-language. Then I sat down to the code and transfer it from the paper to the screen. I\'ve made many custom controls like carousels and grids with dynamic AJAX-based loading. A lot of components were also provided from the client.',
             previewImage: 'gfx/projects/innogy-intranet.png',
             gallery: [
-                '../gfx/projects/innogy-intranet.jpg'
+                '../gfx/projects/innogy-intranet-01.jpg'
             ],
             developmentStage: 'released',
             livePreview: false,
