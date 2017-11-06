@@ -26,6 +26,7 @@ function fixExperimentalCss() {
                     [data-component="Page_Header"] .content .tags {
                         background-color: rgba(255, 255, 255, 0.2);
                         color: white;
+                        text-shadow: 0 0 10px black;
                         -webkit-backdrop-filter: blur(3px);
                         backdrop-filter: blur(3px);
                     }
@@ -45,6 +46,7 @@ function fixExperimentalCss() {
                         [data-component="Page_Navigation"] {
                             background-color: rgba(255, 255, 255, 0.2);
                             color: white;
+                            text-shadow: 0 0 10px black;
                             -webkit-backdrop-filter: blur(3px);
                             backdrop-filter: blur(3px);
                         }

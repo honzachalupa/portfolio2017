@@ -153,7 +153,7 @@ export const data = {
         }, {
             id: 'xbox-games-with-gold',
             name: 'Xbox - Games with gold',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.honzachalupa.cz/xbox-gwg/',
             previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
             developmentStage: 'unsupported',
@@ -165,7 +165,7 @@ export const data = {
         }, {
             id: 'online-editor',
             name: 'Online Code Editor',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.honzachalupa.cz/online-editor/',
             previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
             developmentStage: 'in-development',
@@ -260,7 +260,7 @@ export const data = {
         }, {
             id: 'studio-cesta-ke-zmene',
             name: 'Studio Cesta ke změně',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.studiocestakezmene.cz/',
             previewImage: '../gfx/projects/studio-cesta-ke-zmene.jpg',
             gallery: [
@@ -274,7 +274,7 @@ export const data = {
         }, {
             id: 'vyzivou-ke-zmene',
             name: 'Výživou ke změně',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.vyzivoukezmene.cz/',
             previewImage: '../gfx/projects/vyzivou-ke-zmene.jpg',
             gallery: [
@@ -321,7 +321,7 @@ export const data = {
         }, {
             id: 'one-on-one',
             name: 'One on One',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
             previewImage: {
                 url: '../gfx/projects/one-on-one.png',
@@ -346,7 +346,7 @@ export const data = {
         }, {
             id: 'one-on-one-kids',
             name: 'One on One for KIDS',
-            description: 'Project description...',
+            description: 'Project description was too boring (OK, it is in progress).',
             url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
             previewImage: {
                 url: '../gfx/projects/one-on-one-kids.png',
