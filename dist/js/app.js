@@ -28970,7 +28970,7 @@ var data = exports.data = {
         description: 'This app was my last I’ve made for Windows Phone. Fuel calculator helps you save money, log and plan your trips.',
         url: 'https://www.microsoft.com/en-us/store/p/spot%C5%99eba-paliva/9nblggh4t314',
         previewImage: {
-            url: '../gfx/projects/fuel-consumption-01.png',
+            url: '../gfx/projects/fuel-consumption.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
@@ -28996,7 +28996,7 @@ var data = exports.data = {
         name: 'Allianz - Jiří Prudký',
         description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
         url: 'http://www.jiriprudky.cz/',
-        previewImage: '../gfx/projects/allianz-jiri-prudky-01.jpg',
+        previewImage: '../gfx/projects/allianz-jiri-prudky.jpg',
         gallery: [{
             url: '../gfx/projects/allianz-jiri-prudky-01.jpg',
             description: 'Homepage'
@@ -29037,7 +29037,7 @@ var data = exports.data = {
         name: 'České zpravodajství',
         description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="http://localhost:5001/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
         url: 'http://www.ceskezpravodajstvi.cz/',
-        previewImage: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
+        previewImage: '../gfx/projects/ceske-zpravodajstvi.jpg',
         gallery: [{
             url: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
             description: 'List of latest articles'
@@ -29056,7 +29056,7 @@ var data = exports.data = {
         description: 'This one was my biggest personal project I did so far. I did all front-end (<a href="http://localhost:5001/projects/ceske-zpravodajstvi">for website version of app</a>), back-end and also mobile app for Windows Phone. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
         url: 'https://www.microsoft.com/cs-cz/store/apps/ceske-zpravodajstvi/9nblggh4q89h',
         previewImage: {
-            url: '../gfx/projects/ceske-zpravodajstvi-app-01.png',
+            url: '../gfx/projects/ceske-zpravodajstvi-app.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
@@ -29081,7 +29081,7 @@ var data = exports.data = {
         name: 'Polti',
         description: 'My objective on this project was to redesign the Czech variant of the website to looks the same as the Italian variant (company is based in Italy) without changing anything in HTML code. I had an unlimited freedom with changing CSS.',
         url: 'http://www.polti.cz/',
-        previewImage: '../gfx/projects/polti-01.jpg',
+        previewImage: '../gfx/projects/polti.jpg',
         gallery: [{
             url: '../gfx/projects/polti-01.jpg',
             description: 'Czech version of website'
@@ -29099,7 +29099,7 @@ var data = exports.data = {
         name: 'Tereza Ptáčková portfolio',
         description: 'Since Tereza is my old friend I\'ve decided to help her with creation of her portfolio. The goal was simple - create basic "no-budget" website with strict requirements on design guidlines to match Tereza\'s faforite colors.',
         url: 'http://www.terapta.cz/',
-        previewImage: '../gfx/projects/terapta-02.jpg',
+        previewImage: '../gfx/projects/terapta.jpg',
         gallery: ['../gfx/projects/terapta-01.jpg', '../gfx/projects/terapta-02.jpg', '../gfx/projects/terapta-03.jpg'],
         developmentStage: 'released',
         livePreview: true,
@@ -29111,7 +29111,7 @@ var data = exports.data = {
         name: 'Studio Cesta ke změně',
         description: 'Project description...',
         url: 'http://www.studiocestakezmene.cz/',
-        previewImage: '../gfx/projects/studio-cesta-ke-zmene-01.jpg',
+        previewImage: '../gfx/projects/studio-cesta-ke-zmene.jpg',
         gallery: ['../gfx/projects/studio-cesta-ke-zmene-01.jpg'],
         developmentStage: 'released',
         livePreview: false,
@@ -29123,7 +29123,7 @@ var data = exports.data = {
         name: 'Výživou ke změně',
         description: 'Project description...',
         url: 'http://www.vyzivoukezmene.cz/',
-        previewImage: '../gfx/projects/vyzivou-ke-zmene-01.jpg',
+        previewImage: '../gfx/projects/vyzivou-ke-zmene.jpg',
         gallery: ['../gfx/projects/vyzivou-ke-zmene-01.jpg', '../gfx/projects/vyzivou-ke-zmene-02.jpg'],
         developmentStage: 'released',
         livePreview: false,
@@ -29136,7 +29136,7 @@ var data = exports.data = {
         description: 'The application is there to help and motivate people, who wants to quit smoking. Beside of saved money analysis application provides detailed advices and quitting process description.',
         url: 'https://www.microsoft.com/en-us/store/p/smokers-little-helper/9nblgggzvldz',
         previewImage: {
-            url: '../gfx/projects/smokers-little-helper-01.png',
+            url: '../gfx/projects/smokers-little-helper.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
@@ -29166,7 +29166,7 @@ var data = exports.data = {
         description: 'Project description...',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
         previewImage: {
-            url: '../gfx/projects/one-on-one-01.png',
+            url: '../gfx/projects/one-on-one.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
@@ -29189,7 +29189,7 @@ var data = exports.data = {
         description: 'Project description...',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
         previewImage: {
-            url: '../gfx/projects/one-on-one-kids-01.png',
+            url: '../gfx/projects/one-on-one-kids.png',
             aspectRatio: 'portrait'
         },
         gallery: [{
