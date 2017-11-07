@@ -28995,7 +28995,7 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/10/10',
-        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'HTML', 'SASS', 'JavaScript', 'React', 'Sitecore']
+        tags: ['Innogy', 'RWE', 'Germany']
     }, {
         id: 'innogy-intranet',
         name: 'innogy Intranet',
@@ -30385,16 +30385,18 @@ var TechnologiesOverview = function (_Component) {
                 config = _props.config;
             var technologies = config.technologies;
 
+            var technologiesBlock = void 0;
+            var numberOfMatches = 0;
 
-            return _react2.default.createElement(
-                'div',
-                { 'data-component': componentName },
-                technologies.map(function (technology) {
+            if (tags) {
+                technologiesBlock = technologies.map(function (technology) {
                     return tags.map(function (tag) {
                         if (tag.toLowerCase() === technology.label.toLowerCase()) {
+                            numberOfMatches += 1;
+
                             return _react2.default.createElement(
                                 'a',
-                                { href: technology.link, style: { backgroundColor: technology.color } },
+                                { className: 'item', href: technology.link, style: { backgroundColor: technology.color } },
                                 _react2.default.createElement('div', { className: 'icon', style: { backgroundImage: 'url(\'' + technology.icon + '\')' }, 'data-aspect-ratio': '1:1' }),
                                 _react2.default.createElement(
                                     'p',
@@ -30406,7 +30408,21 @@ var TechnologiesOverview = function (_Component) {
 
                         return null;
                     });
-                })
+                });
+            }
+
+            if (numberOfMatches === 0) {
+                technologiesBlock = _react2.default.createElement(
+                    'p',
+                    null,
+                    'Unfortunately for this project there is nothing important to mention.'
+                );
+            }
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-component': componentName },
+                technologiesBlock
             );
         }
     }]);

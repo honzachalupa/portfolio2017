@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    a {
+    .item {
         width: calc((100% / 5));
         min-width: 100px;
         box-shadow: 0 0 15px transparentize($accent-color, 0.8) inset;

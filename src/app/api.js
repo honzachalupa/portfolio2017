@@ -132,7 +132,7 @@ export const data = {
                 url: 'http://www.actum.cz/'
             },
             addedDate: '2017/10/10',
-            tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'HTML', 'SASS', 'JavaScript', 'React', 'Sitecore']
+            tags: ['Innogy', 'RWE', 'Germany']
         }, {
             id: 'innogy-intranet',
             name: 'innogy Intranet',
