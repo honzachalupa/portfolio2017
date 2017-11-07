@@ -28908,12 +28908,54 @@ var data = exports.data = {
             id: 'about-me-page',
             label: 'About me'
         }],
-        tecnologies: [{
+        technologies: [{
+            label: 'HTML',
+            icon: '../gfx/svg/html-white.svg',
+            color: '#D45732',
+            fontColor: 'white',
+            link: 'http://www.w3.org/html/'
+        }, {
+            label: 'CSS',
+            icon: '../gfx/svg/css-white.svg',
+            color: '#3772B5',
+            fontColor: 'white',
+            link: 'http://www.w3.org/Style/CSS/Overview.en.html'
+        }, {
+            label: 'SASS',
+            icon: '../gfx/svg/sass-white.svg',
+            color: '#CF649A',
+            fontColor: 'white',
+            link: 'http://www.sass-lang.com/'
+        }, {
+            label: 'JavaScript',
+            icon: '../gfx/svg/javascript-black.svg',
+            color: '#e5bb31',
+            fontColor: 'black',
+            link: 'http://www.javascript.com/'
+        }, {
             label: 'React',
-            icon: ''
+            icon: '../gfx/svg/react-black.svg',
+            color: '#61dafb',
+            fontColor: 'black',
+            link: 'http://www.reactjs.org/'
+        }, {
+            label: 'C#',
+            icon: '../gfx/svg/csharp-white.svg',
+            color: '#56338C',
+            fontColor: 'white',
+            link: 'http://docs.microsoft.com/en-us/dotnet/csharp/language-reference/'
+        }, {
+            label: 'PHP',
+            icon: '../gfx/svg/php-white.svg',
+            color: '#8892BF',
+            fontColor: 'white',
+            link: 'http://www.php.net/'
         }, {
             label: 'Sitecore',
-            icon: ''
+            icon: '../gfx/svg/sitecore-white.svg',
+            color: '#de232f',
+            fontColor: 'white',
+            link: 'http://www.sitecore.net/'
         }],
         contactInfo: {
             phoneNumber: '+420 606 789 910',
@@ -28941,7 +28983,7 @@ var data = exports.data = {
         description: 'Since most of designs were provided by the client, my goal was to make some under-the-hood features and learn all of the static HTML markup to move. For a second I called myself a pure JavaScript programmer instead of Front-end Developer. I\'ve written about ten lines of HTML and CSS code and few thousand of JavaScript code - just for comparision. Great experience was also to work on-site in Germany three days a week for half a year.',
         previewImage: 'gfx/projects/innogy-product-finder.jpg',
         gallery: [{
-            url: '../gfx/projects/innogy-product-finder-01.png',
+            url: '../gfx/projects/innogy-product-finder-01.jpg',
             description: 'Homepage'
         }],
         developmentStage: 'released',
@@ -28953,7 +28995,7 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/10/10',
-        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React', 'Sitecore']
+        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'HTML', 'SASS', 'JavaScript', 'React', 'Sitecore']
     }, {
         id: 'innogy-intranet',
         name: 'innogy Intranet',
@@ -28969,7 +29011,121 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/2/14',
-        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React', 'Sitecore']
+        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'HTML', 'SASS', 'JavaScript', 'Sitecore']
+    }, {
+        id: 'allianz-jiri-prudky',
+        name: 'Allianz - Jiří Prudký',
+        description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
+        url: 'http://www.jiriprudky.cz/',
+        previewImage: '../gfx/projects/allianz-jiri-prudky.jpg',
+        gallery: [{
+            url: '../gfx/projects/allianz-jiri-prudky-01.jpg',
+            description: 'Homepage'
+        }, {
+            url: '../gfx/projects/allianz-jiri-prudky-02.jpg',
+            description: 'Products listing'
+        }],
+        developmentStage: 'released',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/9/1',
+        tags: ['Allianz', 'insurance', 'broker', 'JavaScript', 'SASS']
+    }, {
+        id: 'xbox-games-with-gold',
+        name: 'Xbox - Games with gold',
+        description: 'Project description was too boring to survive (the new one is in progress).',
+        url: 'http://www.honzachalupa.cz/xbox-gwg/',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+        developmentStage: 'unsupported',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['Microsoft', 'Xbox', 'game', 'money', 'money-saving', 'web-scraping', 'HTML', 'CSS', 'JavaScript', 'PHP'],
+        hidden: true
+    }, {
+        id: 'online-editor',
+        name: 'Online Code Editor',
+        description: 'Project description was too boring to survive (the new one is in progress).',
+        url: 'http://www.honzachalupa.cz/online-editor/',
+        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
+        developmentStage: 'in-development',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/1/1',
+        tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+        hidden: true
+    }, {
+        id: 'ceske-zpravodajstvi',
+        name: 'České zpravodajství',
+        description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="http://localhost:5001/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
+        url: 'http://www.ceskezpravodajstvi.cz/',
+        previewImage: '../gfx/projects/ceske-zpravodajstvi.jpg',
+        gallery: [{
+            url: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
+            description: 'List of latest articles'
+        }, {
+            url: '../gfx/projects/ceske-zpravodajstvi-02.jpg',
+            description: 'Reading mode'
+        }],
+        developmentStage: 'in-development',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['Microsoft', 'Czech', 'news', 'newspaper', 'web-scraping', 'HTML', 'SASS', 'JavaScript', 'PHP']
+    }, {
+        id: 'polti',
+        name: 'Polti',
+        description: 'My objective on this project was to redesign the Czech variant of the website to looks the same as the Italian variant (company is based in Italy) without changing anything in HTML code. I had an unlimited freedom with changing CSS.',
+        url: 'http://www.polti.cz/',
+        previewImage: '../gfx/projects/polti.jpg',
+        gallery: [{
+            url: '../gfx/projects/polti-01.jpg',
+            description: 'Czech version of website'
+        }, {
+            url: '../gfx/projects/polti-02.jpg',
+            description: 'Original Italian version'
+        }],
+        developmentStage: 'released',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['Italy', 'CSS']
+    }, {
+        id: 'terapta',
+        name: 'Tereza Ptáčková portfolio',
+        description: 'Since Tereza is my old friend I\'ve decided to help her with creation of her portfolio. The goal was simple - create basic "no-budget" website with strict requirements on design guidlines to match Tereza\'s faforite colors.',
+        url: 'http://www.terapta.cz/',
+        previewImage: '../gfx/projects/terapta.jpg',
+        gallery: ['../gfx/projects/terapta-01.jpg', '../gfx/projects/terapta-02.jpg', '../gfx/projects/terapta-03.jpg'],
+        developmentStage: 'released',
+        livePreview: true,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['artist', 'illustrations', 'HTML', 'CSS']
+    }, {
+        id: 'studio-cesta-ke-zmene',
+        name: 'Studio Cesta ke změně',
+        description: 'Project description was too boring to survive (the new one is in progress).',
+        url: 'http://www.studiocestakezmene.cz/',
+        previewImage: '../gfx/projects/studio-cesta-ke-zmene.jpg',
+        gallery: ['../gfx/projects/studio-cesta-ke-zmene-01.jpg'],
+        developmentStage: 'released',
+        livePreview: false,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['lifestyle', 'health', 'food', 'HTML', 'CSS']
+    }, {
+        id: 'vyzivou-ke-zmene',
+        name: 'Výživou ke změně',
+        description: 'Project description was too boring to survive (the new one is in progress).',
+        url: 'http://www.vyzivoukezmene.cz/',
+        previewImage: '../gfx/projects/vyzivou-ke-zmene.jpg',
+        gallery: ['../gfx/projects/vyzivou-ke-zmene-01.jpg', '../gfx/projects/vyzivou-ke-zmene-02.jpg'],
+        developmentStage: 'released',
+        livePreview: false,
+        type: 'web',
+        addedDate: '2016/2/1',
+        tags: ['lifestyle', 'health', 'food', 'HTML', 'CSS']
     }, {
         id: 'fuel-consumption',
         name: 'Fuel Consumption',
@@ -28996,66 +29152,7 @@ var data = exports.data = {
         livePreview: false,
         type: 'mobile',
         addedDate: '2016/8/25',
-        tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving']
-    }, {
-        id: 'allianz-jiri-prudky',
-        name: 'Allianz - Jiří Prudký',
-        description: 'I\'ve started working on this project right after I left my previous position in Allianz, where I worked as a IBM\'s TeamWorks developer. Goal was to deliver just a really basic website with static content.',
-        url: 'http://www.jiriprudky.cz/',
-        previewImage: '../gfx/projects/allianz-jiri-prudky.jpg',
-        gallery: [{
-            url: '../gfx/projects/allianz-jiri-prudky-01.jpg',
-            description: 'Homepage'
-        }, {
-            url: '../gfx/projects/allianz-jiri-prudky-02.jpg',
-            description: 'Products listing'
-        }],
-        developmentStage: 'released',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/9/1',
-        tags: ['Allianz', 'insurance', 'broker']
-    }, {
-        id: 'xbox-games-with-gold',
-        name: 'Xbox - Games with gold',
-        description: 'Project description was too boring to survive (the new one is in progress).',
-        url: 'http://www.honzachalupa.cz/xbox-gwg/',
-        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
-        developmentStage: 'unsupported',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['Microsoft', 'Xbox', 'game', 'web-scraping', 'money', 'money-saving'],
-        hidden: true
-    }, {
-        id: 'online-editor',
-        name: 'Online Code Editor',
-        description: 'Project description was too boring to survive (the new one is in progress).',
-        url: 'http://www.honzachalupa.cz/online-editor/',
-        previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
-        developmentStage: 'in-development',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/1/1',
-        hidden: true
-    }, {
-        id: 'ceske-zpravodajstvi',
-        name: 'České zpravodajství',
-        description: 'This one was my biggest personal project I did so far. I did all front-end (for website version of app), back-end and also <a href="http://localhost:5001/projects/ceske-zpravodajstvi-app">mobile app for Windows Phone</a>. Unfortunately after my transition from Windows to Apple\'s environment a quit maintaining both web and mobile app because I didn\'t need it anymore.<br /><br />On back-end side I run scheduled CRON script which gathers content from all desired news providers and saves it into JSON file which is then served to front-end and mobile app.',
-        url: 'http://www.ceskezpravodajstvi.cz/',
-        previewImage: '../gfx/projects/ceske-zpravodajstvi.jpg',
-        gallery: [{
-            url: '../gfx/projects/ceske-zpravodajstvi-01.jpg',
-            description: 'List of latest articles'
-        }, {
-            url: '../gfx/projects/ceske-zpravodajstvi-02.jpg',
-            description: 'Reading mode'
-        }],
-        developmentStage: 'in-development',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['Microsoft', 'Czech', 'news', 'newspaper', 'web-scraping']
+        tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving', 'C#']
     }, {
         id: 'ceske-zpravodajstvi-app',
         name: 'České zpravodajství',
@@ -29081,61 +29178,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2016/2/1',
-        tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping']
-    }, {
-        id: 'polti',
-        name: 'Polti',
-        description: 'My objective on this project was to redesign the Czech variant of the website to looks the same as the Italian variant (company is based in Italy) without changing anything in HTML code. I had an unlimited freedom with changing CSS.',
-        url: 'http://www.polti.cz/',
-        previewImage: '../gfx/projects/polti.jpg',
-        gallery: [{
-            url: '../gfx/projects/polti-01.jpg',
-            description: 'Czech version of website'
-        }, {
-            url: '../gfx/projects/polti-02.jpg',
-            description: 'Original Italian version'
-        }],
-        developmentStage: 'released',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['Italy']
-    }, {
-        id: 'terapta',
-        name: 'Tereza Ptáčková portfolio',
-        description: 'Since Tereza is my old friend I\'ve decided to help her with creation of her portfolio. The goal was simple - create basic "no-budget" website with strict requirements on design guidlines to match Tereza\'s faforite colors.',
-        url: 'http://www.terapta.cz/',
-        previewImage: '../gfx/projects/terapta.jpg',
-        gallery: ['../gfx/projects/terapta-01.jpg', '../gfx/projects/terapta-02.jpg', '../gfx/projects/terapta-03.jpg'],
-        developmentStage: 'released',
-        livePreview: true,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['artist', 'illustrations']
-    }, {
-        id: 'studio-cesta-ke-zmene',
-        name: 'Studio Cesta ke změně',
-        description: 'Project description was too boring to survive (the new one is in progress).',
-        url: 'http://www.studiocestakezmene.cz/',
-        previewImage: '../gfx/projects/studio-cesta-ke-zmene.jpg',
-        gallery: ['../gfx/projects/studio-cesta-ke-zmene-01.jpg'],
-        developmentStage: 'released',
-        livePreview: false,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['lifestyle', 'health', 'food']
-    }, {
-        id: 'vyzivou-ke-zmene',
-        name: 'Výživou ke změně',
-        description: 'Project description was too boring to survive (the new one is in progress).',
-        url: 'http://www.vyzivoukezmene.cz/',
-        previewImage: '../gfx/projects/vyzivou-ke-zmene.jpg',
-        gallery: ['../gfx/projects/vyzivou-ke-zmene-01.jpg', '../gfx/projects/vyzivou-ke-zmene-02.jpg'],
-        developmentStage: 'released',
-        livePreview: false,
-        type: 'web',
-        addedDate: '2016/2/1',
-        tags: ['lifestyle', 'health', 'food']
+        tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping', 'C#', 'PHP']
     }, {
         id: 'smokers-little-helper',
         name: 'Smoker\'s Little Helper',
@@ -29165,7 +29208,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/4/1',
-        tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving']
+        tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving', 'C#']
     }, {
         id: 'one-on-one',
         name: 'One on One',
@@ -29188,7 +29231,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/9/1',
-        tags: ['game', 'fun']
+        tags: ['game', 'fun', 'C#']
     }, {
         id: 'one-on-one-kids',
         name: 'One on One for KIDS',
@@ -29211,7 +29254,7 @@ var data = exports.data = {
         developmentStage: 'unsupported',
         type: 'mobile',
         addedDate: '2015/9/15',
-        tags: ['game', 'fun', 'kids']
+        tags: ['game', 'fun', 'kids', 'C#']
     }]
 };
 
@@ -29256,7 +29299,7 @@ function fixExperimentalCss() {
 
 app();
 
-},{"./api":301,"./components/Root":312,"./modules/logger":324,"./render":331}],303:[function(require,module,exports){
+},{"./api":301,"./components/Root":312,"./modules/logger":325,"./render":332}],303:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29344,7 +29387,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":321,"./../modules/logger":324,"./Navigation":309,"react":277,"react-router-dom":238}],304:[function(require,module,exports){
+},{"./../helpers":322,"./../modules/logger":325,"./Navigation":309,"react":277,"react-router-dom":238}],304:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29579,7 +29622,7 @@ var Header = function (_Component) {
 
 exports.default = Header;
 
-},{"./../helpers":321,"./Navigation":309,"react":277,"react-router-dom":238}],307:[function(require,module,exports){
+},{"./../helpers":322,"./Navigation":309,"react":277,"react-router-dom":238}],307:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -29635,7 +29678,7 @@ var InvisibleHeadline = function (_Component) {
 
 exports.default = InvisibleHeadline;
 
-},{"./../helpers":321,"./Navigation":309,"react":277}],308:[function(require,module,exports){
+},{"./../helpers":322,"./Navigation":309,"react":277}],308:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30004,7 +30047,7 @@ var ProjectsFilter = function (_Component) {
 
 exports.default = ProjectsFilter;
 
-},{"./../helpers":321,"./Button":303,"./ButtonsGroup":304,"react":277}],312:[function(require,module,exports){
+},{"./../helpers":322,"./Button":303,"./ButtonsGroup":304,"react":277}],312:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30297,7 +30340,83 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":320,"./../helpers":321,"./../modules/aspect-ratio-preserver":323,"./../modules/logger":324,"./../pages/AboutMe":325,"./../pages/Error":326,"./../pages/Home":327,"./../pages/ImageViewer":328,"./../pages/ProjectDetail":329,"./../pages/Projects":330,"axios":1,"immutability-helper":60,"react":277,"react-ga":200,"react-router-dom":238}],313:[function(require,module,exports){
+},{"./../factory":321,"./../helpers":322,"./../modules/aspect-ratio-preserver":324,"./../modules/logger":325,"./../pages/AboutMe":326,"./../pages/Error":327,"./../pages/Home":328,"./../pages/ImageViewer":329,"./../pages/ProjectDetail":330,"./../pages/Projects":331,"axios":1,"immutability-helper":60,"react":277,"react-ga":200,"react-router-dom":238}],313:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _helpers = require('./../helpers');
+
+var _Navigation = require('./Navigation');
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TechnologiesOverview = function (_Component) {
+    _inherits(TechnologiesOverview, _Component);
+
+    function TechnologiesOverview() {
+        _classCallCheck(this, TechnologiesOverview);
+
+        return _possibleConstructorReturn(this, (TechnologiesOverview.__proto__ || Object.getPrototypeOf(TechnologiesOverview)).apply(this, arguments));
+    }
+
+    _createClass(TechnologiesOverview, [{
+        key: 'render',
+        value: function render() {
+            var componentName = 'Page_' + this.constructor.name;
+            var _props = this.props,
+                tags = _props.tags,
+                config = _props.config;
+            var technologies = config.technologies;
+
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-component': componentName },
+                technologies.map(function (technology) {
+                    return tags.map(function (tag) {
+                        if (tag.toLowerCase() === technology.label.toLowerCase()) {
+                            return _react2.default.createElement(
+                                'a',
+                                { href: technology.link, style: { backgroundColor: technology.color } },
+                                _react2.default.createElement('div', { className: 'icon', style: { backgroundImage: 'url(\'' + technology.icon + '\')' }, 'data-aspect-ratio': '1:1' }),
+                                _react2.default.createElement(
+                                    'p',
+                                    { className: 'label', style: { color: technology.fontColor } },
+                                    technology.label
+                                )
+                            );
+                        }
+
+                        return null;
+                    });
+                })
+            );
+        }
+    }]);
+
+    return TechnologiesOverview;
+}(_react.Component);
+
+exports.default = TechnologiesOverview;
+
+},{"./../helpers":322,"./Navigation":309,"react":277}],314:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30357,7 +30476,7 @@ var Blank = function (_Component) {
 
 exports.default = Blank;
 
-},{"react":277}],314:[function(require,module,exports){
+},{"react":277}],315:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30426,7 +30545,7 @@ var ImageItem = function (_Component) {
 
 exports.default = ImageItem;
 
-},{"react":277,"react-router-dom":238}],315:[function(require,module,exports){
+},{"react":277,"react-router-dom":238}],316:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30514,7 +30633,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./Item":314,"react":277}],316:[function(require,module,exports){
+},{"./Item":315,"react":277}],317:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30615,7 +30734,7 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":303,"react":277}],317:[function(require,module,exports){
+},{"./../Button":303,"react":277}],318:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30712,7 +30831,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":324,"react":277,"react-router-dom":238}],318:[function(require,module,exports){
+},{"./../../../modules/logger":325,"react":277,"react-router-dom":238}],319:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30782,7 +30901,7 @@ var ProjectsGrid = function (_Component) {
 
 exports.default = ProjectsGrid;
 
-},{"react":277}],319:[function(require,module,exports){
+},{"react":277}],320:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30844,7 +30963,7 @@ var Text = function (_Component) {
 
 exports.default = Text;
 
-},{"react":277}],320:[function(require,module,exports){
+},{"react":277}],321:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30864,7 +30983,7 @@ function factory(fn, containers) {
     });
 }
 
-},{}],321:[function(require,module,exports){
+},{}],322:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -30923,7 +31042,7 @@ function getDevelopmentStageLabel(developmentStage, platform) {
     return label;
 }
 
-},{"./modules/logger":324}],322:[function(require,module,exports){
+},{"./modules/logger":325}],323:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31001,7 +31120,7 @@ var Content = function (_Component) {
 
 exports.default = Content;
 
-},{"./../components/Footer":305,"./../components/Header":306,"./../components/NavigationButton":310,"react":277}],323:[function(require,module,exports){
+},{"./../components/Footer":305,"./../components/Header":306,"./../components/NavigationButton":310,"react":277}],324:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31044,7 +31163,7 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 
 exports.default = aspectRatioPreserver;
 
-},{}],324:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31064,7 +31183,7 @@ var logger = function logger() {
 
 exports.default = logger;
 
-},{}],325:[function(require,module,exports){
+},{}],326:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31203,7 +31322,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],326:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31306,7 +31425,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],327:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],328:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31463,7 +31582,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":316,"./../components/content-blocks/ProjectsGrid":318,"./../components/content-blocks/ProjectsGrid/Item":317,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],328:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":317,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],329:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31565,7 +31684,7 @@ var ImageViewer = function (_Component) {
 
 exports.default = ImageViewer;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":315,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],329:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],330:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31592,6 +31711,10 @@ var _Text = require('./../components/content-blocks/Text');
 
 var _Text2 = _interopRequireDefault(_Text);
 
+var _Blank = require('./../components/content-blocks/Blank');
+
+var _Blank2 = _interopRequireDefault(_Blank);
+
 var _ImagesGrid = require('./../components/content-blocks/ImagesGrid');
 
 var _ImagesGrid2 = _interopRequireDefault(_ImagesGrid);
@@ -31603,6 +31726,10 @@ var _Button2 = _interopRequireDefault(_Button);
 var _LivePreview = require('./../components/LivePreview');
 
 var _LivePreview2 = _interopRequireDefault(_LivePreview);
+
+var _TechnologiesOverview = require('./../components/TechnologiesOverview');
+
+var _TechnologiesOverview2 = _interopRequireDefault(_TechnologiesOverview);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31691,7 +31818,12 @@ var ProjectDetail = function (_Component) {
                         buttonBlock
                     ),
                     livePreviewBlock,
-                    galleryBlock
+                    galleryBlock,
+                    _react2.default.createElement(
+                        _Blank2.default,
+                        { headline: 'Technologies I\'ve worked with' },
+                        _react2.default.createElement(_TechnologiesOverview2.default, { tags: project.tags, config: config })
+                    )
                 )
             );
         }
@@ -31702,7 +31834,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":315,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],330:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/TechnologiesOverview":313,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],331:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31956,7 +32088,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":311,"./../components/content-blocks/Blank":313,"./../components/content-blocks/ProjectsGrid":318,"./../components/content-blocks/ProjectsGrid/Item":317,"./../components/content-blocks/Text":319,"./../helpers":321,"./../layouts/Content":322,"react":277}],331:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":311,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],332:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

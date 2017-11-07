@@ -3,9 +3,11 @@ import { setPageTitle, getDevelopmentStageLabel } from './../helpers';
 import InvisibleHeadline from './../components/InvisibleHeadline';
 import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
+import Blank from './../components/content-blocks/Blank';
 import ImagesGrid from './../components/content-blocks/ImagesGrid';
 import Button from './../components/Button';
 import LivePreview from './../components/LivePreview';
+import TechnologiesOverview from './../components/TechnologiesOverview';
 
 export default class ProjectDetail extends Component {
     constructor(props) {
@@ -72,6 +74,10 @@ export default class ProjectDetail extends Component {
 
                     {livePreviewBlock}
                     {galleryBlock}
+
+                    <Blank headline="Technologies I've worked with">
+                        <TechnologiesOverview tags={project.tags} config={config} />
+                    </Blank>
                 </ContentLayout>
             </div>
         );
