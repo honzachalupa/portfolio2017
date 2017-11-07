@@ -4,18 +4,11 @@ export default class Footer extends Component {
     render() {
         const componentName = `Page_${this.constructor.name}`;
         const { collapsed, config } = this.props;
-
-        if (!collapsed) {
-            return (
-                <footer data-component={componentName}>
-                    <a href="/about">{config.credits}</a>
-                </footer>
-            );
-        }
+        const { contactInfo } = config;
 
         return (
-            <footer className="collapsed" data-component={componentName}>
-                <a href="/about">{config.credits}</a>
+            <footer className={collapsed ? 'collapsed' : null} data-component={componentName}>
+                <a href="/about">{contactInfo.credits}</a>
             </footer>
         );
     }

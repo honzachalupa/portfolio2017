@@ -28908,10 +28908,17 @@ var data = exports.data = {
             id: 'about-me-page',
             label: 'About me'
         }],
+        tecnologies: [{
+            label: 'React',
+            icon: ''
+        }, {
+            label: 'Sitecore',
+            icon: ''
+        }],
         contactInfo: {
             phoneNumber: '+420 606 789 910',
             emailAddress: 'janchalupa@outlook.cz',
-            city: 'Prague',
+            credits: '© Jan Chalupa 2017',
             socialProfiles: [{
                 name: 'GitHub',
                 url: 'https://github.com/honzachalupa'
@@ -28926,7 +28933,6 @@ var data = exports.data = {
                 url: 'https://www.facebook.com/janchalupaportfolio/'
             }]
         },
-        credits: '© Jan Chalupa 2017',
         screenBreakpoint: 680
     },
     projects: [{
@@ -28947,7 +28953,7 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/10/10',
-        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
+        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React', 'Sitecore']
     }, {
         id: 'innogy-intranet',
         name: 'innogy Intranet',
@@ -28963,7 +28969,7 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/2/14',
-        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React']
+        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'JavaScript', 'React', 'Sitecore']
     }, {
         id: 'fuel-consumption',
         name: 'Fuel Consumption',
@@ -29012,7 +29018,7 @@ var data = exports.data = {
     }, {
         id: 'xbox-games-with-gold',
         name: 'Xbox - Games with gold',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.honzachalupa.cz/xbox-gwg/',
         previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'unsupported',
@@ -29024,7 +29030,7 @@ var data = exports.data = {
     }, {
         id: 'online-editor',
         name: 'Online Code Editor',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.honzachalupa.cz/online-editor/',
         previewImage: 'http://via.placeholder.com/600x400?text=I%27m%20still%20working%20on%20content',
         developmentStage: 'in-development',
@@ -29109,7 +29115,7 @@ var data = exports.data = {
     }, {
         id: 'studio-cesta-ke-zmene',
         name: 'Studio Cesta ke změně',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.studiocestakezmene.cz/',
         previewImage: '../gfx/projects/studio-cesta-ke-zmene.jpg',
         gallery: ['../gfx/projects/studio-cesta-ke-zmene-01.jpg'],
@@ -29121,7 +29127,7 @@ var data = exports.data = {
     }, {
         id: 'vyzivou-ke-zmene',
         name: 'Výživou ke změně',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.vyzivoukezmene.cz/',
         previewImage: '../gfx/projects/vyzivou-ke-zmene.jpg',
         gallery: ['../gfx/projects/vyzivou-ke-zmene-01.jpg', '../gfx/projects/vyzivou-ke-zmene-02.jpg'],
@@ -29163,7 +29169,7 @@ var data = exports.data = {
     }, {
         id: 'one-on-one',
         name: 'One on One',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one/78ef9379-b4fc-40c9-b612-6332b3c2b085',
         previewImage: {
             url: '../gfx/projects/one-on-one.png',
@@ -29186,7 +29192,7 @@ var data = exports.data = {
     }, {
         id: 'one-on-one-kids',
         name: 'One on One for KIDS',
-        description: 'Project description was too boring (OK, it is in progress).',
+        description: 'Project description was too boring to survive (the new one is in progress).',
         url: 'http://www.windowsphone.com/cs-cz/store/app/one-on-one-for-kids/3d8a3cf0-9663-4e36-8630-3f955e83bf6e',
         previewImage: {
             url: '../gfx/projects/one-on-one-kids.png',
@@ -29380,7 +29386,7 @@ var ButtonsGroup = function (_Component) {
 
 
             var headlineBlock = headline ? _react2.default.createElement(
-                "p",
+                "h3",
                 { className: "headline" },
                 headline
             ) : null;
@@ -29404,7 +29410,7 @@ var ButtonsGroup = function (_Component) {
 exports.default = ButtonsGroup;
 
 },{"react":277}],305:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -29412,7 +29418,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29434,33 +29440,22 @@ var Footer = function (_Component) {
     }
 
     _createClass(Footer, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            var componentName = "Page_" + this.constructor.name;
+            var componentName = 'Page_' + this.constructor.name;
             var _props = this.props,
                 collapsed = _props.collapsed,
                 config = _props.config;
+            var contactInfo = config.contactInfo;
 
-
-            if (!collapsed) {
-                return _react2.default.createElement(
-                    "footer",
-                    { "data-component": componentName },
-                    _react2.default.createElement(
-                        "a",
-                        { href: "/about" },
-                        config.credits
-                    )
-                );
-            }
 
             return _react2.default.createElement(
-                "footer",
-                { className: "collapsed", "data-component": componentName },
+                'footer',
+                { className: collapsed ? 'collapsed' : null, 'data-component': componentName },
                 _react2.default.createElement(
-                    "a",
-                    { href: "/about" },
-                    config.credits
+                    'a',
+                    { href: '/about' },
+                    contactInfo.credits
                 )
             );
         }
@@ -31147,7 +31142,10 @@ var AboutMe = function (_Component) {
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
-            var socialProfiles = config.contactInfo.socialProfiles;
+            var contactInfo = config.contactInfo;
+            var phoneNumber = contactInfo.phoneNumber,
+                emailAddress = contactInfo.emailAddress,
+                socialProfiles = contactInfo.socialProfiles;
 
 
             return _react2.default.createElement(
@@ -31165,7 +31163,28 @@ var AboutMe = function (_Component) {
                             null,
                             'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.'
                         ),
-                        _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' }),
+                        _react2.default.createElement(_Button2.default, { title: 'View my CV', url: 'https://www.visualcv.com/janchalupa' })
+                    ),
+                    _react2.default.createElement(
+                        _Text2.default,
+                        { headline: 'Get in touch' },
+                        _react2.default.createElement(
+                            'p',
+                            { style: { fontWeight: 500 } },
+                            'Call me: ',
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'tel:' + phoneNumber },
+                                phoneNumber
+                            ),
+                            _react2.default.createElement('br', null),
+                            'Send me an e-mail: ',
+                            _react2.default.createElement(
+                                'a',
+                                { href: 'mailto:' + emailAddress },
+                                emailAddress
+                            )
+                        ),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,
                             { headline: 'My social profiles' },

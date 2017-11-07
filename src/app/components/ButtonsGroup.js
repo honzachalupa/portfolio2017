@@ -6,7 +6,7 @@ export default class ButtonsGroup extends Component {
         const { headline, children: buttons, alignment, extraClasses } = this.props;
 
         const headlineBlock = (headline) ?
-            <p className="headline">{headline}</p> :
+            <h3 className="headline">{headline}</h3> :
             null;
 
         return (
