@@ -29795,6 +29795,18 @@ var Navigation = function (_Component) {
                 navigationItems.map(function (item) {
                     item.url = item.url || '/' + _this2.createUrlComponent(item.label);
 
+                    if (/^http/.test(item.url)) {
+                        return _react2.default.createElement(
+                            'li',
+                            { key: item.id, className: 'item' },
+                            _react2.default.createElement(
+                                'a',
+                                { key: item.id, href: item.url },
+                                item.label
+                            )
+                        );
+                    }
+
                     return _react2.default.createElement(
                         'li',
                         { key: item.id, className: 'item' },

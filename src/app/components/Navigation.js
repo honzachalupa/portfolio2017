@@ -18,6 +18,14 @@ export default class Navigation extends Component {
                     navigationItems.map((item) => {
                         item.url = item.url || `/${this.createUrlComponent(item.label)}`;
 
+                        if (/^http/.test(item.url)) {
+                            return (
+                                <li key={item.id} className="item">
+                                    <a key={item.id} href={item.url}>{item.label}</a>
+                                </li>
+                            );
+                        }
+
                         return (
                             <li key={item.id} className="item">
                                 <Link key={item.id} to={item.url} className={`${item.active ? 'active' : ''}`} onClick={() => navigationToggler(true)}>{item.label}</Link>
