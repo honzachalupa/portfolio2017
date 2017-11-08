@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle, getDevelopmentStageLabel } from './../helpers';
+import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';
-import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import ImagesGrid from './../components/content-blocks/ImagesGrid';
 import Button from './../components/Button';

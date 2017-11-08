@@ -29486,6 +29486,7 @@ var Footer = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
+
             var _props = this.props,
                 collapsed = _props.collapsed,
                 config = _props.config;
@@ -30380,10 +30381,12 @@ var TechnologiesOverview = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'Page_' + this.constructor.name;
+
             var _props = this.props,
                 tags = _props.tags,
                 config = _props.config;
             var technologies = config.technologies;
+
 
             var technologiesBlock = void 0;
             var numberOfMatches = 0;
@@ -31104,6 +31107,7 @@ var Content = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'Layout_' + this.constructor.name;
+
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities,
@@ -31218,9 +31222,9 @@ var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
-var _Content = require('./../layouts/Content');
+var _Main = require('./../layouts/Main');
 
-var _Content2 = _interopRequireDefault(_Content);
+var _Main2 = _interopRequireDefault(_Main);
 
 var _Text = require('./../components/content-blocks/Text');
 
@@ -31287,7 +31291,7 @@ var AboutMe = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
@@ -31338,7 +31342,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],327:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],327:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31357,9 +31361,9 @@ var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
 
-var _Content = require('./../layouts/Content');
+var _Main = require('./../layouts/Main');
 
-var _Content2 = _interopRequireDefault(_Content);
+var _Main2 = _interopRequireDefault(_Main);
 
 var _Text = require('./../components/content-blocks/Text');
 
@@ -31418,7 +31422,7 @@ var Error = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
@@ -31441,7 +31445,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],328:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],328:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31458,6 +31462,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
+var _Main = require('./../layouts/Main');
+
+var _Main2 = _interopRequireDefault(_Main);
+
 var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
@@ -31469,10 +31477,6 @@ var _Button2 = _interopRequireDefault(_Button);
 var _ButtonsGroup = require('./../components/ButtonsGroup');
 
 var _ButtonsGroup2 = _interopRequireDefault(_ButtonsGroup);
-
-var _Content = require('./../layouts/Content');
-
-var _Content2 = _interopRequireDefault(_Content);
 
 var _ProjectTeaser = require('./../components/content-blocks/ProjectTeaser');
 
@@ -31545,7 +31549,7 @@ var Home = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
@@ -31598,7 +31602,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":317,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],329:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/content-blocks/ProjectTeaser":317,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],329:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31613,13 +31617,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
+var _Main = require('./../layouts/Main');
+
+var _Main2 = _interopRequireDefault(_Main);
+
 var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
-
-var _Content = require('./../layouts/Content');
-
-var _Content2 = _interopRequireDefault(_Content);
 
 var _Text = require('./../components/content-blocks/Text');
 
@@ -31687,7 +31691,7 @@ var ImageViewer = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement('img', { alt: 'Image Viewer', src: image })
                 )
@@ -31700,7 +31704,7 @@ var ImageViewer = function (_Component) {
 
 exports.default = ImageViewer;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],330:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],330:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31715,13 +31719,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
+var _Main = require('./../layouts/Main');
+
+var _Main2 = _interopRequireDefault(_Main);
+
 var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
-
-var _Content = require('./../layouts/Content');
-
-var _Content2 = _interopRequireDefault(_Content);
 
 var _Text = require('./../components/content-blocks/Text');
 
@@ -31823,7 +31827,7 @@ var ProjectDetail = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: project.name }),
                     _react2.default.createElement(
@@ -31850,7 +31854,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/TechnologiesOverview":313,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],331:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/InvisibleHeadline":307,"./../components/LivePreview":308,"./../components/TechnologiesOverview":313,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ImagesGrid":316,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],331:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -31867,13 +31871,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _helpers = require('./../helpers');
 
+var _Main = require('./../layouts/Main');
+
+var _Main2 = _interopRequireDefault(_Main);
+
 var _InvisibleHeadline = require('./../components/InvisibleHeadline');
 
 var _InvisibleHeadline2 = _interopRequireDefault(_InvisibleHeadline);
-
-var _Content = require('./../layouts/Content');
-
-var _Content2 = _interopRequireDefault(_Content);
 
 var _Text = require('./../components/content-blocks/Text');
 
@@ -31972,7 +31976,7 @@ var Projects = function (_Component) {
                 'div',
                 { id: id, 'data-component': 'Page' },
                 _react2.default.createElement(
-                    _Content2.default,
+                    _Main2.default,
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
@@ -32104,7 +32108,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":311,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Content":323,"react":277}],332:[function(require,module,exports){
+},{"./../components/Button":303,"./../components/ButtonsGroup":304,"./../components/InvisibleHeadline":307,"./../components/ProjectsFilter":311,"./../components/content-blocks/Blank":314,"./../components/content-blocks/ProjectsGrid":319,"./../components/content-blocks/ProjectsGrid/Item":318,"./../components/content-blocks/Text":320,"./../helpers":322,"./../layouts/Main":323,"react":277}],332:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

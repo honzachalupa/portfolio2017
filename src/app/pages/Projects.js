@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle } from './../helpers';
+import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';
-import ContentLayout from './../layouts/Content';
 import Text from './../components/content-blocks/Text';
 import Blank from './../components/content-blocks/Blank';
 import ProjectsGrid from './../components/content-blocks/ProjectsGrid';

@@ -5,8 +5,16 @@ import Navigation from './Navigation';
 export default class TechnologiesOverview extends Component {
     render() {
         const componentName = `Page_${this.constructor.name}`;
-        const { tags, config } = this.props;
-        const { technologies } = config;
+
+        const {
+            tags,
+            config
+        } = this.props;
+
+        const {
+            technologies
+        } = config;
+
         let technologiesBlock;
         let numberOfMatches = 0;
 

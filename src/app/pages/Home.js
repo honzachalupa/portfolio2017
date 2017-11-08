@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle } from './../helpers';
+import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';
 import Button from './../components/Button';
 import ButtonsGroup from './../components/ButtonsGroup';
-import ContentLayout from './../layouts/Content';
 import ProjectTeaser from './../components/content-blocks/ProjectTeaser';
 import Text from './../components/content-blocks/Text';
 import ProjectsGrid from './../components/content-blocks/ProjectsGrid';
@@ -13,8 +13,15 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
 
-        const { config, utilities, projects } = props;
-        const { setNavigationItem } = utilities;
+        const {
+            config,
+            utilities,
+            projects
+        } = props;
+
+        const {
+            setNavigationItem
+        } = utilities;
 
         this.state = {
             id: 'home-page',
@@ -37,8 +44,19 @@ export default class Home extends Component {
     }
 
     render() {
-        const { id, headline, latestProject, latestProjectsMore, collapsedUI, hasPanel } = this.state;
-        const { config, utilities } = this.props;
+        const {
+            id,
+            headline,
+            latestProject,
+            latestProjectsMore,
+            collapsedUI,
+            hasPanel
+        } = this.state;
+
+        const {
+            config,
+            utilities
+        } = this.props;
 
         return (
             <div id={id} data-component="Page">

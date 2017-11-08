@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { setPageTitle } from './../helpers';
 import InvisibleHeadline from './../components/InvisibleHeadline';
-import ContentLayout from './../layouts/Content';
+import ContentLayout from './../layouts/Main';
 import Text from './../components/content-blocks/Text';
 import Button from './../components/Button';
 import ButtonsGroup from './../components/ButtonsGroup';
@@ -10,7 +10,9 @@ export default class AboutMe extends Component {
     constructor(props) {
         super(props);
 
-        const { setNavigationItem } = props.utilities;
+        const {
+            setNavigationItem
+        } = props.utilities;
 
         this.state = {
             id: 'about-me-page',
@@ -24,10 +26,28 @@ export default class AboutMe extends Component {
     }
 
     render() {
-        const { id, headline, collapsedUI, hasPanel, project } = this.state;
-        const { config, utilities } = this.props;
-        const { contactInfo } = config;
-        const { phoneNumber, emailAddress, socialProfiles } = contactInfo;
+        const {
+            id,
+            headline,
+            collapsedUI,
+            hasPanel,
+            project
+        } = this.state;
+
+        const {
+            config,
+            utilities
+        } = this.props;
+
+        const {
+            contactInfo
+        } = config;
+
+        const {
+            phoneNumber,
+            emailAddress,
+            socialProfiles
+        } = contactInfo;
 
         return (
             <div id={id} data-component="Page">
