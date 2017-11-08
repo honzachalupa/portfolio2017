@@ -28905,6 +28905,10 @@ var data = exports.data = {
             id: 'projects-page',
             label: 'Projects'
         }, {
+            id: 'photography',
+            label: 'Photography',
+            url: 'http://www.instagram.com/honzachalupa/'
+        }, {
             id: 'about-me-page',
             label: 'About me'
         }],
