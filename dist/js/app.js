@@ -30234,11 +30234,11 @@ var Root = function (_Component) {
         value: function navigationToggler(forceClose) {
             var _state$config = this.state.config,
                 navigationOpened = _state$config.navigationOpened,
-                window = _state$config.window,
+                dimensions = _state$config.window,
                 screenBreakpoint = _state$config.screenBreakpoint;
 
 
-            if (window.width < screenBreakpoint) {
+            if (dimensions.width < screenBreakpoint) {
                 this.setState({
                     config: (0, _immutabilityHelper2.default)(this.state.config, {
                         $merge: {

@@ -106,9 +106,9 @@ export default class Root extends Component {
     }
 
     navigationToggler(forceClose) {
-        const { navigationOpened, window, screenBreakpoint } = this.state.config;
+        const { navigationOpened, window: dimensions, screenBreakpoint } = this.state.config;
 
-        if (window.width < screenBreakpoint) {
+        if (dimensions.width < screenBreakpoint) {
             this.setState({
                 config: update(this.state.config, {
                     $merge: {
