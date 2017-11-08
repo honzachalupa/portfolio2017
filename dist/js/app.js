@@ -28995,7 +28995,7 @@ var data = exports.data = {
             url: 'http://www.actum.cz/'
         },
         addedDate: '2017/10/10',
-        tags: ['Innogy', 'RWE', 'Germany']
+        tags: ['Innogy', 'RWE', 'Germany', 'Actum', 'HTML', 'SASS', 'JavaScript', 'React', 'Sitecore']
     }, {
         id: 'innogy-intranet',
         name: 'innogy Intranet',
@@ -29497,7 +29497,7 @@ var Footer = function (_Component) {
                 { className: collapsed ? 'collapsed' : null, 'data-component': componentName },
                 _react2.default.createElement(
                     'a',
-                    { href: '/about' },
+                    { href: '/' },
                     contactInfo.credits
                 )
             );
@@ -31566,7 +31566,7 @@ var Home = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             { style: { color: 'red' } },
-                            'Please be know that this website it brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know incase of any troubles.'
+                            'Please be known that this website is brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know in case of any troubles. Thank you for your understanding.'
                         ),
                         _react2.default.createElement(
                             _ButtonsGroup2.default,

@@ -49,7 +49,7 @@ export default class Home extends Component {
                         <p>Hello and welcome,<br />
                         I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...</p>
                         <p>Curently I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.</p>
-                        <p style={{ color: 'red' }}>Please be know that this website it brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know incase of any troubles.</p>
+                        <p style={{ color: 'red' }}>Please be known that this website is brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know in case of any troubles. Thank you for your understanding.</p>
 
                         <ButtonsGroup>
                             <Button title="Lets take a look at my projects" url="/projects" />

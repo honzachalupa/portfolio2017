@@ -8,7 +8,7 @@ export default class Footer extends Component {
 
         return (
             <footer className={collapsed ? 'collapsed' : null} data-component={componentName}>
-                <a href="/about">{contactInfo.credits}</a>
+                <a href="/">{contactInfo.credits}</a>
             </footer>
         );
     }
