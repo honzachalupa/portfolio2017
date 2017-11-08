@@ -41,8 +41,6 @@ export default class Root extends Component {
             }
         };
 
-        this.updateDimensions();
-
         // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
         setInterval(() => {
             factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
@@ -51,6 +49,8 @@ export default class Root extends Component {
 
     componentDidMount() {
         GoogleAnalytics.initialize('UA-47064928-3');
+
+        this.updateDimensions();
 
         window.addEventListener('resize', this.updateDimensions);
     }
@@ -106,9 +106,11 @@ export default class Root extends Component {
     }
 
     navigationToggler(forceClose) {
-        const { navigationOpened, window: dimensions, screenBreakpoint } = this.state.config;
+        const { navigationOpened, windowDimensions, screenBreakpoint } = this.state.config;
 
-        if (dimensions.width < screenBreakpoint) {
+        console.log(windowDimensions);
+
+        if (windowDimensions.width < screenBreakpoint) {
             this.setState({
                 config: update(this.state.config, {
                     $merge: {
@@ -127,7 +129,7 @@ export default class Root extends Component {
         const { screenBreakpoint } = this.state.config;
 
         const dimensions = {
-            window: {
+            windowDimensions: {
                 width: window.innerWidth,
                 height: window.innerHeight
             }
@@ -139,7 +141,7 @@ export default class Root extends Component {
             })
         });
 
-        if (dimensions.window.width >= screenBreakpoint) {
+        if (dimensions.windowDimensions.width >= screenBreakpoint) {
             this.setState({
                 config: update(this.state.config, {
                     $merge: {

@@ -30157,8 +30157,6 @@ var Root = function (_Component) {
             }
         };
 
-        _this.updateDimensions();
-
         // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
         setInterval(function () {
             (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
@@ -30170,6 +30168,8 @@ var Root = function (_Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             _reactGa2.default.initialize('UA-47064928-3');
+
+            this.updateDimensions();
 
             window.addEventListener('resize', this.updateDimensions);
         }
@@ -30234,11 +30234,13 @@ var Root = function (_Component) {
         value: function navigationToggler(forceClose) {
             var _state$config = this.state.config,
                 navigationOpened = _state$config.navigationOpened,
-                dimensions = _state$config.window,
+                windowDimensions = _state$config.windowDimensions,
                 screenBreakpoint = _state$config.screenBreakpoint;
 
 
-            if (dimensions.width < screenBreakpoint) {
+            console.log(windowDimensions);
+
+            if (windowDimensions.width < screenBreakpoint) {
                 this.setState({
                     config: (0, _immutabilityHelper2.default)(this.state.config, {
                         $merge: {
@@ -30260,7 +30262,7 @@ var Root = function (_Component) {
 
 
             var dimensions = {
-                window: {
+                windowDimensions: {
                     width: window.innerWidth,
                     height: window.innerHeight
                 }
@@ -30272,7 +30274,7 @@ var Root = function (_Component) {
                 })
             });
 
-            if (dimensions.window.width >= screenBreakpoint) {
+            if (dimensions.windowDimensions.width >= screenBreakpoint) {
                 this.setState({
                     config: (0, _immutabilityHelper2.default)(this.state.config, {
                         $merge: {
