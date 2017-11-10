@@ -310,7 +310,7 @@ export const data = {
             ],
             developmentStage: 'released',
             livePreview: false,
-            type: 'mobile',
+            type: 'native',
             addedDate: '2016/8/25',
             tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving', 'C#']
         }, {
@@ -338,7 +338,7 @@ export const data = {
                 }
             ],
             developmentStage: 'unsupported',
-            type: 'mobile',
+            type: 'native',
             addedDate: '2016/2/1',
             tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping', 'C#', 'PHP']
         }, {
@@ -370,7 +370,7 @@ export const data = {
                 }
             ],
             developmentStage: 'unsupported',
-            type: 'mobile',
+            type: 'native',
             addedDate: '2015/4/1',
             tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving', 'C#']
         }, {
@@ -395,7 +395,7 @@ export const data = {
                 }
             ],
             developmentStage: 'unsupported',
-            type: 'mobile',
+            type: 'native',
             addedDate: '2015/9/1',
             tags: ['game', 'fun', 'C#']
         }, {
@@ -420,7 +420,7 @@ export const data = {
                 }
             ],
             developmentStage: 'unsupported',
-            type: 'mobile',
+            type: 'native',
             addedDate: '2015/9/15',
             tags: ['game', 'fun', 'kids', 'C#']
         }

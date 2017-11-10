@@ -29154,7 +29154,7 @@ var data = exports.data = {
         }],
         developmentStage: 'released',
         livePreview: false,
-        type: 'mobile',
+        type: 'native',
         addedDate: '2016/8/25',
         tags: ['Microsoft', 'Windows', 'Windows Phone', 'car', 'money', 'money-saving', 'C#']
     }, {
@@ -29180,7 +29180,7 @@ var data = exports.data = {
             aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
-        type: 'mobile',
+        type: 'native',
         addedDate: '2016/2/1',
         tags: ['Microsoft', 'Windows', 'Windows Phone', 'Czech', 'news', 'newspaper', 'web-scraping', 'C#', 'PHP']
     }, {
@@ -29210,7 +29210,7 @@ var data = exports.data = {
             aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
-        type: 'mobile',
+        type: 'native',
         addedDate: '2015/4/1',
         tags: ['lifestyle', 'health', 'drug', 'money', 'money-saving', 'C#']
     }, {
@@ -29233,7 +29233,7 @@ var data = exports.data = {
             aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
-        type: 'mobile',
+        type: 'native',
         addedDate: '2015/9/1',
         tags: ['game', 'fun', 'C#']
     }, {
@@ -29256,7 +29256,7 @@ var data = exports.data = {
             aspectRatio: 'portrait'
         }],
         developmentStage: 'unsupported',
-        type: 'mobile',
+        type: 'native',
         addedDate: '2015/9/15',
         tags: ['game', 'fun', 'kids', 'C#']
     }]
@@ -29781,6 +29781,7 @@ var Navigation = function (_Component) {
             var _this2 = this;
 
             var componentName = 'Page_' + this.constructor.name;
+
             var _props = this.props,
                 config = _props.config,
                 utilities = _props.utilities;
@@ -29793,15 +29794,15 @@ var Navigation = function (_Component) {
                 'div',
                 { className: '' + (navigationOpened ? 'opened' : ''), 'data-component': componentName },
                 navigationItems.map(function (item) {
-                    item.url = item.url || '/' + _this2.createUrlComponent(item.label);
+                    var url = item.url || '/' + _this2.createUrlComponent(item.label);
 
-                    if (/^http/.test(item.url)) {
+                    if (/^http/.test(url)) {
                         return _react2.default.createElement(
                             'li',
                             { key: item.id, className: 'item' },
                             _react2.default.createElement(
                                 'a',
-                                { key: item.id, href: item.url },
+                                { key: item.id, href: url },
                                 item.label
                             )
                         );
@@ -29812,7 +29813,7 @@ var Navigation = function (_Component) {
                         { key: item.id, className: 'item' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { key: item.id, to: item.url, className: '' + (item.active ? 'active' : ''), onClick: function onClick() {
+                            { key: item.id, to: url, className: '' + (item.active ? 'active' : ''), onClick: function onClick() {
                                     return navigationToggler(true);
                                 } },
                             item.label
@@ -30555,6 +30556,7 @@ var ImageItem = function (_Component) {
                 url = _props.url,
                 aspectRatio = _props.aspectRatio;
 
+
             var imageId = /[a-z0-9.-]*$/.exec(url);
 
             var aspectRatioDesktop = aspectRatio === 'portrait' ? '10:16' : '3:2';
@@ -30639,10 +30641,12 @@ var ImagesGrid = function (_Component) {
         key: 'render',
         value: function render() {
             var componentName = 'ContentBlock_' + this.constructor.name;
+
             var _props = this.props,
                 headline = _props.headline,
                 imagesUnfilled = _props.images,
                 extraClasses = _props.extraClasses;
+
 
             var images = this.completeImagesDefinition(imagesUnfilled);
 
@@ -32090,15 +32094,15 @@ var BlockNativeApps = function BlockNativeApps(props) {
         filter = props.filter;
 
 
-    if (filter.type === 'all' || filter.type === 'mobile') {
+    if (filter.type === 'all' || filter.type === 'native') {
         var projectsFiltered = projects.filter(function (project) {
-            return filterByType(project, 'mobile');
+            return filterByType(project, 'native');
         });
 
         if (projectsFiltered.length) {
             return _react2.default.createElement(
                 _ProjectsGrid2.default,
-                { headline: 'Mobile Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
+                { headline: 'Native Apps', description: 'Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I\'m on your side now).' },
                 projectsFiltered.map(function (project) {
                     return _react2.default.createElement(_Item2.default, _extends({ key: project.id }, project));
                 })

@@ -117,12 +117,12 @@ const BlockWebApps = (props) => {
 const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
-    if (filter.type === 'all' || filter.type === 'mobile') {
-        const projectsFiltered = projects.filter((project) => filterByType(project, 'mobile'));
+    if (filter.type === 'all' || filter.type === 'native') {
+        const projectsFiltered = projects.filter((project) => filterByType(project, 'native'));
 
         if (projectsFiltered.length) {
             return (
-                <ProjectsGrid headline="Mobile Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
+                <ProjectsGrid headline="Native Apps" description="Since I was a hard-core Windows user, most of my apps were made for Windows Phone OS and they are not maintained anymore. Sorry, iPhone users (I'm on your side now).">
                     {
                         projectsFiltered.map((project) => {
                             return (

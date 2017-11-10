@@ -20,7 +20,13 @@ export default class ImagesGrid extends Component {
 
     render() {
         const componentName = `ContentBlock_${this.constructor.name}`;
-        const { headline, images: imagesUnfilled, extraClasses } = this.props;
+
+        const {
+            headline,
+            images: imagesUnfilled,
+            extraClasses
+        } = this.props;
+
         const images = this.completeImagesDefinition(imagesUnfilled);
 
         return (

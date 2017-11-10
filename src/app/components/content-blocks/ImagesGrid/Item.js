@@ -5,7 +5,12 @@ export default class ImageItem extends Component {
     render() {
         const componentName = `ContentBlock_Grid${this.constructor.name}`;
 
-        const { description, url, aspectRatio } = this.props;
+        const {
+            description,
+            url,
+            aspectRatio
+        } = this.props;
+
         const imageId = /[a-z0-9.-]*$/.exec(url);
 
         const aspectRatioDesktop = aspectRatio === 'portrait' ? '10:16' : '3:2';
