@@ -45,6 +45,7 @@ module.exports = {
         'react/prefer-stateless-function': [0, { 'ignorePureComponents': true }],
         'react/jsx-pascal-case': 0,
         'react/no-danger': 0,
+        'react/no-unescaped-entities': 0,
         'space-before-function-paren': 0,
         'strict': 0
     },

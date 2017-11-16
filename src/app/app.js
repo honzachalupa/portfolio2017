@@ -1,17 +1,47 @@
-// import 'babel-polyfill';
-// import 'svgxuse';
+import 'babel-polyfill';
+import 'svgxuse';
 import { render } from './render';
+import axios from 'axios';
 import log from './modules/logger';
 import Root from './components/Root';
-import { data } from './api';
 
-// To-do: Create API request to Universal API or whatever
+const apis = [{
+    name: 'config',
+    url: 'http://janchalupa-universalapi.azurewebsites.net/api/portfolio-config'
+}, {
+    name: 'projects',
+    url: 'http://janchalupa-universalapi.azurewebsites.net/api/portfolio-projects'
+}];
+
+const apiData = {};
 
 const app = () => {
-    render(Root, document.querySelector('#app-root'), { apiData: data });
+    getApiData();
 
-    fixExperimentalCss();
+    const interval = setInterval(() => {
+        if (Object.keys(apiData).length === apis.length) {
+            clearInterval(interval);
+
+            render(Root, document.querySelector('#app-root'), { apiData });
+
+            fixExperimentalCss();
+        }
+    }, 100);
 };
+
+function getApiData() {
+    apis.forEach((api) => {
+        const { name, url } = api;
+
+        axios.get(url)
+            .then((response) => {
+                apiData[name] = response.data;
+            })
+            .catch((error) => {
+                log(error);
+            });
+    });
+}
 
 function fixExperimentalCss() {
     try {
@@ -66,3 +96,4 @@ function fixExperimentalCss() {
 }
 
 app();
+

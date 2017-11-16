@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
-import axios from 'axios';
 import log from './../modules/logger';
 import { setPageTitle } from './../helpers';
 import HomePage from './../pages/Home';
@@ -18,13 +17,12 @@ export default class Root extends Component {
     constructor(props) {
         super(props);
 
-        const { apiData } = props;
-        const { config } = apiData;
-        let { projects } = apiData;
-
         this.navigationToggler = this.navigationToggler.bind(this);
         this.setNavigationItem = this.setNavigationItem.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
+
+        const { config } = props.apiData;
+        let { projects } = props.apiData;
 
         projects = this.filterProjects(projects);
         projects = this.sortProjects(projects);
@@ -40,11 +38,6 @@ export default class Root extends Component {
                 setNavigationItem: this.setNavigationItem
             }
         };
-
-        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
-        setInterval(() => {
-            factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
-        }, 100);
     }
 
     componentDidMount() {
@@ -53,6 +46,8 @@ export default class Root extends Component {
         this.updateDimensions();
 
         window.addEventListener('resize', this.updateDimensions);
+
+        factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
     }
 
     componentWillUnmount() {
@@ -107,8 +102,6 @@ export default class Root extends Component {
 
     navigationToggler(forceClose) {
         const { navigationOpened, windowDimensions, screenBreakpoint } = this.state.config;
-
-        console.log(windowDimensions);
 
         if (windowDimensions.width < screenBreakpoint) {
             this.setState({
@@ -192,14 +185,7 @@ export default class Root extends Component {
                             render={(props) => (
                                 <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
                             )}
-                        />
-                        {/* To-do
-                        <Route
-                            render={(props) => (
-                                <ErrorPage config={config} utilities={utilities} />
-                            )}
-                        />
-                        */}
+                        />}
                     </Switch>
                 </Router>
             );
