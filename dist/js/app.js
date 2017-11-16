@@ -37570,6 +37570,11 @@ var Root = function (_Component) {
                 setNavigationItem: _this.setNavigationItem
             }
         };
+
+        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
+        setInterval(function () {
+            (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
+        }, 100);
         return _this;
     }
 
@@ -37581,8 +37586,6 @@ var Root = function (_Component) {
             this.updateDimensions();
 
             window.addEventListener('resize', this.updateDimensions);
-
-            (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
         }
     }, {
         key: 'componentWillUnmount',

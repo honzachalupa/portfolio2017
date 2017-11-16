@@ -38,6 +38,11 @@ export default class Root extends Component {
                 setNavigationItem: this.setNavigationItem
             }
         };
+
+        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
+        setInterval(() => {
+            factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
+        }, 100);
     }
 
     componentDidMount() {
@@ -46,8 +51,6 @@ export default class Root extends Component {
         this.updateDimensions();
 
         window.addEventListener('resize', this.updateDimensions);
-
-        factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
     }
 
     componentWillUnmount() {
