@@ -9,9 +9,7 @@ export default class Footer extends Component {
             config
         } = this.props;
 
-        const {
-            contactInfo
-        } = config;
+        const { contactInfo } = config;
 
         return (
             <footer className={collapsed ? 'collapsed' : null} data-component={componentName}>

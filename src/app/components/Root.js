@@ -38,11 +38,6 @@ export default class Root extends Component {
                 setNavigationItem: this.setNavigationItem
             }
         };
-
-        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
-        setInterval(() => {
-            factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
-        }, 100);
     }
 
     componentDidMount() {
@@ -51,6 +46,10 @@ export default class Root extends Component {
         this.updateDimensions();
 
         window.addEventListener('resize', this.updateDimensions);
+    }
+
+    componentDidUpdate() {
+        factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
     }
 
     componentWillUnmount() {
@@ -74,15 +73,15 @@ export default class Root extends Component {
     }
 
     getProjectTypes(projects) {
-        const projectTypes = [];
+        const types = [];
 
         projects.forEach((project) => {
-            if (projectTypes.indexOf(project.type) === -1) {
-                projectTypes.push(project.type);
+            if (types.indexOf(project.type) === -1) {
+                types.push(project.type);
             }
         });
 
-        return projectTypes;
+        return types;
     }
 
     filterProjects(projects) {
@@ -104,7 +103,11 @@ export default class Root extends Component {
     }
 
     navigationToggler(forceClose) {
-        const { navigationOpened, windowDimensions, screenBreakpoint } = this.state.config;
+        const {
+            navigationOpened,
+            windowDimensions,
+            screenBreakpoint
+        } = this.state.config;
 
         if (windowDimensions.width < screenBreakpoint) {
             this.setState({
@@ -150,7 +153,11 @@ export default class Root extends Component {
 
     render() {
         if (this.state && this.state.config && this.state.utilities && this.state.config) {
-            const { config, utilities, projects } = this.state;
+            const {
+                config,
+                utilities,
+                projects
+            } = this.state;
 
             return (
                 <Router onUpdate={this.trackGoogleAnalytics}>

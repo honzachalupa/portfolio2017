@@ -37578,11 +37578,6 @@ var Root = function (_Component) {
                 setNavigationItem: _this.setNavigationItem
             }
         };
-
-        // To-do: Replace this workaround with better and cleaner solution (triggered with onLoad)
-        setInterval(function () {
-            (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
-        }, 100);
         return _this;
     }
 
@@ -37594,6 +37589,11 @@ var Root = function (_Component) {
             this.updateDimensions();
 
             window.addEventListener('resize', this.updateDimensions);
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate() {
+            (0, _factory2.default)(_aspectRatioPreserver2.default, document.querySelectorAll('[data-aspect-ratio]'));
         }
     }, {
         key: 'componentWillUnmount',
@@ -37621,15 +37621,15 @@ var Root = function (_Component) {
     }, {
         key: 'getProjectTypes',
         value: function getProjectTypes(projects) {
-            var projectTypes = [];
+            var types = [];
 
             projects.forEach(function (project) {
-                if (projectTypes.indexOf(project.type) === -1) {
-                    projectTypes.push(project.type);
+                if (types.indexOf(project.type) === -1) {
+                    types.push(project.type);
                 }
             });
 
-            return projectTypes;
+            return types;
         }
     }, {
         key: 'filterProjects',

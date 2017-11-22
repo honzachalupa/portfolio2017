@@ -8,7 +8,12 @@ import Navigation from './Navigation';
 export default class Button extends Component {
     render() {
         const componentName = this.constructor.name;
-        const { title, url, onClick, extraClasses } = this.props;
+        const {
+            title,
+            url,
+            onClick,
+            extraClasses
+        } = this.props;
 
         if (url) {
             if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {

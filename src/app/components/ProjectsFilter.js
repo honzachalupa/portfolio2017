@@ -87,8 +87,16 @@ export default class ProjectsFilter extends Component {
 
     render() {
         const componentName = this.constructor.name;
-        const { changeFilter, alignment, hideTags, filter } = this.props;
-        const { types, tags } = this.state;
+        const {
+            changeFilter,
+            alignment,
+            hideTags,
+            filter
+        } = this.props;
+        const {
+            types,
+            tags
+        } = this.state;
 
         const TypesBlock = () => {
             return (

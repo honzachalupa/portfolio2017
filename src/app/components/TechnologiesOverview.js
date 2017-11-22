@@ -11,9 +11,7 @@ export default class TechnologiesOverview extends Component {
             config
         } = this.props;
 
-        const {
-            technologies
-        } = config;
+        const { technologies } = config;
 
         let technologiesBlock;
         let numberOfMatches = 0;
