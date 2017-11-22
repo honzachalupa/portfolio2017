@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import getClassList from './../../../modules/class-list';
 
 export default class ProjectsGrid extends Component {
     render() {
@@ -10,7 +11,7 @@ export default class ProjectsGrid extends Component {
             null;
 
         return (
-            <article data-component={componentName} className={extraClasses}>
+            <article data-component={componentName} className={getClassList(extraClasses)}>
                 <h2 className="headline">{headline}</h2>
                 {descriptionBlock}
                 <ul>

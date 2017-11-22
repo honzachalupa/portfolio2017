@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import getClassList from './../modules/class-list';
 
 export default class ButtonsGroup extends Component {
     render() {
@@ -10,7 +11,7 @@ export default class ButtonsGroup extends Component {
             null;
 
         return (
-            <div className={`${extraClasses} ${alignment}`} data-component={componentName}>
+            <div className={getClassList(extraClasses, alignment)} data-component={componentName}>
                 {headlineBlock}
                 <div className="alignment">
                     {buttons}

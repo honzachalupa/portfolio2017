@@ -64,12 +64,12 @@ export default class Home extends Component {
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="Introduction">
-                        <p>Hello and welcome,<br />
-                        I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...</p>
-                        <p>Curently I'm seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.</p>
-                        <p style={{ color: 'red' }}>Please be known that this website is brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know in case of any troubles. Thank you for your understanding.</p>
+                        <p style={{ fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 }}>
+                            <span style={{ fontWeight: 300 }}>Hello and welcome,</span><br />
+                            I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...
+                        </p>
 
-                        <ButtonsGroup>
+                        <ButtonsGroup alignment="center">
                             <Button title="Lets take a look at my projects" url="/projects" />
                             <Button title="Get more information about me" url="/about-me" />
                         </ButtonsGroup>

@@ -36709,7 +36709,7 @@ function fixExperimentalCss() {
 
 app();
 
-},{"./components/Root":637,"./modules/logger":650,"./render":657,"axios":1,"babel-polyfill":26,"svgxuse":621}],628:[function(require,module,exports){
+},{"./components/Root":637,"./modules/logger":651,"./render":658,"axios":1,"babel-polyfill":26,"svgxuse":621}],628:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36729,6 +36729,10 @@ var _helpers = require('./../helpers');
 var _logger = require('./../modules/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
+
+var _classList = require('./../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
 
 var _Navigation = require('./Navigation');
 
@@ -36768,20 +36772,20 @@ var Button = function (_Component) {
                 if (/^https?:\/\//.test(url) || /\.(a-Z)$/.test(url)) {
                     return _react2.default.createElement(
                         'a',
-                        { className: extraClasses, href: url, title: title, 'data-component': componentName },
+                        { className: (0, _classList2.default)(extraClasses), href: url, title: title, 'data-component': componentName },
                         title
                     );
                 }
 
                 return _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { className: extraClasses, to: url, title: title, 'data-component': componentName },
+                    { className: (0, _classList2.default)(extraClasses), to: url, title: title, 'data-component': componentName },
                     title
                 );
             } else if (onClick) {
                 return _react2.default.createElement(
                     'button',
-                    { className: extraClasses, onClick: onClick, title: title, 'data-component': componentName },
+                    { className: (0, _classList2.default)(extraClasses), onClick: onClick, title: title, 'data-component': componentName },
                     title
                 );
             }
@@ -36797,8 +36801,8 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":647,"./../modules/logger":650,"./Navigation":634,"react":602,"react-router-dom":563}],629:[function(require,module,exports){
-"use strict";
+},{"./../helpers":647,"./../modules/class-list":650,"./../modules/logger":651,"./Navigation":634,"react":602,"react-router-dom":563}],629:[function(require,module,exports){
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -36806,9 +36810,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _classList = require('./../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36828,7 +36836,7 @@ var ButtonsGroup = function (_Component) {
     }
 
     _createClass(ButtonsGroup, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var componentName = this.constructor.name;
             var _props = this.props,
@@ -36839,18 +36847,18 @@ var ButtonsGroup = function (_Component) {
 
 
             var headlineBlock = headline ? _react2.default.createElement(
-                "h3",
-                { className: "headline" },
+                'h3',
+                { className: 'headline' },
                 headline
             ) : null;
 
             return _react2.default.createElement(
-                "div",
-                { className: extraClasses + " " + alignment, "data-component": componentName },
+                'div',
+                { className: (0, _classList2.default)(extraClasses, alignment), 'data-component': componentName },
                 headlineBlock,
                 _react2.default.createElement(
-                    "div",
-                    { className: "alignment" },
+                    'div',
+                    { className: 'alignment' },
                     buttons
                 )
             );
@@ -36862,7 +36870,7 @@ var ButtonsGroup = function (_Component) {
 
 exports.default = ButtonsGroup;
 
-},{"react":602}],630:[function(require,module,exports){
+},{"./../modules/class-list":650,"react":602}],630:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37760,7 +37768,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":646,"./../helpers":647,"./../modules/aspect-ratio-preserver":649,"./../modules/logger":650,"./../pages/AboutMe":651,"./../pages/Error":652,"./../pages/Home":653,"./../pages/ImageViewer":654,"./../pages/ProjectDetail":655,"./../pages/Projects":656,"immutability-helper":385,"react":602,"react-ga":525,"react-router-dom":563}],638:[function(require,module,exports){
+},{"./../factory":646,"./../helpers":647,"./../modules/aspect-ratio-preserver":649,"./../modules/logger":651,"./../pages/AboutMe":652,"./../pages/Error":653,"./../pages/Home":654,"./../pages/ImageViewer":655,"./../pages/ProjectDetail":656,"./../pages/Projects":657,"immutability-helper":385,"react":602,"react-ga":525,"react-router-dom":563}],638:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37999,6 +38007,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classList = require('./../../../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
+
 var _Item = require('./Item');
 
 var _Item2 = _interopRequireDefault(_Item);
@@ -38052,7 +38064,7 @@ var ImagesGrid = function (_Component) {
 
             return _react2.default.createElement(
                 'article',
-                { 'data-component': componentName, className: extraClasses },
+                { 'data-component': componentName, className: (0, _classList2.default)(extraClasses) },
                 _react2.default.createElement(
                     'h2',
                     { className: 'headline' },
@@ -38074,7 +38086,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./Item":640,"react":602}],642:[function(require,module,exports){
+},{"./../../../modules/class-list":650,"./Item":640,"react":602}],642:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38272,8 +38284,8 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":650,"react":602,"react-router-dom":563}],644:[function(require,module,exports){
-"use strict";
+},{"./../../../modules/logger":651,"react":602,"react-router-dom":563}],644:[function(require,module,exports){
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -38281,9 +38293,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _classList = require('./../../../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38303,9 +38319,9 @@ var ProjectsGrid = function (_Component) {
     }
 
     _createClass(ProjectsGrid, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            var componentName = "ContentBlock_" + this.constructor.name;
+            var componentName = 'ContentBlock_' + this.constructor.name;
             var _props = this.props,
                 headline = _props.headline,
                 description = _props.description,
@@ -38314,22 +38330,22 @@ var ProjectsGrid = function (_Component) {
 
 
             var descriptionBlock = description ? _react2.default.createElement(
-                "p",
-                { className: "description" },
+                'p',
+                { className: 'description' },
                 description
             ) : null;
 
             return _react2.default.createElement(
-                "article",
-                { "data-component": componentName, className: extraClasses },
+                'article',
+                { 'data-component': componentName, className: (0, _classList2.default)(extraClasses) },
                 _react2.default.createElement(
-                    "h2",
-                    { className: "headline" },
+                    'h2',
+                    { className: 'headline' },
                     headline
                 ),
                 descriptionBlock,
                 _react2.default.createElement(
-                    "ul",
+                    'ul',
                     null,
                     items
                 )
@@ -38342,7 +38358,7 @@ var ProjectsGrid = function (_Component) {
 
 exports.default = ProjectsGrid;
 
-},{"react":602}],645:[function(require,module,exports){
+},{"./../../../modules/class-list":650,"react":602}],645:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38483,7 +38499,7 @@ function getDevelopmentStageLabel(developmentStage, platform) {
     return label;
 }
 
-},{"./modules/logger":650}],648:[function(require,module,exports){
+},{"./modules/logger":651}],648:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38609,6 +38625,39 @@ exports.default = aspectRatioPreserver;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var getClassList = function getClassList() {
+  for (var _len = arguments.length, inputClassList = Array(_len), _key = 0; _key < _len; _key++) {
+    inputClassList[_key] = arguments[_key];
+  }
+
+  var classList = [];
+
+  inputClassList.forEach(function (className) {
+    if (typeof className === 'string' || typeof className === 'number') {
+      classList.push(className);
+    } else if (className && (typeof className === 'undefined' ? 'undefined' : _typeof(className)) === 'object') {
+      var classNameArray = className;
+
+      classNameArray.forEach(function (className) {
+        classList.push(className);
+      });
+    }
+  });
+
+  return classList.join(' ');
+};
+
+exports.default = getClassList;
+
+},{}],651:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var logger = function logger() {
@@ -38625,7 +38674,7 @@ var logger = function logger() {
 
 exports.default = logger;
 
-},{}],651:[function(require,module,exports){
+},{}],652:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38750,7 +38799,7 @@ var AboutMe = function (_Component) {
                             _ButtonsGroup2.default,
                             { headline: 'My social profiles' },
                             socialProfiles.map(function (profile) {
-                                return _react2.default.createElement(_Button2.default, { title: profile.name, url: profile.url });
+                                return _react2.default.createElement(_Button2.default, { key: profile.name, title: profile.name, url: profile.url });
                             })
                         )
                     )
@@ -38764,7 +38813,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],652:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],653:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38867,7 +38916,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],653:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],654:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38979,24 +39028,18 @@ var Home = function (_Component) {
                         { headline: 'Introduction' },
                         _react2.default.createElement(
                             'p',
-                            null,
-                            'Hello and welcome,',
+                            { style: { fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 } },
+                            _react2.default.createElement(
+                                'span',
+                                { style: { fontWeight: 300 } },
+                                'Hello and welcome,'
+                            ),
                             _react2.default.createElement('br', null),
                             'I\'m 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...'
                         ),
                         _react2.default.createElement(
-                            'p',
-                            null,
-                            'Curently I\'m seeking for a new experiences - a full-time position or contract in the field of Web or App Development or other position in connection with computers or electronics. I prefer some creative usage of my skills.'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { style: { color: 'red' } },
-                            'Please be known that this website is brand new and some of the features could behave wrong. Also the content is not completed yet. Please let me know in case of any troubles. Thank you for your understanding.'
-                        ),
-                        _react2.default.createElement(
                             _ButtonsGroup2.default,
-                            null,
+                            { alignment: 'center' },
                             _react2.default.createElement(_Button2.default, { title: 'Lets take a look at my projects', url: '/projects' }),
                             _react2.default.createElement(_Button2.default, { title: 'Get more information about me', url: '/about-me' })
                         )
@@ -39024,7 +39067,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/ProjectTeaser":642,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],654:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/ProjectTeaser":642,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],655:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39126,7 +39169,7 @@ var ImageViewer = function (_Component) {
 
 exports.default = ImageViewer;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],655:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],656:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39276,7 +39319,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/TechnologiesOverview":638,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],656:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/TechnologiesOverview":638,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],657:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39530,7 +39573,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/ProjectsFilter":636,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],657:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/ProjectsFilter":636,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],658:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

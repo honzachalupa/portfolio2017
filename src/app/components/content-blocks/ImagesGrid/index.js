@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import getClassList from './../../../modules/class-list';
 import ImageItem from './Item';
 
 export default class ImagesGrid extends Component {
@@ -30,7 +31,7 @@ export default class ImagesGrid extends Component {
         const images = this.completeImagesDefinition(imagesUnfilled);
 
         return (
-            <article data-component={componentName} className={extraClasses}>
+            <article data-component={componentName} className={getClassList(extraClasses)}>
                 <h2 className="headline">{headline}</h2>
                 <ul>
                     {

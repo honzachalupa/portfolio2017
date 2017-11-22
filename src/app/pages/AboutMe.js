@@ -68,7 +68,7 @@ export default class AboutMe extends Component {
                             {
                                 socialProfiles.map((profile) => {
                                     return (
-                                        <Button title={profile.name} url={profile.url} />
+                                        <Button key={profile.name} title={profile.name} url={profile.url} />
                                     );
                                 })
                             }
