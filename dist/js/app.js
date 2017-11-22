@@ -37863,7 +37863,7 @@ var TechnologiesOverview = function (_Component) {
 exports.default = TechnologiesOverview;
 
 },{"./../helpers":647,"./Navigation":634,"react":602}],639:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -37871,7 +37871,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37893,24 +37893,25 @@ var Blank = function (_Component) {
     }
 
     _createClass(Blank, [{
-        key: "render",
+        key: 'render',
         value: function render() {
-            var componentName = "ContentBlock_" + this.constructor.name;
+            var componentName = 'ContentBlock_' + this.constructor.name;
             var _props = this.props,
                 headline = _props.headline,
                 text = _props.children,
+                invertedColors = _props.invertedColors,
                 value = _props.value;
 
 
             var headlineBlock = headline ? _react2.default.createElement(
-                "p",
-                { className: "headline" },
+                'p',
+                { className: 'headline' },
                 headline
             ) : null;
 
             return _react2.default.createElement(
-                "article",
-                { "data-component": componentName },
+                'article',
+                { className: invertedColors ? 'inverted-colors' : null, 'data-component': componentName },
                 headlineBlock,
                 value || text
             );
@@ -38953,9 +38954,9 @@ var _ProjectTeaser = require('./../components/content-blocks/ProjectTeaser');
 
 var _ProjectTeaser2 = _interopRequireDefault(_ProjectTeaser);
 
-var _Text = require('./../components/content-blocks/Text');
+var _Blank = require('./../components/content-blocks/Blank');
 
-var _Text2 = _interopRequireDefault(_Text);
+var _Blank2 = _interopRequireDefault(_Blank);
 
 var _ProjectsGrid = require('./../components/content-blocks/ProjectsGrid');
 
@@ -39024,8 +39025,8 @@ var Home = function (_Component) {
                     { config: config, utilities: utilities, collapsedUI: collapsedUI, hasPanel: hasPanel },
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
-                        _Text2.default,
-                        { headline: 'Introduction' },
+                        _Blank2.default,
+                        { invertedColors: true },
                         _react2.default.createElement(
                             'p',
                             { style: { fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 } },
@@ -39067,7 +39068,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/ProjectTeaser":642,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],655:[function(require,module,exports){
+},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ProjectTeaser":642,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../helpers":647,"./../layouts/Main":648,"react":602}],655:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

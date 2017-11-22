@@ -5,7 +5,7 @@ import InvisibleHeadline from './../components/InvisibleHeadline';
 import Button from './../components/Button';
 import ButtonsGroup from './../components/ButtonsGroup';
 import ProjectTeaser from './../components/content-blocks/ProjectTeaser';
-import Text from './../components/content-blocks/Text';
+import Blank from './../components/content-blocks/Blank';
 import ProjectsGrid from './../components/content-blocks/ProjectsGrid';
 import ProjectsGridItem from './../components/content-blocks/ProjectsGrid/Item';
 
@@ -63,7 +63,7 @@ export default class Home extends Component {
                 <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
-                    <Text headline="Introduction">
+                    <Blank invertedColors>
                         <p style={{ fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 }}>
                             <span style={{ fontWeight: 300 }}>Hello and welcome,</span><br />
                             I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...
@@ -73,7 +73,7 @@ export default class Home extends Component {
                             <Button title="Lets take a look at my projects" url="/projects" />
                             <Button title="Get more information about me" url="/about-me" />
                         </ButtonsGroup>
-                    </Text>
+                    </Blank>
 
                     <ProjectTeaser {...latestProject} />
 

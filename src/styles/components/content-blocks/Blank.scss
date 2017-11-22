@@ -25,6 +25,11 @@
         margin-top: 20px;
     }
 
+    &.inverted-colors {
+        background-color: #150c6d;
+        color: white;
+    }
+
     & > .headline {
         width: 100%;
         font-size: 1.8rem;
