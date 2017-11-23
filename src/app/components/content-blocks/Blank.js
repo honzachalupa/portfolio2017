@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import getClassList from './../../modules/class-list';
 
 export default class Blank extends Component {
     render() {
@@ -7,13 +8,19 @@ export default class Blank extends Component {
             headline,
             children: text,
             invertedColors,
+            stretched,
             value
         } = this.props;
 
         const headlineBlock = (headline) ? <p className="headline">{headline}</p> : null;
 
+        const classList = [
+            invertedColors ? 'inverted-colors' : null,
+            stretched ? 'stretched' : null
+        ];
+
         return (
-            <article className={invertedColors ? 'inverted-colors' : null} data-component={componentName}>
+            <article className={getClassList(classList)} data-component={componentName}>
                 {headlineBlock}
                 {value || text}
             </article>

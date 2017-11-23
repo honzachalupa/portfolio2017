@@ -11077,7 +11077,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"./PathUtils":378,"resolve-pathname":620,"value-equal":625}],378:[function(require,module,exports){
+},{"./PathUtils":378,"resolve-pathname":620,"value-equal":624}],378:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -11447,7 +11447,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"./DOMUtils":376,"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"invariant":386,"warning":626}],380:[function(require,module,exports){
+},{"./DOMUtils":376,"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"invariant":386,"warning":625}],380:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -11772,7 +11772,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"./DOMUtils":376,"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"invariant":386,"warning":626}],381:[function(require,module,exports){
+},{"./DOMUtils":376,"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"invariant":386,"warning":625}],381:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -11943,7 +11943,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"warning":626}],382:[function(require,module,exports){
+},{"./LocationUtils":377,"./PathUtils":378,"./createTransitionManager":382,"warning":625}],382:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -12029,7 +12029,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":626}],383:[function(require,module,exports){
+},{"warning":625}],383:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -31491,7 +31491,7 @@ BrowserRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = BrowserRouter;
-},{"./Router":560,"history/createBrowserHistory":379,"prop-types":394,"react":602,"warning":626}],553:[function(require,module,exports){
+},{"./Router":560,"history/createBrowserHistory":379,"prop-types":394,"react":602,"warning":625}],553:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -31560,7 +31560,7 @@ HashRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = HashRouter;
-},{"./Router":560,"history/createHashHistory":380,"prop-types":394,"react":602,"warning":626}],554:[function(require,module,exports){
+},{"./Router":560,"history/createHashHistory":380,"prop-types":394,"react":602,"warning":625}],554:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32009,7 +32009,7 @@ MemoryRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = MemoryRouter;
-},{"./Router":570,"history/createMemoryHistory":381,"prop-types":394,"react":602,"warning":626}],567:[function(require,module,exports){
+},{"./Router":570,"history/createMemoryHistory":381,"prop-types":394,"react":602,"warning":625}],567:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32209,7 +32209,7 @@ Redirect.contextTypes = {
   }).isRequired
 };
 exports.default = Redirect;
-},{"history":383,"invariant":386,"prop-types":394,"react":602,"warning":626}],569:[function(require,module,exports){
+},{"history":383,"invariant":386,"prop-types":394,"react":602,"warning":625}],569:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32362,7 +32362,7 @@ Route.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Route;
-},{"./matchPath":573,"invariant":386,"prop-types":394,"react":602,"warning":626}],570:[function(require,module,exports){
+},{"./matchPath":573,"invariant":386,"prop-types":394,"react":602,"warning":625}],570:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32482,7 +32482,7 @@ Router.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Router;
-},{"invariant":386,"prop-types":394,"react":602,"warning":626}],571:[function(require,module,exports){
+},{"invariant":386,"prop-types":394,"react":602,"warning":625}],571:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32668,7 +32668,7 @@ StaticRouter.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = StaticRouter;
-},{"./Router":570,"history/PathUtils":378,"invariant":386,"prop-types":394,"react":602,"warning":626}],572:[function(require,module,exports){
+},{"./Router":570,"history/PathUtils":378,"invariant":386,"prop-types":394,"react":602,"warning":625}],572:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -32765,7 +32765,7 @@ Switch.propTypes = {
   location: _propTypes2.default.object
 };
 exports.default = Switch;
-},{"./matchPath":573,"invariant":386,"prop-types":394,"react":602,"warning":626}],573:[function(require,module,exports){
+},{"./matchPath":573,"invariant":386,"prop-types":394,"react":602,"warning":625}],573:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36056,7 +36056,7 @@ var ActionTypes = exports.ActionTypes = {
     replaceReducer: replaceReducer
   }, _ref2[_symbolObservable2['default']] = observable, _ref2;
 }
-},{"lodash/isPlainObject":619,"symbol-observable":622}],608:[function(require,module,exports){
+},{"lodash/isPlainObject":619,"symbol-observable":621}],608:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36232,246 +36232,9 @@ function resolvePathname(to) {
 exports.default = resolvePathname;
 module.exports = exports['default'];
 },{}],621:[function(require,module,exports){
-/*!
- * @copyright Copyright (c) 2017 IcoMoon.io
- * @license   Licensed under MIT license
- *            See https://github.com/Keyamoon/svgxuse
- * @version   1.2.4
- */
-/*jslint browser: true */
-/*global XDomainRequest, MutationObserver, window */
-(function () {
-    "use strict";
-    if (typeof window !== "undefined" && window.addEventListener) {
-        var cache = Object.create(null); // holds xhr objects to prevent multiple requests
-        var checkUseElems;
-        var tid; // timeout id
-        var debouncedCheck = function () {
-            clearTimeout(tid);
-            tid = setTimeout(checkUseElems, 100);
-        };
-        var unobserveChanges = function () {
-            return;
-        };
-        var observeChanges = function () {
-            var observer;
-            window.addEventListener("resize", debouncedCheck, false);
-            window.addEventListener("orientationchange", debouncedCheck, false);
-            if (window.MutationObserver) {
-                observer = new MutationObserver(debouncedCheck);
-                observer.observe(document.documentElement, {
-                    childList: true,
-                    subtree: true,
-                    attributes: true
-                });
-                unobserveChanges = function () {
-                    try {
-                        observer.disconnect();
-                        window.removeEventListener("resize", debouncedCheck, false);
-                        window.removeEventListener("orientationchange", debouncedCheck, false);
-                    } catch (ignore) {}
-                };
-            } else {
-                document.documentElement.addEventListener("DOMSubtreeModified", debouncedCheck, false);
-                unobserveChanges = function () {
-                    document.documentElement.removeEventListener("DOMSubtreeModified", debouncedCheck, false);
-                    window.removeEventListener("resize", debouncedCheck, false);
-                    window.removeEventListener("orientationchange", debouncedCheck, false);
-                };
-            }
-        };
-        var createRequest = function (url) {
-            // In IE 9, cross origin requests can only be sent using XDomainRequest.
-            // XDomainRequest would fail if CORS headers are not set.
-            // Therefore, XDomainRequest should only be used with cross origin requests.
-            function getOrigin(loc) {
-                var a;
-                if (loc.protocol !== undefined) {
-                    a = loc;
-                } else {
-                    a = document.createElement("a");
-                    a.href = loc;
-                }
-                return a.protocol.replace(/:/g, "") + a.host;
-            }
-            var Request;
-            var origin;
-            var origin2;
-            if (window.XMLHttpRequest) {
-                Request = new XMLHttpRequest();
-                origin = getOrigin(location);
-                origin2 = getOrigin(url);
-                if (Request.withCredentials === undefined && origin2 !== "" && origin2 !== origin) {
-                    Request = XDomainRequest || undefined;
-                } else {
-                    Request = XMLHttpRequest;
-                }
-            }
-            return Request;
-        };
-        var xlinkNS = "http://www.w3.org/1999/xlink";
-        checkUseElems = function () {
-            var base;
-            var bcr;
-            var fallback = ""; // optional fallback URL in case no base path to SVG file was given and no symbol definition was found.
-            var hash;
-            var href;
-            var i;
-            var inProgressCount = 0;
-            var isHidden;
-            var isXlink = false;
-            var Request;
-            var url;
-            var uses;
-            var xhr;
-            function observeIfDone() {
-                // If done with making changes, start watching for chagnes in DOM again
-                inProgressCount -= 1;
-                if (inProgressCount === 0) { // if all xhrs were resolved
-                    unobserveChanges(); // make sure to remove old handlers
-                    observeChanges(); // watch for changes to DOM
-                }
-            }
-            function attrUpdateFunc(spec) {
-                return function () {
-                    if (cache[spec.base] !== true) {
-                        if (spec.isXlink) {
-                            spec.useEl.setAttributeNS(xlinkNS, "xlink:href", "#" + spec.hash);
-                        } else {
-                            spec.useEl.setAttribute("href", "#" + spec.hash);
-                        }
-                    }
-                };
-            }
-            function onloadFunc(xhr) {
-                return function () {
-                    var body = document.body;
-                    var x = document.createElement("x");
-                    var svg;
-                    xhr.onload = null;
-                    x.innerHTML = xhr.responseText;
-                    svg = x.getElementsByTagName("svg")[0];
-                    if (svg) {
-                        svg.setAttribute("aria-hidden", "true");
-                        svg.style.position = "absolute";
-                        svg.style.width = 0;
-                        svg.style.height = 0;
-                        svg.style.overflow = "hidden";
-                        body.insertBefore(svg, body.firstChild);
-                    }
-                    observeIfDone();
-                };
-            }
-            function onErrorTimeout(xhr) {
-                return function () {
-                    xhr.onerror = null;
-                    xhr.ontimeout = null;
-                    observeIfDone();
-                };
-            }
-            unobserveChanges(); // stop watching for changes to DOM
-            // find all use elements
-            uses = document.getElementsByTagName("use");
-            for (i = 0; i < uses.length; i += 1) {
-                try {
-                    bcr = uses[i].getBoundingClientRect();
-                } catch (ignore) {
-                    // failed to get bounding rectangle of the use element
-                    bcr = false;
-                }
-                href = uses[i].getAttribute("href");
-                if (!href) {
-                    href = uses[i].getAttributeNS(xlinkNS, "href");
-                    isXlink = true;
-                } else {
-                    isXlink = false;
-                }
-                if (href && href.split) {
-                    url = href.split("#");
-                } else {
-                    url = ["", ""];
-                }
-                base = url[0];
-                hash = url[1];
-                isHidden = bcr && bcr.left === 0 && bcr.right === 0 && bcr.top === 0 && bcr.bottom === 0;
-                if (bcr && bcr.width === 0 && bcr.height === 0 && !isHidden) {
-                    // the use element is empty
-                    // if there is a reference to an external SVG, try to fetch it
-                    // use the optional fallback URL if there is no reference to an external SVG
-                    if (fallback && !base.length && hash && !document.getElementById(hash)) {
-                        base = fallback;
-                    }
-                    if (base.length) {
-                        // schedule updating xlink:href
-                        xhr = cache[base];
-                        if (xhr !== true) {
-                            // true signifies that prepending the SVG was not required
-                            setTimeout(attrUpdateFunc({
-                                useEl: uses[i],
-                                base: base,
-                                hash: hash,
-                                isXlink: isXlink
-                            }), 0);
-                        }
-                        if (xhr === undefined) {
-                            Request = createRequest(base);
-                            if (Request !== undefined) {
-                                xhr = new Request();
-                                cache[base] = xhr;
-                                xhr.onload = onloadFunc(xhr);
-                                xhr.onerror = onErrorTimeout(xhr);
-                                xhr.ontimeout = onErrorTimeout(xhr);
-                                xhr.open("GET", base);
-                                xhr.send();
-                                inProgressCount += 1;
-                            }
-                        }
-                    }
-                } else {
-                    if (!isHidden) {
-                        if (cache[base] === undefined) {
-                            // remember this URL if the use element was not empty and no request was sent
-                            cache[base] = true;
-                        } else if (cache[base].onload) {
-                            // if it turns out that prepending the SVG is not necessary,
-                            // abort the in-progress xhr.
-                            cache[base].abort();
-                            delete cache[base].onload;
-                            cache[base] = true;
-                        }
-                    } else if (base.length && cache[base]) {
-                        setTimeout(attrUpdateFunc({
-                            useEl: uses[i],
-                            base: base,
-                            hash: hash,
-                            isXlink: isXlink
-                        }), 0);
-                    }
-                }
-            }
-            uses = "";
-            inProgressCount += 1;
-            observeIfDone();
-        };
-        var winLoad;
-        winLoad = function () {
-            window.removeEventListener("load", winLoad, false); // to prevent memory leaks
-            tid = setTimeout(checkUseElems, 0);
-        };
-        if (document.readyState !== "complete") {
-            // The load event fires when all resources have finished loading, which allows detecting whether SVG use elements are empty.
-            window.addEventListener("load", winLoad, false);
-        } else {
-            // No need to add a listener if the document is already loaded, initialize immediately.
-            winLoad();
-        }
-    }
-}());
-
-},{}],622:[function(require,module,exports){
 module.exports = require('./lib/index');
 
-},{"./lib/index":623}],623:[function(require,module,exports){
+},{"./lib/index":622}],622:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -36504,7 +36267,7 @@ var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./ponyfill":624}],624:[function(require,module,exports){
+},{"./ponyfill":623}],623:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36528,7 +36291,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],625:[function(require,module,exports){
+},{}],624:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -36572,7 +36335,7 @@ function valueEqual(a, b) {
 
 exports.default = valueEqual;
 module.exports = exports['default'];
-},{}],626:[function(require,module,exports){
+},{}],625:[function(require,module,exports){
 /**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -36634,22 +36397,18 @@ if ("development" !== 'production') {
 
 module.exports = warning;
 
-},{}],627:[function(require,module,exports){
+},{}],626:[function(require,module,exports){
 'use strict';
 
 require('babel-polyfill');
 
-require('svgxuse');
-
 var _render = require('./render');
 
-var _axios = require('axios');
+var _api = require('./modules/api');
 
-var _axios2 = _interopRequireDefault(_axios);
+var _experimentalCss = require('./modules/experimental-css');
 
-var _logger = require('./modules/logger');
-
-var _logger2 = _interopRequireDefault(_logger);
+var _experimentalCss2 = _interopRequireDefault(_experimentalCss);
 
 var _Root = require('./components/Root');
 
@@ -36657,59 +36416,31 @@ var _Root2 = _interopRequireDefault(_Root);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apis = [{
-    name: 'config',
-    url: 'http://janchalupa-universalapi.azurewebsites.net/api/portfolio-config'
-}, {
-    name: 'projects',
-    url: 'http://janchalupa-universalapi.azurewebsites.net/api/portfolio-projects'
-}];
-
-var apiData = {};
-
 var app = function app() {
-    getApiData();
+    var apis = [{
+        name: 'config',
+        url: 'https://janchalupa-universalapi.azurewebsites.net/api/portfolio-config'
+    }, {
+        name: 'projects',
+        url: 'https://janchalupa-universalapi.azurewebsites.net/api/portfolio-projects'
+    }];
 
-    var interval = setInterval(function () {
-        if (Object.keys(apiData).length === apis.length) {
-            clearInterval(interval);
+    var apiData = (0, _api.get)(apis);
+
+    var checker = setInterval(function () {
+        if ((0, _api.isLoaded)(apis, apiData)) {
+            clearInterval(checker);
+
+            (0, _experimentalCss2.default)();
 
             (0, _render.render)(_Root2.default, document.querySelector('#app-root'), { apiData: apiData });
-
-            fixExperimentalCss();
         }
-    }, 100);
+    }, 10);
 };
-
-function getApiData() {
-    apis.forEach(function (api) {
-        var name = api.name,
-            url = api.url;
-
-
-        _axios2.default.get(url).then(function (response) {
-            apiData[name] = response.data;
-        }).catch(function (error) {
-            (0, _logger2.default)(error);
-        });
-    });
-}
-
-function fixExperimentalCss() {
-    try {
-        if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
-            var css = '.navigation-overlay {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="Page_Header"] .content .headline,\n                    [data-component="Page_Header"] .content .tags {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        color: white;\n                        text-shadow: 0 0 10px black;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="ContentBlock_Grid"] .company .logo {\n                        border-radius: 0 !important;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    @media (max-width: 679px) {\n                        [data-component="Page_Navigation"].opened {\n                            opacity: 0.9;\n                        }\n                    }\n                    @media (min-width: 680px) {\n                        [data-component="Page_Navigation"] {\n                            background-color: rgba(255, 255, 255, 0.2);\n                            color: white;\n                            text-shadow: 0 0 10px black;\n                            -webkit-backdrop-filter: blur(3px);\n                            backdrop-filter: blur(3px);\n                        }\n\n                        [data-component="Page_Navigation"].pinned {\n                            background-color: rgba(0, 0, 0, 0.1);\n                            color: black;\n                            box-shadow: none;\n                        }\n                    }';
-
-            document.querySelector('head').innerHTML += '<style id="risky-css" data-note="Generated for newer browsers.">' + css + '</style>';
-        }
-    } catch (e) {
-        (0, _logger2.default)(new Error('The CSS.supports feature not supported.'));
-    }
-}
 
 app();
 
-},{"./components/Root":637,"./modules/logger":651,"./render":658,"axios":1,"babel-polyfill":26,"svgxuse":621}],628:[function(require,module,exports){
+},{"./components/Root":636,"./modules/api":648,"./modules/experimental-css":651,"./render":659,"babel-polyfill":26}],627:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36801,7 +36532,7 @@ var Button = function (_Component) {
 
 exports.default = Button;
 
-},{"./../helpers":647,"./../modules/class-list":650,"./../modules/logger":651,"./Navigation":634,"react":602,"react-router-dom":563}],629:[function(require,module,exports){
+},{"./../helpers":646,"./../modules/class-list":650,"./../modules/logger":652,"./Navigation":633,"react":602,"react-router-dom":563}],628:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36870,7 +36601,7 @@ var ButtonsGroup = function (_Component) {
 
 exports.default = ButtonsGroup;
 
-},{"./../modules/class-list":650,"react":602}],630:[function(require,module,exports){
+},{"./../modules/class-list":650,"react":602}],629:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36928,7 +36659,7 @@ var Footer = function (_Component) {
 
 exports.default = Footer;
 
-},{"react":602}],631:[function(require,module,exports){
+},{"react":602}],630:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37041,7 +36772,7 @@ var Header = function (_Component) {
 
 exports.default = Header;
 
-},{"./../helpers":647,"./Navigation":634,"react":602,"react-router-dom":563}],632:[function(require,module,exports){
+},{"./../helpers":646,"./Navigation":633,"react":602,"react-router-dom":563}],631:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37097,7 +36828,7 @@ var InvisibleHeadline = function (_Component) {
 
 exports.default = InvisibleHeadline;
 
-},{"./../helpers":647,"./Navigation":634,"react":602}],633:[function(require,module,exports){
+},{"./../helpers":646,"./Navigation":633,"react":602}],632:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37152,7 +36883,7 @@ var LivePreview = function (_Component) {
 
 exports.default = LivePreview;
 
-},{"react":602}],634:[function(require,module,exports){
+},{"react":602}],633:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37243,7 +36974,7 @@ var Navigation = function (_Component) {
 
 exports.default = Navigation;
 
-},{"react":602,"react-router-dom":563}],635:[function(require,module,exports){
+},{"react":602,"react-router-dom":563}],634:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37295,7 +37026,7 @@ var NavigationButton = function (_Component) {
 
 exports.default = NavigationButton;
 
-},{"react":602}],636:[function(require,module,exports){
+},{"react":602}],635:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37479,7 +37210,7 @@ var ProjectsFilter = function (_Component) {
 
 exports.default = ProjectsFilter;
 
-},{"./../helpers":647,"./Button":628,"./ButtonsGroup":629,"react":602}],637:[function(require,module,exports){
+},{"./../helpers":646,"./Button":627,"./ButtonsGroup":628,"react":602}],636:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37768,7 +37499,7 @@ var Root = function (_Component) {
 
 exports.default = Root;
 
-},{"./../factory":646,"./../helpers":647,"./../modules/aspect-ratio-preserver":649,"./../modules/logger":651,"./../pages/AboutMe":652,"./../pages/Error":653,"./../pages/Home":654,"./../pages/ImageViewer":655,"./../pages/ProjectDetail":656,"./../pages/Projects":657,"immutability-helper":385,"react":602,"react-ga":525,"react-router-dom":563}],638:[function(require,module,exports){
+},{"./../factory":645,"./../helpers":646,"./../modules/aspect-ratio-preserver":649,"./../modules/logger":652,"./../pages/AboutMe":653,"./../pages/Error":654,"./../pages/Home":655,"./../pages/ImageViewer":656,"./../pages/ProjectDetail":657,"./../pages/Projects":658,"immutability-helper":385,"react":602,"react-ga":525,"react-router-dom":563}],637:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37862,7 +37593,7 @@ var TechnologiesOverview = function (_Component) {
 
 exports.default = TechnologiesOverview;
 
-},{"./../helpers":647,"./Navigation":634,"react":602}],639:[function(require,module,exports){
+},{"./../helpers":646,"./Navigation":633,"react":602}],638:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37874,6 +37605,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _classList = require('./../../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37900,6 +37635,7 @@ var Blank = function (_Component) {
                 headline = _props.headline,
                 text = _props.children,
                 invertedColors = _props.invertedColors,
+                stretched = _props.stretched,
                 value = _props.value;
 
 
@@ -37909,9 +37645,11 @@ var Blank = function (_Component) {
                 headline
             ) : null;
 
+            var classList = [invertedColors ? 'inverted-colors' : null, stretched ? 'stretched' : null];
+
             return _react2.default.createElement(
                 'article',
-                { className: invertedColors ? 'inverted-colors' : null, 'data-component': componentName },
+                { className: (0, _classList2.default)(classList), 'data-component': componentName },
                 headlineBlock,
                 value || text
             );
@@ -37923,7 +37661,7 @@ var Blank = function (_Component) {
 
 exports.default = Blank;
 
-},{"react":602}],640:[function(require,module,exports){
+},{"./../../modules/class-list":650,"react":602}],639:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37993,7 +37731,7 @@ var ImageItem = function (_Component) {
 
 exports.default = ImageItem;
 
-},{"react":602,"react-router-dom":563}],641:[function(require,module,exports){
+},{"react":602,"react-router-dom":563}],640:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38087,7 +37825,7 @@ var ImagesGrid = function (_Component) {
 
 exports.default = ImagesGrid;
 
-},{"./../../../modules/class-list":650,"./Item":640,"react":602}],642:[function(require,module,exports){
+},{"./../../../modules/class-list":650,"./Item":639,"react":602}],641:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38188,7 +37926,7 @@ var ProjectTeaser = function (_Component) {
 
 exports.default = ProjectTeaser;
 
-},{"./../Button":628,"react":602}],643:[function(require,module,exports){
+},{"./../Button":627,"react":602}],642:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38285,7 +38023,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":651,"react":602,"react-router-dom":563}],644:[function(require,module,exports){
+},{"./../../../modules/logger":652,"react":602,"react-router-dom":563}],643:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38359,7 +38097,7 @@ var ProjectsGrid = function (_Component) {
 
 exports.default = ProjectsGrid;
 
-},{"./../../../modules/class-list":650,"react":602}],645:[function(require,module,exports){
+},{"./../../../modules/class-list":650,"react":602}],644:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38421,7 +38159,7 @@ var Text = function (_Component) {
 
 exports.default = Text;
 
-},{"react":602}],646:[function(require,module,exports){
+},{"react":602}],645:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38441,7 +38179,7 @@ function factory(fn, containers) {
     });
 }
 
-},{}],647:[function(require,module,exports){
+},{}],646:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38500,7 +38238,7 @@ function getDevelopmentStageLabel(developmentStage, platform) {
     return label;
 }
 
-},{"./modules/logger":651}],648:[function(require,module,exports){
+},{"./modules/logger":652}],647:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38579,28 +38317,60 @@ var Content = function (_Component) {
 
 exports.default = Content;
 
-},{"./../components/Footer":630,"./../components/Header":631,"./../components/NavigationButton":635,"react":602}],649:[function(require,module,exports){
+},{"./../components/Footer":629,"./../components/Header":630,"./../components/NavigationButton":634,"react":602}],648:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.get = get;
+exports.isLoaded = isLoaded;
+
+var _axios = require('axios');
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _logger = require('./logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function get(apis) {
+    var apiData = {};
+
+    apis.forEach(function (api) {
+        var name = api.name,
+            url = api.url;
+
+
+        _axios2.default.get(url).then(function (response) {
+            apiData[name] = response.data;
+        }).catch(function (error) {
+            (0, _logger2.default)(error);
+        });
+    });
+
+    return apiData;
+}
+
+function isLoaded(apis, data) {
+    return Object.keys(data).length === apis.length;
+}
+
+},{"./logger":652,"axios":1}],649:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var aspectRatioPreserver = function aspectRatioPreserver(container) {
-    var aspectRatio = container.dataset.aspectRatio;
-    var aspectRatioMobile = container.dataset.aspectRatioMobile;
-    var ratiosObj = {
-        x: aspectRatio.split(':')[0],
-        y: aspectRatio.split(':')[1]
-    };
+    var _container$dataset = container.dataset,
+        desktop = _container$dataset.aspectRatio,
+        mobile = _container$dataset.aspectRatioMobile;
 
-    var ratiosMobileObj = void 0;
-
-    if (aspectRatioMobile) {
-        ratiosMobileObj = {
-            x: aspectRatioMobile.split(':')[0],
-            y: aspectRatioMobile.split(':')[1]
-        };
-    }
+    var dekstopSet = splitAspectSet(desktop);
+    var mobileSet = mobile ? splitAspectSet(mobile) : dekstopSet;
 
     setAspectRatio();
 
@@ -38610,13 +38380,17 @@ var aspectRatioPreserver = function aspectRatioPreserver(container) {
 
     function setAspectRatio() {
         var width = container.offsetWidth;
-        var height = container.offsetHeight;
 
-        if (window.innerWidth < 680 && aspectRatioMobile) {
-            container.style.height = Math.round(width / ratiosMobileObj.x * ratiosMobileObj.y) + 'px';
-        } else if (aspectRatio) {
-            container.style.height = Math.round(width / ratiosObj.x * ratiosObj.y) + 'px';
-        }
+        var currentSet = window.innerWidth < 680 ? mobileSet : dekstopSet;
+
+        container.style.height = Math.round(width / currentSet.x * currentSet.y) + 'px';
+    }
+
+    function splitAspectSet(set) {
+        return {
+            x: set.split(':')[0],
+            y: set.split(':')[1]
+        };
     }
 };
 
@@ -38639,12 +38413,18 @@ var getClassList = function getClassList() {
     var classList = [];
 
     inputClassList.forEach(function (className) {
-        if (typeof className === 'string' || typeof className === 'number') {
-            classList.push(className);
-        } else if (className && (typeof className === 'undefined' ? 'undefined' : _typeof(className)) === 'object') {
-            var classNameArray = className;
+        if (typeof className === 'string') {
+            var classNameArray = className.split(' ');
 
             classNameArray.forEach(function (className) {
+                classList.push(className);
+            });
+        } else if (typeof className === 'number') {
+            classList.push(className);
+        } else if (className && (typeof className === 'undefined' ? 'undefined' : _typeof(className)) === 'object') {
+            var _classNameArray = className;
+
+            _classNameArray.forEach(function (className) {
                 classList.push(className);
             });
         }
@@ -38656,6 +38436,33 @@ var getClassList = function getClassList() {
 exports.default = getClassList;
 
 },{}],651:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _logger = require('./logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var addExperimentalCss = function addExperimentalCss() {
+    try {
+        if (CSS.supports('backdrop-filter', 'blur()') || CSS.supports('-webkit-backdrop-filter', 'blur()')) {
+            var css = '.navigation-overlay {\n                    background-color: rgba(255, 255, 255, 0.2);\n                    -webkit-backdrop-filter: blur(3px);\n                    backdrop-filter: blur(3px);\n                }\n\n                [data-component="Page_Header"] .content .headline,\n                [data-component="Page_Header"] .content .tags {\n                    background-color: rgba(255, 255, 255, 0.2);\n                    color: white;\n                    text-shadow: 0 0 10px black;\n                    -webkit-backdrop-filter: blur(3px);\n                    backdrop-filter: blur(3px);\n                }\n\n                [data-component="ContentBlock_Grid"] .company .logo {\n                    border-radius: 0 !important;\n                    -webkit-backdrop-filter: blur(3px);\n                    backdrop-filter: blur(3px);\n                }\n\n                @media (max-width: 679px) {\n                    [data-component="Page_Navigation"].opened {\n                        opacity: 0.9;\n                    }\n                }\n                @media (min-width: 680px) {\n                    [data-component="Page_Navigation"] {\n                        background-color: rgba(255, 255, 255, 0.2);\n                        color: white;\n                        text-shadow: 0 0 10px black;\n                        -webkit-backdrop-filter: blur(3px);\n                        backdrop-filter: blur(3px);\n                    }\n\n                    [data-component="Page_Navigation"].pinned {\n                        background-color: rgba(0, 0, 0, 0.1);\n                        color: black;\n                        box-shadow: none;\n                    }\n                }';
+
+            document.querySelector('head').innerHTML += '<style>' + css + '</style>';
+        }
+    } catch (e) {
+        (0, _logger2.default)(new Error('The CSS.supports feature not supported.'));
+    }
+};
+
+exports.default = addExperimentalCss;
+
+},{"./logger":652}],652:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38675,7 +38482,7 @@ var logger = function logger() {
 
 exports.default = logger;
 
-},{}],652:[function(require,module,exports){
+},{}],653:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38814,7 +38621,7 @@ var AboutMe = function (_Component) {
 
 exports.default = AboutMe;
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],653:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/ButtonsGroup":628,"./../components/InvisibleHeadline":631,"./../components/content-blocks/Text":644,"./../helpers":646,"./../layouts/Main":647,"react":602}],654:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38917,7 +38724,7 @@ var Error = function (_Component) {
 
 exports.default = Error;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],654:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/InvisibleHeadline":631,"./../components/content-blocks/Text":644,"./../helpers":646,"./../layouts/Main":647,"react":602}],655:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39026,7 +38833,7 @@ var Home = function (_Component) {
                     _react2.default.createElement(_InvisibleHeadline2.default, { headline: headline }),
                     _react2.default.createElement(
                         _Blank2.default,
-                        { invertedColors: true },
+                        { invertedColors: true, stretched: true },
                         _react2.default.createElement(
                             'p',
                             { style: { fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 } },
@@ -39068,7 +38875,7 @@ var Home = function (_Component) {
 
 exports.default = Home;
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ProjectTeaser":642,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../helpers":647,"./../layouts/Main":648,"react":602}],655:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/ButtonsGroup":628,"./../components/InvisibleHeadline":631,"./../components/content-blocks/Blank":638,"./../components/content-blocks/ProjectTeaser":641,"./../components/content-blocks/ProjectsGrid":643,"./../components/content-blocks/ProjectsGrid/Item":642,"./../helpers":646,"./../layouts/Main":647,"react":602}],656:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39170,7 +38977,7 @@ var ImageViewer = function (_Component) {
 
 exports.default = ImageViewer;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],656:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/InvisibleHeadline":631,"./../components/LivePreview":632,"./../components/content-blocks/ImagesGrid":640,"./../components/content-blocks/Text":644,"./../helpers":646,"./../layouts/Main":647,"react":602}],657:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39320,7 +39127,7 @@ var ProjectDetail = function (_Component) {
 
 exports.default = ProjectDetail;
 
-},{"./../components/Button":628,"./../components/InvisibleHeadline":632,"./../components/LivePreview":633,"./../components/TechnologiesOverview":638,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ImagesGrid":641,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],657:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/InvisibleHeadline":631,"./../components/LivePreview":632,"./../components/TechnologiesOverview":637,"./../components/content-blocks/Blank":638,"./../components/content-blocks/ImagesGrid":640,"./../components/content-blocks/Text":644,"./../helpers":646,"./../layouts/Main":647,"react":602}],658:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39574,7 +39381,7 @@ function filterByTag(project, tag) {
     return null;
 }
 
-},{"./../components/Button":628,"./../components/ButtonsGroup":629,"./../components/InvisibleHeadline":632,"./../components/ProjectsFilter":636,"./../components/content-blocks/Blank":639,"./../components/content-blocks/ProjectsGrid":644,"./../components/content-blocks/ProjectsGrid/Item":643,"./../components/content-blocks/Text":645,"./../helpers":647,"./../layouts/Main":648,"react":602}],658:[function(require,module,exports){
+},{"./../components/Button":627,"./../components/ButtonsGroup":628,"./../components/InvisibleHeadline":631,"./../components/ProjectsFilter":635,"./../components/content-blocks/Blank":638,"./../components/content-blocks/ProjectsGrid":643,"./../components/content-blocks/ProjectsGrid/Item":642,"./../components/content-blocks/Text":644,"./../helpers":646,"./../layouts/Main":647,"react":602}],659:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -39621,6 +39428,6 @@ function renderFactory(Component, containers) {
     });
 }
 
-},{"react":602,"react-dom":397,"react-redux":536}]},{},[627])
+},{"react":602,"react-dom":397,"react-redux":536}]},{},[626])
 
 //# sourceMappingURL=app.js.map

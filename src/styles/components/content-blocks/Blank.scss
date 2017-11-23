@@ -25,6 +25,16 @@
         margin-top: 20px;
     }
 
+    &.stretched {
+        @media (min-width: 800px) AND (max-width: 1199px) {
+            $margin: 12px;
+
+            width: calc(100% + (2 * #{$margin}));
+            margin-left: -$margin;
+            margin-right: -$margin;
+        }
+    }
+
     &.inverted-colors {
         background-color: $accent-color;
         color: white;

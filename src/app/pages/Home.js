@@ -63,7 +63,7 @@ export default class Home extends Component {
                 <ContentLayout config={config} utilities={utilities} collapsedUI={collapsedUI} hasPanel={hasPanel}>
                     <InvisibleHeadline headline={headline} />
 
-                    <Blank invertedColors>
+                    <Blank invertedColors stretched>
                         <p style={{ fontSize: '1.4rem', fontWeight: 200, textAlign: 'center', marginTop: 20, marginBottom: 15 }}>
                             <span style={{ fontWeight: 300 }}>Hello and welcome,</span><br />
                             I'm 24 years old Front-End Developer based in Prague, Czech Republic. And this is my portoflio...

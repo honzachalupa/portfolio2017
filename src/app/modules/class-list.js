@@ -2,7 +2,13 @@ const getClassList = (...inputClassList) => {
     const classList = [];
 
     inputClassList.forEach((className) => {
-        if (typeof className === 'string' || typeof className === 'number') {
+        if (typeof className === 'string') {
+            const classNameArray = className.split(' ');
+
+            classNameArray.forEach((className) => {
+                classList.push(className);
+            });
+        } else if (typeof className === 'number') {
             classList.push(className);
         } else if (className && typeof className === 'object') {
             const classNameArray = className;
