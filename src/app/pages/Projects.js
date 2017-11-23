@@ -46,8 +46,18 @@ export default class Projects extends Component {
     }
 
     render() {
-        const { id, headline, collapsedUI, hasPanel, filter } = this.state;
-        const { config, utilities, projects } = this.props;
+        const {
+            id,
+            headline,
+            collapsedUI,
+            hasPanel,
+            filter
+        } = this.state;
+        const {
+            config,
+            utilities,
+            projects
+        } = this.props;
 
         return (
             <div id={id} data-component="Page">
@@ -78,7 +88,10 @@ export default class Projects extends Component {
 }
 
 const FilteredProjects = (props) => {
-    const { projects, filter } = props;
+    const {
+        projects,
+        filter
+    } = props;
     const { tag } = filter;
     const projectsFiltered = tag ? projects.filter((project) => filterByTag(project, tag)) : projects;
 
@@ -91,7 +104,10 @@ const FilteredProjects = (props) => {
 };
 
 const BlockWebApps = (props) => {
-    const { projects, filter } = props;
+    const {
+        projects,
+        filter
+    } = props;
 
     if (filter.type === 'all' || filter.type === 'web') {
         const projectsFiltered = projects.filter((project) => filterByType(project, 'web'));
@@ -115,7 +131,10 @@ const BlockWebApps = (props) => {
 };
 
 const BlockNativeApps = (props) => {
-    const { projects, filter } = props;
+    const {
+        projects,
+        filter
+    } = props;
 
     if (filter.type === 'all' || filter.type === 'native') {
         const projectsFiltered = projects.filter((project) => filterByType(project, 'native'));

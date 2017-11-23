@@ -1,6 +1,6 @@
 import logger from './modules/logger';
 
-export function getRandomRange(min, max) {
+export function getRandomRange(min = 0, max) {
     return Math.round((Math.random() * (max - min)) + min);
 }
 
@@ -10,8 +10,8 @@ export function setPageTitle(title) {
         'Honza Chalupa portfolio';
 }
 
-export function capitalize(text) {
-    return text.replace(/\b\w/g, l => l.toUpperCase());
+export function capitalize(value) {
+    return value.replace(/\b\w/g, firstLetter => firstLetter.toUpperCase());
 }
 
 export function getDevelopmentStageLabel(developmentStage, platform) {
@@ -22,16 +22,10 @@ export function getDevelopmentStageLabel(developmentStage, platform) {
 
         switch (developmentStage) {
             case 'unsupported':
-                label = {
-                    value: `${capitalize(projectType)} is not supported anymore.`,
-                    color: 'red'
-                };
+                label = `Unfortunately this ${projectType} is not supported anymore.`;
                 break;
             case 'in-development':
-                label = {
-                    value: `${capitalize(projectType)} is currently in development phase.`,
-                    color: 'green'
-                };
+                label = `This ${projectType} is currently in development phase.`;
                 break;
             default:
                 logger(`Undefined development stage label: ${developmentStage}.`);

@@ -68,17 +68,11 @@
 
         .development-stage {
             width: 100%;
+            color: red;
             font-size: 0.9rem;
-            margin-bottom: 10px;
+            font-weight: 400;
+            margin-top: 10px;
             float: left;
-
-            &.green {
-                color: #150c6d;
-            }
-
-            &.red {
-                color: red;
-            }
         }
     }
 }

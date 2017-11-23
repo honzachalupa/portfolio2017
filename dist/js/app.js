@@ -38189,7 +38189,10 @@ var _logger2 = _interopRequireDefault(_logger);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function getRandomRange(min, max) {
+function getRandomRange() {
+    var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var max = arguments[1];
+
     return Math.round(Math.random() * (max - min) + min);
 }
 
@@ -38197,9 +38200,9 @@ function setPageTitle(title) {
     document.title = title ? title + ' | Honza Chalupa portfolio' : 'Honza Chalupa portfolio';
 }
 
-function capitalize(text) {
-    return text.replace(/\b\w/g, function (l) {
-        return l.toUpperCase();
+function capitalize(value) {
+    return value.replace(/\b\w/g, function (firstLetter) {
+        return firstLetter.toUpperCase();
     });
 }
 
@@ -38211,16 +38214,10 @@ function getDevelopmentStageLabel(developmentStage, platform) {
 
         switch (developmentStage) {
             case 'unsupported':
-                label = {
-                    value: capitalize(projectType) + ' is not supported anymore.',
-                    color: 'red'
-                };
+                label = 'Unfortunately this ' + projectType + ' is not supported anymore.';
                 break;
             case 'in-development':
-                label = {
-                    value: capitalize(projectType) + ' is currently in development phase.',
-                    color: 'green'
-                };
+                label = 'This ' + projectType + ' is currently in development phase.';
                 break;
             default:
                 (0, _logger2.default)('Undefined development stage label: ' + developmentStage + '.');
@@ -39075,12 +39072,11 @@ var ProjectDetail = function (_Component) {
                 utilities = _props.utilities;
 
 
-            var developmentStageLabel = (0, _helpers.getDevelopmentStageLabel)(project.developmentStage, project.platform);
-
-            var developmentStageBlock = project.developmentStage !== 'released' ? _react2.default.createElement(
+            var developmentStageBlock = project.developmentStage !== 'released' ? // To-do: make "developmentStage" field not required
+            _react2.default.createElement(
                 'p',
-                { className: 'development-stage ' + developmentStageLabel.color },
-                developmentStageLabel.value
+                { className: 'development-stage' },
+                (0, _helpers.getDevelopmentStageLabel)(project.developmentStage, project.platform)
             ) : null;
 
             var buttonBlock = project.url ? _react2.default.createElement(_Button2.default, { title: 'Visit website', url: project.url }) : null;
