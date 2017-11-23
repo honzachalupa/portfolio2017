@@ -38626,31 +38626,31 @@ exports.default = aspectRatioPreserver;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var getClassList = function getClassList() {
-  for (var _len = arguments.length, inputClassList = Array(_len), _key = 0; _key < _len; _key++) {
-    inputClassList[_key] = arguments[_key];
-  }
-
-  var classList = [];
-
-  inputClassList.forEach(function (className) {
-    if (typeof className === 'string' || typeof className === 'number') {
-      classList.push(className);
-    } else if (className && (typeof className === 'undefined' ? 'undefined' : _typeof(className)) === 'object') {
-      var classNameArray = className;
-
-      classNameArray.forEach(function (className) {
-        classList.push(className);
-      });
+    for (var _len = arguments.length, inputClassList = Array(_len), _key = 0; _key < _len; _key++) {
+        inputClassList[_key] = arguments[_key];
     }
-  });
 
-  return classList.join(' ');
+    var classList = [];
+
+    inputClassList.forEach(function (className) {
+        if (typeof className === 'string' || typeof className === 'number') {
+            classList.push(className);
+        } else if (className && (typeof className === 'undefined' ? 'undefined' : _typeof(className)) === 'object') {
+            var classNameArray = className;
+
+            classNameArray.forEach(function (className) {
+                classList.push(className);
+            });
+        }
+    });
+
+    return classList.join(' ');
 };
 
 exports.default = getClassList;

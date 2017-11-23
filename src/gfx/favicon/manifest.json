@@ -1,5 +1,6 @@
 {
     "name": "Honza Chalupa portoflio",
+    "short_name": "Honza Chalupa",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,6 +14,6 @@
         }
     ],
     "theme_color": "#150c6d",
-    "background_color": "#150c6d",
+    "background_color": "#fff",
     "display": "standalone"
 }
