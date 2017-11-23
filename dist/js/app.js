@@ -37015,7 +37015,7 @@ var NavigationButton = function (_Component) {
             var navigationToggler = utilities.navigationToggler;
 
 
-            return _react2.default.createElement('button', { className: '' + (navigationOpened ? 'opened' : ''), onClick: function onClick() {
+            return _react2.default.createElement('button', { className: '' + (navigationOpened ? 'opened' : null), onClick: function onClick() {
                     return navigationToggler();
                 }, 'data-component': componentName });
         }
@@ -37945,6 +37945,10 @@ var _logger = require('./../../../modules/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
+var _classList = require('./../../../modules/class-list');
+
+var _classList2 = _interopRequireDefault(_classList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37976,19 +37980,8 @@ var Item = function (_Component) {
 
 
             var descriptionCleaned = description.replace(/<.+?>/g, '');
-            var image = void 0;
 
-            if (typeof previewImage === 'string') {
-                var url = previewImage;
-
-                image = {
-                    url: url,
-                    description: null,
-                    aspectRatio: 'landscape'
-                };
-            } else {
-                image = previewImage;
-            }
+            var image = typeof previewImage === 'string' ? { url: previewImage, description: null, aspectRatio: 'landscape' } : previewImage;
 
             var companyBlock = company ? _react2.default.createElement('img', { src: company.logo, className: 'company-logo', alt: company.name + ' logo' }) : null;
 
@@ -38000,7 +37993,7 @@ var Item = function (_Component) {
                     { to: '/projects/' + id, title: 'Show details for ' + name + ' project' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'image ' + image.aspectRatio, style: { backgroundImage: 'url(\'' + image.url + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
+                        { className: (0, _classList2.default)('image', image.aspectRatio), style: { backgroundImage: 'url(\'' + image.url + '\')' }, 'data-aspect-ratio': '3:2', 'data-aspect-ratio-mobile': '16:10' },
                         companyBlock
                     ),
                     _react2.default.createElement(
@@ -38010,7 +38003,7 @@ var Item = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'p',
-                        { className: 'description ' + (descriptionCleaned.length > 160 ? 'fadeout' : '') },
+                        { className: (0, _classList2.default)('description', descriptionCleaned.length > 160 ? 'fadeout' : null) },
                         descriptionCleaned
                     )
                 )
@@ -38023,7 +38016,7 @@ var Item = function (_Component) {
 
 exports.default = Item;
 
-},{"./../../../modules/logger":652,"react":602,"react-router-dom":563}],643:[function(require,module,exports){
+},{"./../../../modules/class-list":650,"./../../../modules/logger":652,"react":602,"react-router-dom":563}],643:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

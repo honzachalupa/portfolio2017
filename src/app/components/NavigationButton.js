@@ -11,7 +11,7 @@ export default class NavigationButton extends Component {
         const { navigationToggler } = utilities;
 
         return (
-            <button className={`${navigationOpened ? 'opened' : ''}`} onClick={() => navigationToggler()} data-component={componentName} />
+            <button className={`${navigationOpened ? 'opened' : null}`} onClick={() => navigationToggler()} data-component={componentName} />
         );
     }
 }

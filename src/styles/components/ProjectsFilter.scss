@@ -13,6 +13,12 @@
 
             button {
                 margin-bottom: 0;
+
+                @media (max-width: 680px) {
+                    &:nth-of-type(n+15) {
+                        display: none;
+                    }
+                }
             }
         }
     }
