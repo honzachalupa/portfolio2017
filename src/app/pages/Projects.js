@@ -55,10 +55,10 @@ export default class Projects extends Component {
                     <InvisibleHeadline headline={headline} />
 
                     <Text headline="My projects">
-                        <p>Last year and few months I'm working full-time for Actum company.</p>
-                        <p>Together we've done many significant projects like Innogy Product Finder and Intranet projects. When I've worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.</p>
+                        <p>Together with Actum company we've done many significant projects like Innogy's Product Finder and Intranet projects. When I've worked on Product Finder project I worked for a six months on-site in Essen, Germany and it was a great experience.</p>
                         <p>I've also worked on many other projects with Actum like Makro (Metro), Raiffeisenbank, Komerční bank but these were just a short-time cooperations.</p>
-                        <p>Please visit also my GitHub page (I'm gradually adding all personal projects there).</p>
+                        <p>Please visit also my GitHub page (I'm gradually adding most of my personal projects there).</p>
+
                         <Button title="GitHub" url="https://github.com/honzachalupa" />
                     </Text>
 

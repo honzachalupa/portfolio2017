@@ -39251,12 +39251,7 @@ var Projects = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'Last year and few months I\'m working full-time for Actum company.'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            null,
-                            'Together we\'ve done many significant projects like Innogy Product Finder and Intranet projects. When I\'ve worked at Product Finder project worked for a six months on-site in Essen, Germany and it was a gtreat experience.'
+                            'Together with Actum company we\'ve done many significant projects like Innogy\'s Product Finder and Intranet projects. When I\'ve worked on Product Finder project I worked for a six months on-site in Essen, Germany and it was a great experience.'
                         ),
                         _react2.default.createElement(
                             'p',
@@ -39266,7 +39261,7 @@ var Projects = function (_Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'Please visit also my GitHub page (I\'m gradually adding all personal projects there).'
+                            'Please visit also my GitHub page (I\'m gradually adding most of my personal projects there).'
                         ),
                         _react2.default.createElement(_Button2.default, { title: 'GitHub', url: 'https://github.com/honzachalupa' })
                     ),
