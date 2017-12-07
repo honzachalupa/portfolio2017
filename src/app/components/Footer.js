@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Footer extends Component {
     render() {
-        const componentName = `Page_${this.constructor.name}`;
-
         const {
             collapsed,
             config
@@ -12,7 +10,7 @@ export default class Footer extends Component {
         const { contactInfo } = config;
 
         return (
-            <footer className={collapsed ? 'collapsed' : null} data-component={componentName}>
+            <footer className={collapsed ? 'collapsed' : null} data-component="Page_Footer">
                 <a href="/">{contactInfo.credits}</a>
             </footer>
         );

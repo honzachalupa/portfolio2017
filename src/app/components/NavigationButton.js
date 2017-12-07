@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 export default class NavigationButton extends Component {
     render() {
-        const componentName = `Page_${this.constructor.name}`;
         const {
             config,
             utilities
@@ -11,7 +10,7 @@ export default class NavigationButton extends Component {
         const { navigationToggler } = utilities;
 
         return (
-            <button className={`${navigationOpened ? 'opened' : null}`} onClick={() => navigationToggler()} data-component={componentName} />
+            <button className={`${navigationOpened ? 'opened' : null}`} onClick={() => navigationToggler()} data-component="Page_NavigationButton" />
         );
     }
 }

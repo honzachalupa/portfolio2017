@@ -3,7 +3,6 @@ import Button from './../Button';
 
 export default class ProjectTeaser extends Component {
     render() {
-        const componentName = `ContentBlock_${this.constructor.name}`;
         const {
             id,
             name,
@@ -30,7 +29,7 @@ export default class ProjectTeaser extends Component {
         ) : null;
 
         return (
-            <article data-component={componentName}>
+            <article data-component="ContentBlock_ProjectTeaser">
                 <h2 className="headline">Latest Project</h2>
                 <a className="image" href={`/projects/${id}`} style={{ backgroundImage: `url('${previewImage}')` }} title="Show project details" data-aspect-ratio="4:3" data-aspect-ratio-mobile="16:10">&nbsp;</a>
                 <div className="text-section">

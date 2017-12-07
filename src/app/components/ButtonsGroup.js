@@ -3,7 +3,6 @@ import getClassList from './../modules/class-list';
 
 export default class ButtonsGroup extends Component {
     render() {
-        const componentName = this.constructor.name;
         const {
             headline,
             children: buttons,
@@ -16,7 +15,7 @@ export default class ButtonsGroup extends Component {
             null;
 
         return (
-            <div className={getClassList(extraClasses, alignment)} data-component={componentName}>
+            <div className={getClassList(extraClasses, alignment)} data-component="ButtonsGroup">
                 {headlineBlock}
                 <div className="alignment">
                     {buttons}

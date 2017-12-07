@@ -20,8 +20,6 @@ export default class ImagesGrid extends Component {
     }
 
     render() {
-        const componentName = `ContentBlock_${this.constructor.name}`;
-
         const {
             headline,
             images: imagesUnfilled,
@@ -31,7 +29,7 @@ export default class ImagesGrid extends Component {
         const images = this.completeImagesDefinition(imagesUnfilled);
 
         return (
-            <article data-component={componentName} className={getClassList(extraClasses)}>
+            <article data-component="ContentBlock_ImagesGrid" className={getClassList(extraClasses)}>
                 <h2 className="headline">{headline}</h2>
                 <ul>
                     {

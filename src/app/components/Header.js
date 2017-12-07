@@ -16,7 +16,7 @@ export default class Header extends Component {
     }
 
     render() {
-        const componentName = `Page_${this.constructor.name}`;
+        const componentName = 'Page_Header';
         const {
             imageUrl,
             tags

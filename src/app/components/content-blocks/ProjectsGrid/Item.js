@@ -5,8 +5,6 @@ import getClassList from './../../../modules/class-list';
 
 export default class Item extends Component {
     render() {
-        const componentName = `ContentBlock_ProjectsGrid${this.constructor.name}`;
-
         const {
             id,
             name,
@@ -26,7 +24,7 @@ export default class Item extends Component {
             null;
 
         return (
-            <li data-component={componentName}>
+            <li data-component="ContentBlock_ProjectsGridItem">
                 <Link to={`/projects/${id}`} title={`Show details for ${name} project`}>
                     <div className={getClassList('image', image.aspectRatio)} style={{ backgroundImage: `url('${image.url}')` }} data-aspect-ratio="3:2" data-aspect-ratio-mobile="16:10">
                         {companyBlock}

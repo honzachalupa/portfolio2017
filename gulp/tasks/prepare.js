@@ -1,13 +1,13 @@
 const config = require('../config');
-const DEVELOPMENT = config.environment.isDevelopment;
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
+const DEVELOPMENT = config.environment.isDevelopment;
+const devSequence = ['clean', ['images', 'svg', 'styles', 'js'], 'tpl'];
 
-// TODO run browserSync after all tasks finished
-const devSequence = ['clean', ['images', 'svg', 'styles', 'js'], 'tpl', 'styleguide', 'copySgAssets'];
 if (config.environment.isApi) {
     devSequence.push('api');
 }
+
 const buildSequence = devSequence;
 const sequence = DEVELOPMENT ? devSequence : buildSequence;
 

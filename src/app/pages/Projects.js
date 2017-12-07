@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import factory from './../factory';
+import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 import { setPageTitle } from './../helpers';
 import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';
@@ -31,6 +33,10 @@ export default class Projects extends Component {
 
         setPageTitle(this.state.headline);
         setNavigationItem(this.state.id);
+    }
+
+    componentDidUpdate() {
+        factory(aspectRatioPreserver, document.querySelectorAll('[data-aspect-ratio]'));
     }
 
     changeFilter(filter, filterBy) {

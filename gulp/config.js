@@ -19,7 +19,7 @@ const
     CSS_ENTRY = `${CSS_BASE}/main.scss`,
     CSS_ALL = `${CSS_BASE}/**/*.scss`,
     CSS_BUILD = `${BUILD_BASE}/css`,
-    CSS_TPL_PATH = '/css',
+    CSS_TPL_PATH = 'css',
 
     /* JavaScript */
     JS_BASE = `${DEVELOPMENT_BASE}/app`,
@@ -28,12 +28,12 @@ const
     JS_ALL = `${JS_BASE}/**/*.js`,
     JS_VENDOR_ALL = `${JS_BASE}/vendor/**/*.js`,
     JS_BUILD = `${BUILD_BASE}/js`,
-    JS_TPL_PATH = '/js',
+    JS_TPL_PATH = 'js',
 
     /* GFX */
     GFX_BASE = `${DEVELOPMENT_BASE}/gfx`,
     GFX_BUILD = `${BUILD_BASE}/gfx`,
-    GFX_TPL_PATH = '/gfx',
+    GFX_TPL_PATH = 'gfx',
 
     /* SVG */
     SVG_BASE = `${GFX_BASE}/svg`,
@@ -70,18 +70,6 @@ const
     /* HTML */
     HTML_ALL = `${DEVELOPMENT_BASE}/*.html`,
     HTML_BUILD = `${BUILD_BASE}/*.html`,
-
-    /* Styleguide */
-    STYLEGUIDE_BASE = './styleguide',
-    STYLEGUIDE_HOMEPAGE = `../../styleguide.md`,
-    STYLEGUIDE_DEST = `${STYLEGUIDE_BASE}/styleguide`,
-    STYLEGUIDE_TEMPLATE = `${NPM}/styleguide/dist`,
-
-    // deploy
-    DEPLOY_HOST = '',
-    DEPLOY_USERNAME = '',
-    DEPLOY_PASSWORD = '',
-    DEPLOY_DEST = '/home/deploy/packages',
 
     // api
     API = `${DEVELOPMENT_BASE}/api/api.js`,
@@ -132,16 +120,6 @@ module.exports = {
     TEMPLATE_ALL,
     HTML_ALL,
     HTML_BUILD,
-
-    STYLEGUIDE_BASE,
-    STYLEGUIDE_HOMEPAGE,
-    STYLEGUIDE_DEST,
-    STYLEGUIDE_TEMPLATE,
-
-    DEPLOY_HOST,
-    DEPLOY_USERNAME,
-    DEPLOY_PASSWORD,
-    DEPLOY_DEST,
 
     API,
     API_PORT

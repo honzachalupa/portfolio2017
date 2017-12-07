@@ -5,8 +5,6 @@ import NavigationButton from './../components/NavigationButton';
 
 export default class Content extends Component {
     render() {
-        const componentName = `Layout_${this.constructor.name}`;
-
         const {
             config,
             utilities,
@@ -23,7 +21,7 @@ export default class Content extends Component {
         } = utilities;
 
         return (
-            <div data-component={componentName}>
+            <div data-component="Layout_Content">
                 <button className={`navigation-overlay ${navigationOpened ? 'visible' : ''}`} onClick={() => navigationToggler(true)} />
                 <NavigationButton config={config} utilities={utilities} />
 

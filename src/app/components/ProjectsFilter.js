@@ -86,7 +86,6 @@ export default class ProjectsFilter extends Component {
     }
 
     render() {
-        const componentName = this.constructor.name;
         const {
             changeFilter,
             alignment,
@@ -131,7 +130,7 @@ export default class ProjectsFilter extends Component {
         };
 
         return (
-            <div data-component={componentName}>
+            <div data-component="ProjectsFilter">
                 <TypesBlock />
                 <TagsBlock />
 

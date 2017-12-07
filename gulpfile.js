@@ -7,6 +7,5 @@ const requireDir = require('require-dir');
 
 requireDir('./gulp/tasks');
 
-/* API */
 gulp.task('default', ['serve']);
 gulp.task('build', ['prepare']);

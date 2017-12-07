@@ -7,8 +7,6 @@ export default class Navigation extends Component {
     }
 
     render() {
-        const componentName = `Page_${this.constructor.name}`;
-
         const {
             config,
             utilities
@@ -24,7 +22,7 @@ export default class Navigation extends Component {
         } = utilities;
 
         return (
-            <div className={`${(navigationOpened) ? 'opened' : ''}`} data-component={componentName}>
+            <div className={`${(navigationOpened) ? 'opened' : ''}`} data-component="Page_Navigation">
                 {
                     navigationItems.map((item) => {
                         const url = item.url || `/${this.createUrlComponent(item.label)}`;

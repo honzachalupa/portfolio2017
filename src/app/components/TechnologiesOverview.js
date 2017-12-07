@@ -4,8 +4,6 @@ import Navigation from './Navigation';
 
 export default class TechnologiesOverview extends Component {
     render() {
-        const componentName = `Page_${this.constructor.name}`;
-
         const {
             tags,
             config
@@ -42,7 +40,7 @@ export default class TechnologiesOverview extends Component {
         }
 
         return (
-            <div data-component={componentName}>
+            <div data-component="TechnologiesOverview">
                 {technologiesBlock}
             </div>
         );

@@ -3,7 +3,6 @@ import getClassList from './../../modules/class-list';
 
 export default class Blank extends Component {
     render() {
-        const componentName = `ContentBlock_${this.constructor.name}`;
         const {
             headline,
             children: text,
@@ -20,7 +19,7 @@ export default class Blank extends Component {
         ];
 
         return (
-            <article className={getClassList(classList)} data-component={componentName}>
+            <article className={getClassList(classList)} data-component="ContentBlock_Blank">
                 {headlineBlock}
                 {value || text}
             </article>

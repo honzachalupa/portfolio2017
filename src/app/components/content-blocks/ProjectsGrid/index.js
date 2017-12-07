@@ -3,7 +3,6 @@ import getClassList from './../../../modules/class-list';
 
 export default class ProjectsGrid extends Component {
     render() {
-        const componentName = `ContentBlock_${this.constructor.name}`;
         const {
             headline,
             description,
@@ -16,7 +15,7 @@ export default class ProjectsGrid extends Component {
             null;
 
         return (
-            <article data-component={componentName} className={getClassList(extraClasses)}>
+            <article data-component="ContentBlock_ProjectsGrid" className={getClassList(extraClasses)}>
                 <h2 className="headline">{headline}</h2>
                 {descriptionBlock}
                 <ul>

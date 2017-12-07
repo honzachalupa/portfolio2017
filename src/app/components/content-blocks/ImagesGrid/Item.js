@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default class ImageItem extends Component {
     render() {
-        const componentName = `ContentBlock_Grid${this.constructor.name}`;
-
         const {
             description,
             url,
@@ -17,7 +15,7 @@ export default class ImageItem extends Component {
         const aspectRatioMobile = aspectRatio === 'portrait' ? '10:16' : '16:10';
 
         return (
-            <li data-component={componentName}>
+            <li data-component="ContentBlock_GridImageItem">
                 <Link to={`../image/${imageId}`} title={description}>
                     <div className="image" style={{ backgroundImage: `url('${url}')` }} data-aspect-ratio={aspectRatioDesktop} data-aspect-ratio-mobile={aspectRatioMobile} />
                     <p className="description">{description}</p>

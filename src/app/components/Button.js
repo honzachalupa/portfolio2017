@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 
 export default class Button extends Component {
     render() {
-        const componentName = this.constructor.name;
+        const componentName = 'Button';
         const {
             title,
             url,

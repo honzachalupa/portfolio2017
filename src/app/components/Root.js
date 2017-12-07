@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import factory from './../factory';
+import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import log from './../modules/logger';
@@ -9,8 +11,6 @@ import AboutMePage from './../pages/AboutMe';
 import ProjectDetailPage from './../pages/ProjectDetail';
 import ImageViewerPage from './../pages/ImageViewer';
 import ErrorPage from './../pages/Error';
-import factory from './../factory';
-import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 import GoogleAnalytics from 'react-ga';
 
 export default class Root extends Component {
@@ -109,7 +109,7 @@ export default class Root extends Component {
             screenBreakpoint
         } = this.state.config;
 
-        if (windowDimensions.width < screenBreakpoint) {
+        if (windowDimensions && windowDimensions.width < screenBreakpoint) {
             this.setState({
                 config: update(this.state.config, {
                     $merge: {
@@ -152,7 +152,7 @@ export default class Root extends Component {
     }
 
     render() {
-        if (this.state && this.state.config && this.state.utilities && this.state.config) {
+        if (this.state && this.state.config && this.state.utilities) {
             const {
                 config,
                 utilities,
@@ -201,6 +201,10 @@ export default class Root extends Component {
             );
         }
 
-        return null;
+        return (
+            <div>
+                Loading...
+            </div>
+        );
     }
 }
