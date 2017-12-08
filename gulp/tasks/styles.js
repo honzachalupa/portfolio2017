@@ -27,12 +27,12 @@ gulp.task('styles', ['stylelint'], () => {
         .pipe(sassGlob())
         .pipe(sourcemaps.init())
         .pipe(sass())
-            .on('error', sass.logError)
+        .on('error', sass.logError)
         .pipe(postcss(postcssPlugins))
         .pipe(gulpif(DEVELOPMENT, sourcemaps.write()))
-        .pipe(gulp.dest(config.CSS_BUILD))
+        .pipe(gulpif(DEVELOPMENT, gulp.dest(config.CSS_BUILD)))
         .pipe(gulpif(DEVELOPMENT, browserSync.stream()))
         .pipe(gulpif(PRODUCTION, postcss(postcssDistPlugins)))
-        .pipe(gulpif(PRODUCTION, rename({ suffix: '.min' })))
+        // .pipe(gulpif(PRODUCTION, rename({ suffix: '.min' })))
         .pipe(gulpif(PRODUCTION, gulp.dest(config.CSS_BUILD)));
 });
