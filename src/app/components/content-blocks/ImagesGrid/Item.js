@@ -15,7 +15,7 @@ export default class ImageItem extends Component {
         const aspectRatioMobile = aspectRatio === 'portrait' ? '10:16' : '16:10';
 
         return (
-            <li data-component="ContentBlock_GridImageItem">
+            <li data-component="ContentBlock_GridImageItem" role="article">
                 <Link to={`../image/${imageId}`} title={description}>
                     <div className="image" style={{ backgroundImage: `url('${url}')` }} data-aspect-ratio={aspectRatioDesktop} data-aspect-ratio-mobile={aspectRatioMobile} />
                     <p className="description">{description}</p>

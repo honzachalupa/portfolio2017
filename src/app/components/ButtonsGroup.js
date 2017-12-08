@@ -15,7 +15,7 @@ export default class ButtonsGroup extends Component {
             null;
 
         return (
-            <div className={getClassList(extraClasses, alignment)} data-component="ButtonsGroup">
+            <div className={getClassList(extraClasses, alignment)} data-component="ButtonsGroup" role="group">
                 {headlineBlock}
                 <div className="alignment">
                     {buttons}

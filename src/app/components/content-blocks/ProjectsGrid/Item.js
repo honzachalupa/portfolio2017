@@ -24,7 +24,7 @@ export default class Item extends Component {
             null;
 
         return (
-            <li data-component="ContentBlock_ProjectsGridItem">
+            <li data-component="ContentBlock_ProjectsGridItem" role="article">
                 <Link to={`/projects/${id}`} title={`Show details for ${name} project`}>
                     <div className={getClassList('image', image.aspectRatio)} style={{ backgroundImage: `url('${image.url}')` }} data-aspect-ratio="3:2" data-aspect-ratio-mobile="16:10">
                         {companyBlock}

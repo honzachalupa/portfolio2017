@@ -26,7 +26,10 @@ export default class Header extends Component {
             utilities,
             collapsed
         } = this.props;
-        const { title } = config;
+        const {
+            title,
+            scrolledDistance
+        } = config;
 
         if (!collapsed) {
             return (

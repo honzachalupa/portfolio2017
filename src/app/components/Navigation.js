@@ -22,7 +22,7 @@ export default class Navigation extends Component {
         } = utilities;
 
         return (
-            <div className={`${(navigationOpened) ? 'opened' : ''}`} data-component="Page_Navigation">
+            <div className={`${(navigationOpened) ? 'opened' : ''}`} data-component="Page_Navigation" role="navigation">
                 {
                     navigationItems.map((item) => {
                         const url = item.url || `/${this.createUrlComponent(item.label)}`;

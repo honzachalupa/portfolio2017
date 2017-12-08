@@ -14,10 +14,12 @@
         <link rel="manifest" href="/gfx/favicon/manifest.json">
         <link rel="mask-icon" href="/gfx/favicon/safari-pinned-tab.svg" color="#150c6d">
         <link rel="stylesheet" href="/{{ _cssPath }}/main.css">
+
+        <title>Honza Chalupa portfolio</title>
     </head>
     <body>
         <main id="app-root"></main>
 
-        <script src="/{{ _jsPath }}/app.js" type="text/javascript" async></script>
+        <script src="/{{ _jsPath }}/app.js" async></script>
     </body>
 </html>

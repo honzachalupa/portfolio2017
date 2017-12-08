@@ -19,7 +19,8 @@ export default class Root extends Component {
 
         this.navigationToggler = this.navigationToggler.bind(this);
         this.setNavigationItem = this.setNavigationItem.bind(this);
-        this.updateDimensions = this.updateDimensions.bind(this);
+        this.handleResize = this.handleResize.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
 
         const { config } = props.apiData;
         let { projects } = props.apiData;
@@ -28,6 +29,7 @@ export default class Root extends Component {
         projects = this.sortProjects(projects);
 
         config.navigationOpened = false;
+        config.scrolledDistance = 0;
         config.projectTypes = this.getProjectTypes(projects);
 
         this.state = {
@@ -44,8 +46,10 @@ export default class Root extends Component {
         GoogleAnalytics.initialize('UA-47064928-3');
 
         this.updateDimensions();
+        this.getScrolledDistance();
 
-        window.addEventListener('resize', this.updateDimensions);
+        window.addEventListener('resize', this.handleResize);
+        window.addEventListener('scroll', this.handleScroll);
     }
 
     componentDidUpdate() {
@@ -53,7 +57,8 @@ export default class Root extends Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions);
+        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('scroll', this.handleScroll);
     }
 
     setNavigationItem(clickedId) {
@@ -84,44 +89,18 @@ export default class Root extends Component {
         return types;
     }
 
-    filterProjects(projects) {
-        const filtered = [];
-
-        projects.forEach((project) => {
-            if (project.hidden === undefined || project.hidden === false) {
-                filtered.push(project);
-            }
-        });
-
-        return filtered;
-    }
-
-    sortProjects(projects) {
-        return projects.sort((a, b) => {
-            return new Date(b.addedDate) - new Date(a.addedDate);
+    getScrolledDistance() {
+        this.setState({
+            config: update(this.state.config, {
+                $merge: {
+                    scrolledDistance: window.pageYOffset
+                }
+            })
         });
     }
 
-    navigationToggler(forceClose) {
-        const {
-            navigationOpened,
-            windowDimensions,
-            screenBreakpoint
-        } = this.state.config;
-
-        if (windowDimensions && windowDimensions.width < screenBreakpoint) {
-            this.setState({
-                config: update(this.state.config, {
-                    $merge: {
-                        navigationOpened: (forceClose === 'undefined') ? false : !navigationOpened
-                    }
-                })
-            });
-        }
-    }
-
-    trackGoogleAnalytics() {
-        GoogleAnalytics.pageview(window.location.hash);
+    handleScroll() {
+        this.getScrolledDistance();
     }
 
     updateDimensions() {
@@ -149,6 +128,50 @@ export default class Root extends Component {
                 })
             });
         }
+    }
+
+    handleResize() {
+        this.updateDimensions();
+    }
+
+    navigationToggler(forceClose) {
+        const {
+            navigationOpened,
+            windowDimensions,
+            screenBreakpoint
+        } = this.state.config;
+
+        if (windowDimensions && windowDimensions.width < screenBreakpoint) {
+            this.setState({
+                config: update(this.state.config, {
+                    $merge: {
+                        navigationOpened: (forceClose === 'undefined') ? false : !navigationOpened
+                    }
+                })
+            });
+        }
+    }
+
+    trackGoogleAnalytics() {
+        GoogleAnalytics.pageview(window.location.hash);
+    }
+
+    sortProjects(projects) {
+        return projects.sort((a, b) => {
+            return new Date(b.addedDate) - new Date(a.addedDate);
+        });
+    }
+
+    filterProjects(projects) {
+        const filtered = [];
+
+        projects.forEach((project) => {
+            if (project.hidden === undefined || project.hidden === false) {
+                filtered.push(project);
+            }
+        });
+
+        return filtered;
     }
 
     render() {
@@ -195,7 +218,7 @@ export default class Root extends Component {
                             render={(props) => (
                                 <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
                             )}
-                        />}
+                        />
                     </Switch>
                 </Router>
             );

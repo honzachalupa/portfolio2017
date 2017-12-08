@@ -43,8 +43,7 @@ export default class ProjectDetail extends Component {
         const { id, hasPanel, collapsedUI, project } = this.state;
         const { config, utilities } = this.props;
 
-        // To-do: make "developmentStage" field not required
-        const developmentStageBlock = (project.developmentStage !== 'released') ?
+        const developmentStageBlock = (project.developmentStage && project.developmentStage !== 'released') ?
             <p className="development-stage">{getDevelopmentStageLabel(project.developmentStage, project.platform)}</p> :
             null;
 
