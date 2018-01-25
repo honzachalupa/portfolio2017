@@ -51,22 +51,6 @@ export default class Projects extends Component {
         });
     }
 
-    filterByType(project, type) {
-        return (project.type === type) ? project : null;
-    }
-
-    filterByTag(project, tag) {
-        const { tags } = project;
-
-        if (tags) {
-            if (tags.indexOf(tag) > -1) {
-                return project;
-            }
-        }
-
-        return null;
-    }
-
     render() {
         const { id, headline, collapsedUI, hasPanel, filter } = this.state;
         const { config, utilities, projects } = this.props;
@@ -99,11 +83,31 @@ export default class Projects extends Component {
     }
 }
 
+// To-do: Refactorize
+
+function filterByType(project, type) {
+    return (project.type === type) ? project : null;
+}
+
+function filterByTag(project, tag) {
+    const { tags } = project;
+
+    if (tags) {
+        if (tags.indexOf(tag) > -1) {
+            return project;
+        }
+    }
+
+    return null;
+}
+
 const FilteredProjects = (props) => {
     const { projects, filter } = props;
     const { tag } = filter;
 
-    const projectsFiltered = tag ? projects.filter((project) => this.filterByTag(project, tag)) : projects;
+    const projectsFiltered = (tag) ?
+        projects.filter((project) => filterByTag(project, tag)) :
+        projects;
 
     return (
         <div>
@@ -117,7 +121,7 @@ const BlockWebApps = (props) => {
     const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'web') {
-        const projectsFiltered = projects.filter((project) => this.filterByType(project, 'web'));
+        const projectsFiltered = projects.filter((project) => filterByType(project, 'web'));
 
         if (projectsFiltered.length) {
             return (
@@ -141,7 +145,7 @@ const BlockNativeApps = (props) => {
     const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'native') {
-        const projectsFiltered = projects.filter((project) => this.filterByType(project, 'native'));
+        const projectsFiltered = projects.filter((project) => filterByType(project, 'native'));
 
         if (projectsFiltered.length) {
             return (
