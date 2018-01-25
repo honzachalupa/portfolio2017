@@ -1,17 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logger from './../../../modules/logger';
 import getClassList from './../../../modules/class-list';
 
 export default class Item extends Component {
     render() {
-        const {
-            id,
-            name,
-            description,
-            previewImage,
-            company
-        } = this.props;
+        const { id, name, description, previewImage, company } = this.props;
 
         const descriptionCleaned = description.replace(/<.+?>/g, '');
 

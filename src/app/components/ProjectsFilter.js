@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { capitalize } from './../helpers';
 import Button from './Button';
 import ButtonsGroup from './ButtonsGroup';
@@ -86,16 +86,8 @@ export default class ProjectsFilter extends Component {
     }
 
     render() {
-        const {
-            changeFilter,
-            alignment,
-            hideTags,
-            filter
-        } = this.props;
-        const {
-            types,
-            tags
-        } = this.state;
+        const { changeFilter, alignment, hideTags, filter } = this.props;
+        const { types, tags } = this.state;
 
         const TypesBlock = () => {
             return (

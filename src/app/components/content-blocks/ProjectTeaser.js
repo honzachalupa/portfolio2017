@@ -1,23 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Button from './../Button';
 
 export default class ProjectTeaser extends Component {
     render() {
-        const {
-            id,
-            name,
-            description,
-            url,
-            previewImage,
-            previewImageMobile,
-            gallery,
-            livePreviewAllowed,
-            developmentStage,
-            type,
-            company,
-            addedDate,
-            tags
-        } = this.props;
+        const { id, name, description, url, previewImage, previewImageMobile, gallery,
+            livePreviewAllowed, developmentStage, type, company, addedDate, tags } = this.props;
 
         const projectUrl = `project-detail.html?id=${id}`;
 

@@ -1,14 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import getClassList from './../modules/class-list';
 
 export default class ButtonsGroup extends Component {
     render() {
-        const {
-            headline,
-            children: buttons,
-            alignment,
-            extraClasses
-        } = this.props;
+        const { headline, children: buttons, alignment, extraClasses } = this.props;
 
         const headlineBlock = (headline) ?
             <h3 className="headline">{headline}</h3> :

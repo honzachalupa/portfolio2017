@@ -1,24 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import NavigationButton from './../components/NavigationButton';
 
 export default class Content extends Component {
     render() {
-        const {
-            config,
-            utilities,
-            collapsedUI,
-            hasPanel
-        } = this.props;
-
-        const {
-            navigationOpened
-        } = config;
-
-        const {
-            navigationToggler
-        } = utilities;
+        const { config, utilities, collapsedUI, hasPanel } = this.props;
+        const { navigationOpened } = config;
+        const { navigationToggler } = utilities;
 
         return (
             <div data-component="Layout_Content">

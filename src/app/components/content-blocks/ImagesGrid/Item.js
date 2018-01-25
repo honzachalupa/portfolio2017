@@ -1,13 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export default class ImageItem extends Component {
     render() {
-        const {
-            description,
-            url,
-            aspectRatio
-        } = this.props;
+        const { description, url, aspectRatio } = this.props;
 
         const imageId = /[a-z0-9.-]*$/.exec(url);
 

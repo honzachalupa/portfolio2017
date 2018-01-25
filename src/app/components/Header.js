@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getRandomRange } from './../helpers';
 import Navigation from './Navigation';
@@ -17,19 +17,9 @@ export default class Header extends Component {
 
     render() {
         const componentName = 'Page_Header';
-        const {
-            imageUrl,
-            tags
-        } = this.state;
-        const {
-            config,
-            utilities,
-            collapsed
-        } = this.props;
-        const {
-            title,
-            scrolledDistance
-        } = config;
+        const { imageUrl, tags } = this.state;
+        const { config, utilities, collapsed } = this.props;
+        const { title, scrolledDistance } = config;
 
         if (!collapsed) {
             return (

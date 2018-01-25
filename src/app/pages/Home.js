@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { setPageTitle } from './../helpers';
 import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';
@@ -13,15 +13,8 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
 
-        const {
-            config,
-            utilities,
-            projects
-        } = props;
-
-        const {
-            setNavigationItem
-        } = utilities;
+        const { config, utilities, projects } = props;
+        const { setNavigationItem } = utilities;
 
         this.state = {
             id: 'home-page',
@@ -44,19 +37,8 @@ export default class Home extends Component {
     }
 
     render() {
-        const {
-            id,
-            headline,
-            latestProject,
-            latestProjectsMore,
-            collapsedUI,
-            hasPanel
-        } = this.state;
-
-        const {
-            config,
-            utilities
-        } = this.props;
+        const { id, headline, latestProject, latestProjectsMore, collapsedUI, hasPanel } = this.state;
+        const { config, utilities } = this.props;
 
         return (
             <div id={id} data-component="Page">

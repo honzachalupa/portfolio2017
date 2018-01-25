@@ -1,16 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
+import update from 'immutability-helper';
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import update from 'immutability-helper';
 import log from './../modules/logger';
 import { setPageTitle } from './../helpers';
 import HomePage from './../pages/Home';
 import ProjectsPage from './../pages/Projects';
-import AboutMePage from './../pages/AboutMe';
+import AboutPage from './../pages/About';
 import ProjectDetailPage from './../pages/ProjectDetail';
 import ImageViewerPage from './../pages/ImageViewer';
-import ErrorPage from './../pages/Error';
+import NotFoundPage from './../pages/NotFound';
 import GoogleAnalytics from 'react-ga';
 
 export default class Root extends Component {
@@ -135,11 +135,7 @@ export default class Root extends Component {
     }
 
     navigationToggler(forceClose) {
-        const {
-            navigationOpened,
-            windowDimensions,
-            screenBreakpoint
-        } = this.state.config;
+        const { navigationOpened, windowDimensions, screenBreakpoint } = this.state.config;
 
         if (windowDimensions && windowDimensions.width < screenBreakpoint) {
             this.setState({
@@ -176,14 +172,10 @@ export default class Root extends Component {
 
     render() {
         if (this.state && this.state.config && this.state.utilities) {
-            const {
-                config,
-                utilities,
-                projects
-            } = this.state;
+            const { config, utilities, projects } = this.state;
 
             return (
-                <Router onUpdate={this.trackGoogleAnalytics}>
+                <Router history={browserHistory} onUpdate={this.trackGoogleAnalytics}>
                     <Switch>
                         <Route
                             exact
@@ -203,7 +195,7 @@ export default class Root extends Component {
                             exact
                             path="/about-me"
                             render={(props) => (
-                                <AboutMePage config={config} utilities={utilities} />
+                                <AboutPage config={config} utilities={utilities} />
                             )}
                         />
                         <Route
@@ -214,9 +206,15 @@ export default class Root extends Component {
                             )}
                         />
                         <Route
+                            exact
                             path="/projects/:id"
                             render={(props) => (
                                 <ProjectDetailPage config={config} utilities={utilities} projects={projects} params={props.match.params} />
+                            )}
+                        />
+                        <Route
+                            render={() => (
+                                <NotFoundPage config={config} utilities={utilities} />
                             )}
                         />
                     </Switch>

@@ -1,14 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { getRandomRange } from './../helpers';
 import Navigation from './Navigation';
 
 export default class TechnologiesOverview extends Component {
     render() {
-        const {
-            tags,
-            config
-        } = this.props;
-
+        const { tags, config } = this.props;
         const { technologies } = config;
 
         let technologiesBlock;

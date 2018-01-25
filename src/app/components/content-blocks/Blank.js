@@ -1,15 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import getClassList from './../../modules/class-list';
 
 export default class Blank extends Component {
     render() {
-        const {
-            headline,
-            children: text,
-            invertedColors,
-            stretched,
-            value
-        } = this.props;
+        const { headline, children: text, invertedColors, stretched, value } = this.props;
 
         const headlineBlock = (headline) ? <p className="headline">{headline}</p> : null;
 

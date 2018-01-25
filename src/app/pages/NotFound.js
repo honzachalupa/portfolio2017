@@ -1,17 +1,15 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { setPageTitle } from './../helpers';
 import InvisibleHeadline from './../components/InvisibleHeadline';
 import ContentLayout from './../layouts/Main';
 import Text from './../components/content-blocks/Text';
 import Button from './../components/Button';
 
-export default class Error extends Component {
+export default class NotFound extends Component {
     constructor(props) {
         super(props);
 
-        const {
-            setNavigationItem
-        } = props.utilities;
+        const { setNavigationItem } = props.utilities;
 
         this.state = {
             id: 'not-found-page',
@@ -25,18 +23,8 @@ export default class Error extends Component {
     }
 
     render() {
-        const {
-            id,
-            headline,
-            collapsedUI,
-            hasPanel
-        } = this.state;
-
-        const {
-            config,
-            utilities,
-            params
-        } = this.props;
+        const { id, headline, collapsedUI, hasPanel } = this.state;
+        const { config, utilities, params } = this.props;
 
         return (
             <div id={id} data-component="Page">

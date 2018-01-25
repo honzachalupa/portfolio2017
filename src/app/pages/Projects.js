@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import factory from './../factory';
 import aspectRatioPreserver from './../modules/aspect-ratio-preserver';
 import { setPageTitle } from './../helpers';
@@ -51,19 +51,25 @@ export default class Projects extends Component {
         });
     }
 
+    filterByType(project, type) {
+        return (project.type === type) ? project : null;
+    }
+
+    filterByTag(project, tag) {
+        const { tags } = project;
+
+        if (tags) {
+            if (tags.indexOf(tag) > -1) {
+                return project;
+            }
+        }
+
+        return null;
+    }
+
     render() {
-        const {
-            id,
-            headline,
-            collapsedUI,
-            hasPanel,
-            filter
-        } = this.state;
-        const {
-            config,
-            utilities,
-            projects
-        } = this.props;
+        const { id, headline, collapsedUI, hasPanel, filter } = this.state;
+        const { config, utilities, projects } = this.props;
 
         return (
             <div id={id} data-component="Page">
@@ -94,12 +100,10 @@ export default class Projects extends Component {
 }
 
 const FilteredProjects = (props) => {
-    const {
-        projects,
-        filter
-    } = props;
+    const { projects, filter } = props;
     const { tag } = filter;
-    const projectsFiltered = tag ? projects.filter((project) => filterByTag(project, tag)) : projects;
+
+    const projectsFiltered = tag ? projects.filter((project) => this.filterByTag(project, tag)) : projects;
 
     return (
         <div>
@@ -110,13 +114,10 @@ const FilteredProjects = (props) => {
 };
 
 const BlockWebApps = (props) => {
-    const {
-        projects,
-        filter
-    } = props;
+    const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'web') {
-        const projectsFiltered = projects.filter((project) => filterByType(project, 'web'));
+        const projectsFiltered = projects.filter((project) => this.filterByType(project, 'web'));
 
         if (projectsFiltered.length) {
             return (
@@ -137,13 +138,10 @@ const BlockWebApps = (props) => {
 };
 
 const BlockNativeApps = (props) => {
-    const {
-        projects,
-        filter
-    } = props;
+    const { projects, filter } = props;
 
     if (filter.type === 'all' || filter.type === 'native') {
-        const projectsFiltered = projects.filter((project) => filterByType(project, 'native'));
+        const projectsFiltered = projects.filter((project) => this.filterByType(project, 'native'));
 
         if (projectsFiltered.length) {
             return (
@@ -162,19 +160,3 @@ const BlockNativeApps = (props) => {
 
     return null;
 };
-
-function filterByType(project, type) {
-    return (project.type === type) ? project : null;
-}
-
-function filterByTag(project, tag) {
-    const { tags } = project;
-
-    if (tags) {
-        if (tags.indexOf(tag) > -1) {
-            return project;
-        }
-    }
-
-    return null;
-}

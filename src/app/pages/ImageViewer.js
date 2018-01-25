@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { setPageTitle, getDevelopmentStageLabel } from './../helpers';
 import ContentLayout from './../layouts/Main';
 import InvisibleHeadline from './../components/InvisibleHeadline';

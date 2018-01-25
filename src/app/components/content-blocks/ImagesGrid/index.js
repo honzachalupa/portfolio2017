@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import getClassList from './../../../modules/class-list';
 import ImageItem from './Item';
 
@@ -20,11 +20,7 @@ export default class ImagesGrid extends Component {
     }
 
     render() {
-        const {
-            headline,
-            images: imagesUnfilled,
-            extraClasses
-        } = this.props;
+        const { headline, images: imagesUnfilled, extraClasses } = this.props;
 
         const images = this.completeImagesDefinition(imagesUnfilled);
 
